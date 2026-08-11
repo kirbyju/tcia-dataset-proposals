@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.venv/
+venv/
+.streamlit/secrets.toml
+*_TCIA_Proposal_*.zip
+*_proposal_*.tsv
+*_proposal_summary_*.docx
+*_DSA_*.pdf
+test_final_agreement.pdf
+output/

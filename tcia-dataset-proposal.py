@@ -1,0 +1,756 @@
+import streamlit as st
+import pandas as pd
+import os
+import io
+import json
+import zipfile
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email import encoders
+from docx import Document
+import PyPDF2
+import datetime
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib import colors
+from reportlab.lib.enums import TA_CENTER
+import importlib.util
+import re
+from xml.sax.saxutils import escape
+
+st.set_page_config(page_title="TCIA Dataset Proposal Form", layout="wide")
+
+# Constants & Configuration
+RESOURCES_DIR = os.path.join(os.path.dirname(__file__), 'tcia-remapping-skill', 'resources')
+
+# Import MDF parser and helpers
+skill_dir = os.path.join(os.path.dirname(__file__), 'tcia-remapping-skill')
+mdf_parser_path = os.path.join(skill_dir, 'mdf_parser.py')
+spec_mdf = importlib.util.spec_from_file_location("mdf_parser", mdf_parser_path)
+mdf_parser = importlib.util.module_from_spec(spec_mdf)
+spec_mdf.loader.exec_module(mdf_parser)
+get_mdf_resources = mdf_parser.get_mdf_resources
+
+PERMISSIBLE_VALUES_FILE = os.path.join(RESOURCES_DIR, 'permissible_values.json')
+
+LABELS = {
+    "Proposal Type": "What kind of dataset are you submitting?",
+    "Scientific POC Name": "Scientific POC Name*",
+    "Scientific POC Email": "Scientific POC Email*",
+    "Scientific POC Phone": "Scientific POC Phone",
+    "Technical POC Name": "Technical POC Name*",
+    "Technical POC Email": "Technical POC Email*",
+    "Technical POC Phone": "Technical POC Phone",
+    "Legal POC Name": "Legal POC Name*",
+    "Legal POC Email": "Legal POC Email*",
+    "Legal POC Phone": "Legal POC Phone",
+    "Title": "Suggest a descriptive title for your dataset*",
+    "Nickname": "Suggest a shorter nickname for your dataset*",
+    "Authors": "List the authors of this data set*",
+    "Abstract": "Dataset Abstract*",
+    "Published Elsewhere": "Has this data ever been published elsewhere?*",
+    "disease_site": "Primary disease site/location*",
+    "diagnosis": "Histologic diagnosis*",
+    "image_types": "Which image types are included in the data set?*",
+    "supporting_data": "Which kinds of supporting data are included in the data set?*",
+    "file_formats": "Specify the file format utilized for each type of data*",
+    "modifications": "Describe any steps taken to de-identify or otherwise modify the data in preparation for submission*",
+    "faces": "Does your data contain any images of patient faces?*",
+    "collections_analyzed": "Which TCIA collection(s) did you analyze?*",
+    "derived_types": "What types of derived data are included in the dataset?*",
+    "disk_space": "Approximate disk space required*",
+    "Time Constraints": "Are there any time constraints associated with sharing your data set?*",
+    "manuscripts": "Are there any manuscripts or preprints that might help us better understand your dataset?",
+    "adult_or_childhood_study": "Is this an Adult or Childhood study?*",
+    "number_of_subjects": "Approximate number of subjects*",
+    "acknowledgements": "Acknowledgements*",
+    "funding_agency": "Funding Agency",
+    "funding_source_program_name": "Funding Source Program Name",
+    "grant_id": "Grant ID",
+    "why_tcia": "Why would you like to publish this dataset on TCIA?*",
+    "software_code": "Do you have any related resources such as source code, Jupyter notebooks, web sites or other software that will help users work with your data?*",
+    "software_details": "Details*"
+}
+
+IMAGE_FORMATS = [
+    "DICOM", "NIfTI", "PNG", "JPEG", "Aperio (.svs, .tif)",
+    "Hamamatsu (.vms, .vmu, .ndpi)", "Leica (.scn)", "MIRAX (.mrxs)",
+    "Philips (.tiff)", "Sakura (.svslide)", "Trestle (.tif)",
+    "Ventana (.bif, .tif)", "Generic tiled TIFF (.tif)", "Other"
+]
+SUPPORT_FORMATS = ["Tabular (.csv, .tsv, .xlsx)", "JSON", "Text", "Other"]
+COMBINED_FORMATS = [
+    "DICOM", "NIfTI", "PNG", "JPEG", "Aperio (.svs, .tif)",
+    "Hamamatsu (.vms, .vmu, .ndpi)", "Leica (.scn)", "MIRAX (.mrxs)",
+    "Philips (.tiff)", "Sakura (.svslide)", "Trestle (.tif)",
+    "Ventana (.bif, .tif)", "Generic tiled TIFF (.tif)",
+    "Tabular (.csv, .tsv, .xlsx)", "JSON", "Text", "Other"
+]
+
+def load_json(filepath):
+    with open(filepath, 'r') as f:
+        return json.load(f)
+
+@st.cache_data
+def load_mdf_data():
+    schema, mdf_pv, relationships = get_mdf_resources(RESOURCES_DIR)
+    legacy_pv = load_json(PERMISSIBLE_VALUES_FILE)
+
+    final_pv = legacy_pv.copy()
+    if mdf_pv:
+        for k, v in mdf_pv.items():
+            final_pv[k] = v
+    return schema, final_pv, relationships
+
+schema, permissible_values, relationships = load_mdf_data()
+AGREEMENT_TEMPLATE = os.path.join(RESOURCES_DIR, 'agreement_template.pdf')
+HELP_DESK_EMAIL = os.getenv("TCIA_HELP_DESK_EMAIL", "help@cancerimagingarchive.net")
+
+# Server-side SMTP configuration
+SMTP_SERVER = os.getenv("SMTP_SERVER")
+SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
+SMTP_USER = os.getenv("SMTP_USER")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
+
+st.markdown(
+    """
+    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+        <img src="https://www.cancerimagingarchive.net/wp-content/uploads/2021/06/TCIA-Logo-01.png" style="height: 75px; margin-right: 15px;">
+        <h1 style="margin: 0;">Dataset Proposal Form</h1>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# Initial choice
+proposal_type = st.radio(
+    "What kind of dataset are you submitting?",
+    options=["New Collection Proposal", "Analysis Results Proposal"],
+    help="Select 'New Collection' if you are submitting primary imaging data. Select 'Analysis Results' if you are submitting derived data (e.g., segmentations) from existing TCIA collections.",
+    key="prop_type"
+)
+
+if proposal_type == "New Collection Proposal":
+    st.info("💡 **New Collection Proposal**: Used for contributing original imaging data that has not been previously hosted on TCIA.")
+else:
+    st.info("💡 **Analysis Results Proposal**: Used for contributing derived data like annotations, segmentations, or radiomics features based on existing TCIA datasets.")
+
+st.markdown("---")
+
+# Form Questions
+st.subheader("Contact Information")
+if SMTP_SERVER and SMTP_USER and SMTP_PASSWORD:
+    st.info("💡 **Note**: After completing this form, a copy of this proposal will be emailed to the Scientific, Technical, and Legal points of contact listed below.")
+
+col1, col2, col3 = st.columns(3)
+with col1:
+    sci_poc_name = st.text_input(LABELS["Scientific POC Name"], help="The person to contact about the proposal and data collection.", key="sci_poc_name")
+    tech_poc_name = st.text_input(LABELS["Technical POC Name"], help="The person involved in sending the data.", key="tech_poc_name")
+    legal_poc_name = st.text_input(LABELS["Legal POC Name"], help="Authorized signatory who will sign the TCIA Data Submission Agreement. This should not be the PI or department chair.", key="legal_poc_name")
+with col2:
+    sci_poc_email = st.text_input(LABELS["Scientific POC Email"], key="sci_poc_email")
+    tech_poc_email = st.text_input(LABELS["Technical POC Email"], key="tech_poc_email")
+    legal_poc_email = st.text_input(LABELS["Legal POC Email"], key="legal_poc_email")
+with col3:
+    sci_poc_phone = st.text_input(LABELS["Scientific POC Phone"], key="sci_poc_phone", placeholder="+1-555-555-5555")
+    tech_poc_phone = st.text_input(LABELS["Technical POC Phone"], key="tech_poc_phone", placeholder="+1-555-555-5555")
+    legal_poc_phone = st.text_input(LABELS["Legal POC Phone"], key="legal_poc_phone", placeholder="+1-555-555-5555")
+
+st.subheader("Dataset Publication Details")
+title = st.text_input(LABELS["Title"], help="Similar to a manuscript title.", key="title")
+nickname = st.text_input(LABELS["Nickname"], help="Must be < 30 characters, alphanumeric and dashes only.", max_chars=30, key="nickname")
+if nickname and not re.match(r"^[a-zA-Z0-9-]+$", nickname):
+    st.error("⚠️ Invalid nickname. Only letters, numbers, and dashes are allowed.")
+
+# Authors Section
+st.write(f"**{LABELS['Authors']}**")
+st.markdown("""
+Please list all authors in the order you'd like them to appear if the data set is published on TCIA.
+Names should be listed as **(FAMILY, GIVEN) - ORCID**.
+Please use **semicolons** to separate authors, or list them **one per line**.
+You can quickly register for an ORCID at [https://orcid.org/signin](https://orcid.org/signin) if you don't have one already.
+""")
+authors_raw = st.text_area("Example: Smith, John - 0000-0002-1234-5678; Doe, Jane",
+                           help="List authors one per line or separated by semicolons.",
+                           key="authors_raw_input")
+
+st.write(f"**{LABELS['Abstract']}**")
+st.markdown("""
+Provide a brief overview of the dataset under 1000 characters, including:
+1. Number of subjects
+2. Types of imaging data included
+3. Types of non-imaging supporting data (e.g., image classifications, segmentations, demographics, treatment details, outcomes)
+4. Potential research applications of the dataset.
+""")
+abstract = st.text_area(LABELS["Abstract"], label_visibility="collapsed", help="Focus on describing the dataset itself.", max_chars=1000, key="abstract")
+
+# Manuscripts Section
+st.write(f"**{LABELS['manuscripts']}**")
+st.markdown("""
+We highly encourage "data descriptor" preprints published on [arxiv.org](https://arxiv.org/) that are focused on the contents of the dataset (not scientific advances) with [CICADAS](https://cancerimagingarchive.net/cicadas) formatting preferred.
+""")
+has_manuscripts = st.radio(LABELS["manuscripts"], options=["No", "Yes"], index=0, key="has_manuscripts", label_visibility="collapsed")
+
+if 'manuscript_list' not in st.session_state:
+    st.session_state.manuscript_list = []
+
+if has_manuscripts == "Yes":
+    # Display existing manuscripts
+    for idx, ms in enumerate(st.session_state.manuscript_list):
+        with st.container(border=True):
+            col_info, col_del = st.columns([6, 1])
+            with col_info:
+                source_val = ms['url'] if ms['type'] == 'URL' else ms['file'].name
+                st.write(f"**{ms['category']}**: {source_val}")
+            with col_del:
+                if st.button("🗑️", key=f"del_ms_{idx}"):
+                    st.session_state.manuscript_list.pop(idx)
+                    st.rerun()
+
+    # Add new manuscript
+    with st.expander("➕ Add a Manuscript/Preprint"):
+        ms_category = st.selectbox("Category", options=["Dataset Descriptor", "Regular manuscript"], key="ms_cat_new")
+        ms_type = st.radio("Source", options=["URL", "Upload File"], key="ms_type_new")
+
+        if ms_type == "URL":
+            ms_url = st.text_input("Enter URL", key="ms_url_new", placeholder="https://doi.org/10.1101/...")
+            if st.button("Add URL to List"):
+                if ms_url:
+                    st.session_state.manuscript_list.append({'category': ms_category, 'type': 'URL', 'url': ms_url})
+                    st.rerun()
+                else:
+                    st.error("Please provide a URL.")
+        else:
+            ms_file = st.file_uploader("Upload PDF or Word document", type=["pdf", "docx", "doc"], key="ms_file_new")
+            if st.button("Add File to List"):
+                if ms_file:
+                    st.session_state.manuscript_list.append({'category': ms_category, 'type': 'File', 'file': ms_file})
+                    st.rerun()
+                else:
+                    st.error("Please upload a file.")
+
+
+
+st.subheader("Data Collection Details")
+
+# Adaptive fields
+extra_data = {}
+if proposal_type == "New Collection Proposal":
+    col1, col2 = st.columns(2)
+    with col1:
+        site_raw = permissible_values.get('primary_site', []) if permissible_values else []
+        site_options = sorted(list(set([v['value'] if isinstance(v, dict) else str(v) for v in site_raw])))
+        site_options.append("Other")
+        selected_sites = st.multiselect(LABELS["disease_site"], options=site_options, key="disease_site_ms")
+        if "Other" in selected_sites:
+            other_site = st.text_input("Please specify other primary disease site", key="other_disease_site")
+            extra_data['disease_site'] = [s if s != "Other" else f"Other - {other_site}" for s in selected_sites] if other_site else selected_sites
+        else:
+            extra_data['disease_site'] = selected_sites
+    with col2:
+        diag_raw = permissible_values.get('primary_diagnosis', []) if permissible_values else []
+        diag_options = sorted(list(set([v['value'] if isinstance(v, dict) else str(v) for v in diag_raw])))
+        diag_options.append("Other")
+        selected_diags = st.multiselect(LABELS["diagnosis"], options=diag_options, key="diagnosis_ms")
+        if "Other" in selected_diags:
+            other_diag = st.text_input("Please specify other histologic diagnosis", key="other_diagnosis")
+            extra_data['diagnosis'] = [d if d != "Other" else f"Other - {other_diag}" for d in selected_diags] if other_diag else selected_diags
+        else:
+            extra_data['diagnosis'] = selected_diags
+
+    extra_data['image_types'] = st.multiselect(
+        LABELS["image_types"],
+        options=["MR", "CT", "PET", "Mammograms", "Ultrasound", "Xray", "Whole Slide Image", "CODEX", "Single-cell Image", "Photomicrograph", "Microarray", "Multiphoton", "Immunofluorescence", "Other"],
+        key="image_types"
+    )
+    extra_data['supporting_data'] = st.multiselect(
+        LABELS["supporting_data"],
+        options=["Clinical", "Image Analyses", "Image Registrations", "Genomics", "Proteomics", "Radiation Therapy Plans/Structures", "No additional data", "Other"],
+        key="supporting_data"
+    )
+
+    st.write(f"**{LABELS['file_formats']}**")
+    nc_formats = []
+    for itype in extra_data.get('image_types', []):
+        col1, col2 = st.columns([1, 1])
+        with col1: st.write(f"Format for **{itype}**:")
+        with col2:
+            fmt = st.selectbox(f"Select format for {itype}", options=IMAGE_FORMATS, key=f"fmt_img_{itype}", label_visibility="collapsed")
+            if fmt == "Other":
+                other_fmt = st.text_input(f"Specify other format for {itype}", key=f"other_fmt_img_{itype}", label_visibility="collapsed")
+                nc_formats.append(f"{itype} - {other_fmt}" if other_fmt else f"{itype} - Other")
+            else:
+                nc_formats.append(f"{itype} - {fmt}")
+    for stype in extra_data.get('supporting_data', []):
+        if stype == "No additional data": continue
+        col1, col2 = st.columns([1, 1])
+        with col1: st.write(f"Format for **{stype}**:")
+        with col2:
+            opts = COMBINED_FORMATS if stype in ["Image Analyses", "Radiation Therapy Plans/Structures"] else SUPPORT_FORMATS
+            fmt = st.selectbox(f"Select format for {stype}", options=opts, key=f"fmt_supp_{stype}", label_visibility="collapsed")
+            if fmt == "Other":
+                other_fmt = st.text_input(f"Specify other format for {stype}", key=f"other_fmt_supp_{stype}", label_visibility="collapsed")
+                nc_formats.append(f"{stype} - {other_fmt}" if other_fmt else f"{stype} - Other")
+            else:
+                nc_formats.append(f"{stype} - {fmt}")
+    extra_data['file_formats'] = "; ".join(nc_formats)
+
+    extra_data['modifications'] = st.text_area(LABELS["modifications"], key="modifications")
+    extra_data['faces'] = st.radio(LABELS["faces"], options=["Yes", "No"], key="faces")
+else: # Analysis Results
+    extra_data['collections_analyzed'] = st.text_input(LABELS["collections_analyzed"], key="collections_analyzed")
+    extra_data['derived_types'] = st.multiselect(
+        LABELS["derived_types"],
+        options=["Segmentation", "Classification", "Quantitative Feature", "Image (converted/processed/registered)", "Other"],
+        key="derived_types"
+    )
+
+    st.write(f"**{LABELS['file_formats']}**")
+    ar_formats = []
+    for dtype in extra_data.get('derived_types', []):
+        col1, col2 = st.columns([1, 1])
+        with col1: st.write(f"Format for **{dtype}**:")
+        with col2:
+            fmt = st.selectbox(f"Select format for {dtype}", options=COMBINED_FORMATS, key=f"fmt_ar_{dtype}", label_visibility="collapsed")
+            if fmt == "Other":
+                other_fmt = st.text_input(f"Specify other format for {dtype}", key=f"other_fmt_ar_{dtype}", label_visibility="collapsed")
+                ar_formats.append(f"{dtype} - {other_fmt}" if other_fmt else f"{dtype} - Other")
+            else:
+                ar_formats.append(f"{dtype} - {fmt}")
+    extra_data['file_formats'] = "; ".join(ar_formats)
+
+extra_data['software_code'] = st.radio(LABELS["software_code"], options=["Yes", "No"], index=1, key="software_code")
+if extra_data['software_code'] == "Yes":
+    extra_data['software_details'] = st.text_area(LABELS["software_details"], key="software_details")
+
+# Shared bottom fields
+col1, col2 = st.columns(2)
+with col1:
+    extra_data['disk_space'] = st.text_input(LABELS["disk_space"], key="disk_space")
+with col2:
+    extra_data['number_of_subjects'] = st.text_input(LABELS["number_of_subjects"], key="number_of_subjects")
+
+col1, col2 = st.columns(2)
+with col1:
+    published_elsewhere = st.text_input(LABELS["Published Elsewhere"], help="If so, why publish on TCIA? Do you intend for the original to remain accessible?", key="published_elsewhere")
+with col2:
+    time_constraints = st.text_input(LABELS["Time Constraints"], key="time_constraints")
+
+extra_data['adult_or_childhood_study'] = st.multiselect(
+    LABELS["adult_or_childhood_study"],
+    options=["Adolescent and Young Adult", "Adult", "Pediatric"],
+    key="adult_or_childhood_study"
+)
+
+st.write("**Funding Information (Optional)**")
+col1, col2, col3 = st.columns(3)
+with col1: extra_data['funding_agency'] = st.text_input(LABELS["funding_agency"], key="f_agency")
+with col2: extra_data['funding_source_program_name'] = st.text_input(LABELS["funding_source_program_name"], key="f_program")
+with col3: extra_data['grant_id'] = st.text_input(LABELS["grant_id"], key="f_grant")
+
+extra_data['acknowledgements'] = st.text_area(LABELS["acknowledgements"], key="acknowledgements", help="Please provide any acknowledgements that should be included with the dataset.")
+
+extra_data['why_tcia'] = st.multiselect(
+    LABELS["why_tcia"],
+    options=["To meet a funding agency's requirements", "To meet a journal's requirements", "To facilitate collaboration", "To facilitate a challenge competition", "Other"],
+    key="why_tcia"
+)
+
+button_label = "Submit" if (SMTP_SERVER and SMTP_USER and SMTP_PASSWORD) else "Generate Proposal Documents"
+submit_button = st.button(button_label, type="primary")
+
+# Processing after submission
+if submit_button:
+    # 1. Validation
+    missing_fields = []
+    if not sci_poc_name: missing_fields.append(LABELS["Scientific POC Name"])
+    if not sci_poc_email: missing_fields.append(LABELS["Scientific POC Email"])
+    if not tech_poc_name: missing_fields.append(LABELS["Technical POC Name"])
+    if not tech_poc_email: missing_fields.append(LABELS["Technical POC Email"])
+    if not legal_poc_name: missing_fields.append(LABELS["Legal POC Name"])
+    if not legal_poc_email: missing_fields.append(LABELS["Legal POC Email"])
+    if not title: missing_fields.append(LABELS["Title"])
+    if not nickname:
+        missing_fields.append(LABELS["Nickname"])
+    elif not re.match(r"^[a-zA-Z0-9-]+$", nickname):
+        st.error("⚠️ Invalid nickname. Please use only letters, numbers, and dashes.")
+        st.stop()
+    if not authors_raw:
+        missing_fields.append(LABELS["Authors"])
+    if not abstract: missing_fields.append(LABELS["Abstract"])
+    if not published_elsewhere: missing_fields.append(LABELS["Published Elsewhere"])
+
+    # Define optional fields that shouldn't block submission
+    optional_fields = ['funding_agency', 'funding_source_program_name', 'grant_id', 'funding_sources', 'software_details']
+
+    for key, val in extra_data.items():
+        if key in optional_fields:
+            continue
+        if not val:
+            label = LABELS.get(key, key.replace('_', ' ').title())
+            missing_fields.append(label)
+
+    if not time_constraints: missing_fields.append(LABELS["Time Constraints"])
+
+    if missing_fields:
+        st.error("Please fill in all required fields:")
+        for field in missing_fields:
+            st.write(f"- {field}")
+    else:
+        # Prepare data for files
+        # Serialize manuscripts for TSV
+        ms_summary = []
+        for ms in st.session_state.manuscript_list:
+            ms_entry = {
+                'category': ms['category'],
+                'type': ms['type'],
+                'value': ms['url'] if ms['type'] == 'URL' else ms['file'].name
+            }
+            ms_summary.append(ms_entry)
+
+        all_responses = {
+            "Proposal Type": proposal_type,
+            "Scientific POC Name": sci_poc_name,
+            "Scientific POC Email": sci_poc_email,
+            "Scientific POC Phone": sci_poc_phone,
+            "Technical POC Name": tech_poc_name,
+            "Technical POC Email": tech_poc_email,
+            "Technical POC Phone": tech_poc_phone,
+            "Legal POC Name": legal_poc_name,
+            "Legal POC Email": legal_poc_email,
+            "Legal POC Phone": legal_poc_phone,
+            "Time Constraints": time_constraints,
+            "Title": title,
+            "Nickname": nickname,
+            "Authors": authors_raw,
+            "Abstract": abstract,
+            "Published Elsewhere": published_elsewhere,
+            "Manuscripts": json.dumps(ms_summary)
+        }
+        all_responses.update(extra_data)
+
+        # Generate TSV
+        tsv_buffer = io.StringIO()
+        # Drop complex objects if any remain, though here it should be fine
+        df = pd.DataFrame([all_responses])
+        df.to_csv(tsv_buffer, sep='\t', index=False)
+
+        # Prepare Data for Reports (DOCX and PDF)
+        report_data = [] # List of (label, value) pairs
+
+        # Organize file formats for display
+        file_formats = all_responses.get('file_formats', '')
+        format_map = {}
+        if file_formats:
+            for part in str(file_formats).split(';'):
+                if ' - ' in part:
+                    parts = part.split(' - ')
+                    if len(parts) >= 2:
+                        t = parts[0]
+                        f = " - ".join(parts[1:])
+                        format_map[t.strip()] = f.strip()
+
+        def format_val_with_format(key, val):
+            if not val: return ""
+            items = val if isinstance(val, list) else [val]
+            formatted = []
+            for item in items:
+                if item in format_map:
+                    formatted.append(f"{item} ({format_map[item]})")
+                else:
+                    formatted.append(str(item))
+            return ", ".join(formatted)
+
+        for key, value in all_responses.items():
+            if key == "Manuscripts":
+                label = "Manuscripts/Preprints"
+                ms_text = ""
+                for ms in st.session_state.manuscript_list:
+                    val = ms['url'] if ms['type'] == 'URL' else ms['file'].name
+                    ms_text += f"- [{ms['category']}] {val}\n"
+                report_data.append((label, ms_text.strip()))
+            elif "POC Phone" in key:
+                if value and str(value).lower() != "nan" and str(value).strip():
+                    label = LABELS.get(key, key)
+                    report_data.append((label, str(value)))
+            elif key == "file_formats":
+                continue # Handled inline with types
+            else:
+                label = LABELS.get(key, key)
+                if key in ['image_types', 'supporting_data', 'derived_types']:
+                    display_val = format_val_with_format(key, value)
+                elif isinstance(value, list):
+                    display_val = ", ".join(map(str, value))
+                else:
+                    display_val = str(value)
+                report_data.append((label, display_val))
+
+        # Generate DOCX
+        doc = Document()
+        doc.add_heading(f"TCIA Dataset Proposal: {title}", 0)
+
+        table = doc.add_table(rows=0, cols=2)
+        table.style = 'Table Grid'
+
+        for label, value in report_data:
+            row_cells = table.add_row().cells
+            row_cells[0].text = label
+            row_cells[1].text = value
+            # Make the first column bold
+            for paragraph in row_cells[0].paragraphs:
+                for run in paragraph.runs:
+                    run.bold = True
+
+        docx_buffer = io.BytesIO()
+        doc.save(docx_buffer)
+        docx_buffer.seek(0)
+
+        # Generate PDF
+        pdf_buffer = io.BytesIO()
+        try:
+            # Prepare Exhibit A pages using Platypus
+            exhibit_a_buffer = io.BytesIO()
+
+            # Custom canvas to add headers/footers
+            class ExhibitCanvas(canvas.Canvas):
+                def __init__(self, *args, **kwargs):
+                    canvas.Canvas.__init__(self, *args, **kwargs)
+                    self.pages = []
+
+                def showPage(self):
+                    self.pages.append(dict(self.__dict__))
+                    self._startPage()
+
+                def save(self):
+                    page_count = len(self.pages)
+                    for count, page in enumerate(self.pages):
+                        self.__dict__.update(page)
+                        self.draw_canvas(count+1, page_count)
+                        canvas.Canvas.showPage(self)
+                    canvas.Canvas.save(self)
+
+                def draw_canvas(self, page_num, total_pages):
+                    width, height = letter
+                    # Sequential numbering starts from 6
+                    display_page = page_num + 5
+                    # Total pages for the whole document (template has 7 pages, we replaced 1 with N)
+                    total_display = total_pages + 6
+
+                    self.saveState()
+                    self.setFont("Helvetica", 10)
+                    header_text = f"TCIA Data Submission Agreement (v. 20220914) Page {display_page} of {total_display}"
+                    self.drawString(50, height - 50, header_text)
+                    self.restoreState()
+
+            doc_exhibit = SimpleDocTemplate(
+                exhibit_a_buffer,
+                pagesize=letter,
+                rightMargin=50, leftMargin=50,
+                topMargin=70, bottomMargin=50
+            )
+
+            styles = getSampleStyleSheet()
+            style_center = ParagraphStyle(
+                name='Center',
+                parent=styles['Normal'],
+                alignment=TA_CENTER
+            )
+            style_cell = ParagraphStyle(
+                'TableCell',
+                parent=styles['Normal'],
+                fontSize=10,
+                leading=12,
+                wordWrap='LTR'
+            )
+            style_cell_bold = ParagraphStyle(
+                'TableCellBold',
+                parent=style_cell,
+                fontName='Helvetica-Bold'
+            )
+
+            elements = []
+
+            # Exhibit A Header
+            elements.append(Paragraph("<br/><br/><br/><b><font size=14>EXHIBIT A</font></b>", style_center))
+            elements.append(Paragraph("<b><font size=14>DESCRIPTION OF SUBMISSION DATA</font></b>", style_center))
+            elements.append(Spacer(1, 20))
+
+            # Table Data
+            table_data = []
+            for label, val in report_data:
+                # Escape user input for ReportLab XML-like markup
+                escaped_label = escape(label)
+                escaped_val = escape(val).replace('\n', '<br/>')
+                table_data.append([
+                    Paragraph(f"<b>{escaped_label}</b>", style_cell),
+                    Paragraph(escaped_val, style_cell)
+                ])
+
+            t = Table(table_data, colWidths=[150, 350])
+            t.setStyle(TableStyle([
+                ('BACKGROUND', (0, 0), (0, -1), colors.lightgrey),
+                ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+                ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+                ('GRID', (0, 0), (-1, -1), 0.5, colors.black),
+                ('LEFTPADDING', (0, 0), (-1, -1), 6),
+                ('RIGHTPADDING', (0, 0), (-1, -1), 6),
+                ('TOPPADDING', (0, 0), (-1, -1), 6),
+                ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+            ]))
+            elements.append(t)
+
+            doc_exhibit.build(elements, canvasmaker=ExhibitCanvas)
+            exhibit_a_buffer.seek(0)
+
+            # Merge with template
+            reader = PyPDF2.PdfReader(AGREEMENT_TEMPLATE)
+            writer = PyPDF2.PdfWriter()
+
+            # Pages 1-5
+            for i in range(5):
+                writer.add_page(reader.pages[i])
+
+            # Insert Exhibit A pages
+            new_exhibit_reader = PyPDF2.PdfReader(exhibit_a_buffer)
+            for page in new_exhibit_reader.pages:
+                writer.add_page(page)
+
+            # Page 7 (last page of original template)
+            # Need to fix the page number on the last page as well
+            last_page = reader.pages[6]
+
+            # Since we can't easily edit text on existing PDF page without more complex tools,
+            # and the user said "continue sequential numbering",
+            # I will just append the last page as is for now,
+            # BUT wait, the footer of page 7 will say "Page 7 of 7".
+            # If Exhibit A took 2 pages (6 and 7), then the last page should be Page 8 of 8.
+
+            # Actually, let's try to overlay the correct page number on the last page.
+            total_exhibit_pages = len(new_exhibit_reader.pages)
+            total_final_pages = total_exhibit_pages + 6
+
+            overlay_buffer = io.BytesIO()
+            c_overlay = canvas.Canvas(overlay_buffer, pagesize=letter)
+            c_overlay.setFont("Helvetica", 10)
+            c_overlay.setFillColor(colors.white)
+            # Draw a white box over the old page number
+            c_overlay.rect(40, letter[1] - 60, 500, 20, fill=1, stroke=0)
+            c_overlay.setFillColor(colors.black)
+            header_text = f"TCIA Data Submission Agreement (v. 20220914) Page {total_final_pages} of {total_final_pages}"
+            c_overlay.drawString(50, letter[1] - 50, header_text)
+            c_overlay.showPage()
+            c_overlay.save()
+            overlay_buffer.seek(0)
+
+            overlay_reader = PyPDF2.PdfReader(overlay_buffer)
+            last_page.merge_page(overlay_reader.pages[0])
+
+            writer.add_page(last_page)
+
+            writer.write(pdf_buffer)
+            pdf_buffer.seek(0)
+            pdf_success = True
+        except Exception as e:
+            st.error(f"Error generating PDF: {e}")
+            pdf_success = False
+
+        # Create ZIP
+        today = datetime.date.today().isoformat()
+        pkg_name = f"{nickname}_TCIA_Proposal_{today}.zip"
+        summary_tsv_name = f"{nickname}_proposal_summary_{today}.tsv"
+        docx_name = f"{nickname}_proposal_summary_{today}.docx"
+        pdf_name = f"{nickname}_DSA_{today}.pdf"
+
+        zip_buffer = io.BytesIO()
+        with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
+            zip_file.writestr(summary_tsv_name, tsv_buffer.getvalue())
+            zip_file.writestr(docx_name, docx_buffer.getvalue())
+            if pdf_success:
+                zip_file.writestr(pdf_name, pdf_buffer.getvalue())
+            for ms in st.session_state.manuscript_list:
+                if ms['type'] == 'File':
+                    zip_file.writestr(ms['file'].name, ms['file'].getvalue())
+        zip_buffer.seek(0)
+
+        # Store in session state for later use in email and to persist buttons
+        st.session_state['proposal_files'] = {
+            'tsv': tsv_buffer.getvalue(),
+            'docx': docx_buffer.getvalue(),
+            'pdf': pdf_buffer.getvalue() if pdf_success else None,
+            'zip': zip_buffer.getvalue(),
+            'title': title,
+            'nickname': nickname,
+            'proposal_type': proposal_type,
+            'pocs': [sci_poc_email, tech_poc_email, legal_poc_email],
+            'pkg_name': pkg_name
+        }
+        st.session_state['proposal_generated'] = True
+
+        # Determine if we can send automatically
+        can_send_auto = all([SMTP_SERVER, SMTP_USER, SMTP_PASSWORD])
+        if can_send_auto:
+            try:
+                msg = MIMEMultipart()
+                msg['From'] = SMTP_USER
+                msg['To'] = HELP_DESK_EMAIL
+                msg['Cc'] = ", ".join([sci_poc_email, tech_poc_email, legal_poc_email])
+                msg['Subject'] = f"TCIA Dataset Proposal: {nickname}"
+
+                body = f"Thank you for your interest in publishing your dataset on TCIA! Our Advisory Group meets quarterly to review proposals. We've received your proposal and will follow up shortly with any preliminary questions we have. If you have any questions in the meantime, please reply-all to this message.\n\n---\n\nType: {proposal_type}\nTitle: {title}\nSubmitters: {', '.join([sci_poc_email, tech_poc_email, legal_poc_email])}"
+                msg.attach(MIMEText(body, 'plain'))
+
+                part = MIMEBase('application', 'zip')
+                part.set_payload(zip_buffer.getvalue())
+                encoders.encode_base64(part)
+                part.add_header('Content-Disposition', f'attachment; filename="{pkg_name}"')
+                msg.attach(part)
+
+                server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+                server.starttls()
+                server.login(SMTP_USER, SMTP_PASSWORD)
+                # Send to both To and Cc addresses
+                recipients = [HELP_DESK_EMAIL, sci_poc_email, tech_poc_email, legal_poc_email]
+                server.send_message(msg, to_addrs=recipients)
+                server.quit()
+                st.session_state['email_sent'] = True
+            except Exception as e:
+                st.error(f"Failed to send email: {e}")
+
+if st.session_state.get('proposal_generated'):
+    can_send_auto = all([SMTP_SERVER, SMTP_USER, SMTP_PASSWORD])
+    files = st.session_state.get('proposal_files')
+
+    if not can_send_auto:
+        st.success("✅ Proposal documents generated successfully!")
+
+        col1, col2, col3 = st.columns(3)
+        today = datetime.date.today().isoformat()
+        nickname_val = files.get('nickname', 'dataset')
+        with col1:
+            st.download_button("Download TSV (Import to Remapper)", data=files['tsv'], file_name=f"{nickname_val}_proposal_{today}.tsv", mime="text/tab-separated-values")
+        with col2:
+            st.download_button("Download DOCX Summary", data=files['docx'], file_name=f"{nickname_val}_proposal_summary_{today}.docx", mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+        with col3:
+            if files['pdf']:
+                st.download_button("Download PDF Agreement", data=files['pdf'], file_name=f"{nickname_val}_DSA_{today}.pdf", mime="application/pdf")
+
+        st.info("💡 **Please download these documents and keep a copy for your records.**")
+        st.info(f"💡 **Manual Submission**: Please email the generated files as attachments to **{HELP_DESK_EMAIL}**.")
+    else:
+        if st.session_state.get('email_sent'):
+            st.success(f"📨 Proposal sent to {HELP_DESK_EMAIL} and CC'd to POCs!")
+        else:
+            st.info("Proposal generated but failed to send email. Please check your SMTP settings or contact support.")
+
+# Footer
+st.markdown("---")
+st.markdown(f"""
+<div style='text-align: center; color: gray; font-size: 0.9em;'>
+TCIA Dataset Proposal Form | {HELP_DESK_EMAIL}
+</div>
+""", unsafe_allow_html=True)
