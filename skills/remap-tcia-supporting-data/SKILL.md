@@ -1,5 +1,5 @@
 ---
-name: tcia-remapping-skill
+name: remap-tcia-supporting-data
 description: Guide users after TCIA proposal approval through completing dataset-level metadata and mapping supporting clinical or tabular data to the recommended NCI Imaging Submission Model. Use when importing a TCIA proposal package, drafting a CICADAS-aligned description, mapping source columns, reviewing permissible values, or generating standardized TSVs. Treat the model as recommended guidance rather than a hard submission requirement.
 ---
 
@@ -57,10 +57,15 @@ Assistant: "I've mapped your 15 columns to the Subject and Diagnosis TSVs. Here 
 User: "Looks good, proceed to values."
 Assistant: "Great. In 'primary_site', I've auto-matched 90% of your values. I have 3 values that need your attention: 'Lung, NOS', 'Chest wall', and 'Unknown'. Recommendations: [List]. How should we handle these?"
 
-## Resources
-- `resources/model/`: NCI Imaging Submission Model files (MDF YAML format).
-- `resources/schema.json`: Legacy property definitions (fallback).
-- `resources/permissible_values.json`: Legacy valid values with ontology metadata (fallback).
-- `mdf_parser.py`: Parser for the MDF model files.
-- `remap_helper.py`: Utility script for fuzzy matching, data splitting, and conflict checking.
-- `orcid_helper.py`: Utility for ORCID profile lookups and author parsing.
+## Runtime implementation
+
+When working in the `tcia-dataset-proposals` repository, use the Streamlit implementation in `tcia-remapper.py`. Its helpers and model resources live in the separate `tcia_proposals/` runtime package:
+
+- `tcia_proposals/resources/model/`: NCI Imaging Submission Model files in MDF YAML format.
+- `tcia_proposals/resources/schema.json`: fallback property definitions.
+- `tcia_proposals/resources/permissible_values.json`: fallback values with ontology metadata.
+- `tcia_proposals/mdf_parser.py`: MDF model parser.
+- `tcia_proposals/remap_helper.py`: mapping, validation, splitting, and TSV utilities.
+- `tcia_proposals/orcid_helper.py`: ORCID lookup and author parsing.
+
+If the skill is installed without the repository, use the user's uploaded schema or retrieve the current public resources from `kirbyju/tcia-dataset-proposals` before performing model-specific mapping.

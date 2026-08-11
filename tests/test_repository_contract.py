@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-HELPER_ROOT = ROOT / "tcia-remapping-skill"
+HELPER_ROOT = ROOT / "tcia_proposals"
 RESOURCES = HELPER_ROOT / "resources"
 
 

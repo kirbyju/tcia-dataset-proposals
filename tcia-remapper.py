@@ -9,25 +9,9 @@ import ast
 import datetime
 from io import BytesIO
 from docx import Document
-import importlib.util
 
-# Add tcia-remapping-skill to the path and import the helper
-skill_dir = os.path.join(os.path.dirname(__file__), 'tcia-remapping-skill')
-remap_helper_path = os.path.join(skill_dir, 'remap_helper.py')
-spec = importlib.util.spec_from_file_location("remap_helper", remap_helper_path)
-remap_helper = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(remap_helper)
-
-# Import MDF parser
-mdf_parser_path = os.path.join(skill_dir, 'mdf_parser.py')
-spec_mdf = importlib.util.spec_from_file_location("mdf_parser", mdf_parser_path)
-mdf_parser = importlib.util.module_from_spec(spec_mdf)
-spec_mdf.loader.exec_module(mdf_parser)
-
-orcid_helper_path = os.path.join(skill_dir, 'orcid_helper.py')
-spec_orcid = importlib.util.spec_from_file_location("orcid_helper", orcid_helper_path)
-orcid_helper = importlib.util.module_from_spec(spec_orcid)
-spec_orcid.loader.exec_module(orcid_helper)
+from tcia_proposals import orcid_helper, remap_helper
+from tcia_proposals.mdf_parser import get_mdf_resources
 
 # Import functions
 load_json = remap_helper.load_json
@@ -37,12 +21,11 @@ split_data_by_schema = remap_helper.split_data_by_schema
 write_metadata_tsv = remap_helper.write_metadata_tsv
 check_metadata_conflict = remap_helper.check_metadata_conflict
 check_missing_links = remap_helper.check_missing_links
-get_mdf_resources = mdf_parser.get_mdf_resources
 
 st.set_page_config(page_title="NCI Imaging Submission Validator", layout="wide")
 
 # Load resources
-RESOURCES_DIR = os.path.join(os.path.dirname(__file__), 'tcia-remapping-skill', 'resources')
+RESOURCES_DIR = os.path.join(os.path.dirname(__file__), 'tcia_proposals', 'resources')
 SCHEMA_FILE = os.path.join(RESOURCES_DIR, 'schema.json')
 PERMISSIBLE_VALUES_FILE = os.path.join(RESOURCES_DIR, 'permissible_values.json')
 

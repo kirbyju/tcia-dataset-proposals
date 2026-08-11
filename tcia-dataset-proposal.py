@@ -18,22 +18,15 @@ from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, 
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER
-import importlib.util
 import re
 from xml.sax.saxutils import escape
+
+from tcia_proposals.mdf_parser import get_mdf_resources
 
 st.set_page_config(page_title="TCIA Dataset Proposal Form", layout="wide")
 
 # Constants & Configuration
-RESOURCES_DIR = os.path.join(os.path.dirname(__file__), 'tcia-remapping-skill', 'resources')
-
-# Import MDF parser and helpers
-skill_dir = os.path.join(os.path.dirname(__file__), 'tcia-remapping-skill')
-mdf_parser_path = os.path.join(skill_dir, 'mdf_parser.py')
-spec_mdf = importlib.util.spec_from_file_location("mdf_parser", mdf_parser_path)
-mdf_parser = importlib.util.module_from_spec(spec_mdf)
-spec_mdf.loader.exec_module(mdf_parser)
-get_mdf_resources = mdf_parser.get_mdf_resources
+RESOURCES_DIR = os.path.join(os.path.dirname(__file__), 'tcia_proposals', 'resources')
 
 PERMISSIBLE_VALUES_FILE = os.path.join(RESOURCES_DIR, 'permissible_values.json')
 

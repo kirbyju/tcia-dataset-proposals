@@ -1,4 +1,0 @@
-interface:
-  display_name: "Remap TCIA Supporting Data"
-  short_description: "Map approved TCIA supporting data"
-  default_prompt: "Use $tcia-remapping-skill to map my approved TCIA dataset metadata and supporting tables."

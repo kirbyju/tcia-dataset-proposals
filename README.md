@@ -22,7 +22,7 @@ The remapper can import proposal metadata, guide completion of a CICADAS-aligned
 
 Install that subdirectory as a Codex skill, then upload a generated proposal ZIP or its component files and ask the skill to review the package.
 
-`tcia-remapping-skill/` contains the post-approval remapping skill instructions, helpers, schemas, permissible values, and DSA resource required by the two Streamlit applications.
+`skills/remap-tcia-supporting-data/` contains the optional post-approval Codex skill. Runtime helpers, schemas, permissible values, and the DSA resource required by the Streamlit applications live separately in `tcia_proposals/`.
 
 ## Run locally
 
