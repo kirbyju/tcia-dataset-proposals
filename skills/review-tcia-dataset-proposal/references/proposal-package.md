@@ -9,7 +9,13 @@ The TCIA Dataset Proposal Form can generate a ZIP containing:
 - a PDF containing the Data Submission Agreement and proposal description; and
 - uploaded preprints or manuscripts.
 
-Review every supplied source. Prefer the structured TSV for field extraction, the DOCX or PDF for human-readable labels, and the supporting publications for scientific context.
+Review the proposal TSV or DOCX and relevant supporting materials. Prefer the structured TSV for field extraction, the DOCX for human-readable labels, and supporting publications for scientific context.
+
+## Data Submission Agreement
+
+Ignore the DSA PDF when providing proposal feedback. TCIA sends the agreement early so the submitting site's legal team can begin reviewing it. Sites are not expected to complete or sign it until after the AG approves the proposal.
+
+Do not inspect, summarize, cite, or evaluate the DSA. Do not flag blank organization fields, notices, signatures, dates, or an incomplete Exhibit A. Do not ask the submitter to execute the agreement before AG review. The DSA's presence or completion status is not evidence for or against the proposal's scientific merit or readiness for AG review.
 
 ## Shared proposal information
 

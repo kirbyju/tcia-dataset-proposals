@@ -1,6 +1,6 @@
 ---
 name: review-tcia-dataset-proposal
-description: Review a TCIA new-collection or analysis-results proposal package, including its TSV or DOCX summary, Data Submission Agreement, preprints, publications, and supporting documents. Compare the proposal with current visible TCIA Collections and Analysis Results to assess overlap and evidence of novelty. Use when a submitter or TCIA reviewer wants a source-grounded summary, TCIA comparator analysis, gaps or ambiguities to clarify before Advisory Group review, CICADAS alignment suggestions, AG-criteria coverage, or PI-ready follow-up questions. Do not make an approval decision or perform post-approval data curation.
+description: Review a TCIA new-collection or analysis-results proposal package, including its TSV or DOCX summary, preprints, publications, and supporting documents. Compare the proposal with current visible TCIA Collections and Analysis Results to assess overlap and evidence of novelty. Use when a submitter or TCIA reviewer wants a source-grounded summary, TCIA comparator analysis, gaps or ambiguities to clarify before Advisory Group review, CICADAS alignment suggestions, AG-criteria coverage, or PI-ready follow-up questions. Proposal packages may include an early Data Submission Agreement for the site's legal review; exclude that PDF from proposal feedback. Do not make an approval decision or perform post-approval data curation.
 ---
 
 # Review a TCIA Dataset Proposal
@@ -8,6 +8,8 @@ description: Review a TCIA new-collection or analysis-results proposal package, 
 ## Objective
 
 Help a submitter or reviewer assemble enough evidence for an informed TCIA Advisory Group (AG) review. Extract information already present across the package before asking for it again. Summarize gaps and draft constructive clarification questions. Do not predict, assign, or recommend a proposal status.
+
+Ignore the Data Submission Agreement (DSA) PDF when reviewing the proposal or providing feedback. TCIA sends it early so the site's legal team can begin review; it is expected to remain incomplete and unsigned until after AG approval.
 
 ## Load the references
 
@@ -21,8 +23,9 @@ Help a submitter or reviewer assemble enough evidence for an informed TCIA Advis
 
 1. Inventory the package.
    - List the ZIP members or uploaded files without exposing contact details in the response.
-   - Locate the proposal TSV or DOCX, DSA PDF, preprints or manuscripts, data dictionaries, and other supporting documentation.
-   - State which expected materials were not supplied. Treat a preprint as recommended, not mandatory.
+   - Locate the proposal TSV or DOCX, preprints or manuscripts, data dictionaries, and other supporting documentation.
+   - Acknowledge a DSA only as an expected package artifact when needed for inventory; do not inspect, summarize, cite, or evaluate it.
+   - State which expected proposal materials were not supplied. Treat a preprint as recommended, not mandatory, and never treat an incomplete or unsigned DSA as a missing proposal item.
 
 2. Extract evidence before identifying gaps.
    - Read the complete proposal summary and relevant supporting documents.
@@ -102,6 +105,7 @@ Include only when NCTN/NCORP authorization, CIP-directed handling, facial-imagin
 - Do not perform full clinical-data curation before AG review.
 - Do not request patient-level data, imaging payloads, or protected health information for this review.
 - Always ask whether year of diagnosis is available when clinical data are expected, but treat its absence as a limitation to document rather than an automatic rejection.
-- Treat the legal point of contact and generated DSA as intentional early institutional-readiness checks.
+- Do not provide feedback on the DSA's organization fields, notice information, signatures, dates, legal terms, completeness, or execution status. The DSA is supplied early for legal review and is expected to be signed only after AG approval.
+- Do not infer proposal readiness from the identity of the legal point of contact or from the DSA's completion status.
 - Treat the NCI Imaging Submission Model used by the remapper as recommended guidance, not a current hard requirement.
 - Do not claim that TCIA certifies the scientific accuracy of submitted annotations or analyses.
