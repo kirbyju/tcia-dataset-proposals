@@ -1,6 +1,6 @@
 ---
 name: review-tcia-dataset-proposal
-description: Review a TCIA new-collection or analysis-results proposal package, including its TSV or DOCX summary, Data Submission Agreement, preprints, publications, and supporting documents. Use when a submitter or TCIA reviewer wants a source-grounded summary of the proposed dataset, gaps or ambiguities to clarify before TCIA Advisory Group review, CICADAS alignment suggestions, AG-criteria coverage, or PI-ready follow-up questions. Do not make an approval decision or perform post-approval data curation.
+description: Review a TCIA new-collection or analysis-results proposal package, including its TSV or DOCX summary, Data Submission Agreement, preprints, publications, and supporting documents. Compare the proposal with current visible TCIA Collections and Analysis Results to assess overlap and evidence of novelty. Use when a submitter or TCIA reviewer wants a source-grounded summary, TCIA comparator analysis, gaps or ambiguities to clarify before Advisory Group review, CICADAS alignment suggestions, AG-criteria coverage, or PI-ready follow-up questions. Do not make an approval decision or perform post-approval data curation.
 ---
 
 # Review a TCIA Dataset Proposal
@@ -13,6 +13,7 @@ Help a submitter or reviewer assemble enough evidence for an informed TCIA Advis
 
 - Read [proposal-package.md](references/proposal-package.md) when inventorying an uploaded proposal package or determining the proposal type.
 - Read [review-criteria.md](references/review-criteria.md) for every substantive review.
+- Read [novelty-comparison.md](references/novelty-comparison.md) and perform its TCIA comparator search for every substantive review.
 - Read [cicadas.md](references/cicadas.md) when evaluating description completeness or drafting improvement suggestions.
 - Read [nctn.md](references/nctn.md) when the proposal mentions an NCTN or NCORP trial, a cooperative group, CTEP, IROC, or CIP-directed publication.
 
@@ -34,19 +35,26 @@ Help a submitter or reviewer assemble enough evidence for an informed TCIA Advis
    - Detect possible NCTN/NCORP provenance and apply the NCTN authorization check.
    - Note a CIP-directed NCTN route separately because it does not require an AG vote.
 
-4. Assess information coverage.
+4. Compare with existing TCIA datasets.
+   - Search current visible TCIA Collections and Analysis Results using the procedure in `novelty-comparison.md`.
+   - Search first for the same disease or scientific cohort, then for overlap along individual axes such as anatomy, population, imaging type, longitudinal design, supporting data, annotations, and multi-omic linkage.
+   - Inspect the closest candidates rather than relying on keyword-result counts.
+   - State what each comparator shares with the proposal and what appears different.
+   - Treat an absent exact match as evidence from the documented search, not proof that no comparable dataset exists anywhere.
+
+5. Assess information coverage.
    - Compare the evidence with the AG criteria in `review-criteria.md`.
    - Compare the description with the proposal-stage interpretation of CICADAS in `cicadas.md`.
    - Distinguish information that is absent from information that is merely located in another supplied source.
    - Do not require exhaustive acquisition parameters when exact details are carried in DICOM or other data. Ask for a concise acquisition summary only when it helps explain scientific value, heterogeneity, limitations, or reuse.
 
-5. Draft clarification questions.
+6. Draft clarification questions.
    - Ask only questions whose answers would materially improve the AG's understanding.
    - Explain briefly why each question matters.
    - Separate questions that should be answered before AG review from optional description improvements.
    - Phrase questions for the scientific point of contact or PI in neutral, collaborative language.
 
-6. Produce the review.
+7. Produce the review.
    - Use the output structure below.
    - Cite the proposal or supporting source for statements of fact.
    - Keep personal contact details out of the review unless the user explicitly requests them.
@@ -56,6 +64,14 @@ Help a submitter or reviewer assemble enough evidence for an informed TCIA Advis
 ### Proposal snapshot
 
 Summarize the proposal type, dataset purpose, approximate scale, imaging and supporting-data types, related TCIA Collections, and supplied supporting materials.
+
+### TCIA novelty comparison
+
+Report the TCIA search scope and metadata freshness, then compare the proposal with three to six closest visible Collections or Analysis Results. For each comparator, give the overlapping features, material differences, and relevance to the novelty assessment. Conclude with:
+
+- novelty supported by the current TCIA comparison;
+- overlap that reduces or qualifies the novelty claim; and
+- differentiators that remain unverified and should be clarified with the PI.
 
 ### Evidence relevant to AG review
 
@@ -81,6 +97,8 @@ Include only when NCTN/NCORP authorization, CIP-directed handling, facial-imagin
 ## Guardrails
 
 - Do not vote, decide, score, rank, or assign `Approve`, `Decline`, `Approve with conditions`, or `Defer`.
+- Do not call a proposal unique, unprecedented, or first-of-kind without a documented current TCIA search. Prefer `no exact match found in the searched TCIA metadata` and state the search limitations.
+- Do not treat superficial keyword matches as comparators. Verify disease context, imaging type, population, supporting data, and dataset purpose from current TCIA metadata.
 - Do not perform full clinical-data curation before AG review.
 - Do not request patient-level data, imaging payloads, or protected health information for this review.
 - Always ask whether year of diagnosis is available when clinical data are expected, but treat its absence as a limitation to document rather than an automatic rejection.

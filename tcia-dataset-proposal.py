@@ -22,6 +22,7 @@ import re
 from xml.sax.saxutils import escape
 
 from tcia_proposals.mdf_parser import get_mdf_resources
+from tcia_proposals.pdf_footer import draw_dsa_footer, replace_dsa_page_number
 
 st.set_page_config(page_title="TCIA Dataset Proposal Form", layout="wide")
 
@@ -528,17 +529,11 @@ if submit_button:
                     canvas.Canvas.save(self)
 
                 def draw_canvas(self, page_num, total_pages):
-                    width, height = letter
                     # Sequential numbering starts from 6
                     display_page = page_num + 5
                     # Total pages for the whole document (template has 7 pages, we replaced 1 with N)
                     total_display = total_pages + 6
-
-                    self.saveState()
-                    self.setFont("Helvetica", 10)
-                    header_text = f"TCIA Data Submission Agreement (v. 20220914) Page {display_page} of {total_display}"
-                    self.drawString(50, height - 50, header_text)
-                    self.restoreState()
+                    draw_dsa_footer(self, display_page, total_display)
 
             doc_exhibit = SimpleDocTemplate(
                 exhibit_a_buffer,
@@ -604,45 +599,30 @@ if submit_button:
             reader = PyPDF2.PdfReader(AGREEMENT_TEMPLATE)
             writer = PyPDF2.PdfWriter()
 
-            # Pages 1-5
-            for i in range(5):
-                writer.add_page(reader.pages[i])
-
-            # Insert Exhibit A pages
             new_exhibit_reader = PyPDF2.PdfReader(exhibit_a_buffer)
-            for page in new_exhibit_reader.pages:
-                writer.add_page(page)
-
-            # Page 7 (last page of original template)
-            # Need to fix the page number on the last page as well
-            last_page = reader.pages[6]
-
-            # Since we can't easily edit text on existing PDF page without more complex tools,
-            # and the user said "continue sequential numbering",
-            # I will just append the last page as is for now,
-            # BUT wait, the footer of page 7 will say "Page 7 of 7".
-            # If Exhibit A took 2 pages (6 and 7), then the last page should be Page 8 of 8.
-
-            # Actually, let's try to overlay the correct page number on the last page.
             total_exhibit_pages = len(new_exhibit_reader.pages)
             total_final_pages = total_exhibit_pages + 6
 
-            overlay_buffer = io.BytesIO()
-            c_overlay = canvas.Canvas(overlay_buffer, pagesize=letter)
-            c_overlay.setFont("Helvetica", 10)
-            c_overlay.setFillColor(colors.white)
-            # Draw a white box over the old page number
-            c_overlay.rect(40, letter[1] - 60, 500, 20, fill=1, stroke=0)
-            c_overlay.setFillColor(colors.black)
-            header_text = f"TCIA Data Submission Agreement (v. 20220914) Page {total_final_pages} of {total_final_pages}"
-            c_overlay.drawString(50, letter[1] - 50, header_text)
-            c_overlay.showPage()
-            c_overlay.save()
-            overlay_buffer.seek(0)
+            # Pages 1-5
+            for i in range(5):
+                page = replace_dsa_page_number(
+                    reader.pages[i],
+                    page_number=i + 1,
+                    total_pages=total_final_pages,
+                )
+                writer.add_page(page)
 
-            overlay_reader = PyPDF2.PdfReader(overlay_buffer)
-            last_page.merge_page(overlay_reader.pages[0])
+            # Insert Exhibit A pages
+            for page in new_exhibit_reader.pages:
+                writer.add_page(page)
 
+            # The template's final page is Exhibit B. Renumber it after the
+            # variable-length Exhibit A pages have been inserted.
+            last_page = replace_dsa_page_number(
+                reader.pages[6],
+                page_number=total_final_pages,
+                total_pages=total_final_pages,
+            )
             writer.add_page(last_page)
 
             writer.write(pdf_buffer)

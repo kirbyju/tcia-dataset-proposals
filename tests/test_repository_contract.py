@@ -1,7 +1,14 @@
 import ast
+import io
 import json
 import unittest
 from pathlib import Path
+
+import PyPDF2
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+
+from tcia_proposals.pdf_footer import draw_dsa_footer, replace_dsa_page_number
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,6 +45,26 @@ class RepositoryContractTests(unittest.TestCase):
 
     def test_dsa_resource_is_pdf(self):
         self.assertTrue((RESOURCES / "agreement_template.pdf").read_bytes().startswith(b"%PDF"))
+
+    def test_generated_dsa_footer_uses_final_page_count(self):
+        page_buffer = io.BytesIO()
+        page_canvas = canvas.Canvas(page_buffer, pagesize=letter)
+        draw_dsa_footer(page_canvas, page_number=6, total_pages=8)
+        page_canvas.showPage()
+        page_canvas.save()
+        page_buffer.seek(0)
+
+        text = PyPDF2.PdfReader(page_buffer).pages[0].extract_text()
+        self.assertIn("Page 6 of 8", text)
+
+    def test_template_page_number_overlay_uses_final_page_count(self):
+        template_page = PyPDF2.PdfReader(RESOURCES / "agreement_template.pdf").pages[0]
+        updated_page = replace_dsa_page_number(
+            template_page,
+            page_number=1,
+            total_pages=8,
+        )
+        self.assertIn("Page 1 of 8", updated_page.extract_text())
 
 
 if __name__ == "__main__":

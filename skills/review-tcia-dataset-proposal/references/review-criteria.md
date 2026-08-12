@@ -10,7 +10,7 @@ Check whether the supplied materials explain:
 
 1. Reproducibility value: how publication enables verification, replication, comparison, or extension of research.
 2. Research or clinical need: the important gap or current clinical/research problem addressed.
-3. Novelty: what is distinct from data already available through TCIA or comparable repositories.
+3. Novelty: what is distinct from data already available through TCIA or comparable repositories. Do not assess this from the proposal alone. Perform the current TCIA comparison in `novelty-comparison.md`, identify the closest Collections and Analysis Results, and separate demonstrated differences from claims that still require PI clarification.
 4. Scale and demographic distribution: whether the cohort size, composition, and relevant subgroups can support the stated uses or hypothesis development.
 5. Supporting data and documentation: whether demographics, clinical history, treatments, outcomes, labels, annotations, dictionaries, protocols, or other context make the images scientifically useful.
 6. Analysis rationale: for Analysis Results, the biological hypothesis, pathophysiologic rationale, discovery objective, or other scientific purpose behind the derived data.
