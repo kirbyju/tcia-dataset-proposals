@@ -1,0 +1,16 @@
+{
+  "files": {
+    "SKILL.md": "7321fad7cb4f07f01427fed771749188321a920d7fca3b6f1f8ea6b086999a10",
+    "agents/openai.yaml": "d8365bb79e6febee02b1808e326bd9e3b2f103004b0ff2837478366d6c3a25e7",
+    "references/cicadas.md": "4e609b80fc407c2a75c117238ae776ef7f1dde0918ada61615100de9e40ff26f",
+    "references/nctn.md": "0ac07f74dc3aaa44630f560acce5e79a2fd808fa0941bb24738d985175b62b83",
+    "references/novelty-comparison.md": "7c3652015242cc4f2a3bd06ac0fe1623a5d576d5cb8fe8080ff1e10a2c501db4",
+    "references/proposal-package.md": "2e35a1ff5b0805069c26689061363118d368768b188ce0e03f45a7afdaea021c",
+    "references/review-criteria.md": "c38879ba9ee3b9fba7ceb53949eec8a9781c817c875a2dee43714514cc191722",
+    "scripts/check_freshness.py": "5c20c27160bd35ac441d9a1ff957619bee7c0999e2c4a913422776325df6fc1a"
+  },
+  "schema_version": 1,
+  "skill_version": "2026.08.25.1",
+  "update_url": "https://github.com/kirbyju/tcia-dataset-proposals/tree/main/skills/review-tcia-dataset-proposal",
+  "updated_at_utc": "2026-08-25T15:49:19.046097+00:00"
+}

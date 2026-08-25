@@ -5,6 +5,22 @@ description: Review a TCIA new-collection or analysis-results proposal package, 
 
 # Review a TCIA Dataset Proposal
 
+## Freshness gate — run first
+
+Before reading the proposal package, loading references, or beginning any substantive review, run:
+
+```bash
+python3 "<this-skill-directory>/scripts/check_freshness.py" check --max-age-hours 24
+```
+
+Resolve `<this-skill-directory>` to the directory containing this `SKILL.md`. The script always verifies the installed files against the bundled checksum manifest. It contacts the public GitHub repository only when there is no cached result for this installed version or the cached check is at least 24 hours old.
+
+- On `current` or `current_cached`, continue with the review.
+- On `update_required` or `local_modified`, stop before reviewing the package. Tell the user that the installed skill is not current, include the reported local and remote versions or changed files, and direct them to the reported `update_url` to reinstall or update the skill.
+- On `unverified`, do not imply that the installed guidance is current. Report the network or verification error and retry when GitHub access is available. Proceed only if the user explicitly accepts using unverified guidance.
+
+Do not replace this gate with a per-question GitHub request, and do not silently use remote `SKILL.md` content with older installed references or scripts.
+
 ## Objective
 
 Help a submitter or reviewer assemble enough evidence for an informed TCIA Advisory Group (AG) review. Extract information already present across the package before asking for it again. Summarize gaps and draft constructive clarification questions. Do not predict, assign, or recommend a proposal status.
