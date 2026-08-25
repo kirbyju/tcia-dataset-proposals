@@ -14,6 +14,7 @@ from tcia_proposals.pdf_footer import draw_dsa_footer, replace_dsa_page_number
 ROOT = Path(__file__).resolve().parents[1]
 HELPER_ROOT = ROOT / "tcia_proposals"
 RESOURCES = HELPER_ROOT / "resources"
+REVIEW_SKILL = ROOT / "skills" / "review-tcia-dataset-proposal"
 
 
 class RepositoryContractTests(unittest.TestCase):
@@ -65,6 +66,28 @@ class RepositoryContractTests(unittest.TestCase):
             total_pages=8,
         )
         self.assertIn("Page 1 of 8", updated_page.extract_text())
+
+    def test_review_skill_routes_by_role_and_lifecycle(self):
+        skill = (REVIEW_SKILL / "SKILL.md").read_text(encoding="utf-8")
+        for required_text in (
+            "Determine the role and lifecycle stage",
+            "submitter or collaborator",
+            "TCIA staff or curation-team member",
+            "after acceptance while completing publication documentation",
+            "Treat a stated role as workflow context, not authentication",
+        ):
+            self.assertIn(required_text, skill)
+
+    def test_cicadas_guidance_is_progressive_and_source_grounded(self):
+        guidance = (REVIEW_SKILL / "references" / "cicadas.md").read_text(encoding="utf-8")
+        for required_text in (
+            "CICADAS completion is progressive",
+            "A complete CICADAS description is not expected",
+            "Needs submitter confirmation",
+            "Ground every material addition in supplied evidence",
+            "does not establish compliance with any journal's requirements",
+        ):
+            self.assertIn(required_text, guidance)
 
 
 if __name__ == "__main__":

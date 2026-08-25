@@ -18,7 +18,7 @@ The remapper can import proposal metadata, guide completion of a CICADAS-aligned
 
 ### Proposal review skill
 
-`skills/review-tcia-dataset-proposal/` is a public-facing Codex skill for reviewing a proposal package before AG review. It extracts evidence from the form and supplied supporting materials, summarizes coverage of the AG criteria and CICADAS, identifies gaps or ambiguities, and drafts questions for the PI or scientific contact. It does not make an approval decision.
+`skills/review-tcia-dataset-proposal/` is a public-facing Codex skill for submitter self-review, TCIA staff review before the AG, and post-acceptance completion of dataset-level narrative documentation. It determines the user's role and lifecycle stage, extracts evidence from supplied materials, summarizes AG and CICADAS coverage when applicable, identifies gaps or ambiguities, and improves supported dataset descriptions without making an approval decision. CICADAS completion is helpful but is not expected before proposal review.
 
 Install that subdirectory as a Codex skill, then upload a generated proposal ZIP or its component files and ask the skill to review the package.
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "Review TCIA Dataset Proposal"
-  short_description: "Compare TCIA proposals and identify review gaps"
-  default_prompt: "Use $review-tcia-dataset-proposal to review my proposal package, compare it with current TCIA datasets, and draft clarification questions."
+  short_description: "Guide TCIA proposals and dataset descriptions"
+  default_prompt: "Use $review-tcia-dataset-proposal to identify my role and proposal stage, then review or improve the proposal and its CICADAS dataset description."
