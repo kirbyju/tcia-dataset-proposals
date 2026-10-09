@@ -10,7 +10,7 @@ import datetime
 from io import BytesIO
 from docx import Document
 
-from tcia_proposals import orcid_helper, remap_helper
+from tcia_proposals import crdc_converter, orcid_helper, remap_helper
 from tcia_proposals.mdf_parser import get_mdf_resources
 
 # Import functions
@@ -442,12 +442,16 @@ if st.session_state.phase == 0:
         Importing a proposal will automatically fill in many of the fields for you, saving you time.
         """)
 
-        import_file = st.file_uploader("📥 Import Proposal Package (TSV or ZIP)", type=['tsv', 'zip'])
+        import_file = st.file_uploader(
+            "📥 Import Proposal Package (TCIA TSV/ZIP or CRDC XLSX)",
+            type=['tsv', 'zip', 'xlsx'],
+        )
 
         if import_file:
             try:
                 import_df = pd.DataFrame()
                 investigators_from_file = []
+                crdc_import = None
 
                 if import_file.name.endswith('.zip'):
                     with zipfile.ZipFile(import_file) as z:
@@ -463,6 +467,26 @@ if st.session_state.phase == 0:
                             with z.open(inv_file) as f:
                                 inv_df = pd.read_csv(f, sep='\t')
                                 investigators_from_file = inv_df.to_dict('records')
+                elif import_file.name.lower().endswith('.xlsx'):
+                    workbook_bytes = import_file.getvalue()
+                    if not crdc_converter.is_crdc_workbook(workbook_bytes):
+                        raise ValueError(
+                            "This XLSX file is not a supported CRDC submission-request workbook."
+                        )
+                    crdc_proposal_type = st.selectbox(
+                        "TCIA proposal type",
+                        options=["New Collection Proposal", "Analysis Results Proposal"],
+                        help=(
+                            "The CRDC workbook does not identify whether the submission is a "
+                            "TCIA Collection or Analysis Result."
+                        ),
+                    )
+                    crdc_import = crdc_converter.import_crdc_workbook(
+                        workbook_bytes,
+                        proposal_type=crdc_proposal_type,
+                    )
+                    import_df = pd.DataFrame([crdc_import['proposal_data']])
+                    investigators_from_file = crdc_import['investigators']
                 else:
                     import_df = pd.read_csv(import_file, sep='\t')
 
@@ -506,8 +530,12 @@ if st.session_state.phase == 0:
                     if software_info:
                         st.session_state.cicadas['external_resources'] = software_info
 
-                    # Map Program (Default to Community)
-                    st.session_state.metadata['Program'] = [DEFAULT_PROGRAMS['Community']]
+                    # Map Program (Default to Community for TCIA packages)
+                    st.session_state.metadata['Program'] = [
+                        crdc_import['program']
+                        if crdc_import
+                        else DEFAULT_PROGRAMS['Community']
+                    ]
 
                     # Store raw authors for parsing in the Investigator step
                     st.session_state.raw_authors = str(proposal_data.get('Authors', ''))
@@ -515,6 +543,8 @@ if st.session_state.phase == 0:
                     # Map Investigators if present in ZIP
                     if investigators_from_file:
                         st.session_state.metadata['Investigator'] = investigators_from_file
+                    elif crdc_import:
+                        st.session_state.metadata['Investigator'] = []
 
                     # Map Related Work
                     rel_works = []
@@ -560,7 +590,16 @@ if st.session_state.phase == 0:
                     if rel_works:
                         st.session_state.metadata['Related_Work'] = rel_works
 
+                    if crdc_import:
+                        st.session_state.metadata['Related_Work'] = crdc_import['related_works']
+                        st.session_state.cicadas.update(crdc_import.get('cicadas', {}))
+
                     st.success("✅ Proposal imported successfully!")
+                    if crdc_import:
+                        st.info(
+                            "CRDC-only fields without TCIA equivalents remain available in the "
+                            "source workbook but are not inferred in the remapper."
+                        )
                     st.info("The metadata has been pre-populated. Click 'Proceed' below to verify the information in each section.")
             except Exception as e:
                 st.error(f"Import failed: {e}")
@@ -1266,6 +1305,28 @@ if st.session_state.phase == 0:
                 type="primary",
                 use_container_width=True
             )
+
+        crdc_data, crdc_warnings = crdc_converter.build_crdc_workbook(
+            st.session_state.get('proposal_raw_data', {}),
+            st.session_state.metadata,
+            st.session_state.cicadas,
+        )
+        crdc_nickname = (
+            st.session_state.metadata.get('Dataset', [{}])[0].get('dataset_short_name')
+            if st.session_state.metadata.get('Dataset')
+            else None
+        ) or 'dataset'
+        crdc_filename = f"{crdc_nickname}_CRDC_Submission_Request_v3.5.xlsx"
+        st.download_button(
+            label="📥 Download CRDC Submission Request (XLSX)",
+            data=crdc_data,
+            file_name=crdc_filename,
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            use_container_width=True,
+        )
+        with st.expander("CRDC export notes"):
+            for warning in crdc_warnings:
+                st.write(f"- {warning}")
         st.markdown("---")
 
         # Display recap

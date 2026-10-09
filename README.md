@@ -14,7 +14,7 @@ The legal point of contact and DSA are intentionally included early. They encour
 
 `tcia-remapper.py` is a post-approval Streamlit workflow for collecting missing dataset-level information and mapping supporting clinical or tabular data to the NCI Imaging Submission Model. The model is recommended guidance and is not currently a hard requirement for TCIA submission.
 
-The remapper can import proposal metadata, guide completion of a CICADAS-aligned description, map source columns to model entities, review permissible values, and generate standardized TSV files.
+The remapper can import TCIA proposal TSV/ZIP packages or CRDC Data Hub submission-request XLSX files, guide completion of a CICADAS-aligned description, map source columns to model entities, review permissible values, and generate standardized TSV files. Its final artifacts include a CRDC v3.5 workbook populated from the mapped TCIA proposal metadata.
 
 ### Proposal review skill
 

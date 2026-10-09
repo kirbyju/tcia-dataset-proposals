@@ -34,13 +34,13 @@ PERMISSIBLE_VALUES_FILE = os.path.join(RESOURCES_DIR, 'permissible_values.json')
 LABELS = {
     "Proposal Type": "What kind of dataset are you submitting?",
     "Scientific POC Name": "Scientific POC Name*",
-    "Scientific POC Email": "Scientific POC Email*",
+    "Scientific POC Email": "Scientific POC Institutional Email*",
     "Scientific POC Phone": "Scientific POC Phone",
     "Technical POC Name": "Technical POC Name*",
-    "Technical POC Email": "Technical POC Email*",
+    "Technical POC Email": "Technical POC Institutional Email*",
     "Technical POC Phone": "Technical POC Phone",
     "Legal POC Name": "Legal POC Name*",
-    "Legal POC Email": "Legal POC Email*",
+    "Legal POC Email": "Legal POC Institutional Email*",
     "Legal POC Phone": "Legal POC Phone",
     "Title": "Suggest a descriptive title for your dataset*",
     "Nickname": "Suggest a shorter nickname for your dataset*",
@@ -103,6 +103,10 @@ def load_mdf_data():
 schema, permissible_values, relationships = load_mdf_data()
 AGREEMENT_TEMPLATE = os.path.join(RESOURCES_DIR, 'agreement_template.pdf')
 HELP_DESK_EMAIL = os.getenv("TCIA_HELP_DESK_EMAIL", "help@cancerimagingarchive.net")
+INSTITUTIONAL_EMAIL_HELP = (
+    "Please use an email address provided by your institution rather than a "
+    "free personal email service such as Gmail."
+)
 
 # Server-side SMTP configuration
 SMTP_SERVER = os.getenv("SMTP_SERVER")
@@ -147,9 +151,9 @@ with col1:
     tech_poc_name = st.text_input(LABELS["Technical POC Name"], help="The person involved in sending the data.", key="tech_poc_name")
     legal_poc_name = st.text_input(LABELS["Legal POC Name"], help="Authorized signatory who will sign the TCIA Data Submission Agreement. This should not be the PI or department chair.", key="legal_poc_name")
 with col2:
-    sci_poc_email = st.text_input(LABELS["Scientific POC Email"], key="sci_poc_email")
-    tech_poc_email = st.text_input(LABELS["Technical POC Email"], key="tech_poc_email")
-    legal_poc_email = st.text_input(LABELS["Legal POC Email"], key="legal_poc_email")
+    sci_poc_email = st.text_input(LABELS["Scientific POC Email"], help=INSTITUTIONAL_EMAIL_HELP, key="sci_poc_email")
+    tech_poc_email = st.text_input(LABELS["Technical POC Email"], help=INSTITUTIONAL_EMAIL_HELP, key="tech_poc_email")
+    legal_poc_email = st.text_input(LABELS["Legal POC Email"], help=INSTITUTIONAL_EMAIL_HELP, key="legal_poc_email")
 with col3:
     sci_poc_phone = st.text_input(LABELS["Scientific POC Phone"], key="sci_poc_phone", placeholder="+1-555-555-5555")
     tech_poc_phone = st.text_input(LABELS["Technical POC Phone"], key="tech_poc_phone", placeholder="+1-555-555-5555")

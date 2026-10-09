@@ -32,6 +32,7 @@ class RepositoryContractTests(unittest.TestCase):
             "schema.json",
             "permissible_values.json",
             "agreement_template.pdf",
+            "crdc_submission_request_template_v3.5.xlsx",
             "model/nci_imaging_submission_model.yml",
             "model/nci_imaging_submission_model_properties.yml",
             "model/nci_imaging_submission_model_terms.yml",
