@@ -1,0 +1,4 @@
+interface:
+  display_name: "Curate TCIA WordPress Metadata"
+  short_description: "Populate and QC TCIA dataset metadata"
+  default_prompt: "Use $curate-tcia-wordpress-metadata to recommend or QC the WordPress labels, counts, and sizes for this TCIA dataset."

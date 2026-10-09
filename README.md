@@ -24,6 +24,10 @@ Install that subdirectory as a Codex skill, then upload a generated proposal ZIP
 
 `skills/remap-tcia-supporting-data/` contains the optional post-approval Codex skill. Runtime helpers, schemas, permissible values, and the DSA resource required by the Streamlit applications live separately in `tcia_proposals/`.
 
+### WordPress metadata curation skill
+
+`skills/curate-tcia-wordpress-metadata/` helps curators recommend labels before release from a supplied file or directory, or quality-check a published TCIA Collection or Analysis Result from its page or DOI. It compares dataset and download metadata with the inspected contents, calculates applicable counts and sizes, and harmonizes recommendations with current TCIA usage before consulting NCI Imaging Submission Model or GDC terminology for genuinely new concepts. The skill produces an evidence-backed report and does not edit WordPress.
+
 ## Run locally
 
 Use Python 3.10 or newer.
