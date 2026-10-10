@@ -1,6 +1,6 @@
 ---
 name: curate-tcia-wordpress-metadata
-description: Recommend or quality-check manually curated TCIA WordPress metadata at the dataset and download levels. Use before release when a curator supplies a file or directory to classify, or after release when a TCIA Collection or Analysis Result URL or DOI needs its disease, anatomy, species, data/download/file labels, counts, and sizes checked against the described and accessible contents. Produce evidence-backed recommendations; do not edit WordPress.
+description: Audit or recommend TCIA WordPress dataset and download metadata. Use for pre-release curation from supplied files or directories and for post-release review of a TCIA Collection or Analysis Result, including requests to review, audit, sanity-check, or look for issues in a newly or recently published dataset even when the user does not mention WordPress or metadata. Verify dataset descriptions and labels, download category/data/file types, counts, sizes, and accessible contents; do not edit WordPress.
 ---
 
 # Curate TCIA WordPress Metadata
