@@ -28,6 +28,16 @@ Install that subdirectory as a Codex skill, then upload a generated proposal ZIP
 
 `skills/curate-tcia-wordpress-metadata/` helps curators recommend labels before release from a supplied file or directory, or quality-check a published TCIA Collection or Analysis Result from its page or DOI. It compares dataset and download metadata with the inspected contents, calculates applicable counts and sizes, and harmonizes recommendations with current TCIA usage before consulting NCI Imaging Submission Model or GDC terminology for genuinely new concepts. The skill produces an evidence-backed report and does not edit WordPress.
 
+Its [curator labeling reference](skills/curate-tcia-wordpress-metadata/references/labeling-guide.md) explains NCIt disease mappings, UBERON primary-site checks, and independent category/type/format assignments. It includes a [machine-readable policy](skills/curate-tcia-wordpress-metadata/references/labeling-policy.json), a dated observed vocabulary with counts and provenance, and a [shareable curator graphic](skills/curate-tcia-wordpress-metadata/assets/tcia-labeling-guide.png). Unconfirmed WordPress values require curator review; observed usage is not a complete registered or approved term list. These resources guide curation rather than implementing live validation in the Streamlit applications.
+
+The [interactive observed label catalog](https://kirbyju.github.io/tcia-dataset-proposals/labels/) provides searchable, curator-focused views of all five fields in that dated inventory. The [HTML file](docs/labels/index.html) is self-contained: download it and open it directly from disk for offline use. Rebuild it after updating the inventory or policy with:
+
+```bash
+python3 scripts/build_label_catalog.py
+```
+
+GitHub Pages publishes the catalog from the `/docs` folder on `main` using **Deploy from a branch**. Push the regenerated HTML to `main` to publish catalog updates; changing the source JSON alone does not rebuild the HTML. Pages configuration is managed in the repository settings.
+
 ## Run locally
 
 Use Python 3.10 or newer.

@@ -68,4 +68,8 @@ When working in the `tcia-dataset-proposals` repository, use the Streamlit imple
 - `tcia_proposals/remap_helper.py`: mapping, validation, splitting, and TSV utilities.
 - `tcia_proposals/orcid_helper.py`: ORCID lookup and author parsing.
 
+The runtime's current value-matching helper uses exact membership and `difflib` text similarity against bundled values; it does not perform live ontology validation. Treat a close match as a suggestion, not a verified NCIt/UBERON synonym, and verify concept identity before recommending a semantic normalization. Do not infer missing diagnosis specificity from `NOS` alone.
+
+For dataset/download WordPress labeling, use `curate-tcia-wordpress-metadata` and its labeling reference. Submission-model permissible values do not establish WordPress registry membership or authorize a new disease, site, category, data type, or file type label.
+
 If the skill is installed without the repository, use the user's uploaded schema or retrieve the current public resources from `kirbyju/tcia-dataset-proposals` before performing model-specific mapping.

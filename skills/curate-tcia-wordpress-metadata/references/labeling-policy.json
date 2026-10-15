@@ -1,0 +1,260 @@
+{
+  "schema_version": "1.0.0",
+  "policy_version": "2026.10.15.1",
+  "document_date": "2026-10-15",
+  "policy_kind": "curation recommendation and review rules",
+  "authority": "User-specified labeling policy; WordPress governs registered display labels; NCIt and UBERON govern mapped concepts",
+  "automatically_applied": false,
+  "fields": {
+    "disease_type": {
+      "wordpress_field": "cancer_types",
+      "scope": "dataset",
+      "question": "What diagnosed disease or study context does the cohort represent?",
+      "ontology": "NCIt",
+      "verify_existing_labels": true,
+      "preferred_api": "https://api-evsrest.nci.nih.gov/api/v1",
+      "search_path": "/concept/ncit/search?term={concept}&include=summary",
+      "lookup_path": "/concept/ncit/{code}?include=summary",
+      "model_field": "primary_diagnosis",
+      "cadsr_cde": "14905532",
+      "cadsr_version": "1"
+    },
+    "disease_location": {
+      "wordpress_field": "cancer_locations",
+      "scope": "dataset",
+      "question": "Where did the disease originate?",
+      "ontology": "UBERON",
+      "verify_existing_labels": true,
+      "preferred_api": "https://www.ebi.ac.uk/ols4/api",
+      "search_path": "/search?q={concept}&ontology=uberon&local=true&obsoletes=false",
+      "lookup_path": "/ontologies/uberon/terms?obo_id={urlencoded_obo_id}",
+      "model_field": "primary_site",
+      "cadsr_cde": "14883047",
+      "cadsr_version": "1"
+    },
+    "data_category": {
+      "wordpress_field": "download_type",
+      "scope": "download",
+      "question": "What broad role does this downloadable component serve?",
+      "ontology": null,
+      "guides": [
+        "NCI Imaging Submission Model applicable node",
+        "GDC owning schema data_category"
+      ]
+    },
+    "data_type": {
+      "wordpress_field": "data_type",
+      "scope": "download",
+      "question": "What specific information or object does it contain?",
+      "ontology": null,
+      "guides": [
+        "NCI Imaging Submission Model applicable node and property",
+        "GDC owning schema data_type"
+      ]
+    },
+    "file_type": {
+      "wordpress_field": "file_type",
+      "scope": "download",
+      "question": "What format is the delivered payload?",
+      "ontology": null,
+      "guides": [
+        "NCI Imaging Submission Model file_type",
+        "GDC owning schema data_format"
+      ],
+      "model_field": "file_type",
+      "cadsr_cde": "11416926",
+      "cadsr_version": "2"
+    }
+  },
+  "rules": [
+    {
+      "id": "reuse-semantic-match",
+      "applies_to": [
+        "disease_type",
+        "disease_location",
+        "data_category",
+        "data_type",
+        "file_type"
+      ],
+      "requirement": "Reuse the exact existing WordPress display label only when its meaning and specificity match the inspected evidence. Prior usage is not semantic validation."
+    },
+    {
+      "id": "verify-ontology",
+      "applies_to": [
+        "disease_type",
+        "disease_location"
+      ],
+      "requirement": "Retrieve concept definition, preferred label, code, synonyms, version and active/obsolete status. Record exact, synonym, broader, narrower, ambiguous, or unmapped relation. Broader/narrower/ambiguous mappings require curator review. Do not invent a code."
+    },
+    {
+      "id": "question-new-value",
+      "applies_to": [
+        "disease_type",
+        "disease_location",
+        "data_category",
+        "data_type",
+        "file_type"
+      ],
+      "requirement": "Any label not confirmed as registered in the same WordPress field requires needs curator decision. Supply alternatives, evidence and the reason no existing term fits."
+    },
+    {
+      "id": "usage-is-not-registry",
+      "applies_to": [
+        "disease_type",
+        "disease_location",
+        "data_category",
+        "data_type",
+        "file_type"
+      ],
+      "requirement": "Unseen in usage is a review trigger, not proof of a new registered term. A complete authorized term export is needed to prove registry absence; stale registry evidence leaves current membership unverified."
+    },
+    {
+      "id": "model-is-guide",
+      "applies_to": [
+        "data_category",
+        "data_type",
+        "file_type"
+      ],
+      "requirement": "Consult the NCI Imaging Submission Model first and the GDC owning schema with its referenced definitions next. Record repository commit/path/field. External enums do not automatically become WordPress terms and GDC field values need not match TCIA values."
+    },
+    {
+      "id": "primary-site",
+      "applies_to": [
+        "disease_location"
+      ],
+      "requirement": "Use known primary disease site; preserve metastatic site, scanned anatomy and annotation targets separately. Unknown primary, systemic disease, mixed cohorts and non-disease study contexts require evidence and review when no faithful label/mapping exists."
+    },
+    {
+      "id": "payload-evidence",
+      "applies_to": [
+        "data_category",
+        "data_type",
+        "file_type"
+      ],
+      "requirement": "Review every download independently using actual content or an authoritative inventory. Store transfer container and manifest format separately from payload format. ZIP may remain appropriate for a ZIP payload; do not remove existing labels automatically."
+    },
+    {
+      "id": "insufficient-evidence",
+      "applies_to": [
+        "disease_type",
+        "disease_location",
+        "data_category",
+        "data_type",
+        "file_type"
+      ],
+      "requirement": "Use unable to verify for unavailable ontology/registry/content evidence. Use needs curator decision for a proposed new value or ambiguous mapping; record verification gaps separately. Neither state is approval."
+    }
+  ],
+  "registry_membership_states": [
+    "registered",
+    "absent from complete registry",
+    "unverified"
+  ],
+  "usage_states": [
+    "observed in dated published usage",
+    "not observed in dated published usage"
+  ],
+  "mapping_relations": [
+    "exact",
+    "synonym",
+    "broader",
+    "narrower",
+    "ambiguous",
+    "unmapped",
+    "not applicable"
+  ],
+  "report_statuses": [
+    "pass",
+    "change recommended",
+    "needs curator decision",
+    "not applicable",
+    "unable to verify"
+  ],
+  "new_term_review_required_fields": [
+    "field",
+    "proposed_display_label",
+    "definition",
+    "content_evidence",
+    "closest_existing_labels",
+    "why_existing_labels_do_not_fit",
+    "usage_inventory_provenance",
+    "registry_membership",
+    "registry_evidence_and_date",
+    "ontology_code_or_explicit_unmapped_reason",
+    "ontology_preferred_label",
+    "mapping_relation",
+    "ontology_version_or_retrieval_date",
+    "source_model_commit_path_field_if_applicable",
+    "review_status",
+    "curator_decision"
+  ],
+  "new_term_review_template": {
+    "field": null,
+    "proposed_display_label": null,
+    "definition": null,
+    "content_evidence": null,
+    "closest_existing_labels": null,
+    "why_existing_labels_do_not_fit": null,
+    "usage_inventory_provenance": null,
+    "registry_evidence_and_date": null,
+    "ontology_code_or_explicit_unmapped_reason": null,
+    "ontology_preferred_label": null,
+    "mapping_relation": null,
+    "ontology_version_or_retrieval_date": null,
+    "source_model_commit_path_field_if_applicable": null,
+    "curator_decision": null,
+    "registry_membership": "unverified",
+    "review_status": "needs curator decision"
+  },
+  "sources": {
+    "nci_imaging_model": {
+      "repository": "https://github.com/CBIIT/nci-imaging-submission-model",
+      "branch": "main",
+      "commit": "607fcbc3cdab254c76ccf674ea1017669e94093b",
+      "properties_path": "model-desc/nci_imaging_submission_model_properties.yml",
+      "properties_sha256": "4dac8a1bb1c0848f97964b5ba6efeebb6770a8345851dbe37d4675fd69bda835",
+      "retrieved_on": "2026-10-15"
+    },
+    "gdc_dictionary": {
+      "repository": "https://github.com/NCI-GDC/gdcdictionary",
+      "branch": "develop",
+      "commit": "88d66b0fe361aa638977850c180bd9130d705924",
+      "example_path": "src/gdcdictionary/schemas/slide_image.yaml",
+      "example_sha256": "a0baa49bdac733ae82f15ef48c6203010c762acf1d55f4f1d254932449ebcbda",
+      "retrieved_on": "2026-10-15",
+      "note": "One inspected example, not a complete import of all GDC schemas."
+    },
+    "nci_evs": {
+      "openapi_url": "https://api-evsrest.nci.nih.gov/v3/api-docs",
+      "openapi_sha256": "f9f42d655e1e3e1641d37ce0c20d6a58c785b1f15089c75fd5836a1965618770",
+      "retrieved_on": "2026-10-15"
+    },
+    "cadsr": {
+      "url": "https://cadsrapi.cancer.gov/NCIAPIPortal/",
+      "role": "Look up CDEs, value domains, definitions and versions; not a substitute for verifying an NCIt concept. CDE IDs and NCIt concept codes are different identifiers."
+    },
+    "uberon_api_documentation": {
+      "url": "https://www.ebi.ac.uk/ols4/ols3help",
+      "retrieved_on": "2026-10-15"
+    }
+  },
+  "verified_api_examples": [
+    {
+      "ontology": "NCIt",
+      "code": "C4878",
+      "preferred_label": "Lung Carcinoma",
+      "version": "26.09d",
+      "lookup_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C4878?include=summary",
+      "retrieved_on": "2026-10-15",
+      "note": "API demonstration, not a blanket mapping of every Lung Cancer cohort."
+    },
+    {
+      "ontology": "UBERON",
+      "code": "UBERON:0002048",
+      "preferred_label": "lung",
+      "is_obsolete": false,
+      "lookup_url": "https://www.ebi.ac.uk/ols4/api/ontologies/uberon/terms?obo_id=UBERON%3A0002048",
+      "retrieved_on": "2026-10-15"
+    }
+  ]
+}

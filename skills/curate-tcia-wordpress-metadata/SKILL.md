@@ -60,8 +60,8 @@ If the payload is inaccessible, too large to transfer, controlled, or lacks enou
 
 Evaluate all dataset fields present in the current WordPress record, including at minimum disease/cancer type, disease/cancer location, species, imaging modality or image type, and supporting-data labels when applicable.
 
-- Disease type describes the cohort's diagnosed condition or study context, not every incidental finding or annotation class.
-- Disease location describes the disease's primary site when known. Do not substitute every body part scanned or annotated.
+- Disease type describes the cohort's diagnosed condition or study context, not every incidental finding or annotation class. Verify disease concepts against NCI Thesaurus (NCIt), including existing TCIA labels. Retain a suitable existing display label with a documented NCIt mapping; do not infer equivalence from spelling alone.
+- Disease location describes the disease's primary site when known. Verify anatomy against UBERON through its API (for example, EMBL-EBI OLS with `ontology=uberon`). Do not substitute every body part scanned or annotated, or a metastatic site for a known primary site.
 - Species must be supported by the description or subject metadata. Do not infer it from names or institutional context.
 - Use multiple labels only when the dataset genuinely contains multiple concepts; do not add broad umbrella labels merely to improve discoverability.
 
@@ -72,6 +72,10 @@ Evaluate every current or proposed download independently. Keep these concepts s
 - **File type:** the payload format. Record the transfer container separately from the contained formats; a ZIP or TCIA manifest is not automatically the format of the files it delivers.
 
 Prefer an exact existing TCIA label when it represents the same concept. Do not force a near-match that changes meaning. When no established TCIA term fits, follow [vocabulary-fallback.md](references/vocabulary-fallback.md) and label the result as a proposed new or mapped term requiring curator confirmation.
+
+For each of disease type, disease location, data category, data type, and file type, question any value that is not confirmed in the corresponding WordPress field's term registry. Published usage can establish prior use, but absence from a usage snapshot does not prove absence from the registry. Flag an unseen value as `needs curator decision`; if the registry is unavailable, also record that membership is unverified. External model membership alone never authorizes a new WordPress value.
+
+Use [labeling-guide.md](references/labeling-guide.md) for ontology/API instructions, the distinction between observed and registered labels, the curator graphic, and the machine-readable [labeling-policy.json](references/labeling-policy.json). The dated [observed label inventory](references/wordpress-label-inventory-2026-10-09.json) records prior usage, not an approved list. Refresh it from an already-installed, validated V2 bundle with `scripts/export_wordpress_label_inventory.py` when needed. Do not claim that these reference files implement live API checks in the Streamlit applications.
 
 ## Produce the report
 

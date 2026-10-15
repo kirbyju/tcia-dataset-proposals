@@ -16,6 +16,10 @@ Prefer an existing label when:
 
 Do not merge concepts merely because one contains the other's words. In particular, keep primary disease site separate from imaged anatomy, data category/download role separate from data type, and transfer container separate from payload format.
 
+For disease type and disease location, ontology verification is required even when reusing an existing label: use NCIt for diagnosed disease and the UBERON API for primary disease site. See [labeling-guide.md](labeling-guide.md) and [labeling-policy.json](labeling-policy.json) for lookup routes and evidence requirements. caDSR can clarify a data element or permissible-value domain; its CDE identifiers are not disease concept codes.
+
+Check new values in all five fields, including category, data type and file type. Published usage and WordPress registry membership are distinct: a value absent from the dated usage inventory may still be registered but unused. Question it and record `needs curator decision`; do not declare registry absence without a complete, relevant registry source. Unavailable registry evidence leaves membership unverified.
+
 ## When no TCIA label fits
 
 Consult the public source models in this order, using their current default/development branches rather than copying a stale list into this skill:

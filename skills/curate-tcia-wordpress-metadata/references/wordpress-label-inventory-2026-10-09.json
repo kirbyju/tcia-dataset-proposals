@@ -1,0 +1,4769 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-10-15T12:39:03.639091+00:00",
+  "catalog_kind": "observed published usage",
+  "approved_vocabulary": false,
+  "wordpress_registered_terms_complete": false,
+  "latest_release_verified": false,
+  "scope": "Visible Collections and Analysis Results; current downloads only; unused registered terms absent",
+  "counting_basis": {
+    "disease_fields": "distinct datasets per label",
+    "download_fields": "distinct download rows per label; multi-label counts overlap"
+  },
+  "provenance": {
+    "bundle_generated_at_utc": "2026-10-09T03:08:51.616990+00:00",
+    "release_fingerprint": "61c672d1443fc0cffac1dca1f1c1e63b1c09bc3fd6409b1d46f1d7af6f19aac2",
+    "snapshot_sqlite_sha256": "78a65e9ffe7935f04a5e15cb6af1ef683a20a7fc25c4b5023baf3f8f3aa45643",
+    "bundle_manifest_sha256": "faefd89ccffbdb5aa59f1cd9cdafae221e45fccd8dd6a193fc427521e5a4731a",
+    "local_checks": [
+      "SHA-256 matches manifest",
+      "SQLite quick_check",
+      "SQLite foreign_key_check"
+    ],
+    "visible_dataset_count": 292
+  },
+  "fields": {
+    "disease_type": [
+      {
+        "label": "Acute Myeloid Leukemia",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "AML-Cytomorphology_MLL_Helmholtz",
+            "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_mll_helmholtz/"
+          },
+          {
+            "short_title": "AML-Cytomorphology_LMU",
+            "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_lmu/"
+          },
+          {
+            "short_title": "CMB-AML",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-aml/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Adenocarcinoma",
+        "usage_count": 6,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Adenoma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "TCGA-BLCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-blca/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Adrenocortical Carcinoma",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "Adrenal-ACC-Ki67-Seg",
+            "url": "https://www.cancerimagingarchive.net/collection/adrenal-acc-ki67-seg/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Anal Cancer",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "ExACT",
+            "url": "https://www.cancerimagingarchive.net/collection/exact/"
+          },
+          {
+            "short_title": "Pelvic-Reference-Data",
+            "url": "https://www.cancerimagingarchive.net/collection/pelvic-reference-data/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Anal Squamous Cell Carcinoma",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "PDMR-Texture-Analysis",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-texture-analysis/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Astrocytoma",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "CPTAC-Glioblastoma-CODEX",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/cptac-glioblastoma-codex/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "GLIS-RT",
+            "url": "https://www.cancerimagingarchive.net/collection/glis-rt/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Bladder Cancer",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "PDMR-BL0293-F563",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-bl0293-f563/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Bladder Urothelial Carcinoma",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Brain Cancer",
+        "usage_count": 9,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "Brain-Tumor-Progression",
+            "url": "https://www.cancerimagingarchive.net/collection/brain-tumor-progression/"
+          },
+          {
+            "short_title": "Brain-TR-GammaKnife",
+            "url": "https://www.cancerimagingarchive.net/collection/brain-tr-gammaknife/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Brain Neoplasm",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "UCSD-BMETS-Longitudinal",
+            "url": "https://www.cancerimagingarchive.net/collection/ucsd-bmets-longitudinal/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Breast Cancer",
+        "usage_count": 39,
+        "examples": [
+          {
+            "short_title": "TCGA-Breast-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/"
+          },
+          {
+            "short_title": "DICOM-SR-Breast-Clinical",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-sr-breast-clinical/"
+          },
+          {
+            "short_title": "DI-Cubed-Reports",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/di-cubed-reports/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Breast Invasive Carcinoma",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          },
+          {
+            "short_title": "CMB-BRCA",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-brca/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Cervical Cancer",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "CC-Tumor-Heterogeneity",
+            "url": "https://www.cancerimagingarchive.net/collection/cc-tumor-heterogeneity/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Cervical Squamous Cell Carcinoma",
+        "usage_count": 6,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          },
+          {
+            "short_title": "MRQy-Quality-Measures",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/mrqy-quality-measures/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Childhood Malignant Glioma",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "DFCI-BCH-BWH-PEDs-HGG",
+            "url": "https://www.cancerimagingarchive.net/collection/dfci-bch-bwh-peds-hgg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Cholangiocarcinoma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Clear Cell Carcinoma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "CPTAC-CCRCC-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/cptac-ccrcc-tumor-annotations/"
+          },
+          {
+            "short_title": "CPTAC-CCRCC",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-ccrcc/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Colon Adenocarcinoma",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Colon Cancer",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "CT COLONOGRAPHY",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-colonography/"
+          },
+          {
+            "short_title": "CPTAC-COAD",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-coad/"
+          },
+          {
+            "short_title": "Spine-Mets-CT-SEG",
+            "url": "https://www.cancerimagingarchive.net/collection/spine-mets-ct-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Colorectal Cancer",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "StageII-Colorectal-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/stageii-colorectal-ct/"
+          },
+          {
+            "short_title": "CMB-CRC",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-crc/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "COVID-19 Infection (non-cancer)",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "COVID-19-AR",
+            "url": "https://www.cancerimagingarchive.net/collection/covid-19-ar/"
+          },
+          {
+            "short_title": "CT Images in COVID-19",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-images-in-covid-19/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Cutaneous Melanoma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "CPTAC-CM",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-cm/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Diffuse Glioma",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "UCSF-PDGM",
+            "url": "https://www.cancerimagingarchive.net/collection/ucsf-pdgm/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Diffuse Large B-Cell Lymphoma",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "DLBCL-Morphology",
+            "url": "https://www.cancerimagingarchive.net/collection/dlbcl-morphology/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Diffuse Midline Glioma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "DFCI-BCH-BWH-PEDs-HGG",
+            "url": "https://www.cancerimagingarchive.net/collection/dfci-bch-bwh-peds-hgg/"
+          },
+          {
+            "short_title": "BraTS-PEDs",
+            "url": "https://www.cancerimagingarchive.net/collection/brats-peds/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Ductal Adenocarcinoma",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "CPTAC-PDA-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/cptac-pda-tumor-annotations/"
+          },
+          {
+            "short_title": "CPTAC-PDA",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-pda/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Ductal Carcinoma",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "HistologyHSI-BC-Recurrence",
+            "url": "https://www.cancerimagingarchive.net/collection/histologyhsi-bc-recurrence/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Endocervical Adenocarcinoma",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          },
+          {
+            "short_title": "MRQy-Quality-Measures",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/mrqy-quality-measures/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Endometrial Carcinoma",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Epithelial Neoplasm",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "TCGA-BLCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-blca/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Esophageal Carcinoma",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "TCGA-ESCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-esca/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Ewing Sarcoma/Peripheral Primitive Neuroectodermal Tumor",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "PDMR-Texture-Analysis",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-texture-analysis/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Gastroesophageal Cancer",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "CMB-GEC",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-gec/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Gastrointestinal Stromal Tumor",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Glioblastoma",
+        "usage_count": 28,
+        "examples": [
+          {
+            "short_title": "GBM-MR-NER-Outcomes",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/gbm-mr-ner-outcomes/"
+          },
+          {
+            "short_title": "TCGA-GBM-QI-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-gbm-qi-radiogenomics/"
+          },
+          {
+            "short_title": "TCGA-GBM-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-gbm-radiogenomics/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Glioma",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "RSNA-ASNR-MICCAI-BraTS-2021",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/rsna-asnr-miccai-brats-2021/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "ICDC-Glioma",
+            "url": "https://www.cancerimagingarchive.net/collection/icdc-glioma/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Head and Neck Cancer",
+        "usage_count": 10,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "AAPM-RT-MAC",
+            "url": "https://www.cancerimagingarchive.net/collection/aapm-rt-mac/"
+          },
+          {
+            "short_title": "HNSCC-mIF-mIHC-comparison",
+            "url": "https://www.cancerimagingarchive.net/collection/hnscc-mif-mihc-comparison/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Head and Neck Carcinomas",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "Head-Neck Cetuximab",
+            "url": "https://www.cancerimagingarchive.net/collection/head-neck-cetuximab/"
+          },
+          {
+            "short_title": "QIN-HEADNECK",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-headneck/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Head and Neck Squamous Cell Carcinoma",
+        "usage_count": 13,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "CPTAC-HNSCC-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/cptac-hnscc-tumor-annotations/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Healthy Subject",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "LIDC-annot-NLST501",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/lidc-annot-nlst501/"
+          },
+          {
+            "short_title": "Pancreas-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/pancreas-ct/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Hemangioma",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "CT4Harmonization-Multicentric",
+            "url": "https://www.cancerimagingarchive.net/collection/ct4harmonization-multicentric/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Hepatic Cyst",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "CT4Harmonization-Multicentric",
+            "url": "https://www.cancerimagingarchive.net/collection/ct4harmonization-multicentric/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Hepatoblastoma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "AHEP0731-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/ahep0731-tumor-annotations/"
+          },
+          {
+            "short_title": "AHEP0731",
+            "url": "https://www.cancerimagingarchive.net/collection/ahep0731/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Hepatocellular Carcinoma",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "CODEX imaging of HCC",
+            "url": "https://www.cancerimagingarchive.net/collection/codex-imaging-of-hcc/"
+          },
+          {
+            "short_title": "HCC-TACE-Seg",
+            "url": "https://www.cancerimagingarchive.net/collection/hcc-tace-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "HER2+ Breast Cancer",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "HER2 tumor ROIs",
+            "url": "https://www.cancerimagingarchive.net/collection/her2-tumor-rois/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Hodgkin Lymphoma",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "AHOD0831-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/ahod0831-tumor-annotations/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "AHOD0831",
+            "url": "https://www.cancerimagingarchive.net/collection/ahod0831/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Kidney Cancer",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "C4KC-KiTS",
+            "url": "https://www.cancerimagingarchive.net/collection/c4kc-kits/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Kidney Chromophobe",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "TCGA-KICH",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-kich/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Kidney Renal Clear Cell Carcinoma",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "TCGA-KIRC",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-kirc/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Kidney Renal Papillary Cell Carcinoma",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "TCGA-KIRP",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-kirp/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Leukemia",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "Bone-Marrow-Cytomorphology_MLL_Helmholtz_Fraunhofer",
+            "url": "https://www.cancerimagingarchive.net/collection/bone-marrow-cytomorphology_mll_helmholtz_fraunhofer/"
+          },
+          {
+            "short_title": "C-NMC 2019",
+            "url": "https://www.cancerimagingarchive.net/collection/c-nmc-2019/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Liver Cancer",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2017",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2017/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "CT-ORG",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-org/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Low Grade Glioma",
+        "usage_count": 8,
+        "examples": [
+          {
+            "short_title": "BraTS-TCGA-LGG",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-lgg/"
+          },
+          {
+            "short_title": "TCGA-LGG-Mask",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-lgg-mask/"
+          },
+          {
+            "short_title": "DICOM-Glioma-SEG",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-glioma-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Lung Adenocarcinoma",
+        "usage_count": 11,
+        "examples": [
+          {
+            "short_title": "LUAD-CT-Survival",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/luad-ct-survival/"
+          },
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Crowds-Cure-2017",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2017/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Lung Non-Small Cell Carcinoma",
+        "usage_count": 17,
+        "examples": [
+          {
+            "short_title": "QIN-LungCT-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/qin-lungct-seg/"
+          },
+          {
+            "short_title": "RIDER-LungCT-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/rider-lungct-seg/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Lung Squamous Cell Carcinoma",
+        "usage_count": 10,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Lymphadenopathy (non-cancer)",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "CT Lymph Nodes",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Lymphoma",
+        "usage_count": 6,
+        "examples": [
+          {
+            "short_title": "CALGB50303-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/calgb50303-tumor-annotations/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "Bone-Marrow-Cytomorphology_MLL_Helmholtz_Fraunhofer",
+            "url": "https://www.cancerimagingarchive.net/collection/bone-marrow-cytomorphology_mll_helmholtz_fraunhofer/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Malignant Glioma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "QIN-BRAIN-DSC-MRI",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-brain-dsc-mri/"
+          },
+          {
+            "short_title": "REMBRANDT",
+            "url": "https://www.cancerimagingarchive.net/collection/rembrandt/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Malignant Lung Neoplasm",
+        "usage_count": 28,
+        "examples": [
+          {
+            "short_title": "DICOM-LIDC-IDRI-Nodules",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-lidc-idri-nodules/"
+          },
+          {
+            "short_title": "Radiomic-Feature-Standards",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/radiomic-feature-standards/"
+          },
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Medulloblastoma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "ACNS0332-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/acns0332-tumor-annotations/"
+          },
+          {
+            "short_title": "ACNS0332",
+            "url": "https://www.cancerimagingarchive.net/collection/acns0332/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Melanoma",
+        "usage_count": 11,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Meningioma",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Meningioma-SEG-CLASS",
+            "url": "https://www.cancerimagingarchive.net/collection/meningioma-seg-class/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Mesothelioma",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          },
+          {
+            "short_title": "Mediastinal-Lymph-Node-SEG",
+            "url": "https://www.cancerimagingarchive.net/collection/mediastinal-lymph-node-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Metastatic disease",
+        "usage_count": 12,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "SLN-Breast",
+            "url": "https://www.cancerimagingarchive.net/collection/sln-breast/"
+          },
+          {
+            "short_title": "CT-ORG",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-org/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Multiple Myeloma",
+        "usage_count": 6,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "CMB-MML",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-mml/"
+          },
+          {
+            "short_title": "MiMM_SBILab",
+            "url": "https://www.cancerimagingarchive.net/collection/mimm_sbilab/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Nasopharyngeal Cancer",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "ARAR0331-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/arar0331-tumor-annotations/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "ARAR0331",
+            "url": "https://www.cancerimagingarchive.net/collection/arar0331/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Neuroendocrine cancer (NOS)",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "PDMR-Texture-Analysis",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-texture-analysis/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Neuroendocrine Carcinoma",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Capsule-Endoscopy-SB-NET",
+            "url": "https://www.cancerimagingarchive.net/collection/capsule-endoscopy-sb-net/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Neuroendocrine Tumors (all sites)",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Capsule-Endoscopy-SB-NET",
+            "url": "https://www.cancerimagingarchive.net/collection/capsule-endoscopy-sb-net/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Non-Cancer",
+        "usage_count": 15,
+        "examples": [
+          {
+            "short_title": "A091105-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/a091105-tumor-annotations/"
+          },
+          {
+            "short_title": "EA1141",
+            "url": "https://www.cancerimagingarchive.net/collection/ea1141/"
+          },
+          {
+            "short_title": "Breast-Cancer-Screening-DBT",
+            "url": "https://www.cancerimagingarchive.net/collection/breast-cancer-screening-dbt/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Oropharyngeal Cancer",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "Oropharyngeal-Radiomics-Outcomes",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/oropharyngeal-radiomics-outcomes/"
+          },
+          {
+            "short_title": "RADCURE",
+            "url": "https://www.cancerimagingarchive.net/collection/radcure/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Osteosarcoma",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "Osteosarcoma-Tumor-Assessment",
+            "url": "https://www.cancerimagingarchive.net/collection/osteosarcoma-tumor-assessment/"
+          },
+          {
+            "short_title": "PDMR-Texture-Analysis",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-texture-analysis/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Ovarian Cancer",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2017",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2017/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "Ovarian Bevacizumab Response",
+            "url": "https://www.cancerimagingarchive.net/collection/ovarian-bevacizumab-response/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Ovarian High Grade Serous Adenocarcinoma",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "TCGA-OV-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-radiogenomics/"
+          },
+          {
+            "short_title": "TCGA-OV-Proteogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-proteogenomics/"
+          },
+          {
+            "short_title": "PTRC-HGSOC",
+            "url": "https://www.cancerimagingarchive.net/collection/ptrc-hgsoc/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Ovarian Serous Cystadenocarcinoma",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "TCGA-OV",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-ov/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Pancreas Cancer",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Pancreatic Adenocarcinoma",
+        "usage_count": 6,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          },
+          {
+            "short_title": "PDMR-292921-168-R",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-292921-168-r/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Pancreatic Cancer",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "Pancreatic-CT-CBCT-SEG",
+            "url": "https://www.cancerimagingarchive.net/collection/pancreatic-ct-cbct-seg/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Pancreatic Ductal Adenocarcinoma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "PDMR-833975-119-R",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-833975-119-r/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Pancreatic Neuroendocrine Tumor",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "CTpred-Sunitinib-panNET",
+            "url": "https://www.cancerimagingarchive.net/collection/ctpred-sunitinib-pannet/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Phantom",
+        "usage_count": 11,
+        "examples": [
+          {
+            "short_title": "CC-Radiomics-Phantom",
+            "url": "https://www.cancerimagingarchive.net/collection/cc-radiomics-phantom/"
+          },
+          {
+            "short_title": "CC-Radiomics-Phantom-2",
+            "url": "https://www.cancerimagingarchive.net/collection/cc-radiomics-phantom-2/"
+          },
+          {
+            "short_title": "CC-Radiomics-Phantom-3",
+            "url": "https://www.cancerimagingarchive.net/collection/cc-radiomics-phantom-3/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Prostate Adenocarcinoma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Prostate Cancer",
+        "usage_count": 20,
+        "examples": [
+          {
+            "short_title": "ISBI-MR-Prostate-2013",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/isbi-mr-prostate-2013/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "PCa_Bx_3Dpathology",
+            "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Rectal Adenocarcinoma",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          },
+          {
+            "short_title": "PDMR-Texture-Analysis",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-texture-analysis/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Renal Clear Cell Carcinoma",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "TCGA-KIRC-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-kirc-radiogenomics/"
+          },
+          {
+            "short_title": "Crowds-Cure-2017",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2017/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Sarcoma",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "QIN-SARCOMA",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-sarcoma/"
+          },
+          {
+            "short_title": "TCGA-SARC",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-sarc/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Skin Cancer",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "CATCH",
+            "url": "https://www.cancerimagingarchive.net/collection/catch/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Skin Cutaneous Melanoma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Small Cell Lung Cancer",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "Pretreat-MetsToBrain-Masks",
+            "url": "https://www.cancerimagingarchive.net/collection/pretreat-metstobrain-masks/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Soft Tissue Sarcoma",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "Soft-tissue-Sarcoma",
+            "url": "https://www.cancerimagingarchive.net/collection/soft-tissue-sarcoma/"
+          },
+          {
+            "short_title": "Spine-Mets-CT-SEG",
+            "url": "https://www.cancerimagingarchive.net/collection/spine-mets-ct-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Squamous Cell Carcinoma",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "CPTAC-LSCC",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-lscc/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Squamous Cell Neoplasm",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "TCGA-BLCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-blca/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Stomach Adenocarcinoma",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          },
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Thymoma",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          },
+          {
+            "short_title": "VAREPOP-APOLLO",
+            "url": "https://www.cancerimagingarchive.net/collection/varepop-apollo/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Thyroid Cancer",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          },
+          {
+            "short_title": "TCGA-THCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-thca/"
+          },
+          {
+            "short_title": "EAY131",
+            "url": "https://www.cancerimagingarchive.net/collection/eay131/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Transitional Cell Carcinoma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "TCGA-BLCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-blca/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Urothelial Papilloma",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "TCGA-BLCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-blca/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Uveal Melanoma",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          },
+          {
+            "short_title": "EAY131-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/eay131-tumor-annotations/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Various",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "Pseudo-PHI-DICOM-Data",
+            "url": "https://www.cancerimagingarchive.net/collection/pseudo-phi-dicom-data/"
+          },
+          {
+            "short_title": "GammaKnife-Hippocampal",
+            "url": "https://www.cancerimagingarchive.net/collection/gammaknife-hippocampal/"
+          },
+          {
+            "short_title": "LDCT-and-Projection-data",
+            "url": "https://www.cancerimagingarchive.net/collection/ldct-and-projection-data/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Vestibular Schwannoma (non-cancer)",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "Vestibular-Schwannoma-MC-RC",
+            "url": "https://www.cancerimagingarchive.net/collection/vestibular-schwannoma-mc-rc/"
+          },
+          {
+            "short_title": "Vestibular-Schwannoma-SEG",
+            "url": "https://www.cancerimagingarchive.net/collection/vestibular-schwannoma-seg/"
+          },
+          {
+            "short_title": "Vestibular-Schwannoma-MC-RC2",
+            "url": "https://www.cancerimagingarchive.net/collection/vestibular-schwannoma-mc-rc2/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Wilms Tumor",
+        "usage_count": 8,
+        "examples": [
+          {
+            "short_title": "AREN0533-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/aren0533-tumor-annotations/"
+          },
+          {
+            "short_title": "AREN0534-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/aren0534-tumor-annotations/"
+          },
+          {
+            "short_title": "AREN0532-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/aren0532-tumor-annotations/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      }
+    ],
+    "disease_location": [
+      {
+        "label": "Abdomen",
+        "usage_count": 10,
+        "examples": [
+          {
+            "short_title": "StageII-Colorectal-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/stageii-colorectal-ct/"
+          },
+          {
+            "short_title": "CT Lymph Nodes",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/"
+          },
+          {
+            "short_title": "PDMR-292921-168-R",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-292921-168-r/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Adrenal Gland",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Adrenal-ACC-Ki67-Seg",
+            "url": "https://www.cancerimagingarchive.net/collection/adrenal-acc-ki67-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Anus",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "ExACT",
+            "url": "https://www.cancerimagingarchive.net/collection/exact/"
+          },
+          {
+            "short_title": "Pelvic-Reference-Data",
+            "url": "https://www.cancerimagingarchive.net/collection/pelvic-reference-data/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Arm",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "PDMR-Texture-Analysis",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-texture-analysis/"
+          },
+          {
+            "short_title": "CPTAC-SAR",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-sar/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Blood",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "AML-Cytomorphology_MLL_Helmholtz",
+            "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_mll_helmholtz/"
+          },
+          {
+            "short_title": "AML-Cytomorphology_LMU",
+            "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_lmu/"
+          },
+          {
+            "short_title": "CMB-AML",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-aml/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Bone",
+        "usage_count": 8,
+        "examples": [
+          {
+            "short_title": "CMB-MML",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-mml/"
+          },
+          {
+            "short_title": "C-NMC 2019",
+            "url": "https://www.cancerimagingarchive.net/collection/c-nmc-2019/"
+          },
+          {
+            "short_title": "CT-ORG",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-org/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Bone Marrow",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "Bone-Marrow-Cytomorphology_MLL_Helmholtz_Fraunhofer",
+            "url": "https://www.cancerimagingarchive.net/collection/bone-marrow-cytomorphology_mll_helmholtz_fraunhofer/"
+          },
+          {
+            "short_title": "CPTAC-AML",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-aml/"
+          },
+          {
+            "short_title": "Spinal-Multiple-Myeloma-SEG",
+            "url": "https://www.cancerimagingarchive.net/collection/spinal-multiple-myeloma-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Brain",
+        "usage_count": 52,
+        "examples": [
+          {
+            "short_title": "GBM-MR-NER-Outcomes",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/gbm-mr-ner-outcomes/"
+          },
+          {
+            "short_title": "TCGA-GBM-QI-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-gbm-qi-radiogenomics/"
+          },
+          {
+            "short_title": "TCGA-GBM-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-gbm-radiogenomics/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Breast",
+        "usage_count": 39,
+        "examples": [
+          {
+            "short_title": "TCGA-Breast-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/"
+          },
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "DICOM-SR-Breast-Clinical",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-sr-breast-clinical/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Buttock",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "PDMR-Texture-Analysis",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-texture-analysis/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Calf",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "QIN-SARCOMA",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-sarcoma/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Chest",
+        "usage_count": 19,
+        "examples": [
+          {
+            "short_title": "QIN-LungCT-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/qin-lungct-seg/"
+          },
+          {
+            "short_title": "LUAD-CT-Survival",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/luad-ct-survival/"
+          },
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Colon",
+        "usage_count": 12,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Connective Tissue",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "A091105",
+            "url": "https://www.cancerimagingarchive.net/collection/a091105/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Craniocervical Region",
+        "usage_count": 22,
+        "examples": [
+          {
+            "short_title": "Oropharyngeal-Radiomics-Outcomes",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/oropharyngeal-radiomics-outcomes/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Elbow",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "QIN-SARCOMA",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-sarcoma/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Endometrium",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Esophagus",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "CMB-GEC",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-gec/"
+          },
+          {
+            "short_title": "TCGA-ESCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-esca/"
+          },
+          {
+            "short_title": "VAREPOP-APOLLO",
+            "url": "https://www.cancerimagingarchive.net/collection/varepop-apollo/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Eye",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Fallopian Tube",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "TP53-Precursor-Lesions",
+            "url": "https://www.cancerimagingarchive.net/collection/tp53-precursor-lesions/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Head",
+        "usage_count": 33,
+        "examples": [
+          {
+            "short_title": "Oropharyngeal-Radiomics-Outcomes",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/oropharyngeal-radiomics-outcomes/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "ACNS0332-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/acns0332-tumor-annotations/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Hypopharynx",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "HANCOCK",
+            "url": "https://www.cancerimagingarchive.net/collection/hancock/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Kidney",
+        "usage_count": 18,
+        "examples": [
+          {
+            "short_title": "TCGA-KIRC-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-kirc-radiogenomics/"
+          },
+          {
+            "short_title": "Crowds-Cure-2017",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2017/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Knee",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "QIN-SARCOMA",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-sarcoma/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Larynx",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "HANCOCK",
+            "url": "https://www.cancerimagingarchive.net/collection/hancock/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Leg",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "QIN-SARCOMA",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-sarcoma/"
+          },
+          {
+            "short_title": "TCGA-SARC",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-sarc/"
+          },
+          {
+            "short_title": "CPTAC-SAR",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-sar/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Limb",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "Soft-tissue-Sarcoma",
+            "url": "https://www.cancerimagingarchive.net/collection/soft-tissue-sarcoma/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Liver",
+        "usage_count": 12,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2017",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2017/"
+          },
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          },
+          {
+            "short_title": "AHEP0731-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/ahep0731-tumor-annotations/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Lumbar Region of Vertebral Column",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Spinal-Multiple-Myeloma-SEG",
+            "url": "https://www.cancerimagingarchive.net/collection/spinal-multiple-myeloma-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Lung",
+        "usage_count": 43,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Lymph Node",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "DLBCL-Morphology",
+            "url": "https://www.cancerimagingarchive.net/collection/dlbcl-morphology/"
+          },
+          {
+            "short_title": "Mediastinal-Lymph-Node-SEG",
+            "url": "https://www.cancerimagingarchive.net/collection/mediastinal-lymph-node-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Lymphoid System",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "FDG-PET-CT-Lesions",
+            "url": "https://www.cancerimagingarchive.net/collection/fdg-pet-ct-lesions/"
+          },
+          {
+            "short_title": "AHOD0831",
+            "url": "https://www.cancerimagingarchive.net/collection/ahod0831/"
+          },
+          {
+            "short_title": "CALGB50303",
+            "url": "https://www.cancerimagingarchive.net/collection/calgb50303/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Mediastinum",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "CT Lymph Nodes",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Myometrium",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "PDMR-Texture-Analysis",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-texture-analysis/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Neck",
+        "usage_count": 22,
+        "examples": [
+          {
+            "short_title": "Oropharyngeal-Radiomics-Outcomes",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/oropharyngeal-radiomics-outcomes/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Oral Cavity",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "HANCOCK",
+            "url": "https://www.cancerimagingarchive.net/collection/hancock/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Oropharynx",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "HANCOCK",
+            "url": "https://www.cancerimagingarchive.net/collection/hancock/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Ovary",
+        "usage_count": 8,
+        "examples": [
+          {
+            "short_title": "TCGA-OV-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-radiogenomics/"
+          },
+          {
+            "short_title": "Crowds-Cure-2017",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2017/"
+          },
+          {
+            "short_title": "TCGA-OV-Proteogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-proteogenomics/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Pancreas",
+        "usage_count": 11,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Pelvis",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "StageII-Colorectal-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/stageii-colorectal-ct/"
+          },
+          {
+            "short_title": "Pelvic-Reference-Data",
+            "url": "https://www.cancerimagingarchive.net/collection/pelvic-reference-data/"
+          },
+          {
+            "short_title": "TCGA-SARC",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-sarc/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Phantom",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "CC-Radiomics-Phantom-2",
+            "url": "https://www.cancerimagingarchive.net/collection/cc-radiomics-phantom-2/"
+          },
+          {
+            "short_title": "QIBA CT-1C",
+            "url": "https://www.cancerimagingarchive.net/collection/qiba-ct-1c/"
+          },
+          {
+            "short_title": "QIN PET Phantom",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-pet-phantom/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Prostate Gland",
+        "usage_count": 20,
+        "examples": [
+          {
+            "short_title": "ISBI-MR-Prostate-2013",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/isbi-mr-prostate-2013/"
+          },
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "PROSTATEx-Seg-HiRes",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/prostatex-seg-hires/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Rectum",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          },
+          {
+            "short_title": "PDMR-Texture-Analysis",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-texture-analysis/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Retroperitoneal Space",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "CPTAC-SAR",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-sar/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Scapula",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "PDMR-Texture-Analysis",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-texture-analysis/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Shoulder",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "QIN-SARCOMA",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-sarcoma/"
+          },
+          {
+            "short_title": "PDMR-Texture-Analysis",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-texture-analysis/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Skin of Body",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Small Intestine",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Capsule-Endoscopy-SB-NET",
+            "url": "https://www.cancerimagingarchive.net/collection/capsule-endoscopy-sb-net/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Spinal Cord",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Meningioma-SEG-CLASS",
+            "url": "https://www.cancerimagingarchive.net/collection/meningioma-seg-class/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Stomach",
+        "usage_count": 6,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          },
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Thigh",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "QIN-SARCOMA",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-sarcoma/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Thoracic Region of Vertebral Column",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "TCGA-SARC",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-sarc/"
+          },
+          {
+            "short_title": "Spinal-Multiple-Myeloma-SEG",
+            "url": "https://www.cancerimagingarchive.net/collection/spinal-multiple-myeloma-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Thymus Gland",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "VAREPOP-APOLLO",
+            "url": "https://www.cancerimagingarchive.net/collection/varepop-apollo/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Thyroid Gland",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "TCGA-THCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-thca/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Urinary Bladder",
+        "usage_count": 8,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Uterine Cervix",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "MRQy-Quality-Measures",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/mrqy-quality-measures/"
+          },
+          {
+            "short_title": "CC-Tumor-Heterogeneity",
+            "url": "https://www.cancerimagingarchive.net/collection/cc-tumor-heterogeneity/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Uterine corpus",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Uterus",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          },
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          },
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Various",
+        "usage_count": 9,
+        "examples": [
+          {
+            "short_title": "AHOD0831-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/ahod0831-tumor-annotations/"
+          },
+          {
+            "short_title": "CALGB50303-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/calgb50303-tumor-annotations/"
+          },
+          {
+            "short_title": "A091105-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/a091105-tumor-annotations/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Vertebral Column",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Spinal-Multiple-Myeloma-SEG",
+            "url": "https://www.cancerimagingarchive.net/collection/spinal-multiple-myeloma-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Whole body",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Healthy-Total-Body-CTs",
+            "url": "https://www.cancerimagingarchive.net/collection/healthy-total-body-cts/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      }
+    ],
+    "data_category": [
+      {
+        "label": "Clinical Data",
+        "usage_count": 106,
+        "examples": [
+          {
+            "short_title": "PCa_Bx_3Dpathology",
+            "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/",
+            "download_title": "Clinical data"
+          },
+          {
+            "short_title": "EA1141",
+            "url": "https://www.cancerimagingarchive.net/collection/ea1141/",
+            "download_title": "Clinical data"
+          },
+          {
+            "short_title": "ACRIN-Contralateral-Breast-MR",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-contralateral-breast-mr/",
+            "download_title": "Clinical Data"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Image Annotations",
+        "usage_count": 119,
+        "examples": [
+          {
+            "short_title": "AAPM-RT-MAC",
+            "url": "https://www.cancerimagingarchive.net/collection/aapm-rt-mac/",
+            "download_title": "Images and Radiation Therapy Structures"
+          },
+          {
+            "short_title": "ACRIN-DSC-MR-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-dsc-mr-brain/",
+            "download_title": "Clinical"
+          },
+          {
+            "short_title": "ACRIN-6698",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-6698/",
+            "download_title": "Full Collection Ancillary Patient Information file"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Other",
+        "usage_count": 130,
+        "examples": [
+          {
+            "short_title": "Pseudo-PHI-DICOM-Data",
+            "url": "https://www.cancerimagingarchive.net/collection/pseudo-phi-dicom-data/",
+            "download_title": "Patient Mapping"
+          },
+          {
+            "short_title": "Pseudo-PHI-DICOM-Data",
+            "url": "https://www.cancerimagingarchive.net/collection/pseudo-phi-dicom-data/",
+            "download_title": "UID Mapping"
+          },
+          {
+            "short_title": "AML-Cytomorphology_LMU",
+            "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_lmu/",
+            "download_title": "Abbreviations"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Pathology Images",
+        "usage_count": 60,
+        "examples": [
+          {
+            "short_title": "PCa_Bx_3Dpathology",
+            "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "Ovarian Bevacizumab Response",
+            "url": "https://www.cancerimagingarchive.net/collection/ovarian-bevacizumab-response/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "HNSCC-mIF-mIHC-comparison",
+            "url": "https://www.cancerimagingarchive.net/collection/hnscc-mif-mihc-comparison/",
+            "download_title": "Tissue Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Radiology Images",
+        "usage_count": 246,
+        "examples": [
+          {
+            "short_title": "AAPM-RT-MAC",
+            "url": "https://www.cancerimagingarchive.net/collection/aapm-rt-mac/",
+            "download_title": "Images and Radiation Therapy Structures"
+          },
+          {
+            "short_title": "EA1141",
+            "url": "https://www.cancerimagingarchive.net/collection/ea1141/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "StageII-Colorectal-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/stageii-colorectal-ct/",
+            "download_title": "Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      }
+    ],
+    "data_type": [
+      {
+        "label": "Acquisition Metadata",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "UCSD-BMETS-Longitudinal",
+            "url": "https://www.cancerimagingarchive.net/collection/ucsd-bmets-longitudinal/",
+            "download_title": "MRI Metadata dictionary"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Capsule Endoscopy",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Capsule-Endoscopy-SB-NET",
+            "url": "https://www.cancerimagingarchive.net/collection/capsule-endoscopy-sb-net/",
+            "download_title": "Capsule Endoscopy excerpts of small intestine with abnormalities"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Classification",
+        "usage_count": 71,
+        "examples": [
+          {
+            "short_title": "ACRIN-HNSCC-FDG-PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-hnscc-fdg-pet-ct/",
+            "download_title": "Clinical Data, file set 1"
+          },
+          {
+            "short_title": "ACRIN-HNSCC-FDG-PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-hnscc-fdg-pet-ct/",
+            "download_title": "Clinical Data, file set 2"
+          },
+          {
+            "short_title": "ACRIN-6698",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-6698/",
+            "download_title": "Full Collection Ancillary Patient Information file"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "CODEX images",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "CRC_FFPE-CODEX_CellNeighs",
+            "url": "https://www.cancerimagingarchive.net/collection/crc_ffpe-codex_cellneighs/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "CODEX imaging of HCC",
+            "url": "https://www.cancerimagingarchive.net/collection/codex-imaging-of-hcc/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "CPTAC-Glioblastoma-CODEX",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/cptac-glioblastoma-codex/",
+            "download_title": "Histopathology Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "CR",
+        "usage_count": 21,
+        "examples": [
+          {
+            "short_title": "ACRIN-Contralateral-Breast-MR",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-contralateral-breast-mr/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "ACRIN-NSCLC-FDG-PET",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-nsclc-fdg-pet/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "Pseudo-PHI-DICOM-Data",
+            "url": "https://www.cancerimagingarchive.net/collection/pseudo-phi-dicom-data/",
+            "download_title": "Images - Evaluation dataset"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "CT",
+        "usage_count": 162,
+        "examples": [
+          {
+            "short_title": "EA1141",
+            "url": "https://www.cancerimagingarchive.net/collection/ea1141/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "StageII-Colorectal-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/stageii-colorectal-ct/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "ACRIN-DSC-MR-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-dsc-mr-brain/",
+            "download_title": "Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Data Dictionary",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "UCSD-BMETS-Longitudinal",
+            "url": "https://www.cancerimagingarchive.net/collection/ucsd-bmets-longitudinal/",
+            "download_title": "Clinical Data Dictionary"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Demographic",
+        "usage_count": 92,
+        "examples": [
+          {
+            "short_title": "EA1141",
+            "url": "https://www.cancerimagingarchive.net/collection/ea1141/",
+            "download_title": "Clinical data"
+          },
+          {
+            "short_title": "ACRIN-Contralateral-Breast-MR",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-contralateral-breast-mr/",
+            "download_title": "Clinical Data"
+          },
+          {
+            "short_title": "ACRIN-DSC-MR-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-dsc-mr-brain/",
+            "download_title": "Clinical"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Diagnosis",
+        "usage_count": 77,
+        "examples": [
+          {
+            "short_title": "ACRIN-Contralateral-Breast-MR",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-contralateral-breast-mr/",
+            "download_title": "Clinical Data"
+          },
+          {
+            "short_title": "ACRIN-DSC-MR-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-dsc-mr-brain/",
+            "download_title": "Clinical"
+          },
+          {
+            "short_title": "ACRIN-FMISO-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-fmiso-brain/",
+            "download_title": "Clinical"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "DX",
+        "usage_count": 20,
+        "examples": [
+          {
+            "short_title": "ACRIN-NSCLC-FDG-PET",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-nsclc-fdg-pet/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "Pseudo-PHI-DICOM-Data",
+            "url": "https://www.cancerimagingarchive.net/collection/pseudo-phi-dicom-data/",
+            "download_title": "Images - Evaluation dataset"
+          },
+          {
+            "short_title": "Pseudo-PHI-DICOM-Data",
+            "url": "https://www.cancerimagingarchive.net/collection/pseudo-phi-dicom-data/",
+            "download_title": "Images - De-identified dataset"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Exposure",
+        "usage_count": 11,
+        "examples": [
+          {
+            "short_title": "Ovarian Bevacizumab Response",
+            "url": "https://www.cancerimagingarchive.net/collection/ovarian-bevacizumab-response/",
+            "download_title": "Clinical data: Final patient list"
+          },
+          {
+            "short_title": "Lung-PET-CT-Dx",
+            "url": "https://www.cancerimagingarchive.net/collection/lung-pet-ct-dx/",
+            "download_title": "Clinical Data"
+          },
+          {
+            "short_title": "RADCURE",
+            "url": "https://www.cancerimagingarchive.net/collection/radcure/",
+            "download_title": "Clinical data"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Family History",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "CT COLONOGRAPHY",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-colonography/",
+            "download_title": "Clinical Data"
+          },
+          {
+            "short_title": "QIN-HEADNECK",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-headneck/",
+            "download_title": "Clinical Data (See also Detailed Description)"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Fiducial",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "ACNS0332-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/acns0332-tumor-annotations/",
+            "download_title": "ACNS0332 Annotations -- Segmentations, Seed Points, and Negative Findings Assessments"
+          },
+          {
+            "short_title": "CPTAC-CCRCC-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/cptac-ccrcc-tumor-annotations/",
+            "download_title": "CPTAC-CCRCC Annotations - Segmentations, Seed Points, and Negative Findings Assessments"
+          },
+          {
+            "short_title": "CPTAC-PDA-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/cptac-pda-tumor-annotations/",
+            "download_title": "CPTAC-PDA Annotations - Segmentations, Seed Points, and Negative Findings Assessments"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Follow-Up",
+        "usage_count": 73,
+        "examples": [
+          {
+            "short_title": "PCa_Bx_3Dpathology",
+            "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/",
+            "download_title": "Clinical data"
+          },
+          {
+            "short_title": "EA1141",
+            "url": "https://www.cancerimagingarchive.net/collection/ea1141/",
+            "download_title": "Clinical data"
+          },
+          {
+            "short_title": "ACRIN-DSC-MR-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-dsc-mr-brain/",
+            "download_title": "Clinical"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Histopathology",
+        "usage_count": 62,
+        "examples": [
+          {
+            "short_title": "PCa_Bx_3Dpathology",
+            "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "Ovarian Bevacizumab Response",
+            "url": "https://www.cancerimagingarchive.net/collection/ovarian-bevacizumab-response/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "HNSCC-mIF-mIHC-comparison",
+            "url": "https://www.cancerimagingarchive.net/collection/hnscc-mif-mihc-comparison/",
+            "download_title": "Tissue Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Hyperspectral",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "HistologyHSI-BC-Recurrence",
+            "url": "https://www.cancerimagingarchive.net/collection/histologyhsi-bc-recurrence/",
+            "download_title": "Histopathology Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Immunofluorescence",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "PCa_Bx_3Dpathology",
+            "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "HNSCC-mIF-mIHC-comparison",
+            "url": "https://www.cancerimagingarchive.net/collection/hnscc-mif-mihc-comparison/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "AURORA-Metastatic-Breast-Multiomics",
+            "url": "https://www.cancerimagingarchive.net/collection/aurora-metastatic-breast-multiomics/",
+            "download_title": "Histopathology Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Immunohistochemistry",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "HNSCC-mIF-mIHC-comparison",
+            "url": "https://www.cancerimagingarchive.net/collection/hnscc-mif-mihc-comparison/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "DLBCL-Morphology",
+            "url": "https://www.cancerimagingarchive.net/collection/dlbcl-morphology/",
+            "download_title": "Clinical data"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "KO",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "QIN Breast DCE-MRI",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-breast-dce-mri/",
+            "download_title": "DICOM MR (and Matlab and NIfTI as DICOM-KO)"
+          },
+          {
+            "short_title": "QIN Breast DCE-MRI",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-breast-dce-mri/",
+            "download_title": "Matlab as KO Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Measurement",
+        "usage_count": 86,
+        "examples": [
+          {
+            "short_title": "ACRIN-DSC-MR-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-dsc-mr-brain/",
+            "download_title": "Clinical"
+          },
+          {
+            "short_title": "ACRIN-FMISO-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-fmiso-brain/",
+            "download_title": "Clinical"
+          },
+          {
+            "short_title": "ACRIN-HNSCC-FDG-PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-hnscc-fdg-pet-ct/",
+            "download_title": "Clinical Data, file set 1"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "MG",
+        "usage_count": 17,
+        "examples": [
+          {
+            "short_title": "EA1141",
+            "url": "https://www.cancerimagingarchive.net/collection/ea1141/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "Pseudo-PHI-DICOM-Data",
+            "url": "https://www.cancerimagingarchive.net/collection/pseudo-phi-dicom-data/",
+            "download_title": "Images - Evaluation dataset"
+          },
+          {
+            "short_title": "Pseudo-PHI-DICOM-Data",
+            "url": "https://www.cancerimagingarchive.net/collection/pseudo-phi-dicom-data/",
+            "download_title": "Images - De-identified dataset"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Molecular Test",
+        "usage_count": 37,
+        "examples": [
+          {
+            "short_title": "ACRIN-6698",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-6698/",
+            "download_title": "Full Collection Ancillary Patient Information file"
+          },
+          {
+            "short_title": "Post-NAT-BRCA",
+            "url": "https://www.cancerimagingarchive.net/collection/post-nat-brca/",
+            "download_title": "Annotations"
+          },
+          {
+            "short_title": "BREAST-DIAGNOSIS",
+            "url": "https://www.cancerimagingarchive.net/collection/breast-diagnosis/",
+            "download_title": "Clinical, pathology, radiologist reports"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "MR",
+        "usage_count": 152,
+        "examples": [
+          {
+            "short_title": "AAPM-RT-MAC",
+            "url": "https://www.cancerimagingarchive.net/collection/aapm-rt-mac/",
+            "download_title": "Images and Radiation Therapy Structures"
+          },
+          {
+            "short_title": "EA1141",
+            "url": "https://www.cancerimagingarchive.net/collection/ea1141/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "ACRIN-Contralateral-Breast-MR",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-contralateral-breast-mr/",
+            "download_title": "Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Multiphoton",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "HE-vs-MPM",
+            "url": "https://www.cancerimagingarchive.net/collection/he-vs-mpm/",
+            "download_title": "Tissue Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Multispectral Imaging",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "HNSCC-mIF-mIHC-comparison",
+            "url": "https://www.cancerimagingarchive.net/collection/hnscc-mif-mihc-comparison/",
+            "download_title": "Tissue Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "NM",
+        "usage_count": 13,
+        "examples": [
+          {
+            "short_title": "ACRIN-HNSCC-FDG-PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-hnscc-fdg-pet-ct/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "ACRIN-NSCLC-FDG-PET",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-nsclc-fdg-pet/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "S0819",
+            "url": "https://www.cancerimagingarchive.net/collection/s0819/",
+            "download_title": "Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "OT",
+        "usage_count": 8,
+        "examples": [
+          {
+            "short_title": "ACRIN-FLT-Breast",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-flt-breast/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "AHOD0831",
+            "url": "https://www.cancerimagingarchive.net/collection/ahod0831/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "AREN0534",
+            "url": "https://www.cancerimagingarchive.net/collection/aren0534/",
+            "download_title": "Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Other",
+        "usage_count": 128,
+        "examples": [
+          {
+            "short_title": "PCa_Bx_3Dpathology",
+            "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "EA1141",
+            "url": "https://www.cancerimagingarchive.net/collection/ea1141/",
+            "download_title": "Clinical data"
+          },
+          {
+            "short_title": "ACRIN-Contralateral-Breast-MR",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-contralateral-breast-mr/",
+            "download_title": "Clinical Data"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Pathology Detail",
+        "usage_count": 9,
+        "examples": [
+          {
+            "short_title": "Lung-PET-CT-Dx",
+            "url": "https://www.cancerimagingarchive.net/collection/lung-pet-ct-dx/",
+            "download_title": "Clinical Data"
+          },
+          {
+            "short_title": "BREAST-DIAGNOSIS",
+            "url": "https://www.cancerimagingarchive.net/collection/breast-diagnosis/",
+            "download_title": "Clinical, pathology, radiologist reports"
+          },
+          {
+            "short_title": "CATCH",
+            "url": "https://www.cancerimagingarchive.net/collection/catch/",
+            "download_title": "Annotations"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Photomicrograph",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "Bone-Marrow-Cytomorphology_MLL_Helmholtz_Fraunhofer",
+            "url": "https://www.cancerimagingarchive.net/collection/bone-marrow-cytomorphology_mll_helmholtz_fraunhofer/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "AML-Cytomorphology_LMU",
+            "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_lmu/",
+            "download_title": "Tissue Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "PR",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "QIBA CT-1C",
+            "url": "https://www.cancerimagingarchive.net/collection/qiba-ct-1c/",
+            "download_title": "Images and Segmentations"
+          },
+          {
+            "short_title": "QIBA-VolCT-1B",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/qiba-volct-1b/",
+            "download_title": "Segmentations and Reports"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Protocol",
+        "usage_count": 21,
+        "examples": [
+          {
+            "short_title": "CC-Radiomics-Phantom-3",
+            "url": "https://www.cancerimagingarchive.net/collection/cc-radiomics-phantom-3/",
+            "download_title": "Acquisition & reconstruction settings"
+          },
+          {
+            "short_title": "Head-Neck Cetuximab",
+            "url": "https://www.cancerimagingarchive.net/collection/head-neck-cetuximab/",
+            "download_title": "Head-Neck Cetuximab (RTOG 0522) Trial Protocol"
+          },
+          {
+            "short_title": "PDMR-997537-175-T",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-997537-175-t/",
+            "download_title": "Standard Operating Procedure 50101 MRI T2 Weighted Non-Contrast Protocol Single Mouse Pulmonary Gated and Multi-Mouse Non-Gated"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "PT",
+        "usage_count": 71,
+        "examples": [
+          {
+            "short_title": "ACRIN-FMISO-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-fmiso-brain/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "ACRIN-HNSCC-FDG-PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-hnscc-fdg-pet-ct/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "ACRIN-FLT-Breast",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-flt-breast/",
+            "download_title": "Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Radiomic Feature",
+        "usage_count": 31,
+        "examples": [
+          {
+            "short_title": "Breast-Lesions-USG",
+            "url": "https://www.cancerimagingarchive.net/collection/breast-lesions-usg/",
+            "download_title": "Clinical data"
+          },
+          {
+            "short_title": "Lung-PET-CT-Dx",
+            "url": "https://www.cancerimagingarchive.net/collection/lung-pet-ct-dx/",
+            "download_title": "Annotation Box Files"
+          },
+          {
+            "short_title": "Breast-Cancer-Screening-DBT",
+            "url": "https://www.cancerimagingarchive.net/collection/breast-cancer-screening-dbt/",
+            "download_title": "Validation set - Boxes indicating lesion locations"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "REG",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "CC-Tumor-Heterogeneity",
+            "url": "https://www.cancerimagingarchive.net/collection/cc-tumor-heterogeneity/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "GammaKnife-Hippocampal",
+            "url": "https://www.cancerimagingarchive.net/collection/gammaknife-hippocampal/",
+            "download_title": "Images and Radiation Therapy Structures/Doses/Plans"
+          },
+          {
+            "short_title": "GLIS-RT",
+            "url": "https://www.cancerimagingarchive.net/collection/glis-rt/",
+            "download_title": "Images, Image Registrations, and Radiation Therapy Structures"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "RF",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "CMB-PCA",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-pca/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "VAREPOP-APOLLO",
+            "url": "https://www.cancerimagingarchive.net/collection/varepop-apollo/",
+            "download_title": "Radiology Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "RTDOSE",
+        "usage_count": 16,
+        "examples": [
+          {
+            "short_title": "Brain-TR-GammaKnife",
+            "url": "https://www.cancerimagingarchive.net/collection/brain-tr-gammaknife/",
+            "download_title": "Images, Segmentations, Radiation Therapy Structures/Doses"
+          },
+          {
+            "short_title": "Brain-TR-GammaKnife",
+            "url": "https://www.cancerimagingarchive.net/collection/brain-tr-gammaknife/",
+            "download_title": "Images, Segmentations, Radiation Therapy Structures/Doses"
+          },
+          {
+            "short_title": "Pancreatic-CT-CBCT-SEG",
+            "url": "https://www.cancerimagingarchive.net/collection/pancreatic-ct-cbct-seg/",
+            "download_title": "Images and Radiation Therapy Structures"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "RTIMAGE",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "ARAR0331",
+            "url": "https://www.cancerimagingarchive.net/collection/arar0331/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "AREN0532",
+            "url": "https://www.cancerimagingarchive.net/collection/aren0532/",
+            "download_title": "Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "RTPLAN",
+        "usage_count": 11,
+        "examples": [
+          {
+            "short_title": "Burdenko-GBM-Progression",
+            "url": "https://www.cancerimagingarchive.net/collection/burdenko-gbm-progression/",
+            "download_title": "Images and Radiation Therapy Structures/Doses/Plans"
+          },
+          {
+            "short_title": "GammaKnife-Hippocampal",
+            "url": "https://www.cancerimagingarchive.net/collection/gammaknife-hippocampal/",
+            "download_title": "Images and Radiation Therapy Structures/Doses/Plans"
+          },
+          {
+            "short_title": "Head-Neck Cetuximab",
+            "url": "https://www.cancerimagingarchive.net/collection/head-neck-cetuximab/",
+            "download_title": "Images and Radiation Therapy Structures"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "RTSTRUCT",
+        "usage_count": 51,
+        "examples": [
+          {
+            "short_title": "AAPM-RT-MAC",
+            "url": "https://www.cancerimagingarchive.net/collection/aapm-rt-mac/",
+            "download_title": "Images and Radiation Therapy Structures"
+          },
+          {
+            "short_title": "Soft-tissue-Sarcoma",
+            "url": "https://www.cancerimagingarchive.net/collection/soft-tissue-sarcoma/",
+            "download_title": "Images and Radiation Therapy Structures"
+          },
+          {
+            "short_title": "Brain-TR-GammaKnife",
+            "url": "https://www.cancerimagingarchive.net/collection/brain-tr-gammaknife/",
+            "download_title": "Images, Segmentations, Radiation Therapy Structures/Doses"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "RWV",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "CT-vs-PET-Ventilation-Imaging",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-vs-pet-ventilation-imaging/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "QIN-HEADNECK",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-headneck/",
+            "download_title": "Images and Segmentations"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "SC",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "ACRIN-NSCLC-FDG-PET",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-nsclc-fdg-pet/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "Anti-PD-1_Lung",
+            "url": "https://www.cancerimagingarchive.net/collection/anti-pd-1_lung/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "S0819",
+            "url": "https://www.cancerimagingarchive.net/collection/s0819/",
+            "download_title": "Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "SEG",
+        "usage_count": 48,
+        "examples": [
+          {
+            "short_title": "ACRIN-6698",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-6698/",
+            "download_title": "Images and Segmentations"
+          },
+          {
+            "short_title": "ACRIN-6698",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-6698/",
+            "download_title": "ACRIN 6698 Primary Analysis Subgroup"
+          },
+          {
+            "short_title": "ACRIN-6698",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-6698/",
+            "download_title": "ACRIN 6698 Test-retest set"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Segmentation",
+        "usage_count": 52,
+        "examples": [
+          {
+            "short_title": "Breast-Lesions-USG",
+            "url": "https://www.cancerimagingarchive.net/collection/breast-lesions-usg/",
+            "download_title": "Images and segmentations"
+          },
+          {
+            "short_title": "CT Lymph Nodes",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/",
+            "download_title": "Mediastinal and Abdomen Lymph Masks"
+          },
+          {
+            "short_title": "Brain-TR-GammaKnife",
+            "url": "https://www.cancerimagingarchive.net/collection/brain-tr-gammaknife/",
+            "download_title": "Images, Segmentations, Radiation Therapy Structures/Doses"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Single-cell Image",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "AML-Cytomorphology_MLL_Helmholtz",
+            "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_mll_helmholtz/",
+            "download_title": "Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "SR",
+        "usage_count": 23,
+        "examples": [
+          {
+            "short_title": "PDMR-997537-175-T",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-997537-175-t/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "PDMR-292921-168-R",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-292921-168-r/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "PDMR-521955-158-R4",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-521955-158-r4/",
+            "download_title": "Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Tissue Microarray",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "DLBCL-Morphology",
+            "url": "https://www.cancerimagingarchive.net/collection/dlbcl-morphology/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "NLST",
+            "url": "https://www.cancerimagingarchive.net/collection/nlst/",
+            "download_title": "Tissue Slide Images - Primary Tumor"
+          },
+          {
+            "short_title": "NLST",
+            "url": "https://www.cancerimagingarchive.net/collection/nlst/",
+            "download_title": "Histopathology additional slide images for which the participants have no Baseline Questionnaire data"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Treatment",
+        "usage_count": 43,
+        "examples": [
+          {
+            "short_title": "ACRIN-FMISO-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-fmiso-brain/",
+            "download_title": "Clinical"
+          },
+          {
+            "short_title": "ACRIN-HNSCC-FDG-PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-hnscc-fdg-pet-ct/",
+            "download_title": "Clinical Data, file set 1"
+          },
+          {
+            "short_title": "ACRIN-HNSCC-FDG-PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-hnscc-fdg-pet-ct/",
+            "download_title": "Clinical Data, file set 2"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "US",
+        "usage_count": 21,
+        "examples": [
+          {
+            "short_title": "Breast-Lesions-USG",
+            "url": "https://www.cancerimagingarchive.net/collection/breast-lesions-usg/",
+            "download_title": "Images and segmentations"
+          },
+          {
+            "short_title": "CMB-CRC",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-crc/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "CMB-LCA",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-lca/",
+            "download_title": "Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Whole Mount Tissue",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "Prostate Fused-MRI-Pathology",
+            "url": "https://www.cancerimagingarchive.net/collection/prostate-fused-mri-pathology/",
+            "download_title": "Annotated Whole Slide Pathology Images & Annotations"
+          },
+          {
+            "short_title": "NADT-Prostate",
+            "url": "https://www.cancerimagingarchive.net/collection/nadt-prostate/",
+            "download_title": "Tissue Slide Images from Biopsy Tissue"
+          },
+          {
+            "short_title": "PROSTATE-MRI",
+            "url": "https://www.cancerimagingarchive.net/collection/prostate-mri/",
+            "download_title": "Histopathology Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "Whole Slide Image",
+        "usage_count": 44,
+        "examples": [
+          {
+            "short_title": "Ovarian Bevacizumab Response",
+            "url": "https://www.cancerimagingarchive.net/collection/ovarian-bevacizumab-response/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "Post-NAT-BRCA",
+            "url": "https://www.cancerimagingarchive.net/collection/post-nat-brca/",
+            "download_title": "Slide Images"
+          },
+          {
+            "short_title": "SLN-Breast",
+            "url": "https://www.cancerimagingarchive.net/collection/sln-breast/",
+            "download_title": "Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "XA",
+        "usage_count": 6,
+        "examples": [
+          {
+            "short_title": "CMB-AML",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-aml/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "CMB-CRC",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-crc/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "CMB-MML",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-mml/",
+            "download_title": "Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      }
+    ],
+    "file_type": [
+      {
+        "label": "BMP",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "C-NMC 2019",
+            "url": "https://www.cancerimagingarchive.net/collection/c-nmc-2019/",
+            "download_title": "Slide Images"
+          },
+          {
+            "short_title": "MiMM_SBILab",
+            "url": "https://www.cancerimagingarchive.net/collection/mimm_sbilab/",
+            "download_title": "Slide Images"
+          },
+          {
+            "short_title": "SN-AM",
+            "url": "https://www.cancerimagingarchive.net/collection/sn-am/",
+            "download_title": "Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "BVAL",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "UCSF-PDGM",
+            "url": "https://www.cancerimagingarchive.net/collection/ucsf-pdgm/",
+            "download_title": "bval file"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "BVEC",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "UCSF-PDGM",
+            "url": "https://www.cancerimagingarchive.net/collection/ucsf-pdgm/",
+            "download_title": "Images and Annotations"
+          },
+          {
+            "short_title": "UCSF-PDGM",
+            "url": "https://www.cancerimagingarchive.net/collection/ucsf-pdgm/",
+            "download_title": "bvec file"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "CSV",
+        "usage_count": 115,
+        "examples": [
+          {
+            "short_title": "PCa_Bx_3Dpathology",
+            "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/",
+            "download_title": "Clinical data"
+          },
+          {
+            "short_title": "EA1141",
+            "url": "https://www.cancerimagingarchive.net/collection/ea1141/",
+            "download_title": "Clinical data"
+          },
+          {
+            "short_title": "ACRIN-Contralateral-Breast-MR",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-contralateral-breast-mr/",
+            "download_title": "Clinical Data"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "DAT",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "AML-Cytomorphology_LMU",
+            "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_lmu/",
+            "download_title": "Annotations"
+          },
+          {
+            "short_title": "Hungarian-Colorectal-Screening",
+            "url": "https://www.cancerimagingarchive.net/collection/hungarian-colorectal-screening/",
+            "download_title": "Tissue Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "DICOM",
+        "usage_count": 254,
+        "examples": [
+          {
+            "short_title": "AAPM-RT-MAC",
+            "url": "https://www.cancerimagingarchive.net/collection/aapm-rt-mac/",
+            "download_title": "Images and Radiation Therapy Structures"
+          },
+          {
+            "short_title": "EA1141",
+            "url": "https://www.cancerimagingarchive.net/collection/ea1141/",
+            "download_title": "Images"
+          },
+          {
+            "short_title": "StageII-Colorectal-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/stageii-colorectal-ct/",
+            "download_title": "Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "DOC",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "RIDER PHANTOM PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/rider-phantom-pet-ct/",
+            "download_title": "Annotation Data"
+          },
+          {
+            "short_title": "NLST",
+            "url": "https://www.cancerimagingarchive.net/collection/nlst/",
+            "download_title": "Clinical data including data dictionaries"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "DOCX",
+        "usage_count": 11,
+        "examples": [
+          {
+            "short_title": "Brain-TR-GammaKnife",
+            "url": "https://www.cancerimagingarchive.net/collection/brain-tr-gammaknife/",
+            "download_title": "Clinical Data Name Glossary"
+          },
+          {
+            "short_title": "Brain-TR-GammaKnife",
+            "url": "https://www.cancerimagingarchive.net/collection/brain-tr-gammaknife/",
+            "download_title": "Clinical Data Column Description"
+          },
+          {
+            "short_title": "CDD-CESM",
+            "url": "https://www.cancerimagingarchive.net/collection/cdd-cesm/",
+            "download_title": "Medical Radiology Reports"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "ENVI",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "HistologyHSI-GB",
+            "url": "https://www.cancerimagingarchive.net/collection/histologyhsi-gb/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "HistologyHSI-BC-Recurrence",
+            "url": "https://www.cancerimagingarchive.net/collection/histologyhsi-bc-recurrence/",
+            "download_title": "Histopathology Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "GeoJSON",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "HistologyHSI-BC-Recurrence",
+            "url": "https://www.cancerimagingarchive.net/collection/histologyhsi-bc-recurrence/",
+            "download_title": "Histopathology Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "HDF5",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "PCa_Bx_3Dpathology",
+            "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/",
+            "download_title": "Tissue Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "JPG",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "Bone-Marrow-Cytomorphology_MLL_Helmholtz_Fraunhofer",
+            "url": "https://www.cancerimagingarchive.net/collection/bone-marrow-cytomorphology_mll_helmholtz_fraunhofer/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "CDD-CESM",
+            "url": "https://www.cancerimagingarchive.net/collection/cdd-cesm/",
+            "download_title": "Low Energy Images (0.64GB) and Subtracted Images (0.82 GB)"
+          },
+          {
+            "short_title": "Hungarian-Colorectal-Screening",
+            "url": "https://www.cancerimagingarchive.net/collection/hungarian-colorectal-screening/",
+            "download_title": "HunCRC patch dataset"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "JSON",
+        "usage_count": 15,
+        "examples": [
+          {
+            "short_title": "CMB-AML",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-aml/",
+            "download_title": "Tissue Slide Images, Pathology Metadata"
+          },
+          {
+            "short_title": "CMB-CRC",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-crc/",
+            "download_title": "Tissue Slide Images, Pathology Metadata"
+          },
+          {
+            "short_title": "CMB-GEC",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-gec/",
+            "download_title": "Tissue Slide Images, Pathology Metadata"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "MATLAB",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "Prostate Fused-MRI-Pathology",
+            "url": "https://www.cancerimagingarchive.net/collection/prostate-fused-mri-pathology/",
+            "download_title": "Fused Rad-Path Matlab Files"
+          },
+          {
+            "short_title": "LDCT-and-Projection-data",
+            "url": "https://www.cancerimagingarchive.net/collection/ldct-and-projection-data/",
+            "download_title": "Matlab DICOM-CTPD reader script"
+          },
+          {
+            "short_title": "MRI-DIR",
+            "url": "https://www.cancerimagingarchive.net/collection/mri-dir/",
+            "download_title": "Deformation Vector Fields"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "MHA",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "Lung-Fused-CT-Pathology",
+            "url": "https://www.cancerimagingarchive.net/collection/lung-fused-ct-pathology/",
+            "download_title": "Annotated Whole Slide Pathology Images"
+          },
+          {
+            "short_title": "Prostate Fused-MRI-Pathology",
+            "url": "https://www.cancerimagingarchive.net/collection/prostate-fused-mri-pathology/",
+            "download_title": "Fused Rad-Path Matlab Files"
+          },
+          {
+            "short_title": "Prostate-3T",
+            "url": "https://www.cancerimagingarchive.net/collection/prostate-3t/",
+            "download_title": "Seminal vesicles (SV) and neurovascular bundle (NVB) Segmentations"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "MHD",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "PROSTATEx",
+            "url": "https://www.cancerimagingarchive.net/collection/prostatex/",
+            "download_title": "Ktrans images, Lesion Info and Thumbnails"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "MPG",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Capsule-Endoscopy-SB-NET",
+            "url": "https://www.cancerimagingarchive.net/collection/capsule-endoscopy-sb-net/",
+            "download_title": "Capsule Endoscopy excerpts of small intestine with abnormalities"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "MPS",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "CT Lymph Nodes",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/",
+            "download_title": "Mediastinal and Abdominal Lymph Annotations"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "MRXS",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "Hungarian-Colorectal-Screening",
+            "url": "https://www.cancerimagingarchive.net/collection/hungarian-colorectal-screening/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "HistologyHSI-BC-Recurrence",
+            "url": "https://www.cancerimagingarchive.net/collection/histologyhsi-bc-recurrence/",
+            "download_title": "Histopathology Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "NDPI",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "UPENN-GBM",
+            "url": "https://www.cancerimagingarchive.net/collection/upenn-gbm/",
+            "download_title": "Histopathology Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "NIfTI",
+        "usage_count": 43,
+        "examples": [
+          {
+            "short_title": "CT Lymph Nodes",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/",
+            "download_title": "Mediastinal and Abdomen Lymph Masks"
+          },
+          {
+            "short_title": "CT Images in COVID-19",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-images-in-covid-19/",
+            "download_title": "Images First dataset"
+          },
+          {
+            "short_title": "CT Images in COVID-19",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-images-in-covid-19/",
+            "download_title": "Images Second dataset"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "NRRD",
+        "usage_count": 10,
+        "examples": [
+          {
+            "short_title": "Brain-TR-GammaKnife",
+            "url": "https://www.cancerimagingarchive.net/collection/brain-tr-gammaknife/",
+            "download_title": "Images, Segmentations, Radiation Therapy Structures/Doses"
+          },
+          {
+            "short_title": "Duke-Breast-Cancer-MRI",
+            "url": "https://www.cancerimagingarchive.net/collection/duke-breast-cancer-mri/",
+            "download_title": "2D Breast and FGT MRI Segmentations"
+          },
+          {
+            "short_title": "Duke-Breast-Cancer-MRI",
+            "url": "https://www.cancerimagingarchive.net/collection/duke-breast-cancer-mri/",
+            "download_title": "3D Breast and FGT MRI Segmentations"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "PDF",
+        "usage_count": 34,
+        "examples": [
+          {
+            "short_title": "ACRIN-DSC-MR-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-dsc-mr-brain/",
+            "download_title": "Clinical"
+          },
+          {
+            "short_title": "ACRIN-HNSCC-FDG-PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-hnscc-fdg-pet-ct/",
+            "download_title": "Clinical Data, file set 1"
+          },
+          {
+            "short_title": "ACRIN-HNSCC-FDG-PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-hnscc-fdg-pet-ct/",
+            "download_title": "Clinical Data, file set 2"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "PNG",
+        "usage_count": 6,
+        "examples": [
+          {
+            "short_title": "Breast-Lesions-USG",
+            "url": "https://www.cancerimagingarchive.net/collection/breast-lesions-usg/",
+            "download_title": "Images and segmentations"
+          },
+          {
+            "short_title": "HNSCC-mIF-mIHC-comparison",
+            "url": "https://www.cancerimagingarchive.net/collection/hnscc-mif-mihc-comparison/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "DLBCL-Morphology",
+            "url": "https://www.cancerimagingarchive.net/collection/dlbcl-morphology/",
+            "download_title": "Tissue Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "SAS",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "NLST",
+            "url": "https://www.cancerimagingarchive.net/collection/nlst/",
+            "download_title": "Clinical data including data dictionaries"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "SQLITE",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "CATCH",
+            "url": "https://www.cancerimagingarchive.net/collection/catch/",
+            "download_title": "Annotations"
+          },
+          {
+            "short_title": "MIDI-B-Test-MIDI-B-Validation",
+            "url": "https://www.cancerimagingarchive.net/collection/midi-b-test-midi-b-validation/",
+            "download_title": "Validation Answer Key"
+          },
+          {
+            "short_title": "MIDI-B-Test-MIDI-B-Validation",
+            "url": "https://www.cancerimagingarchive.net/collection/midi-b-test-midi-b-validation/",
+            "download_title": "Test Answer Key"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "SVS",
+        "usage_count": 40,
+        "examples": [
+          {
+            "short_title": "Ovarian Bevacizumab Response",
+            "url": "https://www.cancerimagingarchive.net/collection/ovarian-bevacizumab-response/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "Post-NAT-BRCA",
+            "url": "https://www.cancerimagingarchive.net/collection/post-nat-brca/",
+            "download_title": "Slide Images"
+          },
+          {
+            "short_title": "SLN-Breast",
+            "url": "https://www.cancerimagingarchive.net/collection/sln-breast/",
+            "download_title": "Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "TFM",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Vestibular-Schwannoma-SEG",
+            "url": "https://www.cancerimagingarchive.net/collection/vestibular-schwannoma-seg/",
+            "download_title": "Registration Matrices"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "TIFF",
+        "usage_count": 12,
+        "examples": [
+          {
+            "short_title": "PCa_Bx_3Dpathology",
+            "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "AML-Cytomorphology_MLL_Helmholtz",
+            "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_mll_helmholtz/",
+            "download_title": "Slide Images"
+          },
+          {
+            "short_title": "AML-Cytomorphology_LMU",
+            "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_lmu/",
+            "download_title": "Tissue Slide Images"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "TSV",
+        "usage_count": 30,
+        "examples": [
+          {
+            "short_title": "CT COLONOGRAPHY",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-colonography/",
+            "download_title": "Clinical Data"
+          },
+          {
+            "short_title": "CT COLONOGRAPHY",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-colonography/",
+            "download_title": "Data Dictionary-Machine Readable"
+          },
+          {
+            "short_title": "PSMA-PET-CT-Lesions",
+            "url": "https://www.cancerimagingarchive.net/collection/psma-pet-ct-lesions/",
+            "download_title": "Image acquisition details"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "TXT",
+        "usage_count": 15,
+        "examples": [
+          {
+            "short_title": "CT Lymph Nodes",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/",
+            "download_title": "Mediastinal and Abdominal Lymph Annotations"
+          },
+          {
+            "short_title": "AML-Cytomorphology_LMU",
+            "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_lmu/",
+            "download_title": "Abbreviations"
+          },
+          {
+            "short_title": "CT-ORG",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-org/",
+            "download_title": "Data description"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "XLS",
+        "usage_count": 29,
+        "examples": [
+          {
+            "short_title": "ACRIN-HNSCC-FDG-PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-hnscc-fdg-pet-ct/",
+            "download_title": "Clinical Data, file set 1"
+          },
+          {
+            "short_title": "ACRIN-HNSCC-FDG-PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-hnscc-fdg-pet-ct/",
+            "download_title": "Clinical Data, file set 2"
+          },
+          {
+            "short_title": "ACRIN-FLT-Breast",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-flt-breast/",
+            "download_title": "Clinical"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "XLSX",
+        "usage_count": 101,
+        "examples": [
+          {
+            "short_title": "ACRIN-Contralateral-Breast-MR",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-contralateral-breast-mr/",
+            "download_title": "Clinical Data"
+          },
+          {
+            "short_title": "ACRIN-DSC-MR-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-dsc-mr-brain/",
+            "download_title": "Clinical"
+          },
+          {
+            "short_title": "ACRIN-FMISO-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-fmiso-brain/",
+            "download_title": "Clinical"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "XML",
+        "usage_count": 8,
+        "examples": [
+          {
+            "short_title": "PCa_Bx_3Dpathology",
+            "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/",
+            "download_title": "Tissue Slide Images"
+          },
+          {
+            "short_title": "Lung-PET-CT-Dx",
+            "url": "https://www.cancerimagingarchive.net/collection/lung-pet-ct-dx/",
+            "download_title": "Annotation Box Files"
+          },
+          {
+            "short_title": "LIDC-IDRI",
+            "url": "https://www.cancerimagingarchive.net/collection/lidc-idri/",
+            "download_title": "Radiologist Annotations/Segmentations (Note: see pylidc for assistance using these data)"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "XPT",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "DI-Cubed-Reports",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/di-cubed-reports/",
+            "download_title": "SAS Transport Files"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      },
+      {
+        "label": "ZIP",
+        "usage_count": 63,
+        "examples": [
+          {
+            "short_title": "EA1141",
+            "url": "https://www.cancerimagingarchive.net/collection/ea1141/",
+            "download_title": "Clinical data"
+          },
+          {
+            "short_title": "ACRIN-Contralateral-Breast-MR",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-contralateral-breast-mr/",
+            "download_title": "Clinical Data"
+          },
+          {
+            "short_title": "ACRIN-DSC-MR-Brain",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-dsc-mr-brain/",
+            "download_title": "Clinical"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "ontology_mapping": null
+      }
+    ]
+  }
+}

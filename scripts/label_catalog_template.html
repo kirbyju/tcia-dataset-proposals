@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Search the labels observed in a dated snapshot of public TCIA WordPress records.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23042b5b'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%235bc6ff' stroke-width='3'/%3E%3C/svg%3E">
+  <title>TCIA observed label catalog</title>
+  <style>
+    :root {
+      --navy: #042b5b;
+      --blue: #2467a8;
+      --bright-blue: #51a6fa;
+      --light-blue: #5bc6ff;
+      --amber: #fdb835;
+      --coral: #ff5773;
+      --purple: #8d44ce;
+      --ink: #222222;
+      --muted: #5a6572;
+      --line: #d7dde5;
+      --soft-line: #e9edf2;
+      --surface: #ffffff;
+      --canvas: #f5f7fa;
+      --notice: #fff8e2;
+      --notice-line: #c68b00;
+      --focus: #8d44ce;
+      --shadow: 0 12px 32px rgba(4, 43, 91, 0.09);
+      --radius: 12px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--canvas);
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-width: 320px; background: var(--canvas); line-height: 1.5; }
+    a { color: #155c9d; text-underline-offset: 0.17em; }
+    a:hover { color: var(--navy); }
+    button, input, select { font: inherit; }
+    button, select { cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .skip-link { position: fixed; top: 0.5rem; left: 0.5rem; z-index: 50; padding: 0.65rem 0.9rem; color: white; background: var(--navy); transform: translateY(-160%); }
+    .skip-link:focus { transform: none; }
+
+    .masthead { color: white; background: var(--navy); }
+    .masthead__inner { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; padding: 1.1rem 0 2rem; }
+    .brand-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand-row img { display: block; width: 220px; height: auto; }
+    .eyebrow { margin: 0 0 0.35rem; color: #caeaff; font-size: 0.78rem; font-weight: 750; letter-spacing: 0.11em; text-transform: uppercase; }
+    h1 { max-width: 760px; margin: 1.3rem 0 0.6rem; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.03; letter-spacing: -0.035em; }
+    .lede { max-width: 760px; margin: 0; color: #e6f3ff; font-size: clamp(1rem, 2vw, 1.18rem); }
+    .header-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .button { min-height: 42px; padding: 0.58rem 0.82rem; border: 1px solid rgba(255,255,255,0.6); border-radius: 8px; color: white; background: transparent; font-weight: 700; }
+    .button:hover { background: rgba(255,255,255,0.12); }
+    .button--light { color: var(--navy); background: white; border-color: white; }
+    .button--light:hover { background: #edf7ff; }
+
+    .page { width: min(1180px, calc(100% - 2rem)); margin: -0.95rem auto 3rem; }
+    .scope-notice { display: grid; grid-template-columns: auto 1fr; gap: 0.75rem; padding: 1rem 1.1rem; border: 1px solid var(--notice-line); border-radius: var(--radius); background: var(--notice); box-shadow: var(--shadow); }
+    .scope-notice__mark { font-weight: 900; color: #7a5100; }
+    .scope-notice p { margin: 0; }
+    .scope-notice strong { color: #553900; }
+
+    .summary { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; margin: 1rem 0; }
+    .summary button { position: relative; min-height: 96px; padding: 0.85rem 0.85rem 0.75rem; text-align: left; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 3px 14px rgba(4, 43, 91, 0.04); }
+    .summary button:hover { border-color: var(--blue); transform: translateY(-1px); }
+    .summary button[aria-selected="true"] { color: white; background: var(--blue); border-color: var(--blue); }
+    .summary__count { display: block; font-size: 1.55rem; font-weight: 820; font-variant-numeric: tabular-nums; }
+    .summary__label { display: block; font-size: 0.86rem; font-weight: 700; }
+
+    .workspace { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+    .field-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; padding: 1.35rem 1.4rem 1.15rem; border-bottom: 1px solid var(--line); }
+    .field-head h2 { margin: 0 0 0.2rem; color: var(--navy); font-size: clamp(1.45rem, 3vw, 2rem); letter-spacing: -0.02em; }
+    .field-head p { max-width: 720px; margin: 0; color: var(--muted); }
+    .field-meta { align-self: start; padding: 0.38rem 0.6rem; border-radius: 99px; color: var(--navy); background: #e5f3ff; font-size: 0.78rem; font-weight: 780; white-space: nowrap; }
+
+    .controls { display: grid; grid-template-columns: minmax(240px, 1fr) auto auto; gap: 0.75rem; align-items: end; padding: 1rem 1.4rem; background: #f9fbfd; border-bottom: 1px solid var(--line); }
+    .control { display: grid; gap: 0.3rem; }
+    .control label { color: var(--muted); font-size: 0.78rem; font-weight: 750; }
+    .search-wrap { position: relative; }
+    .search-wrap input { width: 100%; min-height: 44px; padding: 0.66rem 2.7rem 0.66rem 0.8rem; border: 1px solid #aeb9c7; border-radius: 8px; background: white; }
+    .search-wrap button { position: absolute; top: 50%; right: 0.35rem; min-width: 36px; min-height: 36px; border: 0; border-radius: 6px; color: var(--muted); background: transparent; font-weight: 800; }
+    select { min-height: 44px; padding: 0.58rem 2.3rem 0.58rem 0.7rem; border: 1px solid #aeb9c7; border-radius: 8px; color: var(--ink); background: white; }
+    .toggle { display: flex; align-items: center; gap: 0.45rem; min-height: 44px; color: var(--ink); font-size: 0.88rem; font-weight: 650; }
+    .toggle input { width: 1.1rem; height: 1.1rem; accent-color: var(--blue); }
+
+    .results-bar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.75rem 1.4rem; border-bottom: 1px solid var(--soft-line); }
+    .results-bar p { margin: 0; color: var(--muted); font-size: 0.88rem; }
+    .results-bar strong { color: var(--ink); font-variant-numeric: tabular-nums; }
+    .results-bar button { padding: 0.25rem 0.45rem; border: 0; border-radius: 5px; color: var(--blue); background: transparent; font-size: 0.83rem; font-weight: 750; }
+
+    .table-scroll { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th { position: sticky; top: 0; z-index: 1; padding: 0.68rem 0.8rem; text-align: left; color: var(--navy); background: #eef5fb; border-bottom: 1px solid var(--line); font-size: 0.76rem; letter-spacing: 0.02em; }
+    td { padding: 0.82rem 0.8rem; vertical-align: top; border-bottom: 1px solid var(--soft-line); font-size: 0.88rem; }
+    tbody tr:hover { background: #f8fbfe; }
+    .label-cell { min-width: 195px; color: var(--navy); font-weight: 780; }
+    .count-cell { width: 90px; text-align: right; font-variant-numeric: tabular-nums; }
+    th.count-cell { text-align: right; }
+    .review-cell { min-width: 190px; }
+    .examples-cell { min-width: 310px; }
+    .status { display: inline-flex; align-items: center; gap: 0.38rem; padding: 0.25rem 0.48rem; border: 1px solid #b7c3d1; border-radius: 99px; color: #414d5b; background: #f4f6f8; font-size: 0.75rem; font-weight: 750; }
+    .status::before { content: "?"; display: grid; place-items: center; width: 1.1rem; height: 1.1rem; border-radius: 50%; color: white; background: var(--purple); font-size: 0.67rem; }
+    .mapping-note { display: block; margin-top: 0.32rem; color: var(--muted); font-size: 0.78rem; }
+    .example-list { display: flex; flex-wrap: wrap; gap: 0.35rem 0.45rem; margin: 0; padding: 0; list-style: none; }
+    .example-list a { display: inline-block; max-width: 235px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .download-title { display: block; color: var(--muted); font-size: 0.74rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    mark { padding: 0 0.08em; color: inherit; background: #ffdc6a; }
+    .empty { display: none; padding: 2.5rem 1.4rem; text-align: center; }
+    .empty h3 { margin: 0 0 0.25rem; color: var(--navy); }
+    .empty p { margin: 0; color: var(--muted); }
+
+    .provenance { margin-top: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+    .provenance summary { padding: 1rem 1.1rem; color: var(--navy); cursor: pointer; font-weight: 780; }
+    .provenance__body { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; padding: 0 1.1rem 1.2rem; }
+    .provenance h3 { margin: 0 0 0.35rem; color: var(--navy); font-size: 1rem; }
+    .provenance p, .provenance ul { margin: 0; color: var(--muted); font-size: 0.88rem; }
+    .provenance ul { padding-left: 1.15rem; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8em; overflow-wrap: anywhere; }
+    footer { padding: 1.5rem 0 0; color: var(--muted); font-size: 0.78rem; text-align: center; }
+
+    @media (max-width: 800px) {
+      .brand-row { align-items: flex-start; flex-direction: column; }
+      .brand-row img { width: 190px; }
+      .summary { grid-template-columns: repeat(2, 1fr); }
+      .controls { grid-template-columns: 1fr 1fr; }
+      .control--search { grid-column: 1 / -1; }
+      .field-head { grid-template-columns: 1fr; }
+      .field-meta { justify-self: start; }
+      .provenance__body { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .masthead__inner, .page { width: min(100% - 1rem, 1180px); }
+      .page { margin-top: -0.6rem; }
+      .scope-notice { border-radius: 9px; }
+      .summary { grid-template-columns: 1fr; gap: 0.45rem; }
+      .summary button { min-height: 62px; display: flex; align-items: baseline; gap: 0.6rem; }
+      .summary__count { font-size: 1.25rem; }
+      .controls { grid-template-columns: 1fr; padding: 0.9rem; }
+      .control--search { grid-column: auto; }
+      .field-head, .results-bar { padding-left: 0.9rem; padding-right: 0.9rem; }
+      .table-scroll { overflow: visible; }
+      table, thead, tbody, tr, td { display: block; }
+      thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      tbody { padding: 0.45rem 0.75rem 0.75rem; }
+      tbody tr { margin: 0.55rem 0; padding: 0.75rem; border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: 8px; }
+      td { min-width: 0 !important; width: auto !important; padding: 0.32rem 0; border: 0; text-align: left !important; }
+      td::before { content: attr(data-heading); display: block; margin-bottom: 0.05rem; color: var(--muted); font-size: 0.68rem; font-weight: 750; letter-spacing: 0.04em; text-transform: uppercase; }
+      .example-list { display: grid; }
+      .example-list a { max-width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+
+    @media print {
+      :root { background: white; }
+      .masthead { color: var(--ink); background: white; border-bottom: 2px solid var(--navy); }
+      .lede, .eyebrow { color: var(--ink); }
+      .header-actions, .controls, .skip-link { display: none !important; }
+      .page { width: 100%; margin: 1rem 0; }
+      .workspace, .scope-notice { box-shadow: none; }
+      .table-scroll { overflow: visible; }
+      th { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Skip to catalog</a>
+  <header class="masthead">
+    <div class="masthead__inner">
+      <div class="brand-row">
+        <img src="__TCIA_LOGO_DATA_URI__" alt="The Cancer Imaging Archive">
+        <div class="header-actions">
+          <button class="button" id="print-button" type="button">Print catalog</button>
+          <button class="button button--light" id="download-button" type="button">Download offline copy</button>
+        </div>
+      </div>
+      <p class="eyebrow">Curator reference · dated public snapshot</p>
+      <h1>Observed label catalog</h1>
+      <p class="lede">Search exact WordPress labels previously used across five curation fields, with usage counts and representative public records.</p>
+    </div>
+  </header>
+
+  <main class="page" id="catalog">
+    <section class="scope-notice" aria-labelledby="scope-title">
+      <div class="scope-notice__mark" aria-hidden="true">!</div>
+      <p><strong id="scope-title">Observed use is not a complete registry or an approved vocabulary.</strong> This catalog can show prior public usage. It cannot identify unused registered terms, approve a new value, or certify that a historical label is semantically correct. Unconfirmed values require curator review.</p>
+    </section>
+
+    <nav class="summary" id="field-tabs" aria-label="Label fields" role="tablist"></nav>
+
+    <section class="workspace" id="field-panel" role="tabpanel" aria-labelledby="field-title">
+      <div class="field-head">
+        <div>
+          <h2 id="field-title"></h2>
+          <p id="field-description"></p>
+        </div>
+        <span class="field-meta" id="field-meta"></span>
+      </div>
+
+      <div class="controls">
+        <div class="control control--search">
+          <label for="search">Search labels and examples</label>
+          <div class="search-wrap">
+            <input id="search" type="search" autocomplete="off" spellcheck="false" placeholder="Type a label or dataset title">
+            <button id="clear-search" type="button" aria-label="Clear search" title="Clear search">×</button>
+          </div>
+        </div>
+        <div class="control">
+          <label for="sort">Sort</label>
+          <select id="sort">
+            <option value="label-asc">Label A–Z</option>
+            <option value="usage-desc">Most used</option>
+            <option value="usage-asc">Least used</option>
+          </select>
+        </div>
+        <label class="toggle">
+          <input id="single-use" type="checkbox">
+          Used once only
+        </label>
+      </div>
+
+      <div class="results-bar">
+        <p id="result-count" role="status" aria-live="polite"></p>
+        <button id="reset-filters" type="button">Reset filters</button>
+      </div>
+
+      <div class="table-scroll" id="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Exact label</th>
+              <th scope="col" class="count-cell">Uses</th>
+              <th scope="col">Review and mapping</th>
+              <th scope="col">Representative public records</th>
+            </tr>
+          </thead>
+          <tbody id="catalog-rows"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="empty-state">
+        <h3>No matching labels</h3>
+        <p>Clear the search or change the filter to see this field’s full observed list.</p>
+      </div>
+    </section>
+
+    <details class="provenance">
+      <summary>Scope, provenance, and terminology guidance</summary>
+      <div class="provenance__body">
+        <section>
+          <h3>Three distinct states</h3>
+          <ul>
+            <li><strong>Observed:</strong> a public record in this snapshot used the label.</li>
+            <li><strong>Registered:</strong> WordPress offers the term in that field. This catalog lacks the full registry export.</li>
+            <li><strong>Semantically verified:</strong> evidence supports the label for the content and any applicable ontology mapping.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>How to assess a candidate</h3>
+          <p>Use NCIt for disease concepts and UBERON for primary disease sites. Use the NCI Imaging Submission Model and the GDC schema as terminology guides for category, data type, and file type. Their values do not automatically become valid WordPress options.</p>
+        </section>
+        <section>
+          <h3>Dated source</h3>
+          <p id="source-provenance"></p>
+        </section>
+        <section>
+          <h3>Count meaning</h3>
+          <p id="count-basis"></p>
+        </section>
+      </div>
+    </details>
+
+    <footer>
+      Official TCIA logo and published palette verified against the TCIA branding page on October 15, 2026. Typography, layout, and semantic status treatments are implementation choices for this catalog.
+    </footer>
+  </main>
+
+  <script type="application/json" id="catalog-data">__CATALOG_JSON__</script>
+  <script type="application/json" id="policy-data">__POLICY_JSON__</script>
+  <script>
+    (() => {
+      "use strict";
+
+      const catalog = JSON.parse(document.getElementById("catalog-data").textContent);
+      const policy = JSON.parse(document.getElementById("policy-data").textContent);
+      const fieldOrder = ["disease_type", "disease_location", "data_category", "data_type", "file_type"];
+      const fieldConfig = {
+        disease_type: {
+          title: "Disease type",
+          slug: "disease-type",
+          scope: "Dataset field · cancer_types",
+          description: "Diagnosed disease or documented cohort context. Compare prior use, then verify disease concepts against NCIt before treating a mapping as reviewed.",
+          mapping: "NCIt mapping not assigned"
+        },
+        disease_location: {
+          title: "Disease location",
+          slug: "disease-location",
+          scope: "Dataset field · cancer_locations",
+          description: "Known primary disease site. Do not substitute scanned anatomy, metastatic sites, or annotation targets; verify a primary-site mapping against UBERON.",
+          mapping: "UBERON mapping not assigned"
+        },
+        data_category: {
+          title: "Data category",
+          slug: "data-category",
+          scope: "Download field · download_type",
+          description: "The broad role of each downloadable component. Inspect the content and compare the existing WordPress field before proposing a value.",
+          mapping: "Use NCI Imaging Submission Model and GDC as guides"
+        },
+        data_type: {
+          title: "Data type",
+          slug: "data-type",
+          scope: "Download field · data_type",
+          description: "The specific information or object represented by each download. Multiple labels require evidence for each concept.",
+          mapping: "Use NCI Imaging Submission Model and GDC as guides"
+        },
+        file_type: {
+          title: "File type",
+          slug: "file-type",
+          scope: "Download field · file_type",
+          description: "The delivered payload format. Distinguish the content format from an archive, transfer container, or manifest when needed.",
+          mapping: "Use NCI Imaging Submission Model and GDC as guides"
+        }
+      };
+
+      const state = { field: fieldFromHash(), query: "", sort: "label-asc", singleUse: false };
+      const tabs = document.getElementById("field-tabs");
+      const rows = document.getElementById("catalog-rows");
+      const tableWrap = document.getElementById("table-wrap");
+      const emptyState = document.getElementById("empty-state");
+      const search = document.getElementById("search");
+      const sort = document.getElementById("sort");
+      const singleUse = document.getElementById("single-use");
+
+      function fieldFromHash() {
+        const slug = location.hash.replace(/^#/, "");
+        return fieldOrder.find(key => fieldConfig[key].slug === slug) || "disease_type";
+      }
+
+      function normalize(value) {
+        return String(value || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase();
+      }
+
+      function safeUrl(value) {
+        try {
+          const url = new URL(value);
+          return url.protocol === "https:" ? url.href : "#";
+        } catch (_) {
+          return "#";
+        }
+      }
+
+      function highlight(text, query) {
+        const fragment = document.createDocumentFragment();
+        const source = String(text || "");
+        if (!query) {
+          fragment.append(document.createTextNode(source));
+          return fragment;
+        }
+        const normalizedSource = normalize(source);
+        const normalizedQuery = normalize(query);
+        const index = normalizedSource.indexOf(normalizedQuery);
+        if (index < 0) {
+          fragment.append(document.createTextNode(source));
+          return fragment;
+        }
+        fragment.append(document.createTextNode(source.slice(0, index)));
+        const mark = document.createElement("mark");
+        mark.textContent = source.slice(index, index + normalizedQuery.length);
+        fragment.append(mark, document.createTextNode(source.slice(index + normalizedQuery.length)));
+        return fragment;
+      }
+
+      function renderTabs() {
+        tabs.replaceChildren();
+        fieldOrder.forEach((key, index) => {
+          const config = fieldConfig[key];
+          const button = document.createElement("button");
+          button.type = "button";
+          button.id = `tab-${config.slug}`;
+          button.setAttribute("role", "tab");
+          button.setAttribute("aria-controls", "field-panel");
+          button.setAttribute("aria-selected", String(key === state.field));
+          button.tabIndex = key === state.field ? 0 : -1;
+          button.dataset.field = key;
+          const count = document.createElement("span");
+          count.className = "summary__count";
+          count.textContent = catalog.fields[key].length.toLocaleString();
+          const label = document.createElement("span");
+          label.className = "summary__label";
+          label.textContent = config.title;
+          button.append(count, label);
+          button.addEventListener("click", () => selectField(key, true));
+          button.addEventListener("keydown", event => {
+            if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+            event.preventDefault();
+            let nextIndex = index;
+            if (event.key === "ArrowLeft") nextIndex = (index - 1 + fieldOrder.length) % fieldOrder.length;
+            if (event.key === "ArrowRight") nextIndex = (index + 1) % fieldOrder.length;
+            if (event.key === "Home") nextIndex = 0;
+            if (event.key === "End") nextIndex = fieldOrder.length - 1;
+            selectField(fieldOrder[nextIndex], true);
+            tabs.querySelector(`[data-field="${fieldOrder[nextIndex]}"]`).focus();
+          });
+          tabs.append(button);
+        });
+      }
+
+      function selectField(key, updateHash) {
+        if (!fieldConfig[key]) return;
+        state.field = key;
+        if (updateHash && location.hash !== `#${fieldConfig[key].slug}`) {
+          history.replaceState(null, "", `#${fieldConfig[key].slug}`);
+        }
+        renderTabs();
+        render();
+      }
+
+      function searchableText(row) {
+        return normalize([
+          row.label,
+          row.semantic_review,
+          ...row.examples.flatMap(example => [example.short_title, example.download_title || ""])
+        ].join(" "));
+      }
+
+      function filteredRows() {
+        const query = normalize(state.query.trim());
+        const result = catalog.fields[state.field].filter(row => {
+          if (state.singleUse && row.usage_count !== 1) return false;
+          return !query || searchableText(row).includes(query);
+        });
+        result.sort((a, b) => {
+          if (state.sort === "usage-desc") return b.usage_count - a.usage_count || a.label.localeCompare(b.label);
+          if (state.sort === "usage-asc") return a.usage_count - b.usage_count || a.label.localeCompare(b.label);
+          return a.label.localeCompare(b.label);
+        });
+        return result;
+      }
+
+      function render() {
+        const config = fieldConfig[state.field];
+        document.title = `${config.title} · TCIA observed label catalog`;
+        document.getElementById("field-panel").setAttribute("aria-labelledby", `tab-${config.slug}`);
+        document.getElementById("field-title").textContent = config.title;
+        document.getElementById("field-description").textContent = config.description;
+        document.getElementById("field-meta").textContent = config.scope;
+
+        const result = filteredRows();
+        rows.replaceChildren();
+        result.forEach(row => rows.append(buildRow(row, config)));
+        const total = catalog.fields[state.field].length;
+        document.getElementById("result-count").innerHTML = `Showing <strong>${result.length.toLocaleString()}</strong> of <strong>${total.toLocaleString()}</strong> observed labels`;
+        tableWrap.hidden = result.length === 0;
+        emptyState.style.display = result.length === 0 ? "block" : "none";
+      }
+
+      function buildRow(row, config) {
+        const tr = document.createElement("tr");
+
+        const label = document.createElement("td");
+        label.className = "label-cell";
+        label.dataset.heading = "Exact label";
+        label.append(highlight(row.label, state.query.trim()));
+
+        const count = document.createElement("td");
+        count.className = "count-cell";
+        count.dataset.heading = "Uses";
+        count.textContent = row.usage_count.toLocaleString();
+
+        const review = document.createElement("td");
+        review.className = "review-cell";
+        review.dataset.heading = "Review and mapping";
+        const status = document.createElement("span");
+        status.className = "status";
+        status.textContent = row.semantic_review === "not reviewed" ? "Not reviewed" : row.semantic_review;
+        const mapping = document.createElement("span");
+        mapping.className = "mapping-note";
+        mapping.textContent = row.ontology_mapping ? String(row.ontology_mapping) : config.mapping;
+        review.append(status, mapping);
+
+        const examples = document.createElement("td");
+        examples.className = "examples-cell";
+        examples.dataset.heading = "Representative public records";
+        const list = document.createElement("ul");
+        list.className = "example-list";
+        row.examples.forEach(example => {
+          const item = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = safeUrl(example.url);
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.title = example.short_title;
+          link.append(highlight(example.short_title, state.query.trim()));
+          item.append(link);
+          if (example.download_title) {
+            const title = document.createElement("span");
+            title.className = "download-title";
+            title.title = example.download_title;
+            title.append(highlight(example.download_title, state.query.trim()));
+            item.append(title);
+          }
+          list.append(item);
+        });
+        examples.append(list);
+        tr.append(label, count, review, examples);
+        return tr;
+      }
+
+      function resetFilters() {
+        state.query = "";
+        state.sort = "label-asc";
+        state.singleUse = false;
+        search.value = "";
+        sort.value = "label-asc";
+        singleUse.checked = false;
+        render();
+        search.focus();
+      }
+
+      function downloadOfflineCopy() {
+        const source = "<!doctype html>\n" + document.documentElement.outerHTML;
+        const blob = new Blob([source], { type: "text/html;charset=utf-8" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "tcia-observed-label-catalog.html";
+        document.body.append(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(link.href), 0);
+      }
+
+      search.addEventListener("input", () => { state.query = search.value; render(); });
+      sort.addEventListener("change", () => { state.sort = sort.value; render(); });
+      singleUse.addEventListener("change", () => { state.singleUse = singleUse.checked; render(); });
+      document.getElementById("clear-search").addEventListener("click", () => { state.query = ""; search.value = ""; render(); search.focus(); });
+      document.getElementById("reset-filters").addEventListener("click", resetFilters);
+      document.getElementById("print-button").addEventListener("click", () => window.print());
+      document.getElementById("download-button").addEventListener("click", downloadOfflineCopy);
+      window.addEventListener("hashchange", () => selectField(fieldFromHash(), false));
+
+      const generated = new Date(catalog.generated_at_utc);
+      const bundleDate = new Date(catalog.provenance.bundle_generated_at_utc);
+      document.getElementById("source-provenance").innerHTML = `Inventory generated <strong>${generated.toLocaleString(undefined, { dateStyle: "long", timeStyle: "short", timeZone: "UTC" })} UTC</strong> from a bundle dated <strong>${bundleDate.toLocaleString(undefined, { dateStyle: "long", timeStyle: "short", timeZone: "UTC" })} UTC</strong>. It covers ${catalog.provenance.visible_dataset_count.toLocaleString()} visible Collections and Analysis Results and was not latest-release verified. Snapshot SHA-256: <code>${catalog.provenance.snapshot_sqlite_sha256}</code>.`;
+      document.getElementById("count-basis").textContent = `Disease fields: ${catalog.counting_basis.disease_fields}. Download fields: ${catalog.counting_basis.download_fields}. Counts describe usage frequency, not semantic approval.`;
+
+      // Referencing the policy here makes the embedded policy an exercised build input.
+      if (policy.approved_vocabulary === true || catalog.approved_vocabulary === true) {
+        throw new Error("This observed-use catalog must not claim approved-vocabulary status.");
+      }
+
+      renderTabs();
+      render();
+    })();
+  </script>
+</body>
+</html>
