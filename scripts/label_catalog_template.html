@@ -176,7 +176,7 @@
       <div class="brand-row">
         <img src="__TCIA_LOGO_DATA_URI__" alt="The Cancer Imaging Archive">
         <div class="header-actions">
-          <button class="button" id="print-button" type="button">Print catalog</button>
+          <button class="button" id="export-button" type="button" title="Download all five fields as an Excel-compatible CSV">Export spreadsheet (.csv)</button>
           <button class="button button--light" id="download-button" type="button">Download offline copy</button>
         </div>
       </div>
@@ -236,7 +236,7 @@
             <tr>
               <th scope="col">Exact label</th>
               <th scope="col" class="count-cell">Uses</th>
-              <th scope="col">Review and mapping</th>
+              <th scope="col">Review and mapping evidence</th>
               <th scope="col">Representative public records</th>
             </tr>
           </thead>
@@ -263,6 +263,8 @@
         <section>
           <h3>How to assess a candidate</h3>
           <p>Use NCIt for disease concepts and UBERON for primary disease sites. Use the NCI Imaging Submission Model and the GDC schema as terminology guides for category, data type, and file type. Their values do not automatically become valid WordPress options.</p>
+          <p>Historical diagnosis and anatomy mappings come from the <a href="https://docs.google.com/spreadsheets/d/1KnbOO85nqbx8A3m1VLWOiUhBJY_KxkI29_JwAVgKxjs/edit" target="_blank" rel="noopener noreferrer">source picklist workbook</a>. API checks confirm whether a code exists and is active; they do not approve its meaning for a TCIA label. Conflicts, context labels and the workbook's AI comparison notes still require curator review.</p>
+          <p>Export spreadsheet downloads all five fields, including source rows, candidate codes, definitions, lookup status and review notes. Search and filters do not limit the export.</p>
         </section>
         <section>
           <h3>Dated source</h3>
@@ -424,6 +426,10 @@
         return normalize([
           row.label,
           row.semantic_review,
+          row.review_note || "",
+          ...(row.mapping_candidates || []).flatMap(candidate => [candidate.source_preferred_label,
+            candidate.source_definition, ...candidate.codes,
+            ...candidate.ontology_checks.flatMap(check => [check.preferred_label || "", check.definition || ""]) ]),
           ...row.examples.flatMap(example => [example.short_title, example.download_title || ""])
         ].join(" "));
       }
@@ -474,14 +480,61 @@
 
         const review = document.createElement("td");
         review.className = "review-cell";
-        review.dataset.heading = "Review and mapping";
+        review.dataset.heading = "Review and mapping evidence";
         const status = document.createElement("span");
         status.className = "status";
         status.textContent = row.semantic_review === "not reviewed" ? "Not reviewed" : row.semantic_review;
         const mapping = document.createElement("span");
         mapping.className = "mapping-note";
-        mapping.textContent = row.ontology_mapping ? String(row.ontology_mapping) : config.mapping;
+        mapping.textContent = config.mapping;
         review.append(status, mapping);
+        const candidates = row.mapping_candidates || [];
+        if (candidates.some(candidate => candidate.codes.length)) {
+          mapping.textContent = "Historical mapping candidates";
+          const displayed = new Set();
+          candidates.forEach(candidate => candidate.ontology_checks.forEach(check => {
+            const identity = candidate.ontology + ":" + check.code;
+            if (displayed.has(identity)) return;
+            displayed.add(identity);
+            const detail = document.createElement("div");
+            detail.className = "mapping-note";
+            const link = document.createElement("a");
+            link.href = safeUrl(check.url || candidate.source_url);
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = candidate.ontology === "UBERON" ? check.code : `${candidate.ontology} ${check.code}`;
+            detail.append(link, document.createTextNode(` — ${check.preferred_label || candidate.source_preferred_label}`));
+            const checkStatus = document.createElement("span");
+            checkStatus.className = "mapping-note";
+            checkStatus.textContent = `Code check: ${check.status}`;
+            detail.append(checkStatus);
+            review.append(detail);
+          }));
+        }
+        if (row.review_note || candidates.length) {
+          const details = document.createElement("details");
+          details.className = "mapping-note";
+          const summary = document.createElement("summary");
+          summary.textContent = "Definition, sources and review notes";
+          details.append(summary);
+          if (row.review_note) {
+            const note = document.createElement("p");
+            note.textContent = row.review_note;
+            details.append(note);
+          }
+          candidates.forEach(candidate => {
+            const paragraph = document.createElement("p");
+            paragraph.textContent = `${candidate.source_preferred_label}: ${candidate.source_definition || "No definition supplied."} `;
+            const source = document.createElement("a");
+            source.href = safeUrl(candidate.source_url);
+            source.target = "_blank";
+            source.rel = "noopener noreferrer";
+            source.textContent = `${candidate.source_sheet}, row ${candidate.source_row}`;
+            paragraph.append(source);
+            details.append(paragraph);
+          });
+          review.append(details);
+        }
 
         const examples = document.createElement("td");
         examples.className = "examples-cell";
@@ -534,12 +587,53 @@
         setTimeout(() => URL.revokeObjectURL(link.href), 0);
       }
 
+      function csvCell(value) {
+        let text = String(value ?? "");
+        // Keep imported labels/definitions as text when opened in spreadsheet apps.
+        if (/^[\s\uFEFF]*[=+@-]/.test(text)) text = "'" + text;
+        return '"' + text.replace(/"/g, '""') + '"';
+      }
+
+      function exportSpreadsheet() {
+        const headings = ["Field", "Exact WordPress label", "Uses", "Curator review status",
+          "Candidate ontology codes", "Source preferred labels", "Source definitions", "Ontology code checks",
+          "Source workbook rows", "Review notes", "Representative datasets", "Dataset URLs",
+          "Registry membership", "Usage snapshot date", "Mapping source URL", "Mapping retrieval date"];
+        const records = [headings];
+        fieldOrder.forEach(field => catalog.fields[field].forEach(row => {
+          const candidates = row.mapping_candidates || [];
+          const unique = values => [...new Set(values)].join(" | ");
+          records.push([fieldConfig[field].title, row.label, row.usage_count, row.semantic_review,
+            unique(candidates.flatMap(candidate => candidate.codes.map(code => candidate.ontology === "UBERON" ? code : `${candidate.ontology} ${code}`))),
+            unique(candidates.map(candidate => candidate.source_preferred_label)),
+            unique(candidates.map(candidate => candidate.source_definition)),
+            unique(candidates.flatMap(candidate => candidate.ontology_checks.map(check => `${check.code}: ${check.status}${check.preferred_label ? " — " + check.preferred_label : ""}`))),
+            unique(candidates.map(candidate => `${candidate.source_sheet}, row ${candidate.source_row}`)),
+            row.review_note || "Content-level review is pending.",
+            row.examples.map(example => example.short_title).join(" | "),
+            row.examples.map(example => example.url).join(" | "),
+            "unverified", catalog.provenance.bundle_generated_at_utc,
+            candidates.length ? catalog.mapping_provenance.source_url : "",
+            candidates.length ? catalog.mapping_provenance.retrieved_at_utc : ""]);
+        }));
+        const csv = "\uFEFF" + records.map(record => record.map(csvCell).join(",")).join("\r\n") + "\r\n";
+        const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "tcia-label-catalog.csv";
+        document.body.append(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 0);
+      }
+
       search.addEventListener("input", () => { state.query = search.value; render(); });
       sort.addEventListener("change", () => { state.sort = sort.value; render(); });
       singleUse.addEventListener("change", () => { state.singleUse = singleUse.checked; render(); });
       document.getElementById("clear-search").addEventListener("click", () => { state.query = ""; search.value = ""; render(); search.focus(); });
       document.getElementById("reset-filters").addEventListener("click", resetFilters);
-      document.getElementById("print-button").addEventListener("click", () => window.print());
+      document.getElementById("export-button").addEventListener("click", exportSpreadsheet);
       document.getElementById("download-button").addEventListener("click", downloadOfflineCopy);
       window.addEventListener("hashchange", () => selectField(fieldFromHash(), false));
 

@@ -36,6 +36,10 @@ The [interactive observed label catalog](https://kirbyju.github.io/tcia-dataset-
 python3 scripts/build_label_catalog.py
 ```
 
+The catalog's **Export spreadsheet (.csv)** button downloads all five fields, including usage counts, historical mapping candidates, definitions, source workbook rows, ontology-code checks, and pending review notes. CSV opens in Excel or other spreadsheet applications. The export always includes the complete catalog, regardless of the current search/filter.
+
+Historical mapping evidence is stored separately in `skills/curate-tcia-wordpress-metadata/references/label-mappings.json`. To refresh it, download the referenced public Google Sheet as XLSX, then run `.venv/bin/python scripts/import_label_mappings.py --workbook /path/to/source.xlsx --verify` and rebuild the HTML. The importer uses direct source labels or explicit crosswalks; it does not infer fuzzy matches or treat the source's AI recommendations as curator approval. Ontology lookup failures remain visible as `unable to verify`.
+
 GitHub Pages publishes the `/docs` folder on `main` through the [Publish curator label catalog](.github/workflows/pages.yml) Actions workflow. The Pages publishing source must be **GitHub Actions** in the repository settings. The workflow verifies that the generated HTML matches its source data before uploading and deploying it. Push the regenerated HTML with its source changes to `main`, or run the workflow manually to redeploy; stale generated HTML fails the build rather than silently publishing old labels.
 
 ## Run locally

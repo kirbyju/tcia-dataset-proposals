@@ -11,7 +11,6 @@ from __future__ import annotations
 import argparse
 import base64
 import json
-import re
 from pathlib import Path
 
 
@@ -19,7 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INVENTORY = ROOT / "skills/curate-tcia-wordpress-metadata/references/wordpress-label-inventory-2026-10-09.json"
 DEFAULT_POLICY = ROOT / "skills/curate-tcia-wordpress-metadata/references/labeling-policy.json"
 DEFAULT_TEMPLATE = ROOT / "scripts/label_catalog_template.html"
-DEFAULT_GUIDE_SVG = ROOT / "skills/curate-tcia-wordpress-metadata/assets/tcia-labeling-guide.svg"
+DEFAULT_LOGO_SVG = ROOT / "skills/curate-tcia-wordpress-metadata/assets/tcia-logo-light.svg"
+DEFAULT_MAPPINGS = ROOT / "skills/curate-tcia-wordpress-metadata/references/label-mappings.json"
 DEFAULT_OUTPUT = ROOT / "docs/labels/index.html"
 
 EXPECTED_FIELDS = {
@@ -36,7 +36,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--inventory", type=Path, default=DEFAULT_INVENTORY)
     parser.add_argument("--policy", type=Path, default=DEFAULT_POLICY)
     parser.add_argument("--template", type=Path, default=DEFAULT_TEMPLATE)
-    parser.add_argument("--guide-svg", type=Path, default=DEFAULT_GUIDE_SVG)
+    parser.add_argument("--logo-svg", type=Path, default=DEFAULT_LOGO_SVG)
+    parser.add_argument("--mappings", type=Path, default=DEFAULT_MAPPINGS)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     return parser.parse_args()
 
@@ -80,17 +81,21 @@ def validate_inventory(inventory: dict) -> None:
         raise ValueError("Catalog must not claim to be an approved vocabulary")
 
 
-def extract_embedded_official_logo(guide_svg: Path) -> str:
-    """Reuse the official logo embedded in the existing curator guide SVG."""
-    source = guide_svg.read_text(encoding="utf-8")
-    match = re.search(r"data:image/svg\+xml;base64,([A-Za-z0-9+/=]+)", source)
-    if not match:
-        raise ValueError(f"Could not find the embedded official TCIA logo in {guide_svg}")
-    # Decode once to ensure the embedded value is intact before copying it.
-    decoded = base64.b64decode(match.group(1), validate=True)
-    if b"<svg" not in decoded or b"TCIA Logo" not in decoded:
-        raise ValueError("Embedded logo is not the expected official TCIA SVG")
-    return f"data:image/svg+xml;base64,{match.group(1)}"
+def official_logo(logo_svg: Path) -> str:
+    source = logo_svg.read_bytes()
+    if b"<svg" not in source or b"TCIA Logo" not in source:
+        raise ValueError("Logo is not the expected official TCIA SVG")
+    return "data:image/svg+xml;base64," + base64.b64encode(source).decode("ascii")
+
+
+def apply_mappings(inventory: dict, mappings: dict) -> None:
+    """Join source candidates without turning historical mappings into approval."""
+    inventory["mapping_provenance"] = mappings["provenance"]
+    for field, rows in inventory["fields"].items():
+        for row in rows:
+            evidence = mappings.get("fields", {}).get(field, {}).get(row["label"])
+            if evidence:
+                row.update(evidence)
 
 
 def safe_script_json(value: dict) -> str:
@@ -101,12 +106,13 @@ def build(args: argparse.Namespace) -> None:
     inventory = read_json(args.inventory)
     policy = read_json(args.policy)
     validate_inventory(inventory)
+    apply_mappings(inventory, read_json(args.mappings))
 
     template = args.template.read_text(encoding="utf-8")
     replacements = {
         "__CATALOG_JSON__": safe_script_json(inventory),
         "__POLICY_JSON__": safe_script_json(policy),
-        "__TCIA_LOGO_DATA_URI__": extract_embedded_official_logo(args.guide_svg),
+        "__TCIA_LOGO_DATA_URI__": official_logo(args.logo_svg),
     }
     for token, replacement in replacements.items():
         if template.count(token) != 1:

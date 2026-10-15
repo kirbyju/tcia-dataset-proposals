@@ -77,6 +77,14 @@ These examples demonstrate the dimensions; they do not define a universal catego
 
 ## Files and refresh
 
+### Mapping evidence and remaining review
+
+The [historical picklist workbook](https://docs.google.com/spreadsheets/d/1KnbOO85nqbx8A3m1VLWOiUhBJY_KxkI29_JwAVgKxjs/edit) supplies NCIt codes/definitions, UBERON anatomy terms and a legacy-site crosswalk. [label-mappings.json](label-mappings.json) joins only case-normalized labels or explicit source crosswalks to the observed inventory, records source row numbers and the workbook hash, and retains code-lookup results separately from semantic review. The AI comparison sheet is advisory evidence, including conflicting IDs; its `accepted` values are not imported as curator approval.
+
+To complete review: verify unresolved candidates against ontology definitions and synonyms, resolve conflicting or composite mappings, decide how study contexts such as healthy/non-cancer, phantom and “Various” should be represented, and record a curator's decision and supporting evidence. Then confirm label membership against the corresponding WordPress registry. Category/type/format review requires content examples and the applicable NCI/GDC definitions; the diagnosis/site workbook alone cannot approve those assignments.
+
+The proposal form already offers **Other**, but its primary site/diagnosis menus currently draw from the bundled submission-model lists rather than observed TCIA labels. A suitable next change is a shared, dated curation vocabulary with **Choose an existing TCIA label** as the default, plus **Propose another term**. That path should support explicit NCIt/UBERON search and selection and use the chosen term as an ordinary proposal answer. The app does not need a separate suggestion registry, retained search history, or review tracking: curators handle discussion with the submitter manually. Term existence does not establish a new WordPress label. If curators later use a new term in WordPress, a refresh of the shared WordPress-derived picklist should bring it into the proposal app. Keep a documented free-text fallback for unavailable APIs and study contexts without faithful ontology matches, rather than forcing the submitter to choose an incorrect term. Only abstract concepts should be sent to public terminology services.
+
 - [Machine-readable policy](labeling-policy.json): field rules, API routes, source commits, review states, new-term review template and verified API examples.
 - [Observed vocabulary](wordpress-label-inventory-2026-10-09.json): exact labels with counts and examples; ontology mappings intentionally unreviewed.
 - [Curator graphic, PNG](../assets/tcia-labeling-guide.png) and [editable SVG](../assets/tcia-labeling-guide.svg): shareable overview, with dated vocabulary caveat.
