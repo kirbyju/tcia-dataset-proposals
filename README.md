@@ -36,7 +36,7 @@ The [interactive observed label catalog](https://kirbyju.github.io/tcia-dataset-
 python3 scripts/build_label_catalog.py
 ```
 
-GitHub Pages publishes the catalog from the `/docs` folder on `main` using **Deploy from a branch**. Push the regenerated HTML to `main` to publish catalog updates; changing the source JSON alone does not rebuild the HTML. Pages configuration is managed in the repository settings.
+GitHub Pages publishes the `/docs` folder on `main` through the [Publish curator label catalog](.github/workflows/pages.yml) Actions workflow. The Pages publishing source must be **GitHub Actions** in the repository settings. The workflow verifies that the generated HTML matches its source data before uploading and deploying it. Push the regenerated HTML with its source changes to `main`, or run the workflow manually to redeploy; stale generated HTML fails the build rather than silently publishing old labels.
 
 ## Run locally
 

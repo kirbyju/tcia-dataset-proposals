@@ -1,0 +1,56 @@
+name: Publish curator label catalog
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'scripts/build_label_catalog.py'
+      - 'scripts/label_catalog_template.html'
+      - 'skills/curate-tcia-wordpress-metadata/references/labeling-policy.json'
+      - 'skills/curate-tcia-wordpress-metadata/references/wordpress-label-inventory-*.json'
+      - 'skills/curate-tcia-wordpress-metadata/assets/tcia-labeling-guide.svg'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Verify generated catalog is current
+        run: |
+          python3 scripts/build_label_catalog.py
+          git diff --exit-code -- docs/labels/index.html
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy static site
+        id: deployment
+        uses: actions/deploy-pages@v4
