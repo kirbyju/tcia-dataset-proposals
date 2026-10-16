@@ -36,7 +36,9 @@ The [interactive observed label catalog](https://kirbyju.github.io/tcia-dataset-
 python3 scripts/build_label_catalog.py
 ```
 
-The catalog's **Export spreadsheet (.csv)** button downloads all five fields, including usage counts, historical mapping candidates, definitions, source workbook rows, ontology-code checks, and pending review notes. CSV opens in Excel or other spreadsheet applications. The export always includes the complete catalog, regardless of the current search/filter.
+Confirmed terminology decisions are stored in [`label-decisions.json`](skills/curate-tcia-wordpress-metadata/references/label-decisions.json) and override historical candidates when the catalog is rebuilt. Disease/site labels link directly to human-readable NCIt or UBERON pages for confirmed mappings or active exact-name references. Unresolved mappings stay unlinked. Retired `Phantom` options are hidden; `Not Applicable` is included with zero observed uses in the October 9 snapshot. The combined Ewing/pPNET label retains its historical count and shows links to the two proposed replacement labels until WordPress is updated and usage is refreshed. Counts remain dated evidence, not a claim that pending curator updates were applied.
+
+The catalog's **Export spreadsheet (.csv)** button downloads all five fields, including usage counts, displayed ontology URLs, confirmed decisions, and historical mapping evidence. CSV opens in Excel or other spreadsheet applications. The export always includes the complete catalog, regardless of the current search/filter.
 
 Historical mapping evidence is stored separately in `skills/curate-tcia-wordpress-metadata/references/label-mappings.json`. To refresh it, download the referenced public Google Sheet as XLSX, then run `.venv/bin/python scripts/import_label_mappings.py --workbook /path/to/source.xlsx --verify` and rebuild the HTML. The importer uses direct source labels or explicit crosswalks; it does not infer fuzzy matches or treat the source's AI recommendations as curator approval. Ontology lookup failures remain visible as `unable to verify`.
 

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "policy_version": "2026.10.15.1",
-  "document_date": "2026-10-15",
+  "policy_version": "2026.10.16.1",
+  "document_date": "2026-10-16",
   "policy_kind": "curation recommendation and review rules",
   "authority": "User-specified labeling policy; WordPress governs registered display labels; NCIt and UBERON govern mapped concepts",
   "automatically_applied": false,
@@ -143,6 +143,21 @@
         "file_type"
       ],
       "requirement": "Use unable to verify for unavailable ontology/registry/content evidence. Use needs curator decision for a proposed new value or ambiguous mapping; record verification gaps separately. Neither state is approval."
+    },
+    {
+      "id": "non-cancer-and-specific-context",
+      "applies_to": [
+        "disease_type"
+      ],
+      "requirement": "Retain the standalone Non-Cancer label as the TCIA catch-all filter for documented non-cancer cohorts or components, including mixed cohorts. Also assign supported specific disease or cohort-context labels (for example Vestibular Schwannoma (non-cancer), COVID-19 Infection (non-cancer), or Healthy Subject). Verify faithful NCIt mappings for specific concepts and registry membership for all display labels. A parenthetical non-cancer string is not standalone filter membership. Do not infer Healthy Subject from nonmalignancy or force one NCIt disease mapping onto this TCIA discovery grouping. Review synthetic phantom cases under the species/Not Applicable decision. Dataset-level labels are not patient-level assertions."
+    },
+    {
+      "id": "phantom-simulated-context",
+      "applies_to": [
+        "disease_type",
+        "disease_location"
+      ],
+      "requirement": "Represent phantom identity in species. Retain supported simulated disease and anatomical context labels when applicable; do not automatically replace them with Not Applicable. Confirmed example: VICTRE retains Breast Cancer and Non-Cancer with Computational Phantom species. Use Not Applicable where disease/site context does not apply. Do not describe computational subjects as Healthy Subject."
     }
   ],
   "registry_membership_states": [

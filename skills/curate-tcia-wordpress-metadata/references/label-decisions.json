@@ -1,0 +1,235 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "Confirmed vocabulary reference links; not dataset- or patient-level assertions.",
+  "fields": {
+    "disease_location": {
+      "Thigh": {
+        "decision": "confirmed",
+        "ontology": "UBERON",
+        "code": "UBERON:0000376",
+        "preferred_label": "hindlimb stylopod",
+        "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000376",
+        "meaning": "Whole thigh region between pelvis and knee, rather than only its musculature.",
+        "confirmed_by": "User in this chat",
+        "confirmed_on": "2026-10-15"
+      },
+      "Whole body": {
+        "decision": "confirmed",
+        "ontology": "UBERON",
+        "code": "UBERON:0000468",
+        "preferred_label": "multicellular organism",
+        "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000468",
+        "meaning": "Entire body including head and limbs; the organism as a whole.",
+        "confirmed_by": "User in this chat",
+        "confirmed_on": "2026-10-15"
+      },
+      "Phantom": {
+        "decision": "remove from field",
+        "replacement": "Not Applicable",
+        "replacement_status": "confirmed; curator application planned for 2026-10-16",
+        "reason": "User confirms phantoms are represented in the species field, not disease type or disease location.",
+        "confirmed_by": "User in this chat",
+        "confirmed_on": "2026-10-15",
+        "replacement_code": "NCIt:C48660",
+        "simulation_context_note": "Retain supported simulated disease/site context when applicable; VICTRE is confirmed to retain Breast Cancer and Non-Cancer with Computational Phantom species. Use Not Applicable only where the field does not apply."
+      },
+      "Not Applicable": {
+        "decision": "confirmed",
+        "ontology": "NCIt",
+        "code": "C48660",
+        "preferred_label": "Not Applicable",
+        "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C48660",
+        "meaning": "Determination of a value is not relevant in the current context.",
+        "role": "Non-applicability marker; not a diagnosed disease or an anatomical UBERON site.",
+        "version": "26.09d",
+        "active": true,
+        "requested_on": "2026-10-15",
+        "note": "Use for phantom records where disease/site does not apply; do not conflate with Unknown or automatically replace real anatomical labels.",
+        "confirmed_by": "User in this chat",
+        "confirmed_on": "2026-10-15",
+        "wordpress_application": "planned for curator on 2026-10-16; not yet verified",
+        "simulation_context_note": "Retain supported simulated disease/site context when applicable; VICTRE is confirmed to retain Breast Cancer and Non-Cancer with Computational Phantom species. Use Not Applicable only where the field does not apply."
+      },
+      "Various": {
+        "decision": "confirmed temporary plain-text label",
+        "ontology": null,
+        "code": null,
+        "url": null,
+        "meaning": "Multiple disease sites represented across the dataset; individual sites are not enumerated at dataset level.",
+        "future_action": "Replace Various with the actual disease sites when dataset metadata is curated.",
+        "confirmed_by": "User in this chat",
+        "confirmed_on": "2026-10-15"
+      },
+      "Lymphoid System": {
+        "decision": "confirmed",
+        "ontology": "UBERON",
+        "code": "UBERON:0002465",
+        "preferred_label": "lymphoid system",
+        "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002465",
+        "meaning": "Broad lymphoid system, including lymph nodes, spleen, thymus, bone marrow and associated lymphoid tissues; not restricted to lymph nodes.",
+        "confirmed_by": "User in this chat",
+        "confirmed_on": "2026-10-15"
+      }
+    },
+    "disease_type": {
+      "Phantom": {
+        "decision": "remove from field",
+        "replacement": "Not Applicable",
+        "replacement_status": "confirmed; curator application planned for 2026-10-16",
+        "reason": "User confirms phantoms are represented in the species field, not disease type or disease location.",
+        "confirmed_by": "User in this chat",
+        "confirmed_on": "2026-10-15",
+        "replacement_code": "NCIt:C48660",
+        "simulation_context_note": "Retain supported simulated disease/site context when applicable; VICTRE is confirmed to retain Breast Cancer and Non-Cancer with Computational Phantom species. Use Not Applicable only where the field does not apply."
+      },
+      "Not Applicable": {
+        "decision": "confirmed",
+        "ontology": "NCIt",
+        "code": "C48660",
+        "preferred_label": "Not Applicable",
+        "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C48660",
+        "meaning": "Determination of a value is not relevant in the current context.",
+        "role": "Non-applicability marker; not a diagnosed disease or an anatomical UBERON site.",
+        "version": "26.09d",
+        "active": true,
+        "requested_on": "2026-10-15",
+        "note": "Use for phantom records where disease/site does not apply; do not conflate with Unknown or automatically replace real anatomical labels.",
+        "confirmed_by": "User in this chat",
+        "confirmed_on": "2026-10-15",
+        "wordpress_application": "planned for curator on 2026-10-16; not yet verified",
+        "simulation_context_note": "Retain supported simulated disease/site context when applicable; VICTRE is confirmed to retain Breast Cancer and Non-Cancer with Computational Phantom species. Use Not Applicable only where the field does not apply."
+      },
+      "Non-Cancer": {
+        "decision": "retain as broad filter label with specific companion labels",
+        "ontology": null,
+        "code": null,
+        "url": null,
+        "role": "TCIA discovery grouping; not an assertion that every participant is healthy and not a single NCIt disease concept.",
+        "meaning": "Dataset includes a documented non-cancer condition or healthy/non-cancer cohort component, including mixed cancer/non-cancer datasets.",
+        "companion_label_rule": "Also apply the appropriate specific disease or documented cohort-context labels, verified against NCIt where a faithful concept exists. Reuse registered WordPress labels. Do not replace specific labels with Non-Cancer.",
+        "examples": [
+          "Vestibular Schwannoma (non-cancer) plus Non-Cancer",
+          "COVID-19 Infection (non-cancer) plus Non-Cancer",
+          "Healthy Subject plus Non-Cancer when healthy cohort status is documented"
+        ],
+        "matching_rule": "The standalone Non-Cancer value must be present for the catch-all filter; parenthetical non-cancer in a specific label does not establish standalone membership.",
+        "limitations": [
+          "Do not infer healthy subjects merely from absence of a cancer diagnosis.",
+          "Review synthetic phantom cases separately under the confirmed species/Not Applicable policy.",
+          "Dataset labels do not establish patient-level diagnoses or identify which participants belong to each subgroup."
+        ],
+        "confirmed_by": "User in this chat",
+        "confirmed_on": "2026-10-16",
+        "wordpress_application": "recommendations only; not applied by this agent"
+      },
+      "Gastroesophageal Cancer": {
+        "decision": "confirmed broad combined cohort meaning; ontology link unresolved",
+        "ontology": "NCIt",
+        "code": null,
+        "url": null,
+        "meaning": "Combined disease grouping covering stomach and esophageal cancers broadly; not restricted to the gastroesophageal junction.",
+        "mapping_instruction": "Find a faithful broad NCIt concept or use separate stomach and esophageal concept links. Do not substitute a gastroesophageal-junction-specific concept or assume a single histology.",
+        "confirmed_by": "User in this chat",
+        "confirmed_on": "2026-10-16"
+      },
+      "Neuroendocrine Tumors (all sites)": {
+        "decision": "confirmed broad umbrella meaning; ontology link unresolved",
+        "ontology": "NCIt",
+        "code": null,
+        "url": null,
+        "meaning": "Broad grouping covering neuroendocrine tumors and neuroendocrine carcinomas across anatomical sites.",
+        "companion_label_rule": "Add supported more specific disease labels where known, including Neuroendocrine Carcinoma when applicable.",
+        "mapping_instruction": "Verify an NCIt concept whose scope covers both neuroendocrine tumors and carcinomas. Do not select a concept restricted to well-differentiated tumors, a particular grade, or a particular anatomical site.",
+        "confirmed_by": "User in this chat",
+        "confirmed_on": "2026-10-16"
+      },
+      "Ewing Sarcoma/Peripheral Primitive Neuroectodermal Tumor": {
+        "decision": "replace combined label with separate supported NCIt labels",
+        "replacements": [
+          {
+            "display_label": "Ewing Sarcoma",
+            "ontology": "NCIt",
+            "code": "C4817",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C4817",
+            "active": true,
+            "version": "26.09d",
+            "verified_on": "2026-10-16",
+            "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C4817?include=summary",
+            "api_response_sha256": "3daa0e75d6c10939b8f4c34f76267ed74fd8a2036d463a85164aafa3c2803f71"
+          },
+          {
+            "display_label": "Peripheral Primitive Neuroectodermal Tumor",
+            "ontology": "NCIt",
+            "code": "C9341",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C9341",
+            "active": true,
+            "version": "26.09d",
+            "verified_on": "2026-10-16",
+            "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C9341?include=summary",
+            "api_response_sha256": "1f4ce0bbfb3adc0952936e4a37cccfe51dcfa84c962f342b5ff7c151df72ca8e"
+          }
+        ],
+        "application_rule": "Use each replacement only when the actual released cohort supports that diagnosis. The combined historical label alone does not prove that both diagnoses are represented; inspect source diagnosis metadata before assigning one or both.",
+        "affected_records_in_2026_10_16_public_metadata": [
+          "EAY131",
+          "PDMR-Texture-Analysis",
+          "EAY131-Tumor-Annotations"
+        ],
+        "wordpress_application": "pending user/curator review and updates; no WordPress edits performed",
+        "confirmed_by": "User in this chat",
+        "confirmed_on": "2026-10-16"
+      },
+      "Healthy Subject": {
+        "decision": "confirmed",
+        "ontology": "NCIt",
+        "code": "C49651",
+        "preferred_label": "Healthy Subject",
+        "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C49651",
+        "meaning": "An individual who is or becomes a participant in a research study and has no significant health-related issues.",
+        "active": true,
+        "version": "26.09d",
+        "verified_on": "2026-10-16",
+        "confirmed_by": "User confirmed healthy cohort companion policy in this chat; NCI concept verified via EVS API.",
+        "confirmed_on": "2026-10-16"
+      }
+    }
+  },
+  "wordpress_cleanup": {
+    "unused_terms": {
+      "status": "removed, as reported by user",
+      "disease_type_count": 21,
+      "disease_location_count": 14,
+      "reported_on": "2026-10-15",
+      "live_reverification": "not performed in this turn"
+    },
+    "phantom_replacement": {
+      "status": "curator application planned by user",
+      "scheduled_for": "2026-10-16",
+      "fields": [
+        "disease_type",
+        "disease_location"
+      ],
+      "replacement": "Not Applicable",
+      "code": "NCIt:C48660",
+      "note": "User will have a curator apply labels; no WordPress edits authorized or performed by this agent."
+    }
+  },
+  "dataset_decisions": {
+    "VICTRE": {
+      "decision": "retain simulated disease context labels with computational phantom species",
+      "disease_type": [
+        "Breast Cancer",
+        "Non-Cancer"
+      ],
+      "species": [
+        "Computational Phantom"
+      ],
+      "reason": "These labels describe simulated cancer and non-cancer content and support dataset discovery. Phantom identity belongs in species.",
+      "not_applicable_rule": "Use Not Applicable where a phantom does not model a disease context; do not automatically replace supported simulated disease labels.",
+      "healthy_subject_rule": "Do not label computational subjects Healthy Subject.",
+      "confirmed_by": "User in this chat",
+      "confirmed_on": "2026-10-16",
+      "wordpress_application": "Last inspected metadata already contained these disease and species labels; live changes not applied or reverified in this turn."
+    }
+  }
+}

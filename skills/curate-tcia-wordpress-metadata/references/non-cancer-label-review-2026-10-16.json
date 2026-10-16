@@ -1,0 +1,480 @@
+{
+  "review_date": "2026-10-16",
+  "scope": "Targeted disease-label consistency review of visible public records having Non-Cancer, a parenthetical non-cancer label, or Healthy Subject; not an exhaustive discovery of all unlabeled non-cancer cohorts.",
+  "authority": "User-confirmed Non-Cancer grouping policy; recommendations only. No WordPress changes applied.",
+  "sources": [
+    {
+      "url": "https://www.cancerimagingarchive.net/api/v2/analysis-results?per_page=100&page=1&v=1",
+      "rows": 60,
+      "total": 60,
+      "sha256": "1eef04fb275f474675a90b26a6232f7beee945dacff34cd47debfc0ba154427c"
+    },
+    {
+      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=1&v=1",
+      "rows": 100,
+      "total": 240,
+      "sha256": "860b396dcb9345fa44d1119c1f827121ce872832494c7601b9e40268180e3062"
+    },
+    {
+      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=2&v=1",
+      "rows": 100,
+      "total": 240,
+      "sha256": "859288bd5e436c5918cf17d2b0cc8e0b5163a830ea0659c1b7ed7d414f9d5bfc"
+    },
+    {
+      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=3&v=1",
+      "rows": 40,
+      "total": 240,
+      "sha256": "9d57cc379c3e65400f84d8e06263c66f80437ddded418ab358bc40c11a9fea71"
+    }
+  ],
+  "limitations": [
+    "Reviewed published narratives and current dataset-level labels; did not inspect participant-level clinical files or payloads.",
+    "Specific proposed new terms still require NCIt verification and current WordPress registry review.",
+    "Existing labels alone are not independent diagnosis evidence."
+  ],
+  "datasets": [
+    {
+      "short_title": "A091105",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/a091105/",
+      "current_disease_labels": [
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "specific companion needed",
+      "recommendation": "Add a Desmoid-Type Fibromatosis label candidate; retain Non-Cancer. Verify current registry membership before creating a value.",
+      "evidence_summary": "Trial explicitly treats desmoid tumors/aggressive fibromatosis.",
+      "narrative_sha256": "d2b66d15b51129b5011cd0f79f5a6aad2a67183cb5eded90bd8165234f0e3537"
+    },
+    {
+      "short_title": "A091105-Tumor-Annotations",
+      "dataset_type": "Analysis Result",
+      "url": "https://www.cancerimagingarchive.net/analysis-result/a091105-tumor-annotations/",
+      "current_disease_labels": [
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "specific companion needed",
+      "recommendation": "Use the same Desmoid-Type Fibromatosis companion as the source Collection; retain Non-Cancer.",
+      "evidence_summary": "Description explicitly identifies annotations from A091105 desmoid/aggressive fibromatosis trial.",
+      "narrative_sha256": "45eb3772acc8cae5c55889ae8f82b252f82763c7627013c6ac0fb1d959e49743"
+    },
+    {
+      "short_title": "Breast-Cancer-Screening-DBT",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/breast-cancer-screening-dbt/",
+      "current_disease_labels": [
+        "Breast Cancer",
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "needs curator decision",
+      "recommendation": "Retain current labels; review specific benign breast diagnoses and documented normal controls. Add Healthy Subject only if cohort evidence supports that meaning.",
+      "evidence_summary": "Description distinguishes normal, actionable, biopsy-proven benign and cancer cases.",
+      "narrative_sha256": "cb001378173f96c667e639eeed64852aab1c577c35cc92b93b142c8413e2590b"
+    },
+    {
+      "short_title": "CBIS-DDSM",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/cbis-ddsm/",
+      "current_disease_labels": [
+        "Breast Cancer",
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "needs curator decision",
+      "recommendation": "Retain current labels; inspect the released subset pathology before adding specific benign diagnoses. Do not inherit all original DDSM cohort classes automatically.",
+      "evidence_summary": "Description distinguishes original DDSM normal/benign/malignant cases from the selected CBIS subset.",
+      "narrative_sha256": "89f37593cbde85eb59a653fa1267e4ee58bbe703e2a75e1382bf6aa49d48c1fb"
+    },
+    {
+      "short_title": "COVID-19-AR",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/covid-19-ar/",
+      "current_disease_labels": [
+        "COVID-19 Infection (non-cancer)"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain the existing specific disease label.",
+      "evidence_summary": "The published narrative identifies the non-cancer condition represented by the existing COVID-19 or vestibular schwannoma label.",
+      "narrative_sha256": "f425b07f538b594f55407de5cd6c4da82d924ab0e021c2a6940549f960d5383e"
+    },
+    {
+      "short_title": "COVID-19-NY-SBU",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/covid-19-ny-sbu/",
+      "current_disease_labels": [
+        "COVID-19 Infection (non-cancer)"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain the existing specific disease label.",
+      "evidence_summary": "The published narrative identifies the non-cancer condition represented by the existing COVID-19 or vestibular schwannoma label.",
+      "narrative_sha256": "0f6678b698f3bedbb603a959d3bbe1454f941a8fa0facdc90e7ebb57e5c0844a"
+    },
+    {
+      "short_title": "CT COLONOGRAPHY",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/ct-colonography/",
+      "current_disease_labels": [
+        "Colon Cancer",
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "needs curator decision",
+      "recommendation": "Retain current labels; review polyp/clinical spreadsheets for supported benign diagnoses and any explicitly healthy subgroup.",
+      "evidence_summary": "Screening population and polyp descriptions do not establish healthy status or a single benign diagnosis.",
+      "narrative_sha256": "16930c4d492dd2cb2a881fc469d1c5d0f182d199cd24449b067e29770e5f73c9"
+    },
+    {
+      "short_title": "CT Images in COVID-19",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/ct-images-in-covid-19/",
+      "current_disease_labels": [
+        "COVID-19 Infection (non-cancer)"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain the existing specific disease label.",
+      "evidence_summary": "The published narrative identifies the non-cancer condition represented by the existing COVID-19 or vestibular schwannoma label.",
+      "narrative_sha256": "e9f937b19a056f87137e9b40be0c314537e8ecf0cc4ac338493bd67be5fb3d5f"
+    },
+    {
+      "short_title": "CT Lymph Nodes",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/",
+      "current_disease_labels": [
+        "Lymphadenopathy (non-cancer)"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "needs curator decision",
+      "recommendation": "Verify the existing Lymphadenopathy (non-cancer) diagnosis and non-cancer cohort basis before adding the broad Non-Cancer label.",
+      "evidence_summary": "Description establishes annotated lymph nodes; it does not itself establish lymphadenopathy or nonmalignant etiology.",
+      "narrative_sha256": "aeb77c761aa4344a87950789b1af16bd591f9a3f11bb92a65f953f1b41ce4731"
+    },
+    {
+      "short_title": "EA1141",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/ea1141/",
+      "current_disease_labels": [
+        "Breast Cancer",
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "needs curator decision",
+      "recommendation": "Retain current labels; review released clinical outcomes before adding benign diagnoses or Healthy Subject.",
+      "evidence_summary": "Description documents dense-breast screening; screening eligibility alone does not establish healthy status.",
+      "narrative_sha256": "8fd46988b9a98abac5a03fbe4bafe81041db47a9cc178a8ef00a23f9d9d8ffca"
+    },
+    {
+      "short_title": "GammaKnife-Hippocampal",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/gammaknife-hippocampal/",
+      "current_disease_labels": [
+        "Various",
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "specific companions needed",
+      "recommendation": "Retain Non-Cancer; add existing Vestibular Schwannoma (non-cancer) and Metastatic disease where confirmed in registry; propose Trigeminal Neuralgia for NCIt/registry review. Consider replacing disease-type Various after those concepts are represented.",
+      "evidence_summary": "Description explicitly reports vestibular schwannoma, trigeminal neuralgia, and metastatic disease.",
+      "narrative_sha256": "32be85af27122acb2fcfae0f7e387c60304fe5e904106312a8a0bedac6b3c9cf"
+    },
+    {
+      "short_title": "Healthy-Total-Body-CTs",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/healthy-total-body-cts/",
+      "current_disease_labels": [
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "change recommended",
+      "recommendation": "Add existing Healthy Subject; retain Non-Cancer.",
+      "evidence_summary": "Description explicitly identifies 30 healthy adult research participants.",
+      "narrative_sha256": "cf45a04cd7386da08d88b4b6f4182a78b7caba3e75edcfed5eb2cad1bcc38e58"
+    },
+    {
+      "short_title": "Hungarian-Colorectal-Screening",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/hungarian-colorectal-screening/",
+      "current_disease_labels": [
+        "Colorectal Cancer",
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "needs curator decision",
+      "recommendation": "Retain current labels; use released slide ICD10 metadata to identify supported non-cancer companions and verify their NCIt concepts.",
+      "evidence_summary": "Description points to slide-level ICD10 codes; narrative alone does not enumerate non-cancer diagnoses.",
+      "narrative_sha256": "a70c706c1d7cacac241f765b459f34f824fddc038da87473456883541fdc845e"
+    },
+    {
+      "short_title": "LIDC-annot-NLST501",
+      "dataset_type": "Analysis Result",
+      "url": "https://www.cancerimagingarchive.net/analysis-result/lidc-annot-nlst501/",
+      "current_disease_labels": [
+        "Malignant Lung Neoplasm",
+        "Healthy Subject"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "needs curator decision",
+      "recommendation": "Existing Healthy Subject suggests a missing Non-Cancer companion; verify the actual released subset before recommending an addition.",
+      "evidence_summary": "Narrative describes an annotated NLST subset and malignancy likelihood ratings, without explicit healthy cohort status.",
+      "narrative_sha256": "8dd5313f2a980cf4c6a9e591110d123d6c474229b36ac68713ff3960efc35b74"
+    },
+    {
+      "short_title": "LIDC-IDRI",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/lidc-idri/",
+      "current_disease_labels": [
+        "Malignant Lung Neoplasm",
+        "Non-Cancer",
+        "Metastatic disease"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "needs curator decision",
+      "recommendation": "Retain current labels; review available diagnostic evidence before adding benign lung diagnoses or Healthy Subject. Radiologist malignancy ratings are not diagnoses.",
+      "evidence_summary": "Description focuses on nodule/non-nodule annotations and reader interpretation.",
+      "narrative_sha256": "01f0ffcd8441416257365cc66351761325a6c39fe7f8f1bb7941b7ec5bf39bf2"
+    },
+    {
+      "short_title": "MIDRC-RICORD-1A",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/midrc-ricord-1a/",
+      "current_disease_labels": [
+        "COVID-19 Infection (non-cancer)"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain the existing specific disease label.",
+      "evidence_summary": "The published narrative identifies the non-cancer condition represented by the existing COVID-19 or vestibular schwannoma label.",
+      "narrative_sha256": "50c74d45b0ab9c2d79138815d2cc13521879e0dc8774597f8c2dc15683243aa0"
+    },
+    {
+      "short_title": "MIDRC-RICORD-1B",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/midrc-ricord-1b/",
+      "current_disease_labels": [
+        "COVID-19 Infection (non-cancer)"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain the existing specific disease label.",
+      "evidence_summary": "The published narrative identifies the non-cancer condition represented by the existing COVID-19 or vestibular schwannoma label.",
+      "narrative_sha256": "312fc34b3c57be119291f1768a3a787d179d75c8de5365f95ccdae692a32f653"
+    },
+    {
+      "short_title": "MIDRC-RICORD-1C",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/midrc-ricord-1c/",
+      "current_disease_labels": [
+        "COVID-19 Infection (non-cancer)"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain the existing specific disease label.",
+      "evidence_summary": "The published narrative identifies the non-cancer condition represented by the existing COVID-19 or vestibular schwannoma label.",
+      "narrative_sha256": "e510d2336536b81a3d7cf4bd6f4c73c1ecc6600aead0414ad88f56576bb8dace"
+    },
+    {
+      "short_title": "NLST",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/nlst/",
+      "current_disease_labels": [
+        "Malignant Lung Neoplasm",
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "needs curator decision",
+      "recommendation": "Retain current labels; review clinical outcomes for specific non-cancer conditions; cancer-negative screening alone does not establish Healthy Subject.",
+      "evidence_summary": "High-risk screening cohort includes cancer and non-cancer outcomes.",
+      "narrative_sha256": "38cbaf5c3ce810349255473864ee441a60f4d8caa48641985eb94b6d115f3d2f"
+    },
+    {
+      "short_title": "Pancreas-CT",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/pancreas-ct/",
+      "current_disease_labels": [
+        "Healthy Subject"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain Healthy Subject for the documented healthy component.",
+      "evidence_summary": "Description explicitly includes 17 healthy kidney donors; other scans exclude major abdominal pathology and pancreatic cancer lesions.",
+      "narrative_sha256": "6d9c5dfd2a2feb5797abbe9507c45f9009b5e19d01f6b52935a3e0050366d961"
+    },
+    {
+      "short_title": "Pedi-Cranial-CT-Healthy",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/pedi-cranial-ct-healthy/",
+      "current_disease_labels": [
+        "Healthy Subject"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain Healthy Subject.",
+      "evidence_summary": "Description explicitly identifies 100 healthy pediatric subjects.",
+      "narrative_sha256": "91c5bdb80080bdbfbdeab46a69bd547b747a1b7cb88f224afe626638c4ab323b"
+    },
+    {
+      "short_title": "Pediatric-CT-SEG",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/pediatric-ct-seg/",
+      "current_disease_labels": [
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "needs curator decision",
+      "recommendation": "Retain pending review; request disease/inclusion evidence before assigning a specific companion. Do not add Healthy Subject from organ segmentation or routine clinical indications.",
+      "evidence_summary": "Description describes random pediatric clinical cases, not an explicitly healthy cohort.",
+      "narrative_sha256": "d1ae2b313e5da3d3facf3b15ffd5bcc6a331d02f7e0c50d4050e2cf003a48611"
+    },
+    {
+      "short_title": "PROSTATEx",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/prostatex/",
+      "current_disease_labels": [
+        "Prostate Cancer",
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "needs curator decision",
+      "recommendation": "Retain current labels; distinguish non-significant cancer from truly benign cases before selecting non-cancer companions.",
+      "evidence_summary": "Challenge targets clinically significant cancer; a negative challenge class need not mean no cancer.",
+      "narrative_sha256": "2a04c5207dd30877fb5e3e2d5df8662912fd2491aac341df53ea430f56dae977"
+    },
+    {
+      "short_title": "SAROS",
+      "dataset_type": "Analysis Result",
+      "url": "https://www.cancerimagingarchive.net/analysis-result/saros/",
+      "current_disease_labels": [
+        "Adenocarcinoma",
+        "Endometrial Carcinoma",
+        "Cutaneous Melanoma",
+        "Ductal Adenocarcinoma",
+        "Head and Neck Carcinomas",
+        "Head and Neck Squamous Cell Carcinoma",
+        "Kidney Cancer",
+        "Lung Adenocarcinoma",
+        "Malignant Lung Neoplasm",
+        "Lung Squamous Cell Carcinoma",
+        "Melanoma",
+        "Soft Tissue Sarcoma",
+        "Squamous Cell Carcinoma",
+        "Stomach Adenocarcinoma",
+        "COVID-19 Infection (non-cancer)",
+        "Breast Cancer",
+        "Hepatocellular Carcinoma",
+        "Lung Non-Small Cell Carcinoma",
+        "Healthy Subject"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain specific labels supported by the derived subset.",
+      "evidence_summary": "Description explicitly includes COVID-19-NY-SBU and Pancreas-CT source cases; existing labels include COVID-19 and Healthy Subject.",
+      "narrative_sha256": "6c0e97b150c103adf7d80eb3e6578e11feaa2bb839793997e145c104cd1303bd"
+    },
+    {
+      "short_title": "TP53-Precursor-Lesions",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/tp53-precursor-lesions/",
+      "current_disease_labels": [
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "needs curator decision",
+      "recommendation": "Review p53 signatures, STIL and STIC separately for specific NCIt companions; retain Non-Cancer pending clarification. Do not call the whole cohort healthy.",
+      "evidence_summary": "Description includes p53 signatures and serous tubal intraepithelial lesions/carcinoma after benign gynecologic procedures.",
+      "narrative_sha256": "bebbc70eed281ae263194227c37d9507f7673115849d88e6b3e03c113cfb6f61"
+    },
+    {
+      "short_title": "UCSD-VS-Longitudinal",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/ucsd-vs-longitudinal/",
+      "current_disease_labels": [
+        "Vestibular Schwannoma (non-cancer)"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain the existing specific disease label.",
+      "evidence_summary": "The published narrative identifies the non-cancer condition represented by the existing COVID-19 or vestibular schwannoma label.",
+      "narrative_sha256": "f39e552cf724c67680320d0534b5a6f0c31ced79223708c3345b65564f780e16"
+    },
+    {
+      "short_title": "Vestibular-Schwannoma-MC-RC",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/vestibular-schwannoma-mc-rc/",
+      "current_disease_labels": [
+        "Vestibular Schwannoma (non-cancer)"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain the existing specific disease label.",
+      "evidence_summary": "The published narrative identifies the non-cancer condition represented by the existing COVID-19 or vestibular schwannoma label.",
+      "narrative_sha256": "1d3b769d0e7c47e3fee3ab932c060ad062f0ae067a4d1f7fa2931c95f26e9804"
+    },
+    {
+      "short_title": "Vestibular-Schwannoma-MC-RC2",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/vestibular-schwannoma-mc-rc2/",
+      "current_disease_labels": [
+        "Vestibular Schwannoma (non-cancer)"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain the existing specific disease label.",
+      "evidence_summary": "The published narrative identifies the non-cancer condition represented by the existing COVID-19 or vestibular schwannoma label.",
+      "narrative_sha256": "9b0c053e07a12af32fe88616d63711e2f95a6f562c14c1a2a304b98b32acb869"
+    },
+    {
+      "short_title": "Vestibular-Schwannoma-SEG",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/vestibular-schwannoma-seg/",
+      "current_disease_labels": [
+        "Vestibular Schwannoma (non-cancer)"
+      ],
+      "has_standalone_non_cancer": false,
+      "status": "change recommended",
+      "recommendation": "Add standalone Non-Cancer; retain the existing specific disease label.",
+      "evidence_summary": "The published narrative identifies the non-cancer condition represented by the existing COVID-19 or vestibular schwannoma label.",
+      "narrative_sha256": "90e83edfb714483c0191bef23de3559140d88958a7ecfcb903cef168a3c10eda"
+    },
+    {
+      "short_title": "VICTRE",
+      "dataset_type": "Collection",
+      "url": "https://www.cancerimagingarchive.net/collection/victre/",
+      "current_disease_labels": [
+        "Breast Cancer",
+        "Non-Cancer"
+      ],
+      "has_standalone_non_cancer": true,
+      "status": "pass",
+      "recommendation": "Retain Breast Cancer and Non-Cancer for simulated content, with Computational Phantom in species. Use Not Applicable only where disease context does not apply; do not add Healthy Subject.",
+      "evidence_summary": "Entire trial is in silico with computational subjects and simulated lesions.",
+      "narrative_sha256": "2077f3f51061d2991361beb63748019e006725e342af0743b0cbc31c1e74176d",
+      "curator_decision": "Confirmed by user 2026-10-16; last inspected labels already match; no live changes applied."
+    }
+  ],
+  "concept_candidates": [
+    {
+      "display_label": "Healthy Subject",
+      "code": "C49651",
+      "ontology": "NCIt",
+      "current_api_verification": "verified 2026-10-16",
+      "source": "https://evs.nci.nih.gov/ftp1/CDISC/Glossary/CDISC%20Glossary.html",
+      "active": true,
+      "version": "26.09d",
+      "preferred_label": "Healthy Subject",
+      "definition": "An individual who is or becomes a participant in a research study and has no significant health-related issues.",
+      "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C49651?include=summary"
+    },
+    {
+      "display_label": "Desmoid-Type Fibromatosis",
+      "code": "C9182",
+      "ontology": "NCIt",
+      "current_api_verification": "pending",
+      "source": "https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/Neoplasm/Archive/Neoplasm_Core_Mappings_NCIm_Terms_2016-06-15.html"
+    }
+  ]
+}

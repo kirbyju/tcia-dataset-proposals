@@ -35,6 +35,14 @@ Apply multiple labels only when the content supports multiple concepts. Dataset 
 
 Healthy/non-cancer cohorts, unknown primary sites, systemic disease, mixed cohorts and contextual labels such as “Various” need explicit treatment when no faithful disease/site mapping exists. Do not force a disease code onto a study context or invent a primary organ from the scan coverage.
 
+## Non-Cancer and specific companion labels
+
+Confirmed by the user October 16, 2026: retain **Non-Cancer** as the broad TCIA discovery filter and also assign the supported specific disease or cohort-context labels. For example, pair it with the existing **Vestibular Schwannoma (non-cancer)**, **COVID-19 Infection (non-cancer)**, or **Healthy Subject** where supported. Mixed cancer/non-cancer datasets can retain both groups of labels. A parenthetical “non-cancer” in a specific label does not supply the standalone filter value.
+
+Non-Cancer is a TCIA discovery grouping with no single disease-code equivalence confirmed. Keep it unlinked rather than forcing an NCIt mapping. Verify specific companion concepts against NCIt and prefer registered WordPress display labels. Nonmalignant disease, negative screening findings, and healthy subjects are different contexts: absence of cancer alone does not prove healthy status. Represent phantom identity in species and retain supported simulated disease/site context. For VICTRE, retain **Breast Cancer + Non-Cancer** with **Computational Phantom** species (user confirmed October 16). Use **Not Applicable** when disease/site context does not apply; do not label computational subjects Healthy Subject. Dataset labels describe represented groups, not each participant's diagnosis.
+
+See [confirmed decisions](label-decisions.json) and the [dated consistency review](non-cancer-label-review-2026-10-16.md). These are recommendations; no WordPress edits have been applied by this agent.
+
 ## APIs and model guidance
 
 - **NCIt:** [NCI EVS API specification](https://api-evsrest.nci.nih.gov/v3/api-docs). Search `GET https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?term={URL-encoded concept}&include=summary`; retrieve the selected code with `/api/v1/concept/ncit/{code}?include=summary`. Inspect definitions, synonyms and status; expand requested detail as needed. A ranked search hit is a candidate, not a verified mapping. API example verified October 15: `C4878`, preferred label `Lung Carcinoma`, NCIt `26.09d`. That does not automatically map all “Lung Cancer” cohorts to carcinoma.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Build the self-contained TCIA observed-label catalog.
 
-The inventory JSON is the only catalog data source. The generated HTML embeds the
-inventory, policy, styles, scripts, and the official TCIA logo so it works from
+Dated inventory, historical mappings, and confirmed decisions supply the catalog.
+The generated HTML embeds data, policy, styles, scripts, and the official TCIA logo so it works from
 GitHub Pages or as a file opened directly from disk.
 """
 
@@ -12,6 +12,7 @@ import argparse
 import base64
 import json
 from pathlib import Path
+from urllib.parse import quote
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +21,7 @@ DEFAULT_POLICY = ROOT / "skills/curate-tcia-wordpress-metadata/references/labeli
 DEFAULT_TEMPLATE = ROOT / "scripts/label_catalog_template.html"
 DEFAULT_LOGO_SVG = ROOT / "skills/curate-tcia-wordpress-metadata/assets/tcia-logo-light.svg"
 DEFAULT_MAPPINGS = ROOT / "skills/curate-tcia-wordpress-metadata/references/label-mappings.json"
+DEFAULT_DECISIONS = ROOT / "skills/curate-tcia-wordpress-metadata/references/label-decisions.json"
 DEFAULT_OUTPUT = ROOT / "docs/labels/index.html"
 
 EXPECTED_FIELDS = {
@@ -38,6 +40,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--template", type=Path, default=DEFAULT_TEMPLATE)
     parser.add_argument("--logo-svg", type=Path, default=DEFAULT_LOGO_SVG)
     parser.add_argument("--mappings", type=Path, default=DEFAULT_MAPPINGS)
+    parser.add_argument("--decisions", type=Path, default=DEFAULT_DECISIONS)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     return parser.parse_args()
 
@@ -102,11 +105,70 @@ def safe_script_json(value: dict) -> str:
     return json.dumps(value, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
 
+def concept_link(ontology: str, code: str, name: str) -> dict:
+    if ontology == "UBERON":
+        iri = "http://purl.obolibrary.org/obo/" + code.replace(":", "_")
+        url = "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=" + quote(iri, safe="")
+    elif ontology == "NCIt":
+        url = "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/" + code
+    else:
+        raise ValueError(f"Unsupported ontology: {ontology}")
+    return {"ontology": ontology, "code": code, "preferred_label": name, "url": url}
+
+
+def apply_decisions(inventory: dict, decisions: dict) -> None:
+    """Confirmed decisions override historical candidates, including explicit no-link choices."""
+    inventory["label_decisions"] = decisions
+    for field, rows in inventory["fields"].items():
+        field_decisions = decisions.get("fields", {}).get(field, {})
+        for label, decision in field_decisions.items():
+            if decision.get("decision") == "confirmed" and not any(r["label"] == label for r in rows):
+                rows.append({"label": label, "usage_count": 0, "examples": [],
+                             "semantic_review": "confirmed concept; usage not observed in dated snapshot"})
+        retained = []
+        for row in rows:
+            decision = field_decisions.get(row["label"])
+            row["reference_links"] = []
+            row["display_note"] = ""
+            if decision:
+                if decision["decision"] == "remove from field":
+                    continue
+                row["confirmed_decision"] = decision
+                row["semantic_review"] = decision["decision"]
+                row["review_note"] = decision.get("meaning", decision.get("application_rule", ""))
+                row["display_note"] = row["review_note"]
+                if decision.get("code") and decision.get("url"):
+                    row["reference_links"] = [concept_link(decision["ontology"], decision["code"], decision["preferred_label"])]
+                elif decision.get("replacements"):
+                    row["replacement_links"] = [concept_link(c["ontology"], c["code"], c["display_label"])
+                                                for c in decision["replacements"]]
+                    row["display_note"] = "Legacy combined label: replace with the supported separate diagnosis label(s)."
+            else:
+                # A reference link is not dataset-level semantic approval. Only expose
+                # active exact-name concepts; aliases/conflicts remain unlinked.
+                links = {}
+                for candidate in row.get("mapping_candidates", []):
+                    for check in candidate.get("ontology_checks", []):
+                        if (check.get("active") is True and
+                                check.get("preferred_label", "").casefold() == row["label"].casefold()):
+                            link = concept_link(candidate["ontology"], check["code"], check["preferred_label"])
+                            links[(link["ontology"], link["code"])] = link
+                if len(links) == 1:
+                    row["reference_links"] = list(links.values())
+            if field.startswith("disease_") and not row["reference_links"] and not row.get("replacement_links") and not decision:
+                row["display_note"] = "Ontology link pending confirmation."
+            if row["usage_count"] == 0:
+                row["display_note"] += " No published use in the October 9 snapshot."
+            retained.append(row)
+        inventory["fields"][field] = sorted(retained, key=lambda r: r["label"].casefold())
+
+
 def build(args: argparse.Namespace) -> None:
     inventory = read_json(args.inventory)
     policy = read_json(args.policy)
     validate_inventory(inventory)
     apply_mappings(inventory, read_json(args.mappings))
+    apply_decisions(inventory, read_json(args.decisions))
 
     template = args.template.read_text(encoding="utf-8")
     replacements = {
@@ -121,7 +183,7 @@ def build(args: argparse.Namespace) -> None:
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(template, encoding="utf-8")
-    print(f"Wrote {args.output} ({sum(EXPECTED_FIELDS.values())} observed labels)")
+    print(f"Wrote {args.output} ({sum(len(rows) for rows in inventory['fields'].values())} catalog labels)")
 
 
 if __name__ == "__main__":

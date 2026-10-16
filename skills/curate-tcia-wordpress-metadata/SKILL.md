@@ -63,7 +63,7 @@ Evaluate all dataset fields present in the current WordPress record, including a
 - Disease type describes the cohort's diagnosed condition or study context, not every incidental finding or annotation class. Verify disease concepts against NCI Thesaurus (NCIt), including existing TCIA labels. Retain a suitable existing display label with a documented NCIt mapping; do not infer equivalence from spelling alone.
 - Disease location describes the disease's primary site when known. Verify anatomy against UBERON through its API (for example, EMBL-EBI OLS with `ontology=uberon`). Do not substitute every body part scanned or annotated, or a metastatic site for a known primary site.
 - Species must be supported by the description or subject metadata. Do not infer it from names or institutional context.
-- Use multiple labels only when the dataset genuinely contains multiple concepts; do not add broad umbrella labels merely to improve discoverability.
+- Use multiple labels only when the dataset genuinely contains multiple concepts. Retain the user-confirmed `Non-Cancer` discovery grouping for documented non-cancer cohorts or components, alongside supported specific disease/context labels. Do not infer `Healthy Subject` from nonmalignancy or treat parenthetical “non-cancer” as standalone filter membership. Follow the confirmed [label decisions](references/label-decisions.json) and [Non-Cancer rule](references/labeling-guide.md#non-cancer-and-specific-companion-labels); avoid other unsupported umbrella labels.
 
 Evaluate every current or proposed download independently. Keep these concepts separate even when the WordPress presentation uses similar wording:
 
