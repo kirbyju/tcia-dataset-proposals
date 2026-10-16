@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light">
   <meta name="description" content="Search the labels observed in a dated snapshot of public TCIA WordPress records.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23042b5b'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%235bc6ff' stroke-width='3'/%3E%3C/svg%3E">
-  <title>TCIA observed label catalog</title>
+  <title>TCIA curator label catalog</title>
   <style>
     :root {
       --navy: #042b5b;
@@ -63,7 +63,7 @@
     .scope-notice p { margin: 0; }
     .scope-notice strong { color: #553900; }
 
-    .summary { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; margin: 1rem 0; }
+    .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; margin: 1rem 0; }
     .summary button { position: relative; min-height: 96px; padding: 0.85rem 0.85rem 0.75rem; text-align: left; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 3px 14px rgba(4, 43, 91, 0.04); }
     .summary button:hover { border-color: var(--blue); transform: translateY(-1px); }
     .summary button[aria-selected="true"] { color: white; background: var(--blue); border-color: var(--blue); }
@@ -177,20 +177,20 @@
       <div class="brand-row">
         <img src="__TCIA_LOGO_DATA_URI__" alt="The Cancer Imaging Archive">
         <div class="header-actions">
-          <button class="button" id="export-button" type="button" title="Download all five fields as an Excel-compatible CSV">Export spreadsheet (.csv)</button>
+          <button class="button" id="export-button" type="button" title="Download all eight fields as an Excel-compatible CSV">Export spreadsheet (.csv)</button>
           <button class="button button--light" id="download-button" type="button">Download offline copy</button>
         </div>
       </div>
       <p class="eyebrow">Curator reference · dated public snapshot</p>
-      <h1>Observed label catalog</h1>
-      <p class="lede">Search labels across five curation fields. Disease and site labels link to terminology references where resolved; counts show dated public usage.</p>
+      <h1>Curator label catalog</h1>
+      <p class="lede">Search labels across eight curation fields. Disease and site labels link to terminology references where resolved; counts show dated public usage.</p>
     </div>
   </header>
 
   <main class="page" id="catalog">
     <section class="scope-notice" aria-labelledby="scope-title">
       <div class="scope-notice__mark" aria-hidden="true">!</div>
-      <p><strong id="scope-title">Observed use is not a complete registry or an approved vocabulary.</strong> Counts reflect October 9, 2026 public usage; confirmed curation decisions through October 16 are applied to the display. Retired Phantom options are hidden, and Not Applicable is included. Pending WordPress updates are not counted as applied. A terminology link identifies a concept, not approval for every dataset.</p>
+      <p><strong id="scope-title">Observed use is not a complete registry or an approved vocabulary.</strong> Disease/site and download counts reflect October 9, 2026 public usage; species, program, and external-resource counts and registries were checked October 16, 2026; confirmed curation decisions through October 16 are applied to the display. Retired Phantom options are hidden, and Not Applicable is included. Pending WordPress updates are not counted as applied. A terminology link identifies a concept, not approval for every dataset.</p>
     </section>
 
     <nav class="summary" id="field-tabs" aria-label="Label fields" role="tablist"></nav>
@@ -256,7 +256,7 @@
           <h3>Three distinct states</h3>
           <ul>
             <li><strong>Observed:</strong> a public record in this snapshot used the label.</li>
-            <li><strong>Registered:</strong> WordPress offers the term in that field. Registry membership must be checked separately from these dated usage counts.</li>
+            <li><strong>Registered:</strong> WordPress offers the term in that field. Species, program, and external-resource registries were checked October 16; the original five fields retain their dated usage basis.</li>
             <li><strong>Semantically verified:</strong> evidence supports the label for the content and any applicable ontology mapping.</li>
           </ul>
         </section>
@@ -264,7 +264,7 @@
           <h3>How to assess a candidate</h3>
           <p>Use NCIt for disease concepts and UBERON for primary disease sites. Use the NCI Imaging Submission Model and the GDC schema as terminology guides for category, data type, and file type. Their values do not automatically become valid WordPress options.</p>
           <p>Historical diagnosis and anatomy mappings come from the <a href="https://docs.google.com/spreadsheets/d/1KnbOO85nqbx8A3m1VLWOiUhBJY_KxkI29_JwAVgKxjs/edit" target="_blank" rel="noopener noreferrer">source picklist workbook</a>. API checks confirm whether a code exists and is active; they do not approve its meaning for a TCIA label. Confirmed decisions override historical candidates. Reference links were checked against current definitions and synonyms. Reference scope and supporting notes are retained in the spreadsheet export; a reference does not approve its application to every dataset. Non-Cancer remains an unlinked TCIA filter, paired with specific labels where supported.</p>
-          <p>Export spreadsheet downloads all five fields, including the displayed ontology links and confirmed decisions, plus historical evidence for audit purposes. Search and filters do not limit the export.</p>
+          <p>Export spreadsheet downloads all eight fields, including the displayed ontology links and confirmed decisions, plus historical evidence for audit purposes. Search and filters do not limit the export.</p>
         </section>
         <section>
           <h3>Confirmed labeling decisions</h3>
@@ -297,7 +297,7 @@
 
       const catalog = JSON.parse(document.getElementById("catalog-data").textContent);
       const policy = JSON.parse(document.getElementById("policy-data").textContent);
-      const fieldOrder = ["disease_type", "disease_location", "data_category", "data_type", "file_type"];
+      const fieldOrder = ["disease_type", "disease_location", "data_category", "data_type", "file_type", "species", "program", "external_resource"];
       const fieldConfig = {
         disease_type: {
           title: "Disease type",
@@ -326,6 +326,24 @@
           scope: "Download field · data_type",
           description: "The specific information or object represented by each download. Multiple labels require evidence for each concept.",
           mapping: "Use NCI Imaging Submission Model and GDC as guides"
+        },
+        species: {
+          title: "Species",
+          slug: "species",
+          scope: "Dataset field · species",
+          description: "Published species or phantom classification. Includes registered options with no visible public use."
+        },
+        program: {
+          title: "Program",
+          slug: "program",
+          scope: "Dataset field · program.program_name",
+          description: "The program assigned to a dataset in WordPress. Includes registered options with no visible public use."
+        },
+        external_resource: {
+          title: "External resource labels",
+          slug: "external-resource",
+          scope: "Dataset field · external_resources",
+          description: "Labels describing external supporting resources. The WordPress registry is supporting-data; the normalized query API calls the array external_resource_labels. These labels do not establish a TCIA-hosted download."
         },
         file_type: {
           title: "File type",
@@ -459,7 +477,7 @@
 
       function render() {
         const config = fieldConfig[state.field];
-        document.title = `${config.title} · TCIA observed label catalog`;
+        document.title = `${config.title} · TCIA curator label catalog`;
         document.getElementById("field-panel").setAttribute("aria-labelledby", `tab-${config.slug}`);
         document.getElementById("field-title").textContent = config.title;
         document.getElementById("field-description").textContent = config.description;
@@ -523,7 +541,8 @@
           list.append(item);
         });
         examples.append(list);
-        if (!row.examples.length) examples.textContent = "No use observed in the dated snapshot.";
+        if (!row.examples.length) examples.textContent = row.registry_membership === "registered"
+          ? "No visible public use at the registry check." : "No use observed in the dated snapshot.";
         tr.append(label, count, examples);
         return tr;
       }
@@ -578,7 +597,7 @@
             row.review_note || "Content-level review is pending.",
             row.examples.map(example => example.short_title).join(" | "),
             row.examples.map(example => example.url).join(" | "),
-            "unverified", catalog.provenance.bundle_generated_at_utc,
+            row.registry_membership || "unverified", row.usage_snapshot_date || catalog.provenance.bundle_generated_at_utc,
             candidates.length ? catalog.mapping_provenance.source_url : "",
             candidates.length ? catalog.mapping_provenance.retrieved_at_utc : "",
             unique([...(row.reference_links || []), ...(row.replacement_links || [])].map(link => link.code)),
@@ -612,7 +631,11 @@
       const generated = new Date(catalog.generated_at_utc);
       const bundleDate = new Date(catalog.provenance.bundle_generated_at_utc);
       document.getElementById("source-provenance").innerHTML = `Inventory generated <strong>${generated.toLocaleString(undefined, { dateStyle: "long", timeStyle: "short", timeZone: "UTC" })} UTC</strong> from a bundle dated <strong>${bundleDate.toLocaleString(undefined, { dateStyle: "long", timeStyle: "short", timeZone: "UTC" })} UTC</strong>. It covers ${catalog.provenance.visible_dataset_count.toLocaleString()} visible Collections and Analysis Results and was not latest-release verified. Snapshot SHA-256: <code>${catalog.provenance.snapshot_sqlite_sha256}</code>.`;
-      document.getElementById("count-basis").textContent = `Disease fields: ${catalog.counting_basis.disease_fields}. Download fields: ${catalog.counting_basis.download_fields}. Counts describe usage frequency, not semantic approval. Zero means no use in this dated snapshot; confirmed pending terms can still be listed.`;
+      const extra = catalog.dataset_label_provenance;
+      const extraSource = document.createElement("p");
+      extraSource.textContent = `Species, program, and external-resource registries and public usage were retrieved ${extra.generated_at_utc} across ${extra.visible_dataset_count} visible datasets. Field names: species, program.program_name, external_resources (normalized alias: external_resource_labels). Source endpoints and hashes are included in the offline HTML.`;
+      document.getElementById("source-provenance").after(extraSource);
+      document.getElementById("count-basis").textContent = `Disease fields: ${catalog.counting_basis.disease_fields}. Download fields: ${catalog.counting_basis.download_fields}. Counts describe usage frequency, not semantic approval. Species, program, and external resources: distinct visible datasets per label, checked separately on October 16. Zero means no observed public use at the field’s stated date; registered unused options and confirmed pending terms can still be listed.`;
 
       // Referencing the policy here makes the embedded policy an exercised build input.
       if (policy.approved_vocabulary === true || catalog.approved_vocabulary === true) {

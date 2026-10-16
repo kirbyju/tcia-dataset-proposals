@@ -23,6 +23,7 @@ DEFAULT_LOGO_SVG = ROOT / "skills/curate-tcia-wordpress-metadata/assets/tcia-log
 DEFAULT_MAPPINGS = ROOT / "skills/curate-tcia-wordpress-metadata/references/label-mappings.json"
 DEFAULT_DECISIONS = ROOT / "skills/curate-tcia-wordpress-metadata/references/label-decisions.json"
 DEFAULT_REFERENCES = ROOT / "skills/curate-tcia-wordpress-metadata/references/label-reference-links.json"
+DEFAULT_DATASET_LABELS = ROOT / "skills/curate-tcia-wordpress-metadata/references/wordpress-dataset-label-inventory-2026-10-16.json"
 DEFAULT_OUTPUT = ROOT / "docs/labels/index.html"
 
 EXPECTED_FIELDS = {
@@ -43,6 +44,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--mappings", type=Path, default=DEFAULT_MAPPINGS)
     parser.add_argument("--decisions", type=Path, default=DEFAULT_DECISIONS)
     parser.add_argument("--references", type=Path, default=DEFAULT_REFERENCES)
+    parser.add_argument("--dataset-labels", type=Path, default=DEFAULT_DATASET_LABELS)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     return parser.parse_args()
 
@@ -185,6 +187,18 @@ def build(args: argparse.Namespace) -> None:
     validate_inventory(inventory)
     apply_mappings(inventory, read_json(args.mappings))
     apply_decisions(inventory, read_json(args.decisions), read_json(args.references))
+    extra = read_json(args.dataset_labels)
+    if set(extra["fields"]) != {"species", "program", "external_resource"}:
+        raise ValueError("Unexpected supplemental catalog fields")
+    for field, rows in extra["fields"].items():
+        labels = [r["label"] for r in rows]
+        if not rows or len(labels) != len(set(labels)):
+            raise ValueError(f"Empty or duplicate supplemental labels: {field}")
+        for row in rows:
+            if not isinstance(row["label"], str) or not row["label"].strip() or row["usage_count"] < 0:
+                raise ValueError(f"Invalid supplemental label: {field}")
+        inventory["fields"][field] = rows
+    inventory["dataset_label_provenance"] = {k: v for k, v in extra.items() if k != "fields"}
 
     template = args.template.read_text(encoding="utf-8")
     replacements = {

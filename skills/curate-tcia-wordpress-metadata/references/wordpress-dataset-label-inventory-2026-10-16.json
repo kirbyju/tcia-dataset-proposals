@@ -1,0 +1,1132 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-10-16T18:28:27.651591+00:00",
+  "scope": "Complete public species/program/supporting-data registries plus exact-label usage in visible public Collections and Analysis Results. Zero means no visible public use, not absence from private records.",
+  "counting_basis": "distinct visible datasets per exact label; repeated values count once per dataset; no inherited program membership or inferred external resources",
+  "api_field_names": {
+    "species": "species",
+    "program": "program.program_name",
+    "external_resource": "external_resources"
+  },
+  "normalized_query_api_alias": {
+    "external_resource": "external_resource_labels"
+  },
+  "visible_dataset_count": 291,
+  "sources": [
+    {
+      "url": "https://www.cancerimagingarchive.net/api/v2/species?per_page=100&page=1",
+      "sha256": "3661a55a5f9ea0ed48251723751cf90f85d19c8b8c8b9a5f34759dad40ec353b",
+      "retrieved_at_utc": "2026-10-16T18:27:40.706145+00:00",
+      "row_count": 6
+    },
+    {
+      "url": "https://www.cancerimagingarchive.net/api/v2/programs?per_page=100&page=1",
+      "sha256": "e44b62ec6b9e1071defd86591c9f9c74566a9d26a50bab060fc2a0686821c019",
+      "retrieved_at_utc": "2026-10-16T18:27:41.108156+00:00",
+      "row_count": 19
+    },
+    {
+      "url": "https://www.cancerimagingarchive.net/api/v2/supporting-data?per_page=100&page=1",
+      "sha256": "76f2d1314e48d32c78cf429580f95fb4f26a638e38ad982742663e8e279f6a39",
+      "retrieved_at_utc": "2026-10-16T18:27:40.644342+00:00",
+      "row_count": 34
+    },
+    {
+      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=1",
+      "sha256": "13cd4b902235a5cafbaf8ba9013e10b1741d30a65d8204c8ebe2dc98e45509d5",
+      "retrieved_at_utc": "2026-10-16T18:28:03.997300+00:00",
+      "row_count": 100
+    },
+    {
+      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=2",
+      "sha256": "e834915dc9a4c5cdf63c649dee898f8b2f512549b3ad2b6b6bbf7b4bb8898ec2",
+      "retrieved_at_utc": "2026-10-16T18:28:27.651212+00:00",
+      "row_count": 100
+    },
+    {
+      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=3",
+      "sha256": "902fdc48d8056eac6d1048d9f8a5e72fc6d752df306f47f8ad301da1b87b3d21",
+      "retrieved_at_utc": "2026-10-16T18:28:14.959099+00:00",
+      "row_count": 40
+    },
+    {
+      "url": "https://www.cancerimagingarchive.net/api/v2/analysis-results?per_page=100&page=1",
+      "sha256": "a4baa6ab07a6c6344d28a11d1250d8dfbf5848f44bfc353611a44e4f5f77e880",
+      "retrieved_at_utc": "2026-10-16T18:27:59.778382+00:00",
+      "row_count": 60
+    }
+  ],
+  "fields": {
+    "species": [
+      {
+        "label": "Canine",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "CATCH",
+            "url": "https://www.cancerimagingarchive.net/collection/catch/"
+          },
+          {
+            "short_title": "ICDC-Glioma",
+            "url": "https://www.cancerimagingarchive.net/collection/icdc-glioma/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12219,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Computational Phantom",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "DRO-Toolkit",
+            "url": "https://www.cancerimagingarchive.net/collection/dro-toolkit/"
+          },
+          {
+            "short_title": "GBM-DSC-MRI-DRO",
+            "url": "https://www.cancerimagingarchive.net/collection/gbm-dsc-mri-dro/"
+          },
+          {
+            "short_title": "MRI-DIR",
+            "url": "https://www.cancerimagingarchive.net/collection/mri-dir/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 55604,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Human",
+        "usage_count": 219,
+        "examples": [
+          {
+            "short_title": "4D-Lung",
+            "url": "https://www.cancerimagingarchive.net/collection/4d-lung/"
+          },
+          {
+            "short_title": "A091105",
+            "url": "https://www.cancerimagingarchive.net/collection/a091105/"
+          },
+          {
+            "short_title": "AAPM-RT-MAC",
+            "url": "https://www.cancerimagingarchive.net/collection/aapm-rt-mac/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 11953,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Mouse",
+        "usage_count": 9,
+        "examples": [
+          {
+            "short_title": "Mouse-Astrocytoma",
+            "url": "https://www.cancerimagingarchive.net/collection/mouse-astrocytoma/"
+          },
+          {
+            "short_title": "Mouse-Mammary",
+            "url": "https://www.cancerimagingarchive.net/collection/mouse-mammary/"
+          },
+          {
+            "short_title": "PDMR-292921-168-R",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-292921-168-r/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12365,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Phantom",
+        "usage_count": 0,
+        "examples": [],
+        "semantic_review": "not reviewed",
+        "registry_id": 12603,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Physical Phantom",
+        "usage_count": 15,
+        "examples": [
+          {
+            "short_title": "CC-Radiomics-Phantom",
+            "url": "https://www.cancerimagingarchive.net/collection/cc-radiomics-phantom/"
+          },
+          {
+            "short_title": "CC-Radiomics-Phantom-2",
+            "url": "https://www.cancerimagingarchive.net/collection/cc-radiomics-phantom-2/"
+          },
+          {
+            "short_title": "CC-Radiomics-Phantom-3",
+            "url": "https://www.cancerimagingarchive.net/collection/cc-radiomics-phantom-3/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 55608,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      }
+    ],
+    "program": [
+      {
+        "label": "APOLLO",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "VAREPOP-APOLLO",
+            "url": "https://www.cancerimagingarchive.net/collection/varepop-apollo/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46883,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "CCDI",
+        "usage_count": 0,
+        "examples": [],
+        "semantic_review": "not reviewed",
+        "registry_id": 46885,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "CMB",
+        "usage_count": 9,
+        "examples": [
+          {
+            "short_title": "CMB-AML",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-aml/"
+          },
+          {
+            "short_title": "CMB-BRCA",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-brca/"
+          },
+          {
+            "short_title": "CMB-CRC",
+            "url": "https://www.cancerimagingarchive.net/collection/cmb-crc/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46887,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Community",
+        "usage_count": 156,
+        "examples": [
+          {
+            "short_title": "4D-Lung",
+            "url": "https://www.cancerimagingarchive.net/collection/4d-lung/"
+          },
+          {
+            "short_title": "AAPM-RT-MAC",
+            "url": "https://www.cancerimagingarchive.net/collection/aapm-rt-mac/"
+          },
+          {
+            "short_title": "Adrenal-ACC-Ki67-Seg",
+            "url": "https://www.cancerimagingarchive.net/collection/adrenal-acc-ki67-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46891,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "COVID-19",
+        "usage_count": 6,
+        "examples": [
+          {
+            "short_title": "COVID-19-AR",
+            "url": "https://www.cancerimagingarchive.net/collection/covid-19-ar/"
+          },
+          {
+            "short_title": "COVID-19-NY-SBU",
+            "url": "https://www.cancerimagingarchive.net/collection/covid-19-ny-sbu/"
+          },
+          {
+            "short_title": "CT Images in COVID-19",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-images-in-covid-19/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46893,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "CPTAC",
+        "usage_count": 19,
+        "examples": [
+          {
+            "short_title": "CPTAC-AML",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-aml/"
+          },
+          {
+            "short_title": "CPTAC-BRCA",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-brca/"
+          },
+          {
+            "short_title": "CPTAC-CCRCC",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-ccrcc/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46895,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "FDA",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "Phantom FDA",
+            "url": "https://www.cancerimagingarchive.net/collection/phantom-fda/"
+          },
+          {
+            "short_title": "VICTRE",
+            "url": "https://www.cancerimagingarchive.net/collection/victre/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46897,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "HTAN",
+        "usage_count": 0,
+        "examples": [],
+        "semantic_review": "not reviewed",
+        "registry_id": 46899,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "ICDC",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "CATCH",
+            "url": "https://www.cancerimagingarchive.net/collection/catch/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46901,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "MIDI",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "MIDI-B-Test-MIDI-B-Validation",
+            "url": "https://www.cancerimagingarchive.net/collection/midi-b-test-midi-b-validation/"
+          },
+          {
+            "short_title": "Pseudo-PHI-DICOM-Data",
+            "url": "https://www.cancerimagingarchive.net/collection/pseudo-phi-dicom-data/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46903,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "NCI Trials",
+        "usage_count": 6,
+        "examples": [
+          {
+            "short_title": "A091105-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/a091105-tumor-annotations/"
+          },
+          {
+            "short_title": "ACRIN 6685-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/acrin-6685-tumor-annotations/"
+          },
+          {
+            "short_title": "AHEP0731-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/ahep0731-tumor-annotations/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46905,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "NCTN",
+        "usage_count": 31,
+        "examples": [
+          {
+            "short_title": "A091105",
+            "url": "https://www.cancerimagingarchive.net/collection/a091105/"
+          },
+          {
+            "short_title": "ACNS0332",
+            "url": "https://www.cancerimagingarchive.net/collection/acns0332/"
+          },
+          {
+            "short_title": "ACNS0332-Tumor-Annotations",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/acns0332-tumor-annotations/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46907,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "NIH Initiatives",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "BreastDCEDL_ISPY2",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/breastdcedl_ispy2/"
+          },
+          {
+            "short_title": "CFB-GBM",
+            "url": "https://www.cancerimagingarchive.net/collection/cfb-gbm/"
+          },
+          {
+            "short_title": "ICDC-Glioma",
+            "url": "https://www.cancerimagingarchive.net/collection/icdc-glioma/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 54162,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "NLM",
+        "usage_count": 0,
+        "examples": [],
+        "semantic_review": "not reviewed",
+        "registry_id": 46909,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "PDMR",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "PDMR-292921-168-R",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-292921-168-r/"
+          },
+          {
+            "short_title": "PDMR-425362-245-T",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-425362-245-t/"
+          },
+          {
+            "short_title": "PDMR-521955-158-R4",
+            "url": "https://www.cancerimagingarchive.net/collection/pdmr-521955-158-r4/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46911,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "QIBA",
+        "usage_count": 0,
+        "examples": [],
+        "semantic_review": "not reviewed",
+        "registry_id": 46913,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "QIN",
+        "usage_count": 14,
+        "examples": [
+          {
+            "short_title": "GBM-DSC-MRI-DRO",
+            "url": "https://www.cancerimagingarchive.net/collection/gbm-dsc-mri-dro/"
+          },
+          {
+            "short_title": "Lung Phantom",
+            "url": "https://www.cancerimagingarchive.net/collection/lung-phantom/"
+          },
+          {
+            "short_title": "QIN Breast DCE-MRI",
+            "url": "https://www.cancerimagingarchive.net/collection/qin-breast-dce-mri/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46915,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "RIDER",
+        "usage_count": 7,
+        "examples": [
+          {
+            "short_title": "RIDER Breast MRI",
+            "url": "https://www.cancerimagingarchive.net/collection/rider-breast-mri/"
+          },
+          {
+            "short_title": "RIDER Lung CT",
+            "url": "https://www.cancerimagingarchive.net/collection/rider-lung-ct/"
+          },
+          {
+            "short_title": "RIDER Lung PET-CT",
+            "url": "https://www.cancerimagingarchive.net/collection/rider-lung-pet-ct/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46917,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "TCGA",
+        "usage_count": 26,
+        "examples": [
+          {
+            "short_title": "GBM-MR-NER-Outcomes",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/gbm-mr-ner-outcomes/"
+          },
+          {
+            "short_title": "TCGA-BLCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-blca/"
+          },
+          {
+            "short_title": "TCGA-BRCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-brca/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 46919,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      }
+    ],
+    "external_resource": [
+      {
+        "label": "Clinical",
+        "usage_count": 141,
+        "examples": [
+          {
+            "short_title": "A091105",
+            "url": "https://www.cancerimagingarchive.net/collection/a091105/"
+          },
+          {
+            "short_title": "ACNS0332",
+            "url": "https://www.cancerimagingarchive.net/collection/acns0332/"
+          },
+          {
+            "short_title": "ACRIN-6698",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-6698/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 11955,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Deep learning based computational stain for staining tumor-infiltrating lymphocytes (TILs)",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "TIL-WSI-TCGA",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12825,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "DICOM SR descriptions of patient characteristics",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "DICOM-SR-Breast-Clinical",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-sr-breast-clinical/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12853,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "genomic subtypes",
+        "usage_count": 0,
+        "examples": [],
+        "semantic_review": "not reviewed",
+        "registry_id": 12791,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Genomics",
+        "usage_count": 45,
+        "examples": [
+          {
+            "short_title": "AURORA-Metastatic-Breast-Multiomics",
+            "url": "https://www.cancerimagingarchive.net/collection/aurora-metastatic-breast-multiomics/"
+          },
+          {
+            "short_title": "BraTS-PEDs",
+            "url": "https://www.cancerimagingarchive.net/collection/brats-peds/"
+          },
+          {
+            "short_title": "Burdenko-GBM-Progression",
+            "url": "https://www.cancerimagingarchive.net/collection/burdenko-gbm-progression/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12191,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Histopathology",
+        "usage_count": 23,
+        "examples": [
+          {
+            "short_title": "DICOM-SR-Breast-Clinical",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-sr-breast-clinical/"
+          },
+          {
+            "short_title": "TCGA-BLCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-blca/"
+          },
+          {
+            "short_title": "TCGA-BRCA",
+            "url": "https://www.cancerimagingarchive.net/collection/tcga-brca/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12855,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Image Analyses",
+        "usage_count": 71,
+        "examples": [
+          {
+            "short_title": "4D-Lung",
+            "url": "https://www.cancerimagingarchive.net/collection/4d-lung/"
+          },
+          {
+            "short_title": "ACRIN-6698",
+            "url": "https://www.cancerimagingarchive.net/collection/acrin-6698/"
+          },
+          {
+            "short_title": "Adrenal-ACC-Ki67-Seg",
+            "url": "https://www.cancerimagingarchive.net/collection/adrenal-acc-ki67-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 11973,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "image features",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "DICOM-LIDC-IDRI-Nodules",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-lidc-idri-nodules/"
+          },
+          {
+            "short_title": "PleThora",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/plethora/"
+          },
+          {
+            "short_title": "QIBA-VolCT-1B",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/qiba-volct-1b/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12843,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Image quality assessment measures",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "MRQy-Quality-Measures",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/mrqy-quality-measures/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12889,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Image Registrations",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "MRI-DIR",
+            "url": "https://www.cancerimagingarchive.net/collection/mri-dir/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12605,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Lesion measurements",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "Crowds-Cure-2017",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2017/"
+          },
+          {
+            "short_title": "Crowds-Cure-2018",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12833,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Microarray",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "CPTAC-HNSCC",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-hnscc/"
+          },
+          {
+            "short_title": "NSCLC-Radiomics-Genomics",
+            "url": "https://www.cancerimagingarchive.net/collection/nsclc-radiomics-genomics/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 49515,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Multi-center comparison of radiomic features.",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Radiomic-Feature-Standards",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/radiomic-feature-standards/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12883,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "multi-gene assays",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "TCGA-Breast-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12777,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "NA",
+        "usage_count": 0,
+        "examples": [],
+        "semantic_review": "not reviewed",
+        "registry_id": 56070,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Nuclei segmentations",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "Pan-Cancer-Nuclei-Seg",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12877,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Organ segmentations",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "CT Lymph Nodes",
+            "url": "https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/"
+          },
+          {
+            "short_title": "PROSTATEx-Seg-HiRes",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/prostatex-seg-hires/"
+          },
+          {
+            "short_title": "PROSTATEx-Seg-Zones",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/prostatex-seg-zones/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12869,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Pathology",
+        "usage_count": 0,
+        "examples": [],
+        "semantic_review": "not reviewed",
+        "registry_id": 12197,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "pleural effusion segmentations",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "PleThora",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/plethora/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 21275,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Prostate structure segmentations",
+        "usage_count": 0,
+        "examples": [],
+        "semantic_review": "not reviewed",
+        "registry_id": 12785,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "proteogenomic features",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "TCGA-OV-Proteogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-proteogenomics/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12849,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Proteomics",
+        "usage_count": 11,
+        "examples": [
+          {
+            "short_title": "CPTAC-BRCA",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-brca/"
+          },
+          {
+            "short_title": "CPTAC-CCRCC",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-ccrcc/"
+          },
+          {
+            "short_title": "CPTAC-COAD",
+            "url": "https://www.cancerimagingarchive.net/collection/cptac-coad/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12683,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Radiation Therapy Structures",
+        "usage_count": 0,
+        "examples": [],
+        "semantic_review": "not reviewed",
+        "registry_id": 12837,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Radiologist assessments of image features",
+        "usage_count": 5,
+        "examples": [
+          {
+            "short_title": "TCGA-Breast-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/"
+          },
+          {
+            "short_title": "TCGA-GBM-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-gbm-radiogenomics/"
+          },
+          {
+            "short_title": "TCGA-KIRC-Radiogenomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-kirc-radiogenomics/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12763,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Radiologist assessments of image features and hemodynamic parameters",
+        "usage_count": 0,
+        "examples": [],
+        "semantic_review": "not reviewed",
+        "registry_id": 12751,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "radiomic features",
+        "usage_count": 4,
+        "examples": [
+          {
+            "short_title": "ISPY1-Tumor-SEG-Radiomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/ispy1-tumor-seg-radiomics/"
+          },
+          {
+            "short_title": "IvyGAP-Radiomics",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/ivygap-radiomics/"
+          },
+          {
+            "short_title": "Oropharyngeal-Radiomics-Outcomes",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/oropharyngeal-radiomics-outcomes/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12775,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "radiomic image features",
+        "usage_count": 3,
+        "examples": [
+          {
+            "short_title": "BraTS-TCGA-GBM",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-gbm/"
+          },
+          {
+            "short_title": "BraTS-TCGA-LGG",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-lgg/"
+          },
+          {
+            "short_title": "LUAD-CT-Survival",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/luad-ct-survival/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12797,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "receptor status and clinical findings including measurements.",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "DICOM-SR-Breast-Clinical",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-sr-breast-clinical/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12857,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Seed points",
+        "usage_count": 0,
+        "examples": [],
+        "semantic_review": "not reviewed",
+        "registry_id": 12901,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Segmentations",
+        "usage_count": 2,
+        "examples": [
+          {
+            "short_title": "LGG-1p19qDeletion",
+            "url": "https://www.cancerimagingarchive.net/collection/lgg-1p19qdeletion/"
+          },
+          {
+            "short_title": "SAROS",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 21533,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Software/Source Code",
+        "usage_count": 40,
+        "examples": [
+          {
+            "short_title": "BCBM-RadioGenomics",
+            "url": "https://www.cancerimagingarchive.net/collection/bcbm-radiogenomics/"
+          },
+          {
+            "short_title": "Brain-Mets-Lung-MRI-Path-Segs",
+            "url": "https://www.cancerimagingarchive.net/collection/brain-mets-lung-mri-path-segs/"
+          },
+          {
+            "short_title": "Brain-TR-GammaKnife",
+            "url": "https://www.cancerimagingarchive.net/collection/brain-tr-gammaknife/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12147,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Standardized (SDTM format) conversions of clinical and image analysis data",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "DI-Cubed-Reports",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/di-cubed-reports/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12865,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Thoracic segmentations",
+        "usage_count": 1,
+        "examples": [
+          {
+            "short_title": "PleThora",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/plethora/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 21273,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      },
+      {
+        "label": "Tumor segmentations",
+        "usage_count": 11,
+        "examples": [
+          {
+            "short_title": "BraTS-TCGA-GBM",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-gbm/"
+          },
+          {
+            "short_title": "BraTS-TCGA-LGG",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-lgg/"
+          },
+          {
+            "short_title": "DICOM-Glioma-SEG",
+            "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-glioma-seg/"
+          }
+        ],
+        "semantic_review": "not reviewed",
+        "registry_id": 12757,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
+        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+      }
+    ]
+  }
+}
