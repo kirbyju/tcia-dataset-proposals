@@ -263,14 +263,14 @@
         <section>
           <h3>How to assess a candidate</h3>
           <p>Use NCIt for disease concepts and UBERON for primary disease sites. Use the NCI Imaging Submission Model and the GDC schema as terminology guides for category, data type, and file type. Their values do not automatically become valid WordPress options.</p>
-          <p>Historical diagnosis and anatomy mappings come from the <a href="https://docs.google.com/spreadsheets/d/1KnbOO85nqbx8A3m1VLWOiUhBJY_KxkI29_JwAVgKxjs/edit" target="_blank" rel="noopener noreferrer">source picklist workbook</a>. API checks confirm whether a code exists and is active; they do not approve its meaning for a TCIA label. Confirmed decisions override historical candidates. Exact-name active concepts have reference links; ambiguous mappings remain unlinked. Non-Cancer remains an unlinked TCIA filter, paired with specific labels where supported.</p>
+          <p>Historical diagnosis and anatomy mappings come from the <a href="https://docs.google.com/spreadsheets/d/1KnbOO85nqbx8A3m1VLWOiUhBJY_KxkI29_JwAVgKxjs/edit" target="_blank" rel="noopener noreferrer">source picklist workbook</a>. API checks confirm whether a code exists and is active; they do not approve its meaning for a TCIA label. Confirmed decisions override historical candidates. Reference links were checked against current definitions and synonyms. Broader or combined references are explained beside the label; they do not approve its application to every dataset. Non-Cancer remains an unlinked TCIA filter, paired with specific labels where supported.</p>
           <p>Export spreadsheet downloads all five fields, including the displayed ontology links and confirmed decisions, plus historical evidence for audit purposes. Search and filters do not limit the export.</p>
         </section>
         <section>
           <h3>Confirmed labeling decisions</h3>
           <p><strong>Non-Cancer:</strong> retain the broad filter and add supported specific disease or healthy-cohort labels. Nonmalignant disease does not automatically mean Healthy Subject.</p>
           <p><strong>Phantoms:</strong> represent phantom identity in species. Retain supported simulated disease context: VICTRE keeps Breast Cancer + Non-Cancer with Computational Phantom species. Use Not Applicable where disease/site does not apply.</p>
-          <p><strong>Broad groups:</strong> Gastroesophageal Cancer covers stomach and esophageal cancers; Neuroendocrine Tumors (all sites) includes tumors and carcinomas. Their exact ontology links remain unresolved.</p>
+          <p><strong>Broad groups:</strong> Gastroesophageal Cancer covers stomach and esophageal cancers; Neuroendocrine Tumors (all sites) includes tumors and carcinomas. Gastroesophageal Cancer links to both gastric and esophageal malignancy concepts; the neuroendocrine umbrella links to Neuroendocrine Neoplasm.</p>
           <p><strong>Ewing/pPNET:</strong> replace the combined label with separate Ewing Sarcoma and Peripheral Primitive Neuroectodermal Tumor labels according to the diagnoses actually represented. The historical row remains visible until usage is refreshed.</p>
         </section>
         <section>
@@ -480,7 +480,8 @@
         const label = document.createElement("td");
         label.className = "label-cell";
         label.dataset.heading = "Exact label";
-        const reference = (row.reference_links || [])[0];
+        const references = row.reference_links || [];
+        const reference = references.length === 1 ? references[0] : null;
         if (reference) {
           const link = document.createElement("a");
           link.href = safeUrl(reference.url);
@@ -491,10 +492,24 @@
           label.append(link);
           const code = document.createElement("span");
           code.className = "mapping-note";
-          code.textContent = reference.code;
+          code.textContent = reference.preferred_label.toLocaleLowerCase() === row.label.toLocaleLowerCase()
+            ? reference.code : `${reference.preferred_label} · ${reference.code}`;
           label.append(code);
         } else {
           label.append(highlight(row.label, state.query.trim()));
+        }
+        if (references.length > 1) {
+          references.forEach(reference => {
+            const detail = document.createElement("span");
+            detail.className = "mapping-note";
+            const link = document.createElement("a");
+            link.href = safeUrl(reference.url);
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = `${reference.preferred_label} (${reference.code})`;
+            detail.append(link);
+            label.append(detail);
+          });
         }
         if (row.display_note) {
           const note = document.createElement("span");
@@ -579,11 +594,12 @@
       }
 
       function exportSpreadsheet() {
-        const headings = ["Field", "Exact WordPress label", "Uses", "Curator review status",
+        const headings = ["Field", "Exact WordPress label", "Uses", "Semantic review status (separate from reference verification)",
           "Candidate ontology codes", "Source preferred labels", "Source definitions", "Ontology code checks",
           "Source workbook rows", "Review notes", "Representative datasets", "Dataset URLs",
           "Registry membership", "Usage snapshot date", "Mapping source URL", "Mapping retrieval date",
-          "Displayed ontology codes", "Displayed ontology URLs", "Confirmed decision", "Catalog note"];
+          "Displayed ontology codes", "Displayed ontology URLs", "Confirmed decision", "Catalog note",
+          "Reference definitions", "Reference relation", "Reference scope"];
         const records = [headings];
         fieldOrder.forEach(field => catalog.fields[field].forEach(row => {
           const candidates = row.mapping_candidates || [];
@@ -603,7 +619,9 @@
             unique([...(row.reference_links || []), ...(row.replacement_links || [])].map(link => link.code)),
             unique([...(row.reference_links || []), ...(row.replacement_links || [])].map(link => link.url)),
             row.confirmed_decision ? JSON.stringify(row.confirmed_decision) : "",
-            row.display_note || ""]);
+            row.display_note || "",
+            unique((row.reference_links || []).map(link => link.definition || "")),
+            row.reference_relation || "", row.reference_scope || ""]);
         }));
         const csv = "\uFEFF" + records.map(record => record.map(csvCell).join(",")).join("\r\n") + "\r\n";
         const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });

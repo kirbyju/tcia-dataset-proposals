@@ -123,25 +123,50 @@
         "wordpress_application": "recommendations only; not applied by this agent"
       },
       "Gastroesophageal Cancer": {
-        "decision": "confirmed broad combined cohort meaning; ontology link unresolved",
+        "decision": "confirmed meaning; ontology references resolved",
         "ontology": "NCIt",
         "code": null,
         "url": null,
         "meaning": "Combined disease grouping covering stomach and esophageal cancers broadly; not restricted to the gastroesophageal junction.",
         "mapping_instruction": "Find a faithful broad NCIt concept or use separate stomach and esophageal concept links. Do not substitute a gastroesophageal-junction-specific concept or assume a single histology.",
         "confirmed_by": "User in this chat",
-        "confirmed_on": "2026-10-16"
+        "confirmed_on": "2026-10-16",
+        "reference_concepts": [
+          {
+            "ontology": "NCIt",
+            "code": "C9331",
+            "preferred_label": "Malignant Gastric Neoplasm",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C9331"
+          },
+          {
+            "ontology": "NCIt",
+            "code": "C7478",
+            "preferred_label": "Malignant Esophageal Neoplasm",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C7478"
+          }
+        ],
+        "technical_mapping_verified_on": "2026-10-16"
       },
       "Neuroendocrine Tumors (all sites)": {
-        "decision": "confirmed broad umbrella meaning; ontology link unresolved",
+        "decision": "confirmed meaning; ontology references resolved",
         "ontology": "NCIt",
-        "code": null,
-        "url": null,
+        "code": "C3809",
+        "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3809",
         "meaning": "Broad grouping covering neuroendocrine tumors and neuroendocrine carcinomas across anatomical sites.",
         "companion_label_rule": "Add supported more specific disease labels where known, including Neuroendocrine Carcinoma when applicable.",
         "mapping_instruction": "Verify an NCIt concept whose scope covers both neuroendocrine tumors and carcinomas. Do not select a concept restricted to well-differentiated tumors, a particular grade, or a particular anatomical site.",
         "confirmed_by": "User in this chat",
-        "confirmed_on": "2026-10-16"
+        "confirmed_on": "2026-10-16",
+        "reference_concepts": [
+          {
+            "ontology": "NCIt",
+            "code": "C3809",
+            "preferred_label": "Neuroendocrine Neoplasm",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3809"
+          }
+        ],
+        "technical_mapping_verified_on": "2026-10-16",
+        "preferred_label": "Neuroendocrine Neoplasm"
       },
       "Ewing Sarcoma/Peripheral Primitive Neuroectodermal Tumor": {
         "decision": "replace combined label with separate supported NCIt labels",

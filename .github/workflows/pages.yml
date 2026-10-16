@@ -10,6 +10,7 @@ on:
       - 'skills/curate-tcia-wordpress-metadata/references/labeling-policy.json'
       - 'skills/curate-tcia-wordpress-metadata/references/label-mappings.json'
       - 'skills/curate-tcia-wordpress-metadata/references/label-decisions.json'
+      - 'skills/curate-tcia-wordpress-metadata/references/label-reference-links.json'
       - 'skills/curate-tcia-wordpress-metadata/references/wordpress-label-inventory-*.json'
       - 'skills/curate-tcia-wordpress-metadata/assets/tcia-labeling-guide.svg'
       - 'skills/curate-tcia-wordpress-metadata/assets/tcia-logo-light.svg'

@@ -22,6 +22,7 @@ DEFAULT_TEMPLATE = ROOT / "scripts/label_catalog_template.html"
 DEFAULT_LOGO_SVG = ROOT / "skills/curate-tcia-wordpress-metadata/assets/tcia-logo-light.svg"
 DEFAULT_MAPPINGS = ROOT / "skills/curate-tcia-wordpress-metadata/references/label-mappings.json"
 DEFAULT_DECISIONS = ROOT / "skills/curate-tcia-wordpress-metadata/references/label-decisions.json"
+DEFAULT_REFERENCES = ROOT / "skills/curate-tcia-wordpress-metadata/references/label-reference-links.json"
 DEFAULT_OUTPUT = ROOT / "docs/labels/index.html"
 
 EXPECTED_FIELDS = {
@@ -41,6 +42,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--logo-svg", type=Path, default=DEFAULT_LOGO_SVG)
     parser.add_argument("--mappings", type=Path, default=DEFAULT_MAPPINGS)
     parser.add_argument("--decisions", type=Path, default=DEFAULT_DECISIONS)
+    parser.add_argument("--references", type=Path, default=DEFAULT_REFERENCES)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     return parser.parse_args()
 
@@ -116,9 +118,10 @@ def concept_link(ontology: str, code: str, name: str) -> dict:
     return {"ontology": ontology, "code": code, "preferred_label": name, "url": url}
 
 
-def apply_decisions(inventory: dict, decisions: dict) -> None:
+def apply_decisions(inventory: dict, decisions: dict, references: dict | None = None) -> None:
     """Confirmed decisions override historical candidates, including explicit no-link choices."""
     inventory["label_decisions"] = decisions
+    inventory["reference_provenance"] = (references or {}).get("provenance", {})
     for field, rows in inventory["fields"].items():
         field_decisions = decisions.get("fields", {}).get(field, {})
         for label, decision in field_decisions.items():
@@ -128,6 +131,7 @@ def apply_decisions(inventory: dict, decisions: dict) -> None:
         retained = []
         for row in rows:
             decision = field_decisions.get(row["label"])
+            reference = (references or {}).get("fields", {}).get(field, {}).get(row["label"])
             row["reference_links"] = []
             row["display_note"] = ""
             if decision:
@@ -155,8 +159,20 @@ def apply_decisions(inventory: dict, decisions: dict) -> None:
                             links[(link["ontology"], link["code"])] = link
                 if len(links) == 1:
                     row["reference_links"] = list(links.values())
+            # Explicit no-ontology context decisions remain unlinked. Technical
+            # verification may complete a user-confirmed meaning without asking
+            # the curator to approve routine ID lookups again.
+            if reference and not (decision and decision.get("ontology") is None):
+                row["reference_links"] = reference["concepts"]
+                row["reference_scope"] = reference["scope_note"]
+                row["reference_relation"] = reference["mapping_relation"]
+                if reference["scope_note"]:
+                    row["display_note"] = reference["scope_note"]
+            if field.startswith("disease_") and row["label"] == "Various" and not decision:
+                row["display_note"] = "Legacy grouping for multiple diseases; no single disease concept. Replace with specific supported labels during curation."
             if field.startswith("disease_") and not row["reference_links"] and not row.get("replacement_links") and not decision:
-                row["display_note"] = "Ontology link pending confirmation."
+                if row["label"] != "Various":
+                    raise ValueError(f"Missing terminology reference for {field}/{row['label']}")
             if row["usage_count"] == 0:
                 row["display_note"] += " No published use in the October 9 snapshot."
             retained.append(row)
@@ -168,7 +184,7 @@ def build(args: argparse.Namespace) -> None:
     policy = read_json(args.policy)
     validate_inventory(inventory)
     apply_mappings(inventory, read_json(args.mappings))
-    apply_decisions(inventory, read_json(args.decisions))
+    apply_decisions(inventory, read_json(args.decisions), read_json(args.references))
 
     template = args.template.read_text(encoding="utf-8")
     replacements = {
