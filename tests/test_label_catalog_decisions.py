@@ -1,4 +1,5 @@
 import importlib.util
+import json
 from pathlib import Path
 import unittest
 
@@ -44,6 +45,18 @@ class CatalogDecisionTests(unittest.TestCase):
                                                  "examples": []}]}}
         with self.assertRaisesRegex(ValueError, "Missing terminology reference"):
             catalog.apply_decisions(inventory, {"fields": {}})
+
+
+    def test_species_references_do_not_turn_phantoms_into_biological_taxa(self):
+        inventory = {'fields': json.loads(catalog.DEFAULT_DATASET_LABELS.read_text())['fields']}
+        catalog.apply_decisions(inventory, catalog.read_json(catalog.DEFAULT_DECISIONS),
+                                catalog.read_json(catalog.DEFAULT_REFERENCES))
+        species = {r['label']: r for r in inventory['fields']['species']}
+        self.assertEqual(species['Human']['reference_links'][0]['code'], 'C14225')
+        self.assertEqual(species['Mouse']['reference_links'][0]['code'], 'C14238')
+        self.assertEqual(species['Canine']['reference_links'][0]['code'], 'C14201')
+        self.assertEqual(species['Physical Phantom']['reference_relation'], 'broader')
+        self.assertEqual(species['Computational Phantom']['reference_links'], [])
 
 
 if __name__ == "__main__":

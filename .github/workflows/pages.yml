@@ -6,14 +6,12 @@ on:
     paths:
       - 'docs/**'
       - 'scripts/build_label_catalog.py'
-      - 'scripts/build_external_resource_cleanup.py'
       - 'scripts/export_catalog_dataset_labels.py'
       - 'scripts/label_catalog_template.html'
       - 'skills/curate-tcia-wordpress-metadata/references/labeling-policy.json'
       - 'skills/curate-tcia-wordpress-metadata/references/label-mappings.json'
       - 'skills/curate-tcia-wordpress-metadata/references/label-decisions.json'
       - 'skills/curate-tcia-wordpress-metadata/references/label-reference-links.json'
-      - 'skills/curate-tcia-wordpress-metadata/references/external-resource-cleanup-plan-*.json'
       - 'skills/curate-tcia-wordpress-metadata/references/wordpress-label-inventory-*.json'
       - 'skills/curate-tcia-wordpress-metadata/references/wordpress-dataset-label-inventory-*.json'
       - 'skills/curate-tcia-wordpress-metadata/assets/tcia-labeling-guide.svg'
@@ -42,8 +40,7 @@ jobs:
       - name: Verify generated catalog is current
         run: |
           python3 scripts/build_label_catalog.py
-          python3 scripts/build_external_resource_cleanup.py
-          git diff --exit-code -- docs/labels/index.html docs/curation/external-resource-cleanup/index.html
+          git diff --exit-code -- docs/labels/index.html
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:
