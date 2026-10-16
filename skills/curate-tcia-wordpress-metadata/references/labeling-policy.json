@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "policy_version": "2026.10.16.2",
+  "policy_version": "2026.10.16.3",
   "document_date": "2026-10-16",
   "policy_kind": "curation recommendation and review rules",
   "authority": "User-specified labeling policy; WordPress governs registered display labels; NCIt and UBERON govern mapped concepts",
@@ -69,9 +69,10 @@
       "wordpress_field": "species",
       "scope": "dataset",
       "question": "What species or phantom classification is published for the dataset?",
-      "ontology": null,
+      "ontology": "NCIt",
       "registry_path": "https://www.cancerimagingarchive.net/api/v2/species",
-      "verify_existing_labels": true
+      "verify_existing_labels": true,
+      "note": "NCIt reference concepts verified for Human, Mouse, and Canine/Dog. Physical Phantom uses broader Imaging Phantom C17892. Computational Phantom remains an unmapped local classification; phantoms are not biological taxa."
     },
     "program": {
       "wordpress_field": "program.program_name",

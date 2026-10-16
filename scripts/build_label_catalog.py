@@ -176,7 +176,7 @@ def apply_decisions(inventory: dict, decisions: dict, references: dict | None = 
                 if row["label"] != "Various":
                     raise ValueError(f"Missing terminology reference for {field}/{row['label']}")
             if row["usage_count"] == 0:
-                row["display_note"] += " No published use in the October 9 snapshot."
+                row["display_note"] += " No observed public use at this field's snapshot date."
             retained.append(row)
         inventory["fields"][field] = sorted(retained, key=lambda r: r["label"].casefold())
 
@@ -186,7 +186,6 @@ def build(args: argparse.Namespace) -> None:
     policy = read_json(args.policy)
     validate_inventory(inventory)
     apply_mappings(inventory, read_json(args.mappings))
-    apply_decisions(inventory, read_json(args.decisions), read_json(args.references))
     extra = read_json(args.dataset_labels)
     if set(extra["fields"]) != {"species", "program", "external_resource"}:
         raise ValueError("Unexpected supplemental catalog fields")
@@ -199,6 +198,7 @@ def build(args: argparse.Namespace) -> None:
                 raise ValueError(f"Invalid supplemental label: {field}")
         inventory["fields"][field] = rows
     inventory["dataset_label_provenance"] = {k: v for k, v in extra.items() if k != "fields"}
+    apply_decisions(inventory, read_json(args.decisions), read_json(args.references))
 
     template = args.template.read_text(encoding="utf-8")
     replacements = {

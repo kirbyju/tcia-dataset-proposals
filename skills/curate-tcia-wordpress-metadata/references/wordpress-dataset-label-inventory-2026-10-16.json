@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-10-16T18:28:27.651591+00:00",
+  "generated_at_utc": "2026-10-16T19:09:44.567366+00:00",
   "scope": "Complete public species/program/supporting-data registries plus exact-label usage in visible public Collections and Analysis Results. Zero means no visible public use, not absence from private records.",
   "counting_basis": "distinct visible datasets per exact label; repeated values count once per dataset; no inherited program membership or inferred external resources",
   "api_field_names": {
@@ -14,46 +14,77 @@
   "visible_dataset_count": 291,
   "sources": [
     {
-      "url": "https://www.cancerimagingarchive.net/api/v2/species?per_page=100&page=1",
-      "sha256": "3661a55a5f9ea0ed48251723751cf90f85d19c8b8c8b9a5f34759dad40ec353b",
-      "retrieved_at_utc": "2026-10-16T18:27:40.706145+00:00",
-      "row_count": 6
+      "endpoint": "collections",
+      "page": 1,
+      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=1&v=1",
+      "file": "collections-page1.json",
+      "total": 240,
+      "total_pages": 3,
+      "rows": 100,
+      "sha256": "5da2d29296a76d736cd4d04d7cc744d3c3454b7950c95cac2daf5c76edbda41a",
+      "retrieved_at_utc": "2026-10-16T19:06:21.010239+00:00"
+    },
+    {
+      "endpoint": "collections",
+      "page": 2,
+      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=2&v=1",
+      "file": "collections-page2.json",
+      "total": 240,
+      "total_pages": 3,
+      "rows": 100,
+      "sha256": "502764160a8d117bdcaa7f1e5843e9d829a87078f6f180422b5e9994190bc06e",
+      "retrieved_at_utc": "2026-10-16T19:06:22.175648+00:00"
+    },
+    {
+      "endpoint": "collections",
+      "page": 3,
+      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=3&v=1",
+      "file": "collections-page3.json",
+      "total": 240,
+      "total_pages": 3,
+      "rows": 40,
+      "sha256": "6d0d7d8850da04d53628abb3ec31b8c76f0f3609882a22c3e635d15dad2466b0",
+      "retrieved_at_utc": "2026-10-16T19:06:08.127358+00:00"
+    },
+    {
+      "endpoint": "analysis-results",
+      "page": 1,
+      "url": "https://www.cancerimagingarchive.net/api/v2/analysis-results?per_page=100&page=1&v=1",
+      "file": "analysis-results-page1.json",
+      "total": 60,
+      "total_pages": 1,
+      "rows": 60,
+      "sha256": "aeb6688a874b85d7eaeb5ed0af7d1ccc717ea285ae1ab8b2bb34d54ce5675569",
+      "retrieved_at_utc": "2026-10-16T19:06:16.684845+00:00"
+    },
+    {
+      "endpoint": "supporting-data",
+      "page": 1,
+      "url": "https://www.cancerimagingarchive.net/api/v2/supporting-data?per_page=100&page=1&v=1",
+      "file": "supporting-data-page1.json",
+      "total": 34,
+      "total_pages": 1,
+      "rows": 34,
+      "sha256": "76f2d1314e48d32c78cf429580f95fb4f26a638e38ad982742663e8e279f6a39",
+      "retrieved_at_utc": "2026-10-16T19:05:58.110851+00:00"
+    },
+    {
+      "endpoint": "species",
+      "page": 1,
+      "url": "https://www.cancerimagingarchive.net/api/v2/species?per_page=100&page=1&v=1",
+      "file": "species-page1.json",
+      "total": 5,
+      "total_pages": 1,
+      "rows": 5,
+      "sha256": "4385823f1a21eac8aaebedfbea8a1bdc6f0b4962af263da4cf60014759c3df33",
+      "retrieved_at_utc": "2026-10-16T19:05:58.109967+00:00"
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/programs?per_page=100&page=1",
       "sha256": "e44b62ec6b9e1071defd86591c9f9c74566a9d26a50bab060fc2a0686821c019",
-      "retrieved_at_utc": "2026-10-16T18:27:41.108156+00:00",
-      "row_count": 19
-    },
-    {
-      "url": "https://www.cancerimagingarchive.net/api/v2/supporting-data?per_page=100&page=1",
-      "sha256": "76f2d1314e48d32c78cf429580f95fb4f26a638e38ad982742663e8e279f6a39",
-      "retrieved_at_utc": "2026-10-16T18:27:40.644342+00:00",
-      "row_count": 34
-    },
-    {
-      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=1",
-      "sha256": "13cd4b902235a5cafbaf8ba9013e10b1741d30a65d8204c8ebe2dc98e45509d5",
-      "retrieved_at_utc": "2026-10-16T18:28:03.997300+00:00",
-      "row_count": 100
-    },
-    {
-      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=2",
-      "sha256": "e834915dc9a4c5cdf63c649dee898f8b2f512549b3ad2b6b6bbf7b4bb8898ec2",
-      "retrieved_at_utc": "2026-10-16T18:28:27.651212+00:00",
-      "row_count": 100
-    },
-    {
-      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=3",
-      "sha256": "902fdc48d8056eac6d1048d9f8a5e72fc6d752df306f47f8ad301da1b87b3d21",
-      "retrieved_at_utc": "2026-10-16T18:28:14.959099+00:00",
-      "row_count": 40
-    },
-    {
-      "url": "https://www.cancerimagingarchive.net/api/v2/analysis-results?per_page=100&page=1",
-      "sha256": "a4baa6ab07a6c6344d28a11d1250d8dfbf5848f44bfc353611a44e4f5f77e880",
-      "retrieved_at_utc": "2026-10-16T18:27:59.778382+00:00",
-      "row_count": 60
+      "retrieved_at_utc": "2026-10-16T19:09:44.522233+00:00",
+      "row_count": 19,
+      "endpoint": "programs"
     }
   ],
   "fields": {
@@ -74,8 +105,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12219,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Computational Phantom",
@@ -97,8 +128,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 55604,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Human",
@@ -120,8 +151,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 11953,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Mouse",
@@ -143,18 +174,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12365,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
-      },
-      {
-        "label": "Phantom",
-        "usage_count": 0,
-        "examples": [],
-        "semantic_review": "not reviewed",
-        "registry_id": 12603,
-        "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Physical Phantom",
@@ -176,8 +197,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 55608,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       }
     ],
     "program": [
@@ -193,8 +214,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46883,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "CCDI",
@@ -203,8 +224,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46885,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "CMB",
@@ -226,8 +247,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46887,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Community",
@@ -249,8 +270,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46891,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "COVID-19",
@@ -272,8 +293,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46893,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "CPTAC",
@@ -295,8 +316,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46895,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "FDA",
@@ -314,8 +335,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46897,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "HTAN",
@@ -324,8 +345,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46899,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "ICDC",
@@ -339,8 +360,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46901,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "MIDI",
@@ -358,8 +379,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46903,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "NCI Trials",
@@ -381,8 +402,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46905,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "NCTN",
@@ -404,8 +425,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46907,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "NIH Initiatives",
@@ -427,8 +448,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 54162,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "NLM",
@@ -437,8 +458,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46909,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "PDMR",
@@ -460,8 +481,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46911,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "QIBA",
@@ -470,8 +491,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46913,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "QIN",
@@ -493,8 +514,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46915,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "RIDER",
@@ -516,8 +537,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46917,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "TCGA",
@@ -539,8 +560,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 46919,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       }
     ],
     "external_resource": [
@@ -564,8 +585,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 11955,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Deep learning based computational stain for staining tumor-infiltrating lymphocytes (TILs)",
@@ -579,8 +600,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12825,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "DICOM SR descriptions of patient characteristics",
@@ -594,8 +615,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12853,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "genomic subtypes",
@@ -604,8 +625,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12791,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Genomics",
@@ -627,8 +648,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12191,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Histopathology",
@@ -650,8 +671,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12855,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Image Analyses",
@@ -673,8 +694,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 11973,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "image features",
@@ -696,8 +717,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12843,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Image quality assessment measures",
@@ -711,8 +732,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12889,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Image Registrations",
@@ -726,8 +747,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12605,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Lesion measurements",
@@ -745,8 +766,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12833,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Microarray",
@@ -764,8 +785,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 49515,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Multi-center comparison of radiomic features.",
@@ -779,8 +800,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12883,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "multi-gene assays",
@@ -794,8 +815,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12777,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "NA",
@@ -804,8 +825,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 56070,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Nuclei segmentations",
@@ -819,8 +840,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12877,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Organ segmentations",
@@ -842,8 +863,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12869,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Pathology",
@@ -852,8 +873,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12197,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "pleural effusion segmentations",
@@ -867,8 +888,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 21275,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Prostate structure segmentations",
@@ -877,8 +898,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12785,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "proteogenomic features",
@@ -892,8 +913,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12849,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Proteomics",
@@ -915,8 +936,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12683,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Radiation Therapy Structures",
@@ -925,8 +946,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12837,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Radiologist assessments of image features",
@@ -948,18 +969,18 @@
         "semantic_review": "not reviewed",
         "registry_id": 12763,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
-        "label": "Radiologist assessments of image features and hemodynamic parameters",
+        "label": "Radiologist assessments of image features\u00a0and hemodynamic parameters",
         "usage_count": 0,
         "examples": [],
         "semantic_review": "not reviewed",
         "registry_id": 12751,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "radiomic features",
@@ -981,8 +1002,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12775,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "radiomic image features",
@@ -1004,8 +1025,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12797,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "receptor status and clinical findings including measurements.",
@@ -1019,8 +1040,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12857,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Seed points",
@@ -1029,8 +1050,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12901,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Segmentations",
@@ -1048,8 +1069,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 21533,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Software/Source Code",
@@ -1071,8 +1092,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12147,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Standardized (SDTM format) conversions of clinical and image analysis data",
@@ -1086,8 +1107,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12865,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Thoracic segmentations",
@@ -1101,8 +1122,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 21273,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       },
       {
         "label": "Tumor segmentations",
@@ -1124,8 +1145,8 @@
         "semantic_review": "not reviewed",
         "registry_id": 12757,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-16T18:28:27.651591+00:00",
-        "registry_checked_at_utc": "2026-10-16T18:28:27.651591+00:00"
+        "usage_snapshot_date": "2026-10-16T19:09:44.567366+00:00",
+        "registry_checked_at_utc": "2026-10-16T19:09:44.567366+00:00"
       }
     ]
   }

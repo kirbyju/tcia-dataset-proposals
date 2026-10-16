@@ -1,0 +1,3175 @@
+{
+  "schema_version": "1.0.0",
+  "review_date": "2026-10-16",
+  "status": "proposal for user/curator review; no WordPress changes applied",
+  "field": "external_resources",
+  "registry_endpoint": "https://www.cancerimagingarchive.net/api/v2/supporting-data",
+  "normalized_query_api_alias": "external_resource_labels",
+  "summary": {
+    "visible_datasets_reviewed": 291,
+    "registered_labels": 34,
+    "used_registered_labels": 27,
+    "proposed_categories": 6,
+    "unused_options_to_check": 7,
+    "legacy_assignments_to_review": 47,
+    "affected_datasets": 34
+  },
+  "canonical_categories": [
+    {
+      "label": "Clinical",
+      "meaning": "Patient characteristics, diagnoses, treatment, outcomes, and clinically reported measurements.",
+      "wordpress_membership": "already registered"
+    },
+    {
+      "label": "Genomics",
+      "meaning": "DNA/RNA molecular information, gene expression, genomic subtypes, and gene-based assays. Keep the assay name in the resource description.",
+      "wordpress_membership": "already registered"
+    },
+    {
+      "label": "Histopathology",
+      "meaning": "Microscopic tissue images and associated histopathologic information.",
+      "wordpress_membership": "already registered"
+    },
+    {
+      "label": "Image Analyses",
+      "meaning": "Image-derived annotations, segmentations, measurements, features, registrations, quality assessments, and derived analysis images.",
+      "wordpress_membership": "already registered"
+    },
+    {
+      "label": "Proteomics",
+      "meaning": "Protein abundance, protein assays, and protein-derived analysis features.",
+      "wordpress_membership": "already registered"
+    },
+    {
+      "label": "Software/Source Code",
+      "meaning": "Software, scripts, source code, and executable analysis tools; this label alone does not imply analysis data are provided.",
+      "wordpress_membership": "already registered"
+    }
+  ],
+  "workflow": [
+    "Use the six existing broad categories below as the recommended targets. This cleanup needs no new WordPress label values; resolve the content-dependent choices before replacing those assignments.",
+    "For each affected dataset, open its current WordPress record and follow the relevant supporting-resource link. Confirm what the destination actually provides; a paper describing data does not prove those data are available there.",
+    "Change only the external-resource label assignment. Preserve every resource URL, resource title, citation, access requirement, and useful description. Keep separate links even when several receive the same broad label.",
+    "Use the crosswalk for ordinary image-analysis aliases. Resolve each content-dependent row explicitly; do not automatically assign every proposed label in those rows.",
+    "Within a dataset filter list, deduplicate repeated broad labels after replacements. Do not globally rename an old option into a duplicate of an existing option. Multiple resource entries with different URLs may still share a label.",
+    "Do not change download category, data type, file format, species, disease labels, or dataset/source relationships as part of this pass. These dimensions have their own rules.",
+    "After replacing all assignments, check the full WordPress admin for remaining references, including hidden/unpublished records. Public zero-use counts do not establish that the option is unused everywhere.",
+    "Retire obsolete options only after that complete reference check. For no external resource, leave the field empty; do not use NA, Not Applicable, None, or Other placeholders.",
+    "Refresh the registry and public metadata export, confirm all intended links remain, inspect representative edited pages, and compare expected and actual distinct dataset counts for the retained labels."
+  ],
+  "limitations": [
+    "Public metadata and dataset narratives were reviewed. Supporting-resource destinations/payloads were not systematically opened or downloaded; curator link/content verification remains required.",
+    "Counts are exact-label distinct visible datasets and overlap across labels. Collections and Analysis Results remain separate records.",
+    "This is a classification cleanup. A linked resource may be on TCIA or elsewhere; the label does not establish hosting location, access authorization, or patient-level availability.",
+    "Candidate mappings and canonical-category definitions are recommendations, not an approved WordPress vocabulary change."
+  ],
+  "sources": [
+    {
+      "endpoint": "collections",
+      "page": 1,
+      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=1&v=1",
+      "file": "collections-page1.json",
+      "total": 240,
+      "total_pages": 3,
+      "rows": 100,
+      "sha256": "5da2d29296a76d736cd4d04d7cc744d3c3454b7950c95cac2daf5c76edbda41a",
+      "retrieved_at_utc": "2026-10-16T19:06:21.010239+00:00"
+    },
+    {
+      "endpoint": "collections",
+      "page": 2,
+      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=2&v=1",
+      "file": "collections-page2.json",
+      "total": 240,
+      "total_pages": 3,
+      "rows": 100,
+      "sha256": "502764160a8d117bdcaa7f1e5843e9d829a87078f6f180422b5e9994190bc06e",
+      "retrieved_at_utc": "2026-10-16T19:06:22.175648+00:00"
+    },
+    {
+      "endpoint": "collections",
+      "page": 3,
+      "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=3&v=1",
+      "file": "collections-page3.json",
+      "total": 240,
+      "total_pages": 3,
+      "rows": 40,
+      "sha256": "6d0d7d8850da04d53628abb3ec31b8c76f0f3609882a22c3e635d15dad2466b0",
+      "retrieved_at_utc": "2026-10-16T19:06:08.127358+00:00"
+    },
+    {
+      "endpoint": "analysis-results",
+      "page": 1,
+      "url": "https://www.cancerimagingarchive.net/api/v2/analysis-results?per_page=100&page=1&v=1",
+      "file": "analysis-results-page1.json",
+      "total": 60,
+      "total_pages": 1,
+      "rows": 60,
+      "sha256": "aeb6688a874b85d7eaeb5ed0af7d1ccc717ea285ae1ab8b2bb34d54ce5675569",
+      "retrieved_at_utc": "2026-10-16T19:06:16.684845+00:00"
+    },
+    {
+      "endpoint": "supporting-data",
+      "page": 1,
+      "url": "https://www.cancerimagingarchive.net/api/v2/supporting-data?per_page=100&page=1&v=1",
+      "file": "supporting-data-page1.json",
+      "total": 34,
+      "total_pages": 1,
+      "rows": 34,
+      "sha256": "76f2d1314e48d32c78cf429580f95fb4f26a638e38ad982742663e8e279f6a39",
+      "retrieved_at_utc": "2026-10-16T19:05:58.110851+00:00"
+    },
+    {
+      "endpoint": "species",
+      "page": 1,
+      "url": "https://www.cancerimagingarchive.net/api/v2/species?per_page=100&page=1&v=1",
+      "file": "species-page1.json",
+      "total": 5,
+      "total_pages": 1,
+      "rows": 5,
+      "sha256": "4385823f1a21eac8aaebedfbea8a1bdc6f0b4962af263da4cf60014759c3df33",
+      "retrieved_at_utc": "2026-10-16T19:05:58.109967+00:00"
+    }
+  ],
+  "crosswalk": [
+    {
+      "old_label": "Clinical",
+      "wordpress_option_id": 11955,
+      "public_dataset_count": 141,
+      "proposed_labels": [
+        "Clinical"
+      ],
+      "status": "pass",
+      "action": "Retain",
+      "instructions": "Existing broad category; retain the label and verify the supporting link during normal curation.",
+      "affected_datasets": [
+        {
+          "short_title": "A091105",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/a091105/"
+        },
+        {
+          "short_title": "ACNS0332",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/acns0332/"
+        },
+        {
+          "short_title": "ACRIN-6698",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/acrin-6698/"
+        },
+        {
+          "short_title": "ACRIN-Contralateral-Breast-MR",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/acrin-contralateral-breast-mr/"
+        },
+        {
+          "short_title": "ACRIN-DSC-MR-Brain",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/acrin-dsc-mr-brain/"
+        },
+        {
+          "short_title": "ACRIN-FLT-Breast",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/acrin-flt-breast/"
+        },
+        {
+          "short_title": "ACRIN-FMISO-Brain",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/acrin-fmiso-brain/"
+        },
+        {
+          "short_title": "ACRIN-HNSCC-FDG-PET-CT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/acrin-hnscc-fdg-pet-ct/"
+        },
+        {
+          "short_title": "ACRIN-NSCLC-FDG-PET",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/acrin-nsclc-fdg-pet/"
+        },
+        {
+          "short_title": "Adrenal-ACC-Ki67-Seg",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/adrenal-acc-ki67-seg/"
+        },
+        {
+          "short_title": "AHEP0731",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ahep0731/"
+        },
+        {
+          "short_title": "AHOD0831",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ahod0831/"
+        },
+        {
+          "short_title": "AML-Cytomorphology_MLL_Helmholtz",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_mll_helmholtz/"
+        },
+        {
+          "short_title": "ARAR0331",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/arar0331/"
+        },
+        {
+          "short_title": "AREN0532",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/aren0532/"
+        },
+        {
+          "short_title": "AREN0533",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/aren0533/"
+        },
+        {
+          "short_title": "AREN0534",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/aren0534/"
+        },
+        {
+          "short_title": "AURORA-Metastatic-Breast-Multiomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/aurora-metastatic-breast-multiomics/"
+        },
+        {
+          "short_title": "B-mode-and-CEUS-Liver",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/b-mode-and-ceus-liver/"
+        },
+        {
+          "short_title": "Brain-TR-GammaKnife",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/brain-tr-gammaknife/"
+        },
+        {
+          "short_title": "BraTS-PEDs",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/brats-peds/"
+        },
+        {
+          "short_title": "Breast-Cancer-Screening-DBT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/breast-cancer-screening-dbt/"
+        },
+        {
+          "short_title": "BREAST-DIAGNOSIS",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/breast-diagnosis/"
+        },
+        {
+          "short_title": "Breast-MRI-NACT-Pilot",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/breast-mri-nact-pilot/"
+        },
+        {
+          "short_title": "Burdenko-GBM-Progression",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/burdenko-gbm-progression/"
+        },
+        {
+          "short_title": "CALGB50303",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/calgb50303/"
+        },
+        {
+          "short_title": "CC-Tumor-Heterogeneity",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cc-tumor-heterogeneity/"
+        },
+        {
+          "short_title": "CDD-CESM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cdd-cesm/"
+        },
+        {
+          "short_title": "CFB-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cfb-gbm/"
+        },
+        {
+          "short_title": "CMB-AML",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cmb-aml/"
+        },
+        {
+          "short_title": "CMB-BRCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cmb-brca/"
+        },
+        {
+          "short_title": "CMB-CRC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cmb-crc/"
+        },
+        {
+          "short_title": "CMB-GEC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cmb-gec/"
+        },
+        {
+          "short_title": "CMB-LCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cmb-lca/"
+        },
+        {
+          "short_title": "CMB-MEL",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cmb-mel/"
+        },
+        {
+          "short_title": "CMB-MML",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cmb-mml/"
+        },
+        {
+          "short_title": "CMB-OV",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cmb-ov/"
+        },
+        {
+          "short_title": "CMB-PCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cmb-pca/"
+        },
+        {
+          "short_title": "CMMD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cmmd/"
+        },
+        {
+          "short_title": "CODEX imaging of HCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/codex-imaging-of-hcc/"
+        },
+        {
+          "short_title": "Colorectal-Liver-Metastases",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/colorectal-liver-metastases/"
+        },
+        {
+          "short_title": "COVID-19-AR",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/covid-19-ar/"
+        },
+        {
+          "short_title": "COVID-19-NY-SBU",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/covid-19-ny-sbu/"
+        },
+        {
+          "short_title": "CPTAC-AML",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-aml/"
+        },
+        {
+          "short_title": "CPTAC-BRCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-brca/"
+        },
+        {
+          "short_title": "CPTAC-CCRCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-ccrcc/"
+        },
+        {
+          "short_title": "CPTAC-CM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-cm/"
+        },
+        {
+          "short_title": "CPTAC-COAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-coad/"
+        },
+        {
+          "short_title": "CPTAC-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-gbm/"
+        },
+        {
+          "short_title": "CPTAC-HNSCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-hnscc/"
+        },
+        {
+          "short_title": "CPTAC-LSCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-lscc/"
+        },
+        {
+          "short_title": "CPTAC-LUAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-luad/"
+        },
+        {
+          "short_title": "CPTAC-OV",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-ov/"
+        },
+        {
+          "short_title": "CPTAC-PDA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-pda/"
+        },
+        {
+          "short_title": "CPTAC-SAR",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-sar/"
+        },
+        {
+          "short_title": "CPTAC-UCEC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-ucec/"
+        },
+        {
+          "short_title": "CRC_FFPE-CODEX_CellNeighs",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/crc_ffpe-codex_cellneighs/"
+        },
+        {
+          "short_title": "DLBCL-Morphology",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/dlbcl-morphology/"
+        },
+        {
+          "short_title": "Duke-Breast-Cancer-MRI",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/duke-breast-cancer-mri/"
+        },
+        {
+          "short_title": "EA1141",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ea1141/"
+        },
+        {
+          "short_title": "ExACT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/exact/"
+        },
+        {
+          "short_title": "HANCOCK",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/hancock/"
+        },
+        {
+          "short_title": "HCC-TACE-Seg",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/hcc-tace-seg/"
+        },
+        {
+          "short_title": "Head-Neck-PET-CT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/head-neck-pet-ct/"
+        },
+        {
+          "short_title": "HEAD-NECK-RADIOMICS-HN1",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/head-neck-radiomics-hn1/"
+        },
+        {
+          "short_title": "Healthy-Total-Body-CTs",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/healthy-total-body-cts/"
+        },
+        {
+          "short_title": "HistologyHSI-BC-Recurrence",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/histologyhsi-bc-recurrence/"
+        },
+        {
+          "short_title": "HNSCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/hnscc/"
+        },
+        {
+          "short_title": "Hungarian-Colorectal-Screening",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/hungarian-colorectal-screening/"
+        },
+        {
+          "short_title": "ISPY1",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ispy1/"
+        },
+        {
+          "short_title": "ISPY2",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ispy2/"
+        },
+        {
+          "short_title": "IvyGAP",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ivygap/"
+        },
+        {
+          "short_title": "LDCT-and-Projection-data",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ldct-and-projection-data/"
+        },
+        {
+          "short_title": "LIDC-IDRI",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lidc-idri/"
+        },
+        {
+          "short_title": "LungCT-Diagnosis",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lungct-diagnosis/"
+        },
+        {
+          "short_title": "Mediastinal-Lymph-Node-SEG",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/mediastinal-lymph-node-seg/"
+        },
+        {
+          "short_title": "Meningioma-SEG-CLASS",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/meningioma-seg-class/"
+        },
+        {
+          "short_title": "MIDRC-RICORD-1A",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/midrc-ricord-1a/"
+        },
+        {
+          "short_title": "MIDRC-RICORD-1B",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/midrc-ricord-1b/"
+        },
+        {
+          "short_title": "MIDRC-RICORD-1C",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/midrc-ricord-1c/"
+        },
+        {
+          "short_title": "MU-Glioma-Post",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/mu-glioma-post/"
+        },
+        {
+          "short_title": "NADT-Prostate",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nadt-prostate/"
+        },
+        {
+          "short_title": "NLST",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nlst/"
+        },
+        {
+          "short_title": "NSCLC-Cetuximab",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nsclc-cetuximab/"
+        },
+        {
+          "short_title": "NSCLC Radiogenomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nsclc-radiogenomics/"
+        },
+        {
+          "short_title": "NSCLC-Radiomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nsclc-radiomics/"
+        },
+        {
+          "short_title": "NSCLC-Radiomics-Genomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nsclc-radiomics-genomics/"
+        },
+        {
+          "short_title": "NSCLC-Radiomics-Interobserver1",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nsclc-radiomics-interobserver1/"
+        },
+        {
+          "short_title": "Ovarian Bevacizumab Response",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ovarian-bevacizumab-response/"
+        },
+        {
+          "short_title": "PCa_Bx_3Dpathology",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/"
+        },
+        {
+          "short_title": "PDMR-292921-168-R",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pdmr-292921-168-r/"
+        },
+        {
+          "short_title": "PDMR-425362-245-T",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pdmr-425362-245-t/"
+        },
+        {
+          "short_title": "PDMR-521955-158-R4",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pdmr-521955-158-r4/"
+        },
+        {
+          "short_title": "PDMR-833975-119-R",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pdmr-833975-119-r/"
+        },
+        {
+          "short_title": "PDMR-997537-175-T",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pdmr-997537-175-t/"
+        },
+        {
+          "short_title": "PDMR-BL0293-F563",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pdmr-bl0293-f563/"
+        },
+        {
+          "short_title": "Pretreat-MetsToBrain-Masks",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pretreat-metstobrain-masks/"
+        },
+        {
+          "short_title": "PROSTATE-DIAGNOSIS",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/prostate-diagnosis/"
+        },
+        {
+          "short_title": "PTRC-HGSOC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ptrc-hgsoc/"
+        },
+        {
+          "short_title": "QIN-BREAST",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/qin-breast/"
+        },
+        {
+          "short_title": "QIN-BREAST-02",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/qin-breast-02/"
+        },
+        {
+          "short_title": "QIN Breast DCE-MRI",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/qin-breast-dce-mri/"
+        },
+        {
+          "short_title": "QIN-HEADNECK",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/qin-headneck/"
+        },
+        {
+          "short_title": "RADCURE",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/radcure/"
+        },
+        {
+          "short_title": "REMBRANDT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/rembrandt/"
+        },
+        {
+          "short_title": "ReMIND",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/remind/"
+        },
+        {
+          "short_title": "RHUH-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/rhuh-gbm/"
+        },
+        {
+          "short_title": "S0819",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/s0819/"
+        },
+        {
+          "short_title": "Soft-tissue-Sarcoma",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/soft-tissue-sarcoma/"
+        },
+        {
+          "short_title": "SPIE-AAPM Lung CT Challenge",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/spie-aapm-lung-ct-challenge/"
+        },
+        {
+          "short_title": "Spine-Mets-CT-SEG",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/spine-mets-ct-seg/"
+        },
+        {
+          "short_title": "TCGA-BLCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-blca/"
+        },
+        {
+          "short_title": "TCGA-BRCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-brca/"
+        },
+        {
+          "short_title": "TCGA-CESC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-cesc/"
+        },
+        {
+          "short_title": "TCGA-COAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-coad/"
+        },
+        {
+          "short_title": "TCGA-ESCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-esca/"
+        },
+        {
+          "short_title": "TCGA-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-gbm/"
+        },
+        {
+          "short_title": "TCGA-HNSC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-hnsc/"
+        },
+        {
+          "short_title": "TCGA-KICH",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-kich/"
+        },
+        {
+          "short_title": "TCGA-KIRC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-kirc/"
+        },
+        {
+          "short_title": "TCGA-KIRP",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-kirp/"
+        },
+        {
+          "short_title": "TCGA-LGG",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-lgg/"
+        },
+        {
+          "short_title": "TCGA-LIHC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-lihc/"
+        },
+        {
+          "short_title": "TCGA-LUAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-luad/"
+        },
+        {
+          "short_title": "TCGA-LUSC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-lusc/"
+        },
+        {
+          "short_title": "TCGA-OV",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-ov/"
+        },
+        {
+          "short_title": "TCGA-PRAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-prad/"
+        },
+        {
+          "short_title": "TCGA-READ",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-read/"
+        },
+        {
+          "short_title": "TCGA-SARC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-sarc/"
+        },
+        {
+          "short_title": "TCGA-STAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-stad/"
+        },
+        {
+          "short_title": "TCGA-THCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-thca/"
+        },
+        {
+          "short_title": "TCGA-UCEC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-ucec/"
+        },
+        {
+          "short_title": "UCSD-PTGBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ucsd-ptgbm/"
+        },
+        {
+          "short_title": "UCSF-PDGM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ucsf-pdgm/"
+        },
+        {
+          "short_title": "UPENN-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/upenn-gbm/"
+        },
+        {
+          "short_title": "Vestibular-Schwannoma-MC-RC2",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/vestibular-schwannoma-mc-rc2/"
+        },
+        {
+          "short_title": "BreastDCEDL_ISPY2",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/breastdcedl_ispy2/"
+        },
+        {
+          "short_title": "CPTAC-Glioblastoma-CODEX",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/cptac-glioblastoma-codex/"
+        },
+        {
+          "short_title": "Oropharyngeal-Radiomics-Outcomes",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/oropharyngeal-radiomics-outcomes/"
+        },
+        {
+          "short_title": "S0819-Tumor-Annotations",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/s0819-tumor-annotations/"
+        },
+        {
+          "short_title": "TCGA-OV-Proteogenomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-proteogenomics/"
+        }
+      ]
+    },
+    {
+      "old_label": "Deep learning based computational stain for staining tumor-infiltrating lymphocytes (TILs)",
+      "wordpress_option_id": 12825,
+      "public_dataset_count": 1,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "TIL-WSI-TCGA",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+        }
+      ]
+    },
+    {
+      "old_label": "DICOM SR descriptions of patient characteristics",
+      "wordpress_option_id": 12853,
+      "public_dataset_count": 1,
+      "proposed_labels": [
+        "Clinical"
+      ],
+      "status": "needs curator decision",
+      "action": "Verify content, then replace",
+      "instructions": "Use Clinical for patient-characteristic reports; add Image Analyses only if the linked resource also contains image-analysis results. DICOM SR is a format, not the broad resource category.",
+      "affected_datasets": [
+        {
+          "short_title": "DICOM-SR-Breast-Clinical",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-sr-breast-clinical/"
+        }
+      ]
+    },
+    {
+      "old_label": "genomic subtypes",
+      "wordpress_option_id": 12791,
+      "public_dataset_count": 0,
+      "proposed_labels": [
+        "Genomics"
+      ],
+      "status": "needs curator decision",
+      "action": "Retire unused option after reference check",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": []
+    },
+    {
+      "old_label": "Genomics",
+      "wordpress_option_id": 12191,
+      "public_dataset_count": 45,
+      "proposed_labels": [
+        "Genomics"
+      ],
+      "status": "pass",
+      "action": "Retain",
+      "instructions": "Existing broad category; retain the label and verify the supporting link during normal curation.",
+      "affected_datasets": [
+        {
+          "short_title": "AURORA-Metastatic-Breast-Multiomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/aurora-metastatic-breast-multiomics/"
+        },
+        {
+          "short_title": "BraTS-PEDs",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/brats-peds/"
+        },
+        {
+          "short_title": "Burdenko-GBM-Progression",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/burdenko-gbm-progression/"
+        },
+        {
+          "short_title": "COVID-19-AR",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/covid-19-ar/"
+        },
+        {
+          "short_title": "CPTAC-BRCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-brca/"
+        },
+        {
+          "short_title": "CPTAC-CCRCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-ccrcc/"
+        },
+        {
+          "short_title": "CPTAC-COAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-coad/"
+        },
+        {
+          "short_title": "CPTAC-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-gbm/"
+        },
+        {
+          "short_title": "CPTAC-HNSCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-hnscc/"
+        },
+        {
+          "short_title": "CPTAC-LSCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-lscc/"
+        },
+        {
+          "short_title": "CPTAC-LUAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-luad/"
+        },
+        {
+          "short_title": "CPTAC-OV",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-ov/"
+        },
+        {
+          "short_title": "CPTAC-PDA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-pda/"
+        },
+        {
+          "short_title": "CPTAC-STAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-stad/"
+        },
+        {
+          "short_title": "CPTAC-UCEC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-ucec/"
+        },
+        {
+          "short_title": "Duke-Breast-Cancer-MRI",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/duke-breast-cancer-mri/"
+        },
+        {
+          "short_title": "ICDC-Glioma",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/icdc-glioma/"
+        },
+        {
+          "short_title": "IvyGAP",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ivygap/"
+        },
+        {
+          "short_title": "LGG-1p19qDeletion",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lgg-1p19qdeletion/"
+        },
+        {
+          "short_title": "NSCLC Radiogenomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nsclc-radiogenomics/"
+        },
+        {
+          "short_title": "NSCLC-Radiomics-Genomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nsclc-radiomics-genomics/"
+        },
+        {
+          "short_title": "REMBRANDT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/rembrandt/"
+        },
+        {
+          "short_title": "TCGA-BLCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-blca/"
+        },
+        {
+          "short_title": "TCGA-BRCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-brca/"
+        },
+        {
+          "short_title": "TCGA-CESC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-cesc/"
+        },
+        {
+          "short_title": "TCGA-COAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-coad/"
+        },
+        {
+          "short_title": "TCGA-ESCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-esca/"
+        },
+        {
+          "short_title": "TCGA-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-gbm/"
+        },
+        {
+          "short_title": "TCGA-HNSC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-hnsc/"
+        },
+        {
+          "short_title": "TCGA-KICH",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-kich/"
+        },
+        {
+          "short_title": "TCGA-KIRC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-kirc/"
+        },
+        {
+          "short_title": "TCGA-KIRP",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-kirp/"
+        },
+        {
+          "short_title": "TCGA-LGG",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-lgg/"
+        },
+        {
+          "short_title": "TCGA-LIHC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-lihc/"
+        },
+        {
+          "short_title": "TCGA-LUAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-luad/"
+        },
+        {
+          "short_title": "TCGA-LUSC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-lusc/"
+        },
+        {
+          "short_title": "TCGA-OV",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-ov/"
+        },
+        {
+          "short_title": "TCGA-PRAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-prad/"
+        },
+        {
+          "short_title": "TCGA-READ",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-read/"
+        },
+        {
+          "short_title": "TCGA-SARC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-sarc/"
+        },
+        {
+          "short_title": "TCGA-STAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-stad/"
+        },
+        {
+          "short_title": "TCGA-THCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-thca/"
+        },
+        {
+          "short_title": "TCGA-UCEC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-ucec/"
+        },
+        {
+          "short_title": "UCSF-PDGM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ucsf-pdgm/"
+        },
+        {
+          "short_title": "TCGA-OV-Radiogenomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-radiogenomics/"
+        }
+      ]
+    },
+    {
+      "old_label": "Histopathology",
+      "wordpress_option_id": 12855,
+      "public_dataset_count": 23,
+      "proposed_labels": [
+        "Histopathology"
+      ],
+      "status": "pass",
+      "action": "Retain",
+      "instructions": "Existing broad category; retain the label and verify the supporting link during normal curation.",
+      "affected_datasets": [
+        {
+          "short_title": "TCGA-BLCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-blca/"
+        },
+        {
+          "short_title": "TCGA-BRCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-brca/"
+        },
+        {
+          "short_title": "TCGA-CESC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-cesc/"
+        },
+        {
+          "short_title": "TCGA-COAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-coad/"
+        },
+        {
+          "short_title": "TCGA-ESCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-esca/"
+        },
+        {
+          "short_title": "TCGA-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-gbm/"
+        },
+        {
+          "short_title": "TCGA-HNSC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-hnsc/"
+        },
+        {
+          "short_title": "TCGA-KICH",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-kich/"
+        },
+        {
+          "short_title": "TCGA-KIRC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-kirc/"
+        },
+        {
+          "short_title": "TCGA-KIRP",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-kirp/"
+        },
+        {
+          "short_title": "TCGA-LGG",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-lgg/"
+        },
+        {
+          "short_title": "TCGA-LIHC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-lihc/"
+        },
+        {
+          "short_title": "TCGA-LUAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-luad/"
+        },
+        {
+          "short_title": "TCGA-LUSC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-lusc/"
+        },
+        {
+          "short_title": "TCGA-OV",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-ov/"
+        },
+        {
+          "short_title": "TCGA-PRAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-prad/"
+        },
+        {
+          "short_title": "TCGA-READ",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-read/"
+        },
+        {
+          "short_title": "TCGA-SARC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-sarc/"
+        },
+        {
+          "short_title": "TCGA-STAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-stad/"
+        },
+        {
+          "short_title": "TCGA-THCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-thca/"
+        },
+        {
+          "short_title": "TCGA-UCEC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-ucec/"
+        },
+        {
+          "short_title": "DICOM-SR-Breast-Clinical",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-sr-breast-clinical/"
+        },
+        {
+          "short_title": "TIL-WSI-TCGA",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+        }
+      ]
+    },
+    {
+      "old_label": "Image Analyses",
+      "wordpress_option_id": 11973,
+      "public_dataset_count": 71,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "pass",
+      "action": "Retain",
+      "instructions": "Existing broad category; retain the label and verify the supporting link during normal curation.",
+      "affected_datasets": [
+        {
+          "short_title": "4D-Lung",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/4d-lung/"
+        },
+        {
+          "short_title": "ACRIN-6698",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/acrin-6698/"
+        },
+        {
+          "short_title": "Adrenal-ACC-Ki67-Seg",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/adrenal-acc-ki67-seg/"
+        },
+        {
+          "short_title": "AML-Cytomorphology_LMU",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_lmu/"
+        },
+        {
+          "short_title": "Brain-TR-GammaKnife",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/brain-tr-gammaknife/"
+        },
+        {
+          "short_title": "Brain-Tumor-Progression",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/brain-tumor-progression/"
+        },
+        {
+          "short_title": "BREAST-DIAGNOSIS",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/breast-diagnosis/"
+        },
+        {
+          "short_title": "Breast-MRI-NACT-Pilot",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/breast-mri-nact-pilot/"
+        },
+        {
+          "short_title": "CATCH",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/catch/"
+        },
+        {
+          "short_title": "CBIS-DDSM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cbis-ddsm/"
+        },
+        {
+          "short_title": "CC-Radiomics-Phantom",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cc-radiomics-phantom/"
+        },
+        {
+          "short_title": "CC-Radiomics-Phantom-3",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cc-radiomics-phantom-3/"
+        },
+        {
+          "short_title": "CDD-CESM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cdd-cesm/"
+        },
+        {
+          "short_title": "COVID-19-NY-SBU",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/covid-19-ny-sbu/"
+        },
+        {
+          "short_title": "CRC_FFPE-CODEX_CellNeighs",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/crc_ffpe-codex_cellneighs/"
+        },
+        {
+          "short_title": "CT COLONOGRAPHY",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ct-colonography/"
+        },
+        {
+          "short_title": "CT Lymph Nodes",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/"
+        },
+        {
+          "short_title": "CT-Phantom4Radiomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ct-phantom4radiomics/"
+        },
+        {
+          "short_title": "DLBCL-Morphology",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/dlbcl-morphology/"
+        },
+        {
+          "short_title": "Duke-Breast-Cancer-MRI",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/duke-breast-cancer-mri/"
+        },
+        {
+          "short_title": "HCC-TACE-Seg",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/hcc-tace-seg/"
+        },
+        {
+          "short_title": "Head-Neck Cetuximab",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/head-neck-cetuximab/"
+        },
+        {
+          "short_title": "Head-Neck-PET-CT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/head-neck-pet-ct/"
+        },
+        {
+          "short_title": "Healthy-Total-Body-CTs",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/healthy-total-body-cts/"
+        },
+        {
+          "short_title": "HER2 tumor ROIs",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/her2-tumor-rois/"
+        },
+        {
+          "short_title": "HNSCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/hnscc/"
+        },
+        {
+          "short_title": "HNSCC-3DCT-RT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/hnscc-3dct-rt/"
+        },
+        {
+          "short_title": "HNSCC-mIF-mIHC-comparison",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/hnscc-mif-mihc-comparison/"
+        },
+        {
+          "short_title": "Hungarian-Colorectal-Screening",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/hungarian-colorectal-screening/"
+        },
+        {
+          "short_title": "ISPY1",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ispy1/"
+        },
+        {
+          "short_title": "ISPY2",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ispy2/"
+        },
+        {
+          "short_title": "LCTSC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lctsc/"
+        },
+        {
+          "short_title": "LIDC-IDRI",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lidc-idri/"
+        },
+        {
+          "short_title": "Lung-Fused-CT-Pathology",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lung-fused-ct-pathology/"
+        },
+        {
+          "short_title": "Lung-PET-CT-Dx",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lung-pet-ct-dx/"
+        },
+        {
+          "short_title": "Lung Phantom",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lung-phantom/"
+        },
+        {
+          "short_title": "LungCT-Diagnosis",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lungct-diagnosis/"
+        },
+        {
+          "short_title": "MiMM_SBILab",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/mimm_sbilab/"
+        },
+        {
+          "short_title": "NRG-1308",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nrg-1308/"
+        },
+        {
+          "short_title": "NSCLC Radiogenomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nsclc-radiogenomics/"
+        },
+        {
+          "short_title": "NSCLC-Radiomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nsclc-radiomics/"
+        },
+        {
+          "short_title": "Osteosarcoma-Tumor-Assessment",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/osteosarcoma-tumor-assessment/"
+        },
+        {
+          "short_title": "Pancreas-CT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pancreas-ct/"
+        },
+        {
+          "short_title": "Pancreatic-CT-CBCT-SEG",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pancreatic-ct-cbct-seg/"
+        },
+        {
+          "short_title": "Pelvic-Reference-Data",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pelvic-reference-data/"
+        },
+        {
+          "short_title": "Pretreat-MetsToBrain-Masks",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pretreat-metstobrain-masks/"
+        },
+        {
+          "short_title": "Prostate-3T",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/prostate-3t/"
+        },
+        {
+          "short_title": "PROSTATE-DIAGNOSIS",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/prostate-diagnosis/"
+        },
+        {
+          "short_title": "Prostate Fused-MRI-Pathology",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/prostate-fused-mri-pathology/"
+        },
+        {
+          "short_title": "Prostate-MRI-US-Biopsy",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/prostate-mri-us-biopsy/"
+        },
+        {
+          "short_title": "PROSTATEx",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/prostatex/"
+        },
+        {
+          "short_title": "QIBA-CT-Liver-Phantom",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/qiba-ct-liver-phantom/"
+        },
+        {
+          "short_title": "QIN Breast DCE-MRI",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/qin-breast-dce-mri/"
+        },
+        {
+          "short_title": "QIN-HEADNECK",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/qin-headneck/"
+        },
+        {
+          "short_title": "QIN-PROSTATE-Repeatability",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/qin-prostate-repeatability/"
+        },
+        {
+          "short_title": "REMBRANDT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/rembrandt/"
+        },
+        {
+          "short_title": "RHUH-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/rhuh-gbm/"
+        },
+        {
+          "short_title": "RIDER Lung CT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/rider-lung-ct/"
+        },
+        {
+          "short_title": "RIDER PHANTOM PET-CT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/rider-phantom-pet-ct/"
+        },
+        {
+          "short_title": "Soft-tissue-Sarcoma",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/soft-tissue-sarcoma/"
+        },
+        {
+          "short_title": "SPIE-AAPM Lung CT Challenge",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/spie-aapm-lung-ct-challenge/"
+        },
+        {
+          "short_title": "TCGA-BRCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-brca/"
+        },
+        {
+          "short_title": "TCGA-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-gbm/"
+        },
+        {
+          "short_title": "TCGA-KIRC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-kirc/"
+        },
+        {
+          "short_title": "TCGA-LGG",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-lgg/"
+        },
+        {
+          "short_title": "TCGA-LIHC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-lihc/"
+        },
+        {
+          "short_title": "TCGA-LUAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-luad/"
+        },
+        {
+          "short_title": "TCGA-OV",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/tcga-ov/"
+        },
+        {
+          "short_title": "UCSF-PDGM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ucsf-pdgm/"
+        },
+        {
+          "short_title": "UPENN-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/upenn-gbm/"
+        },
+        {
+          "short_title": "Vestibular-Schwannoma-SEG",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/vestibular-schwannoma-seg/"
+        }
+      ]
+    },
+    {
+      "old_label": "image features",
+      "wordpress_option_id": 12843,
+      "public_dataset_count": 3,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "DICOM-LIDC-IDRI-Nodules",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-lidc-idri-nodules/"
+        },
+        {
+          "short_title": "PleThora",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/plethora/"
+        },
+        {
+          "short_title": "QIBA-VolCT-1B",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/qiba-volct-1b/"
+        }
+      ]
+    },
+    {
+      "old_label": "Image quality assessment measures",
+      "wordpress_option_id": 12889,
+      "public_dataset_count": 1,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "MRQy-Quality-Measures",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/mrqy-quality-measures/"
+        }
+      ]
+    },
+    {
+      "old_label": "Image Registrations",
+      "wordpress_option_id": 12605,
+      "public_dataset_count": 1,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "MRI-DIR",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/mri-dir/"
+        }
+      ]
+    },
+    {
+      "old_label": "Lesion measurements",
+      "wordpress_option_id": 12833,
+      "public_dataset_count": 2,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "Crowds-Cure-2017",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2017/"
+        },
+        {
+          "short_title": "Crowds-Cure-2018",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/"
+        }
+      ]
+    },
+    {
+      "old_label": "Microarray",
+      "wordpress_option_id": 49515,
+      "public_dataset_count": 2,
+      "proposed_labels": [
+        "Genomics"
+      ],
+      "status": "needs curator decision",
+      "action": "Verify content, then replace",
+      "instructions": "Check the linked resource: use Genomics for gene-expression/DNA/RNA microarrays; use Histopathology for tissue-microarray imagery. CPTAC-HNSCC is ambiguous from this label alone; NSCLC-Radiomics-Genomics explicitly describes gene-expression data.",
+      "affected_datasets": [
+        {
+          "short_title": "CPTAC-HNSCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-hnscc/"
+        },
+        {
+          "short_title": "NSCLC-Radiomics-Genomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/nsclc-radiomics-genomics/"
+        }
+      ]
+    },
+    {
+      "old_label": "Multi-center comparison of radiomic features.",
+      "wordpress_option_id": 12883,
+      "public_dataset_count": 1,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "Radiomic-Feature-Standards",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/radiomic-feature-standards/"
+        }
+      ]
+    },
+    {
+      "old_label": "multi-gene assays",
+      "wordpress_option_id": 12777,
+      "public_dataset_count": 1,
+      "proposed_labels": [
+        "Genomics"
+      ],
+      "status": "needs curator decision",
+      "action": "Verify content, then replace",
+      "instructions": "Confirm that the linked resource supplies gene-assay or expression information. If it supplies only clinical assay scores or predictions, use Clinical; use both only when both contents are provided.",
+      "affected_datasets": [
+        {
+          "short_title": "TCGA-Breast-Radiogenomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/"
+        }
+      ]
+    },
+    {
+      "old_label": "NA",
+      "wordpress_option_id": 56070,
+      "public_dataset_count": 0,
+      "proposed_labels": [],
+      "status": "needs curator decision",
+      "action": "Retire unused option after reference check",
+      "instructions": "Use no external-resource label when no linked resource exists; do not replace NA with another placeholder.",
+      "affected_datasets": []
+    },
+    {
+      "old_label": "Nuclei segmentations",
+      "wordpress_option_id": 12877,
+      "public_dataset_count": 1,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "Pan-Cancer-Nuclei-Seg",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/"
+        }
+      ]
+    },
+    {
+      "old_label": "Organ segmentations",
+      "wordpress_option_id": 12869,
+      "public_dataset_count": 3,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "CT Lymph Nodes",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/"
+        },
+        {
+          "short_title": "PROSTATEx-Seg-HiRes",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/prostatex-seg-hires/"
+        },
+        {
+          "short_title": "PROSTATEx-Seg-Zones",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/prostatex-seg-zones/"
+        }
+      ]
+    },
+    {
+      "old_label": "Pathology",
+      "wordpress_option_id": 12197,
+      "public_dataset_count": 0,
+      "proposed_labels": [
+        "Histopathology"
+      ],
+      "status": "needs curator decision",
+      "action": "Retire unused option after reference check",
+      "instructions": "Unused publicly. Before any reuse, confirm microscopic tissue/pathology content; general laboratory results may belong under Clinical.",
+      "affected_datasets": []
+    },
+    {
+      "old_label": "pleural effusion segmentations",
+      "wordpress_option_id": 21275,
+      "public_dataset_count": 1,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "PleThora",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/plethora/"
+        }
+      ]
+    },
+    {
+      "old_label": "Prostate structure segmentations",
+      "wordpress_option_id": 12785,
+      "public_dataset_count": 0,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "needs curator decision",
+      "action": "Retire unused option after reference check",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": []
+    },
+    {
+      "old_label": "proteogenomic features",
+      "wordpress_option_id": 12849,
+      "public_dataset_count": 1,
+      "proposed_labels": [
+        "Proteomics",
+        "Genomics"
+      ],
+      "status": "needs curator decision",
+      "action": "Verify content, then replace",
+      "instructions": "Verify the actual linked resource before selecting one or both. Use Proteomics for protein features; add Genomics only when genomic/transcriptomic content is actually included. The paper describes both, which does not prove both are delivered by this resource.",
+      "affected_datasets": [
+        {
+          "short_title": "TCGA-OV-Proteogenomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-proteogenomics/"
+        }
+      ]
+    },
+    {
+      "old_label": "Proteomics",
+      "wordpress_option_id": 12683,
+      "public_dataset_count": 11,
+      "proposed_labels": [
+        "Proteomics"
+      ],
+      "status": "pass",
+      "action": "Retain",
+      "instructions": "Existing broad category; retain the label and verify the supporting link during normal curation.",
+      "affected_datasets": [
+        {
+          "short_title": "CPTAC-BRCA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-brca/"
+        },
+        {
+          "short_title": "CPTAC-CCRCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-ccrcc/"
+        },
+        {
+          "short_title": "CPTAC-COAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-coad/"
+        },
+        {
+          "short_title": "CPTAC-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-gbm/"
+        },
+        {
+          "short_title": "CPTAC-HNSCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-hnscc/"
+        },
+        {
+          "short_title": "CPTAC-LSCC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-lscc/"
+        },
+        {
+          "short_title": "CPTAC-LUAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-luad/"
+        },
+        {
+          "short_title": "CPTAC-OV",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-ov/"
+        },
+        {
+          "short_title": "CPTAC-PDA",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-pda/"
+        },
+        {
+          "short_title": "CPTAC-STAD",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-stad/"
+        },
+        {
+          "short_title": "CPTAC-UCEC",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cptac-ucec/"
+        }
+      ]
+    },
+    {
+      "old_label": "Radiation Therapy Structures",
+      "wordpress_option_id": 12837,
+      "public_dataset_count": 0,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "needs curator decision",
+      "action": "Retire unused option after reference check",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": []
+    },
+    {
+      "old_label": "Radiologist assessments of image features",
+      "wordpress_option_id": 12763,
+      "public_dataset_count": 5,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "TCGA-Breast-Radiogenomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/"
+        },
+        {
+          "short_title": "TCGA-GBM-Radiogenomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-gbm-radiogenomics/"
+        },
+        {
+          "short_title": "TCGA-KIRC-Radiogenomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-kirc-radiogenomics/"
+        },
+        {
+          "short_title": "TCGA-OV-Proteogenomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-proteogenomics/"
+        },
+        {
+          "short_title": "TCGA-OV-Radiogenomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-radiogenomics/"
+        }
+      ]
+    },
+    {
+      "old_label": "Radiologist assessments of image features and hemodynamic parameters",
+      "wordpress_option_id": 12751,
+      "public_dataset_count": 0,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "needs curator decision",
+      "action": "Retire unused option after reference check",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": []
+    },
+    {
+      "old_label": "radiomic features",
+      "wordpress_option_id": 12775,
+      "public_dataset_count": 4,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "ISPY1-Tumor-SEG-Radiomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/ispy1-tumor-seg-radiomics/"
+        },
+        {
+          "short_title": "IvyGAP-Radiomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/ivygap-radiomics/"
+        },
+        {
+          "short_title": "Oropharyngeal-Radiomics-Outcomes",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/oropharyngeal-radiomics-outcomes/"
+        },
+        {
+          "short_title": "TCGA-Breast-Radiogenomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/"
+        }
+      ]
+    },
+    {
+      "old_label": "radiomic image features",
+      "wordpress_option_id": 12797,
+      "public_dataset_count": 3,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "BraTS-TCGA-GBM",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-gbm/"
+        },
+        {
+          "short_title": "BraTS-TCGA-LGG",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-lgg/"
+        },
+        {
+          "short_title": "LUAD-CT-Survival",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/luad-ct-survival/"
+        }
+      ]
+    },
+    {
+      "old_label": "receptor status and clinical findings including measurements.",
+      "wordpress_option_id": 12857,
+      "public_dataset_count": 1,
+      "proposed_labels": [
+        "Clinical"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "DICOM-SR-Breast-Clinical",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-sr-breast-clinical/"
+        }
+      ]
+    },
+    {
+      "old_label": "Seed points",
+      "wordpress_option_id": 12901,
+      "public_dataset_count": 0,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "needs curator decision",
+      "action": "Retire unused option after reference check",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": []
+    },
+    {
+      "old_label": "Segmentations",
+      "wordpress_option_id": 21533,
+      "public_dataset_count": 2,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "LGG-1p19qDeletion",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lgg-1p19qdeletion/"
+        },
+        {
+          "short_title": "SAROS",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/saros/"
+        }
+      ]
+    },
+    {
+      "old_label": "Software/Source Code",
+      "wordpress_option_id": 12147,
+      "public_dataset_count": 40,
+      "proposed_labels": [
+        "Software/Source Code"
+      ],
+      "status": "pass",
+      "action": "Retain",
+      "instructions": "Existing broad category; retain the label and verify the supporting link during normal curation.",
+      "affected_datasets": [
+        {
+          "short_title": "BCBM-RadioGenomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/bcbm-radiogenomics/"
+        },
+        {
+          "short_title": "Brain-Mets-Lung-MRI-Path-Segs",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/brain-mets-lung-mri-path-segs/"
+        },
+        {
+          "short_title": "Brain-TR-GammaKnife",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/brain-tr-gammaknife/"
+        },
+        {
+          "short_title": "BraTS-PEDs",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/brats-peds/"
+        },
+        {
+          "short_title": "Breast-Cancer-Screening-DBT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/breast-cancer-screening-dbt/"
+        },
+        {
+          "short_title": "Breast-Lesions-USG",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/breast-lesions-usg/"
+        },
+        {
+          "short_title": "Burdenko-GBM-Progression",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/burdenko-gbm-progression/"
+        },
+        {
+          "short_title": "CATCH",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/catch/"
+        },
+        {
+          "short_title": "CDD-CESM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/cdd-cesm/"
+        },
+        {
+          "short_title": "CT-ORG",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ct-org/"
+        },
+        {
+          "short_title": "CT-Phantom4Radiomics",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ct-phantom4radiomics/"
+        },
+        {
+          "short_title": "CT4Harmonization-Multicentric",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ct4harmonization-multicentric/"
+        },
+        {
+          "short_title": "DRO-Toolkit",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/dro-toolkit/"
+        },
+        {
+          "short_title": "FDG-PET-CT-Lesions",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/fdg-pet-ct-lesions/"
+        },
+        {
+          "short_title": "HANCOCK",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/hancock/"
+        },
+        {
+          "short_title": "HCC-TACE-Seg",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/hcc-tace-seg/"
+        },
+        {
+          "short_title": "Head-Neck-PET-CT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/head-neck-pet-ct/"
+        },
+        {
+          "short_title": "HistologyHSI-GB",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/histologyhsi-gb/"
+        },
+        {
+          "short_title": "HNSCC-mIF-mIHC-comparison",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/hnscc-mif-mihc-comparison/"
+        },
+        {
+          "short_title": "LDCT-and-Projection-data",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ldct-and-projection-data/"
+        },
+        {
+          "short_title": "LIDC-IDRI",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lidc-idri/"
+        },
+        {
+          "short_title": "Lung-Fused-CT-Pathology",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lung-fused-ct-pathology/"
+        },
+        {
+          "short_title": "Lung-PET-CT-Dx",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/lung-pet-ct-dx/"
+        },
+        {
+          "short_title": "MIDI-B-Test-MIDI-B-Validation",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/midi-b-test-midi-b-validation/"
+        },
+        {
+          "short_title": "MIDRC-RICORD-1A",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/midrc-ricord-1a/"
+        },
+        {
+          "short_title": "PCa_Bx_3Dpathology",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pca_bx_3dpathology/"
+        },
+        {
+          "short_title": "Pretreat-MetsToBrain-Masks",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/pretreat-metstobrain-masks/"
+        },
+        {
+          "short_title": "PSMA-PET-CT-Lesions",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/psma-pet-ct-lesions/"
+        },
+        {
+          "short_title": "RHUH-GBM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/rhuh-gbm/"
+        },
+        {
+          "short_title": "Soft-tissue-Sarcoma",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/soft-tissue-sarcoma/"
+        },
+        {
+          "short_title": "Spinal-Multiple-Myeloma-SEG",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/spinal-multiple-myeloma-seg/"
+        },
+        {
+          "short_title": "StageII-Colorectal-CT",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/stageii-colorectal-ct/"
+        },
+        {
+          "short_title": "UCSF-PDGM",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/ucsf-pdgm/"
+        },
+        {
+          "short_title": "Vestibular-Schwannoma-SEG",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/vestibular-schwannoma-seg/"
+        },
+        {
+          "short_title": "VICTRE",
+          "source": "collections",
+          "url": "https://www.cancerimagingarchive.net/collection/victre/"
+        },
+        {
+          "short_title": "DICOM-LIDC-IDRI-Nodules",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-lidc-idri-nodules/"
+        },
+        {
+          "short_title": "MRQy-Quality-Measures",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/mrqy-quality-measures/"
+        },
+        {
+          "short_title": "S0819-Tumor-Annotations",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/s0819-tumor-annotations/"
+        },
+        {
+          "short_title": "TCGA-LGG-Mask",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-lgg-mask/"
+        },
+        {
+          "short_title": "TIL-WSI-TCGA",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/"
+        }
+      ]
+    },
+    {
+      "old_label": "Standardized (SDTM format) conversions of clinical and image analysis data",
+      "wordpress_option_id": 12865,
+      "public_dataset_count": 1,
+      "proposed_labels": [
+        "Clinical",
+        "Image Analyses"
+      ],
+      "status": "needs curator decision",
+      "action": "Verify content, then replace",
+      "instructions": "Check the linked exported data. Use Clinical for patient/clinical records and add Image Analyses where image-derived measurements are included. Keep SDTM and SAS/XPT details in the description or download metadata.",
+      "affected_datasets": [
+        {
+          "short_title": "DI-Cubed-Reports",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/di-cubed-reports/"
+        }
+      ]
+    },
+    {
+      "old_label": "Thoracic segmentations",
+      "wordpress_option_id": 21273,
+      "public_dataset_count": 1,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "PleThora",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/plethora/"
+        }
+      ]
+    },
+    {
+      "old_label": "Tumor segmentations",
+      "wordpress_option_id": 12757,
+      "public_dataset_count": 11,
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "action": "Replace assignment",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "affected_datasets": [
+        {
+          "short_title": "BraTS-TCGA-GBM",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-gbm/"
+        },
+        {
+          "short_title": "BraTS-TCGA-LGG",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-lgg/"
+        },
+        {
+          "short_title": "DICOM-Glioma-SEG",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-glioma-seg/"
+        },
+        {
+          "short_title": "DICOM-LIDC-IDRI-Nodules",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/dicom-lidc-idri-nodules/"
+        },
+        {
+          "short_title": "ISPY1-Tumor-SEG-Radiomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/ispy1-tumor-seg-radiomics/"
+        },
+        {
+          "short_title": "IvyGAP-Radiomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/ivygap-radiomics/"
+        },
+        {
+          "short_title": "LUAD-CT-Survival",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/luad-ct-survival/"
+        },
+        {
+          "short_title": "QIN-LungCT-Seg",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/qin-lungct-seg/"
+        },
+        {
+          "short_title": "RIDER-LungCT-Seg",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/rider-lungct-seg/"
+        },
+        {
+          "short_title": "TCGA-Breast-Radiogenomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/"
+        },
+        {
+          "short_title": "TCGA-GBM-QI-Radiogenomics",
+          "source": "analysis-results",
+          "url": "https://www.cancerimagingarchive.net/analysis-result/tcga-gbm-qi-radiogenomics/"
+        }
+      ]
+    }
+  ],
+  "assignments": [
+    {
+      "dataset": "BraTS-TCGA-GBM",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-gbm/",
+      "old_label": "radiomic image features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations",
+        "radiomic image features"
+      ]
+    },
+    {
+      "dataset": "BraTS-TCGA-GBM",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-gbm/",
+      "old_label": "Tumor segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations",
+        "radiomic image features"
+      ]
+    },
+    {
+      "dataset": "BraTS-TCGA-LGG",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-lgg/",
+      "old_label": "radiomic image features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations",
+        "radiomic image features"
+      ]
+    },
+    {
+      "dataset": "BraTS-TCGA-LGG",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/brats-tcga-lgg/",
+      "old_label": "Tumor segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations",
+        "radiomic image features"
+      ]
+    },
+    {
+      "dataset": "CPTAC-HNSCC",
+      "dataset_type": "Collection",
+      "dataset_url": "https://www.cancerimagingarchive.net/collection/cptac-hnscc/",
+      "old_label": "Microarray",
+      "proposed_labels": [
+        "Genomics"
+      ],
+      "status": "needs curator decision",
+      "instructions": "Check the linked resource: use Genomics for gene-expression/DNA/RNA microarrays; use Histopathology for tissue-microarray imagery. CPTAC-HNSCC is ambiguous from this label alone; NSCLC-Radiomics-Genomics explicitly describes gene-expression data.",
+      "current_dataset_labels": [
+        "Clinical",
+        "Genomics",
+        "Microarray",
+        "Proteomics"
+      ]
+    },
+    {
+      "dataset": "Crowds-Cure-2017",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2017/",
+      "old_label": "Lesion measurements",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Lesion measurements"
+      ]
+    },
+    {
+      "dataset": "Crowds-Cure-2018",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/crowds-cure-2018/",
+      "old_label": "Lesion measurements",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Lesion measurements"
+      ]
+    },
+    {
+      "dataset": "CT Lymph Nodes",
+      "dataset_type": "Collection",
+      "dataset_url": "https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/",
+      "old_label": "Organ segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Image Analyses",
+        "Organ segmentations"
+      ]
+    },
+    {
+      "dataset": "DI-Cubed-Reports",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/di-cubed-reports/",
+      "old_label": "Standardized (SDTM format) conversions of clinical and image analysis data",
+      "proposed_labels": [
+        "Clinical",
+        "Image Analyses"
+      ],
+      "status": "needs curator decision",
+      "instructions": "Check the linked exported data. Use Clinical for patient/clinical records and add Image Analyses where image-derived measurements are included. Keep SDTM and SAS/XPT details in the description or download metadata.",
+      "current_dataset_labels": [
+        "Standardized (SDTM format) conversions of clinical and image analysis data"
+      ]
+    },
+    {
+      "dataset": "DICOM-Glioma-SEG",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/dicom-glioma-seg/",
+      "old_label": "Tumor segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations"
+      ]
+    },
+    {
+      "dataset": "DICOM-LIDC-IDRI-Nodules",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/dicom-lidc-idri-nodules/",
+      "old_label": "image features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Software/Source Code",
+        "Tumor segmentations",
+        "image features"
+      ]
+    },
+    {
+      "dataset": "DICOM-LIDC-IDRI-Nodules",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/dicom-lidc-idri-nodules/",
+      "old_label": "Tumor segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Software/Source Code",
+        "Tumor segmentations",
+        "image features"
+      ]
+    },
+    {
+      "dataset": "DICOM-SR-Breast-Clinical",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/dicom-sr-breast-clinical/",
+      "old_label": "DICOM SR descriptions of patient characteristics",
+      "proposed_labels": [
+        "Clinical"
+      ],
+      "status": "needs curator decision",
+      "instructions": "Use Clinical for patient-characteristic reports; add Image Analyses only if the linked resource also contains image-analysis results. DICOM SR is a format, not the broad resource category.",
+      "current_dataset_labels": [
+        "DICOM SR descriptions of patient characteristics",
+        "Histopathology",
+        "receptor status and clinical findings including measurements."
+      ]
+    },
+    {
+      "dataset": "DICOM-SR-Breast-Clinical",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/dicom-sr-breast-clinical/",
+      "old_label": "receptor status and clinical findings including measurements.",
+      "proposed_labels": [
+        "Clinical"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "DICOM SR descriptions of patient characteristics",
+        "Histopathology",
+        "receptor status and clinical findings including measurements."
+      ]
+    },
+    {
+      "dataset": "ISPY1-Tumor-SEG-Radiomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/ispy1-tumor-seg-radiomics/",
+      "old_label": "radiomic features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations",
+        "radiomic features"
+      ]
+    },
+    {
+      "dataset": "ISPY1-Tumor-SEG-Radiomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/ispy1-tumor-seg-radiomics/",
+      "old_label": "Tumor segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations",
+        "radiomic features"
+      ]
+    },
+    {
+      "dataset": "IvyGAP-Radiomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/ivygap-radiomics/",
+      "old_label": "radiomic features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations",
+        "radiomic features"
+      ]
+    },
+    {
+      "dataset": "IvyGAP-Radiomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/ivygap-radiomics/",
+      "old_label": "Tumor segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations",
+        "radiomic features"
+      ]
+    },
+    {
+      "dataset": "LGG-1p19qDeletion",
+      "dataset_type": "Collection",
+      "dataset_url": "https://www.cancerimagingarchive.net/collection/lgg-1p19qdeletion/",
+      "old_label": "Segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Genomics",
+        "Segmentations"
+      ]
+    },
+    {
+      "dataset": "LUAD-CT-Survival",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/luad-ct-survival/",
+      "old_label": "radiomic image features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations",
+        "radiomic image features"
+      ]
+    },
+    {
+      "dataset": "LUAD-CT-Survival",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/luad-ct-survival/",
+      "old_label": "Tumor segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations",
+        "radiomic image features"
+      ]
+    },
+    {
+      "dataset": "MRI-DIR",
+      "dataset_type": "Collection",
+      "dataset_url": "https://www.cancerimagingarchive.net/collection/mri-dir/",
+      "old_label": "Image Registrations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Image Registrations"
+      ]
+    },
+    {
+      "dataset": "MRQy-Quality-Measures",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/mrqy-quality-measures/",
+      "old_label": "Image quality assessment measures",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Image quality assessment measures",
+        "Software/Source Code"
+      ]
+    },
+    {
+      "dataset": "NSCLC-Radiomics-Genomics",
+      "dataset_type": "Collection",
+      "dataset_url": "https://www.cancerimagingarchive.net/collection/nsclc-radiomics-genomics/",
+      "old_label": "Microarray",
+      "proposed_labels": [
+        "Genomics"
+      ],
+      "status": "needs curator decision",
+      "instructions": "Check the linked resource: use Genomics for gene-expression/DNA/RNA microarrays; use Histopathology for tissue-microarray imagery. CPTAC-HNSCC is ambiguous from this label alone; NSCLC-Radiomics-Genomics explicitly describes gene-expression data.",
+      "current_dataset_labels": [
+        "Clinical",
+        "Genomics",
+        "Microarray"
+      ]
+    },
+    {
+      "dataset": "Oropharyngeal-Radiomics-Outcomes",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/oropharyngeal-radiomics-outcomes/",
+      "old_label": "radiomic features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Clinical",
+        "radiomic features"
+      ]
+    },
+    {
+      "dataset": "Pan-Cancer-Nuclei-Seg",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/pan-cancer-nuclei-seg/",
+      "old_label": "Nuclei segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Nuclei segmentations"
+      ]
+    },
+    {
+      "dataset": "PleThora",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/plethora/",
+      "old_label": "image features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Thoracic segmentations",
+        "image features",
+        "pleural effusion segmentations"
+      ]
+    },
+    {
+      "dataset": "PleThora",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/plethora/",
+      "old_label": "pleural effusion segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Thoracic segmentations",
+        "image features",
+        "pleural effusion segmentations"
+      ]
+    },
+    {
+      "dataset": "PleThora",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/plethora/",
+      "old_label": "Thoracic segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Thoracic segmentations",
+        "image features",
+        "pleural effusion segmentations"
+      ]
+    },
+    {
+      "dataset": "PROSTATEx-Seg-HiRes",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/prostatex-seg-hires/",
+      "old_label": "Organ segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Organ segmentations"
+      ]
+    },
+    {
+      "dataset": "PROSTATEx-Seg-Zones",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/prostatex-seg-zones/",
+      "old_label": "Organ segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Organ segmentations"
+      ]
+    },
+    {
+      "dataset": "QIBA-VolCT-1B",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/qiba-volct-1b/",
+      "old_label": "image features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "image features"
+      ]
+    },
+    {
+      "dataset": "QIN-LungCT-Seg",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/qin-lungct-seg/",
+      "old_label": "Tumor segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations"
+      ]
+    },
+    {
+      "dataset": "Radiomic-Feature-Standards",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/radiomic-feature-standards/",
+      "old_label": "Multi-center comparison of radiomic features.",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Multi-center comparison of radiomic features."
+      ]
+    },
+    {
+      "dataset": "RIDER-LungCT-Seg",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/rider-lungct-seg/",
+      "old_label": "Tumor segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations"
+      ]
+    },
+    {
+      "dataset": "SAROS",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/saros/",
+      "old_label": "Segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Segmentations"
+      ]
+    },
+    {
+      "dataset": "TCGA-Breast-Radiogenomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/",
+      "old_label": "multi-gene assays",
+      "proposed_labels": [
+        "Genomics"
+      ],
+      "status": "needs curator decision",
+      "instructions": "Confirm that the linked resource supplies gene-assay or expression information. If it supplies only clinical assay scores or predictions, use Clinical; use both only when both contents are provided.",
+      "current_dataset_labels": [
+        "Radiologist assessments of image features",
+        "Tumor segmentations",
+        "multi-gene assays",
+        "radiomic features"
+      ]
+    },
+    {
+      "dataset": "TCGA-Breast-Radiogenomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/",
+      "old_label": "Radiologist assessments of image features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Radiologist assessments of image features",
+        "Tumor segmentations",
+        "multi-gene assays",
+        "radiomic features"
+      ]
+    },
+    {
+      "dataset": "TCGA-Breast-Radiogenomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/",
+      "old_label": "radiomic features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Radiologist assessments of image features",
+        "Tumor segmentations",
+        "multi-gene assays",
+        "radiomic features"
+      ]
+    },
+    {
+      "dataset": "TCGA-Breast-Radiogenomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/",
+      "old_label": "Tumor segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Radiologist assessments of image features",
+        "Tumor segmentations",
+        "multi-gene assays",
+        "radiomic features"
+      ]
+    },
+    {
+      "dataset": "TCGA-GBM-QI-Radiogenomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/tcga-gbm-qi-radiogenomics/",
+      "old_label": "Tumor segmentations",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Tumor segmentations"
+      ]
+    },
+    {
+      "dataset": "TCGA-GBM-Radiogenomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/tcga-gbm-radiogenomics/",
+      "old_label": "Radiologist assessments of image features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Radiologist assessments of image features"
+      ]
+    },
+    {
+      "dataset": "TCGA-KIRC-Radiogenomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/tcga-kirc-radiogenomics/",
+      "old_label": "Radiologist assessments of image features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Radiologist assessments of image features"
+      ]
+    },
+    {
+      "dataset": "TCGA-OV-Proteogenomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-proteogenomics/",
+      "old_label": "proteogenomic features",
+      "proposed_labels": [
+        "Proteomics",
+        "Genomics"
+      ],
+      "status": "needs curator decision",
+      "instructions": "Verify the actual linked resource before selecting one or both. Use Proteomics for protein features; add Genomics only when genomic/transcriptomic content is actually included. The paper describes both, which does not prove both are delivered by this resource.",
+      "current_dataset_labels": [
+        "Clinical",
+        "Radiologist assessments of image features",
+        "proteogenomic features"
+      ]
+    },
+    {
+      "dataset": "TCGA-OV-Proteogenomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-proteogenomics/",
+      "old_label": "Radiologist assessments of image features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Clinical",
+        "Radiologist assessments of image features",
+        "proteogenomic features"
+      ]
+    },
+    {
+      "dataset": "TCGA-OV-Radiogenomics",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/tcga-ov-radiogenomics/",
+      "old_label": "Radiologist assessments of image features",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Genomics",
+        "Radiologist assessments of image features"
+      ]
+    },
+    {
+      "dataset": "TIL-WSI-TCGA",
+      "dataset_type": "Analysis Result",
+      "dataset_url": "https://www.cancerimagingarchive.net/analysis-result/til-wsi-tcga/",
+      "old_label": "Deep learning based computational stain for staining tumor-infiltrating lymphocytes (TILs)",
+      "proposed_labels": [
+        "Image Analyses"
+      ],
+      "status": "change recommended",
+      "instructions": "Preserve the specific technique, organ, measurement, or analysis name in the resource title/description; use the broad existing category for filtering.",
+      "current_dataset_labels": [
+        "Deep learning based computational stain for staining tumor-infiltrating lymphocytes (TILs)",
+        "Histopathology",
+        "Software/Source Code"
+      ]
+    }
+  ]
+}

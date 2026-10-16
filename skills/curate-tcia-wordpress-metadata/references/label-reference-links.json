@@ -4,7 +4,8 @@
     "verified_on": "2026-10-16",
     "method": "Direct NCIt and UBERON code retrieval after search; inspected definitions and synonyms. Technical reference completion, not additional user approvals or dataset-level diagnostic validation.",
     "ncit_version": "26.09d",
-    "scope": "Complete routine ID lookups for the published catalog while preserving user-confirmed meanings and explicit contextual labels."
+    "scope": "Complete routine ID lookups for the published catalog while preserving user-confirmed meanings and explicit contextual labels.",
+    "species_note": "Biological species labels use verified NCIt concepts. Computational Phantom remains an intentional TCIA classification without a verified equivalent NCIt reference; no taxonomic identifier is assigned to a phantom."
   },
   "fields": {
     "disease_type": {
@@ -2037,6 +2038,84 @@
         "mapping_relation": "exact or synonym",
         "scope_note": "",
         "verification_status": "active concepts verified; reference scope inspected"
+      }
+    },
+    "species": {
+      "Human": {
+        "concepts": [
+          {
+            "ontology": "NCIt",
+            "code": "C14225",
+            "preferred_label": "Human",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C14225",
+            "active": true,
+            "verified_on": "2026-10-16",
+            "version": "26.09d",
+            "definition": "The bipedal primate mammal, Homo sapiens; belonging to man or mankind; pertaining to man or to the race of man; use of man as experimental subject or unit of analysis in research.",
+            "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C14225?include=summary",
+            "api_response_sha256": "b262e4f8d3c83960e0a8ea01e864a83713579e813eca6f268e5e724db103ffa5"
+          }
+        ],
+        "mapping_relation": "exact or synonym",
+        "scope_note": "",
+        "verification_status": "active concept verified; reference scope inspected"
+      },
+      "Mouse": {
+        "concepts": [
+          {
+            "ontology": "NCIt",
+            "code": "C14238",
+            "preferred_label": "Mouse",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C14238",
+            "active": true,
+            "verified_on": "2026-10-16",
+            "version": "26.09d",
+            "definition": "Any of numerous species of small rodents belonging to the genus Mus and various related genera of the family Muridae.",
+            "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C14238?include=summary",
+            "api_response_sha256": "768f23da29a4ec5de31cf7ed2e1a76a8806cf9e4cd4998cf65661ee22f76c786"
+          }
+        ],
+        "mapping_relation": "exact or synonym",
+        "scope_note": "",
+        "verification_status": "active concept verified; reference scope inspected"
+      },
+      "Canine": {
+        "concepts": [
+          {
+            "ontology": "NCIt",
+            "code": "C14201",
+            "preferred_label": "Dog",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C14201",
+            "active": true,
+            "verified_on": "2026-10-16",
+            "version": "26.09d",
+            "definition": "The domestic dog, Canis familiaris.",
+            "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C14201?include=summary",
+            "api_response_sha256": "fdf8d237b35dc1cdeff577eab47d213a9ea3a062d2833fd860224a779f08f548"
+          }
+        ],
+        "mapping_relation": "exact or synonym",
+        "scope_note": "",
+        "verification_status": "active concept verified; reference scope inspected"
+      },
+      "Physical Phantom": {
+        "concepts": [
+          {
+            "ontology": "NCIt",
+            "code": "C17892",
+            "preferred_label": "Imaging Phantom",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C17892",
+            "active": true,
+            "verified_on": "2026-10-16",
+            "version": "26.09d",
+            "definition": "Imaging Phantoms are used for the assessment of image quality.  Within these functional categories phantoms can be further defined.  (1) Body Phantoms: have the shape and composition of the human body or part of it.  They are also referred to as anthropomorphic phantoms.  (2) Phantoms that are used for standardization and inter-comparison of various radiation conditions are often referred to as Standards.  (3) Reference Phantoms include phantoms used to derive radiation dose calculations, mineral density equivalences or other similar type measurements.  They can further be defined by their intended modality such as Ultrasound, Mammography, Computed Tomography (CT), etc.",
+            "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C17892?include=summary",
+            "api_response_sha256": "2d50354e0b42fd86cfd0423ea2885fd4a4e0a3b528bc46179f77e55d4c34a9b5"
+          }
+        ],
+        "mapping_relation": "broader",
+        "scope_note": "Broader imaging-phantom reference for the physical phantom classification; this is not a biological species.",
+        "verification_status": "active concept verified; reference scope inspected"
       }
     }
   }
