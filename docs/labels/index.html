@@ -263,7 +263,7 @@
         <section>
           <h3>How to assess a candidate</h3>
           <p>Use NCIt for disease concepts and UBERON for primary disease sites. Use the NCI Imaging Submission Model and the GDC schema as terminology guides for category, data type, and file type. Their values do not automatically become valid WordPress options.</p>
-          <p>Historical diagnosis and anatomy mappings come from the <a href="https://docs.google.com/spreadsheets/d/1KnbOO85nqbx8A3m1VLWOiUhBJY_KxkI29_JwAVgKxjs/edit" target="_blank" rel="noopener noreferrer">source picklist workbook</a>. API checks confirm whether a code exists and is active; they do not approve its meaning for a TCIA label. Confirmed decisions override historical candidates. Reference links were checked against current definitions and synonyms. Broader or combined references are explained beside the label; they do not approve its application to every dataset. Non-Cancer remains an unlinked TCIA filter, paired with specific labels where supported.</p>
+          <p>Historical diagnosis and anatomy mappings come from the <a href="https://docs.google.com/spreadsheets/d/1KnbOO85nqbx8A3m1VLWOiUhBJY_KxkI29_JwAVgKxjs/edit" target="_blank" rel="noopener noreferrer">source picklist workbook</a>. API checks confirm whether a code exists and is active; they do not approve its meaning for a TCIA label. Confirmed decisions override historical candidates. Reference links were checked against current definitions and synonyms. Reference scope and supporting notes are retained in the spreadsheet export; a reference does not approve its application to every dataset. Non-Cancer remains an unlinked TCIA filter, paired with specific labels where supported.</p>
           <p>Export spreadsheet downloads all five fields, including the displayed ontology links and confirmed decisions, plus historical evidence for audit purposes. Search and filters do not limit the export.</p>
         </section>
         <section>
@@ -480,51 +480,16 @@
         const label = document.createElement("td");
         label.className = "label-cell";
         label.dataset.heading = "Exact label";
-        const references = row.reference_links || [];
-        const reference = references.length === 1 ? references[0] : null;
-        if (reference) {
-          const link = document.createElement("a");
-          link.href = safeUrl(reference.url);
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          link.title = `${reference.ontology} ${reference.code} — ${reference.preferred_label}`;
-          link.append(highlight(row.label, state.query.trim()));
-          label.append(link);
-          const code = document.createElement("span");
-          code.className = "mapping-note";
-          code.textContent = reference.preferred_label.toLocaleLowerCase() === row.label.toLocaleLowerCase()
-            ? reference.code : `${reference.preferred_label} · ${reference.code}`;
-          label.append(code);
-        } else {
-          label.append(highlight(row.label, state.query.trim()));
-        }
-        if (references.length > 1) {
-          references.forEach(reference => {
-            const detail = document.createElement("span");
-            detail.className = "mapping-note";
-            const link = document.createElement("a");
-            link.href = safeUrl(reference.url);
-            link.target = "_blank";
-            link.rel = "noopener noreferrer";
-            link.textContent = `${reference.preferred_label} (${reference.code})`;
-            detail.append(link);
-            label.append(detail);
-          });
-        }
-        if (row.display_note) {
-          const note = document.createElement("span");
-          note.className = "mapping-note";
-          note.textContent = row.display_note;
-          label.append(note);
-        }
-        (row.replacement_links || []).forEach(reference => {
+        label.append(highlight(row.label, state.query.trim()));
+        const references = [...(row.reference_links || []), ...(row.replacement_links || [])];
+        references.forEach(reference => {
           const detail = document.createElement("span");
           detail.className = "mapping-note";
           const link = document.createElement("a");
           link.href = safeUrl(reference.url);
           link.target = "_blank";
           link.rel = "noopener noreferrer";
-          link.textContent = `${reference.preferred_label} (${reference.code})`;
+          link.textContent = reference.code;
           detail.append(link);
           label.append(detail);
         });
