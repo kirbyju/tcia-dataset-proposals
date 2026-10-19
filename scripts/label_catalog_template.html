@@ -190,7 +190,7 @@
   <main class="page" id="catalog">
     <section class="scope-notice" aria-labelledby="scope-title">
       <div class="scope-notice__mark" aria-hidden="true">!</div>
-      <p><strong id="scope-title">Observed use is not a complete registry or an approved vocabulary.</strong> Disease/site and download counts reflect October 9, 2026 public usage; species, program, and external-resource counts and registries were checked October 16, 2026; confirmed curation decisions through October 16 are applied to the display. Retired Phantom options in disease/site fields are hidden, and Not Applicable is included. Pending WordPress updates are not counted as applied. A terminology link identifies a concept, not approval for every dataset.</p>
+      <p id="scope-description"><strong id="scope-title">Observed use is not a complete registry or an approved vocabulary.</strong> Disease/site and download counts reflect October 9, 2026 public usage; species, program, and external-resource counts and registries were checked October 16, 2026; confirmed curation decisions through October 16 are applied to the display. Retired Phantom options in disease/site fields are hidden, and Not Applicable is included. Pending WordPress updates are not counted as applied. A terminology link identifies a concept, not approval for every dataset.</p>
     </section>
 
     <nav class="summary" id="field-tabs" aria-label="Label fields" role="tablist"></nav>
@@ -343,7 +343,7 @@
           title: "External resource labels",
           slug: "external-resource",
           scope: "Dataset field · external_resources",
-          description: "Labels describing external supporting resources. The WordPress registry is supporting-data; the normalized query API calls the array external_resource_labels. These labels do not establish a TCIA-hosted download."
+          description: "WordPress supporting-data labels, exposed by the API as external_resources (normalized alias: external_resource_labels). Historical labels may describe hosted supporting data as well as external resources; a label alone does not establish hosting location."
         },
         file_type: {
           title: "File type",
@@ -583,7 +583,7 @@
           "Source workbook rows", "Review notes", "Representative datasets", "Dataset URLs",
           "Registry membership", "Usage snapshot date", "Mapping source URL", "Mapping retrieval date",
           "Displayed ontology codes", "Displayed ontology URLs", "Confirmed decision", "Catalog note",
-          "Reference definitions", "Reference relation", "Reference scope"];
+          "Reference definitions", "Reference relation", "Reference scope", "New since reference snapshot", "Ontology reference review required"];
         const records = [headings];
         fieldOrder.forEach(field => catalog.fields[field].forEach(row => {
           const candidates = row.mapping_candidates || [];
@@ -597,7 +597,7 @@
             row.review_note || "Content-level review is pending.",
             row.examples.map(example => example.short_title).join(" | "),
             row.examples.map(example => example.url).join(" | "),
-            row.registry_membership || "unverified", row.usage_snapshot_date || catalog.provenance.bundle_generated_at_utc,
+            row.registry_membership || "unverified", row.usage_snapshot_date || catalog.provenance?.bundle_generated_at_utc,
             candidates.length ? catalog.mapping_provenance.source_url : "",
             candidates.length ? catalog.mapping_provenance.retrieved_at_utc : "",
             unique([...(row.reference_links || []), ...(row.replacement_links || [])].map(link => link.code)),
@@ -605,7 +605,7 @@
             row.confirmed_decision ? JSON.stringify(row.confirmed_decision) : "",
             row.display_note || "",
             unique((row.reference_links || []).map(link => link.definition || "")),
-            row.reference_relation || "", row.reference_scope || ""]);
+            row.reference_relation || "", row.reference_scope || "", row.new_since_reference_snapshot || false, row.reference_review_required || false]);
         }));
         const csv = "\uFEFF" + records.map(record => record.map(csvCell).join(",")).join("\r\n") + "\r\n";
         const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
@@ -629,6 +629,17 @@
       window.addEventListener("hashchange", () => selectField(fieldFromHash(), false));
 
       const generated = new Date(catalog.generated_at_utc);
+      if (catalog.wordpress_registered_terms_complete) {
+        const captured = generated.toLocaleString(undefined, {dateStyle: "long", timeStyle: "short", timeZone: "UTC"}) + " UTC";
+        document.getElementById("scope-description").textContent = `Last successful WordPress capture: ${captured}. All eight public registries and visible dataset/current-download assignments are captured; retired Phantom disease/site options remain hidden. Observed use and registry membership do not imply semantic approval. Zero means no visible public use. Terminology links preserve reviewed mappings; new unreviewed labels require review. Hidden/private records are excluded.`;
+        document.getElementById("source-provenance").textContent = `Captured ${catalog.visible_dataset_count} visible datasets and ${catalog.current_download_count} current downloads. Source endpoint URLs, response SHA-256 hashes and retrieval times are embedded in this offline HTML. Scheduled daily refreshes publish only after a complete successful capture and build. GitHub scheduling can be delayed.`;
+        document.getElementById("count-basis").textContent = `Disease, site, species, program and resource uses count distinct visible datasets per exact label. Category, data type and file type uses count current download records per exact label. Counts do not approve assignments or establish hosting location.`;
+        if (catalog.refresh_review_flags?.length) {
+          const flags = document.createElement("p");
+          flags.textContent = `${catalog.refresh_review_flags.length} new labels or reference/registry discrepancies require review. See the spreadsheet export and GitHub Actions run summary. No ontology IDs are inferred during refresh.`;
+          document.getElementById("source-provenance").after(flags);
+        }
+      } else {
       const bundleDate = new Date(catalog.provenance.bundle_generated_at_utc);
       document.getElementById("source-provenance").innerHTML = `Inventory generated <strong>${generated.toLocaleString(undefined, { dateStyle: "long", timeStyle: "short", timeZone: "UTC" })} UTC</strong> from a bundle dated <strong>${bundleDate.toLocaleString(undefined, { dateStyle: "long", timeStyle: "short", timeZone: "UTC" })} UTC</strong>. It covers ${catalog.provenance.visible_dataset_count.toLocaleString()} visible Collections and Analysis Results and was not latest-release verified. Snapshot SHA-256: <code>${catalog.provenance.snapshot_sqlite_sha256}</code>.`;
       const extra = catalog.dataset_label_provenance;
@@ -636,6 +647,8 @@
       extraSource.textContent = `Species, program, and external-resource registries and public usage were retrieved ${extra.generated_at_utc} across ${extra.visible_dataset_count} visible datasets. Field names: species, program.program_name, external_resources (normalized alias: external_resource_labels). Source endpoints and hashes are included in the offline HTML.`;
       document.getElementById("source-provenance").after(extraSource);
       document.getElementById("count-basis").textContent = `Disease fields: ${catalog.counting_basis.disease_fields}. Download fields: ${catalog.counting_basis.download_fields}. Counts describe usage frequency, not semantic approval. Species, program, and external resources: distinct visible datasets per label, checked separately on October 16. Zero means no observed public use at the field’s stated date; registered unused options and confirmed pending terms can still be listed.`;
+
+      }
 
       // Referencing the policy here makes the embedded policy an exercised build input.
       if (policy.approved_vocabulary === true || catalog.approved_vocabulary === true) {

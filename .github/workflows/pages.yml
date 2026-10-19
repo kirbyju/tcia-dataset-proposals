@@ -7,6 +7,8 @@ on:
       - 'docs/**'
       - 'scripts/build_label_catalog.py'
       - 'scripts/export_catalog_dataset_labels.py'
+      - 'scripts/refresh_label_catalog.py'
+      - 'tests/test_label_refresh.py'
       - 'scripts/label_catalog_template.html'
       - 'skills/curate-tcia-wordpress-metadata/references/labeling-policy.json'
       - 'skills/curate-tcia-wordpress-metadata/references/label-mappings.json'
@@ -17,6 +19,8 @@ on:
       - 'skills/curate-tcia-wordpress-metadata/assets/tcia-labeling-guide.svg'
       - 'skills/curate-tcia-wordpress-metadata/assets/tcia-logo-light.svg'
       - '.github/workflows/pages.yml'
+  schedule:
+    - cron: '17 10 * * *'
   workflow_dispatch:
 
 permissions:
@@ -29,7 +33,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - name: Check out main
         uses: actions/checkout@v5
@@ -41,6 +45,15 @@ jobs:
         run: |
           python3 scripts/build_label_catalog.py
           git diff --exit-code -- docs/labels/index.html
+      - name: Test refresh integrity and catalog decisions
+        run: |
+          python3 -m unittest discover -s tests -p test_label_refresh.py
+          python3 -m unittest discover -s tests -p test_label_catalog_decisions.py
+          python3 -m unittest discover -s tests -p test_catalog_dataset_labels.py
+      - name: Capture all eight current WordPress fields
+        run: python3 scripts/refresh_label_catalog.py --output "$RUNNER_TEMP/catalog-current.json"
+      - name: Build refreshed deployment artifact
+        run: python3 scripts/build_label_catalog.py --live-inventory "$RUNNER_TEMP/catalog-current.json"
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:

@@ -90,3 +90,35 @@ Do not upload patient-level data or protected health information when requesting
 ## License
 
 Apache License 2.0. See `LICENSE`.
+
+### Automatic label catalog refresh
+
+GitHub Pages refreshes all eight label fields from the public WordPress API daily
+at 10:17 UTC (GitHub may delay scheduled jobs), on relevant pushes to `main`, or
+through **Actions → Publish curator label catalog → Run workflow**. Each deployment
+captures the complete public registries, visible dataset assignments and each
+record's own current downloads. Pagination, identities, required fields and
+nonempty capture checks must pass before deployment. A failed build preserves the
+last successful published site; the catalog displays its actual capture time.
+
+The workflow builds fresh data directly into the Pages artifact; it does not make
+bot commits or overwrite the dated source inventories. The checked-in HTML remains
+an offline reference built from the dated inventories. The deployed offline copy
+and spreadsheet export carry the current capture. Reviewed NCIt/UBERON references
+are maintained separately and preserved. New labels, unmatched ontology references
+and registry discrepancies are flagged in the Actions summary and spreadsheet;
+refresh never guesses IDs or approves labels. Unused registered terms remain
+visible with zero public uses (except explicitly retired Phantom disease/site
+options). Hidden/private records are outside the usage counts.
+
+To reproduce a current capture and build:
+
+```sh
+python3 scripts/refresh_label_catalog.py --output /tmp/catalog-current.json
+python3 scripts/build_label_catalog.py --live-inventory /tmp/catalog-current.json
+```
+
+`supporting-data` is the WordPress registry behind `external_resources`. Historical
+assignments can describe hosted supporting data, so this field alone must not be
+used to infer hosting location. Dataset-specific curator audits are kept outside
+this repository.

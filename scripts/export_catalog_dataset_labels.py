@@ -8,6 +8,8 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import hashlib
 import json
+import time
+from urllib.error import URLError
 from pathlib import Path
 from urllib.request import urlopen
 
@@ -20,10 +22,21 @@ def fetch_pages(endpoint):
     evidence = []
     def fetch(page):
         url = f"{API}/{endpoint}?per_page=100&page={page}"
-        with urlopen(url, timeout=45) as response:
-            payload = response.read()
+        for attempt in range(3):
+            try:
+                with urlopen(url, timeout=45) as response:
+                    payload = response.read()
+                break
+            except (URLError, TimeoutError):
+                if attempt == 2:
+                    raise
+                time.sleep(2 ** attempt)
         data = json.loads(payload)
-        assert data["page"] == page and isinstance(data["results"], list)
+        if (data.get("page") != page or not isinstance(data.get("results"), list)
+                or type(data.get("total")) is not int or data["total"] < 1
+                or type(data.get("total_pages")) is not int
+                or data["total_pages"] != (data["total"] + 99) // 100):
+            raise ValueError("Malformed or empty paginated response: " + endpoint)
         return data, {"url": url, "sha256": hashlib.sha256(payload).hexdigest(),
                       "retrieved_at_utc": datetime.now(timezone.utc).isoformat(),
                       "row_count": len(data["results"])}
@@ -33,11 +46,12 @@ def fetch_pages(endpoint):
     if first["total_pages"] > 1:
         with ThreadPoolExecutor(max_workers=3) as pool:
             for data, source in pool.map(fetch, range(2, first["total_pages"] + 1)):
-                assert data["total"] == first["total"], "Pagination changed during capture"
+                if data["total"] != first["total"] or data["total_pages"] != first["total_pages"]:
+                    raise ValueError("Pagination changed during capture")
                 rows.extend(data["results"])
                 evidence.append(source)
-    assert len(rows) == first["total"]
-    assert len({r["id"] for r in rows}) == len(rows), "Duplicate records across pages"
+    if len(rows) != first["total"] or len({r["id"] for r in rows}) != len(rows):
+        raise ValueError("Incomplete or duplicate records across pages: " + endpoint)
     return rows, evidence
 
 

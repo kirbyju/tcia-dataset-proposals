@@ -1801,6 +1801,161 @@
         "mapping_relation": "synonym",
         "scope_note": "Vestibular Schwannoma concept; non-cancer is the TCIA discovery context.",
         "verification_status": "active concepts verified; reference scope inspected"
+      },
+      "COVID-19 Infection": {
+        "concepts": [
+          {
+            "ontology": "NCIt",
+            "code": "C171133",
+            "preferred_label": "COVID-19 Infection",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C171133",
+            "active": true,
+            "verified_on": "2026-10-16",
+            "definition": "An acute infection of the respiratory tract that is caused by the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). Based on currently available information, SARS-CoV-2 is thought to mainly spread from person to person through respiratory droplets. Typically, there is a two- to 14-day incubation period and infected persons can present with no symptoms or mild to severe fever, dry cough, fatigue, and difficulty breathing. Dysgeusia, anosmia, and gastrointestinal and flu-like symptoms have also been reported. Older adults and persons of any age who have serious underlying medical conditions may be of higher risk for severe illness, including secondary infections, respiratory failure, and multi-organ dysfunction.",
+            "synonyms": [
+              "2019-nCoV Infection",
+              "COVID-19",
+              "COVID-19 Infection",
+              "COVID-19 Virus Infection",
+              "HCoV-19 Infection",
+              "Human Coronavirus 2019 Infection",
+              "SARS Coronavirus 2 Infection",
+              "SARS-2 Infection",
+              "SARS-CoV-2 Disease",
+              "SARS-CoV-2 Infection",
+              "SARS-CoV2 Disease",
+              "SARS-CoV2 Infection",
+              "SARS2 Infection",
+              "Severe Acute Respiratory Syndrome Coronavirus 2 Infection"
+            ],
+            "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C171133?include=summary",
+            "api_response_sha256": "7d2165e50dc0f09e30ae603657e8768e61b2dae624b413d99a896a958e4b1352",
+            "version": "26.09d"
+          }
+        ],
+        "mapping_relation": "synonym",
+        "scope_note": "COVID-19 Infection concept; non-cancer is the TCIA discovery context.",
+        "verification_status": "active concepts verified; reference scope inspected",
+        "registry_spelling_note": "Existing reviewed concept retained after removal of parenthetical context from the WordPress label."
+      },
+      "Lymphadenopathy": {
+        "concepts": [
+          {
+            "ontology": "NCIt",
+            "code": "C50764",
+            "preferred_label": "Lymphadenopathy",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C50764",
+            "active": true,
+            "verified_on": "2026-10-16",
+            "definition": "An enlarged lymph node. Causes include viral and bacterial infections and cancers that affect the lymph nodes.",
+            "synonyms": [
+              "Adenopathy",
+              "Lymphadenopathy",
+              "Swollen Gland"
+            ],
+            "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C50764?include=summary",
+            "api_response_sha256": "c1d93b545f6bc66d49673f4be70c182cb3ffadae5871fdfc1d4eeb7d43666c42",
+            "version": "26.09d"
+          }
+        ],
+        "mapping_relation": "broader",
+        "scope_note": "Lymphadenopathy reference describes enlarged lymph nodes; the non-cancer qualifier remains a separate TCIA cohort assertion.",
+        "verification_status": "active concepts verified; reference scope inspected",
+        "registry_spelling_note": "Existing reviewed concept retained after removal of parenthetical context from the WordPress label."
+      },
+      "Vestibular Schwannoma": {
+        "concepts": [
+          {
+            "ontology": "NCIt",
+            "code": "C3276",
+            "preferred_label": "Vestibular Schwannoma",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3276",
+            "active": true,
+            "verified_on": "2026-10-16",
+            "definition": "A benign peripheral nerve sheath neoplasm that arises from the vestibular division of the vestibulocochlear nerve (eight cranial nerve) in the auditory canal or within the labyrinth. It is composed almost entirely of differentiated neoplastic Schwann cells.",
+            "synonyms": [
+              "Acoustic Neurilemmoma",
+              "Acoustic Neuroma",
+              "Acoustic Schwannoma",
+              "Neurilemoma, Acoustic",
+              "Neuroma, Acoustic",
+              "Vestibular Neurilemmoma",
+              "Vestibular Schwannoma"
+            ],
+            "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C3276?include=summary",
+            "api_response_sha256": "f7af805df097b7eac58cb7dfffa671db11b20b5d3bf3d0cdf37dd6c78ae5e37c",
+            "version": "26.09d"
+          }
+        ],
+        "mapping_relation": "synonym",
+        "scope_note": "Vestibular Schwannoma concept; non-cancer is the TCIA discovery context.",
+        "verification_status": "active concepts verified; reference scope inspected",
+        "registry_spelling_note": "Existing reviewed concept retained after removal of parenthetical context from the WordPress label."
+      },
+      "Ewing Sarcoma": {
+        "concepts": [
+          {
+            "ontology": "NCIt",
+            "code": "C4817",
+            "preferred_label": "Ewing Sarcoma",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C4817"
+          }
+        ],
+        "scope_note": "Separate diagnosis concept previously verified and confirmed.",
+        "mapping_relation": "exact diagnosis concept",
+        "verification": {
+          "display_label": "Ewing Sarcoma",
+          "ontology": "NCIt",
+          "code": "C4817",
+          "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C4817",
+          "active": true,
+          "version": "26.09d",
+          "verified_on": "2026-10-16",
+          "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C4817?include=summary",
+          "api_response_sha256": "3daa0e75d6c10939b8f4c34f76267ed74fd8a2036d463a85164aafa3c2803f71"
+        }
+      },
+      "Peripheral Primitive Neuroectodermal Tumor": {
+        "concepts": [
+          {
+            "ontology": "NCIt",
+            "code": "C9341",
+            "preferred_label": "Peripheral Primitive Neuroectodermal Tumor",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C9341"
+          }
+        ],
+        "scope_note": "Separate diagnosis concept previously verified and confirmed.",
+        "mapping_relation": "exact diagnosis concept",
+        "verification": {
+          "display_label": "Peripheral Primitive Neuroectodermal Tumor",
+          "ontology": "NCIt",
+          "code": "C9341",
+          "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C9341",
+          "active": true,
+          "version": "26.09d",
+          "verified_on": "2026-10-16",
+          "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C9341?include=summary",
+          "api_response_sha256": "1f4ce0bbfb3adc0952936e4a37cccfe51dcfa84c962f342b5ff7c151df72ca8e"
+        }
+      },
+      "Desmoid-Type Fibromatosis": {
+        "concepts": [
+          {
+            "ontology": "NCIt",
+            "code": "C9182",
+            "preferred_label": "Desmoid Fibromatosis",
+            "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C9182"
+          }
+        ],
+        "scope_note": "Desmoid-Type Fibromatosis is an NCI synonym of Desmoid Fibromatosis.",
+        "mapping_relation": "exact NCI synonym",
+        "verification": {
+          "active": true,
+          "version": "26.09d",
+          "verified_on": "2026-10-19",
+          "api_url": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C9182?include=summary",
+          "api_response_sha256": "89c26af8376952d49cf33769ff1f60d2efbe71c10b0b1643e95589cdca3a272d"
+        }
       }
     },
     "disease_location": {

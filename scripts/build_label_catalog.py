@@ -37,6 +37,7 @@ EXPECTED_FIELDS = {
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--live-inventory", type=Path, help="Complete current eight-field capture; overrides dated inventories")
     parser.add_argument("--inventory", type=Path, default=DEFAULT_INVENTORY)
     parser.add_argument("--policy", type=Path, default=DEFAULT_POLICY)
     parser.add_argument("--template", type=Path, default=DEFAULT_TEMPLATE)
@@ -127,7 +128,7 @@ def apply_decisions(inventory: dict, decisions: dict, references: dict | None = 
     for field, rows in inventory["fields"].items():
         field_decisions = decisions.get("fields", {}).get(field, {})
         for label, decision in field_decisions.items():
-            if decision.get("decision") == "confirmed" and not any(r["label"] == label for r in rows):
+            if not inventory.get("wordpress_registered_terms_complete") and decision.get("decision") == "confirmed" and not any(r["label"] == label for r in rows):
                 rows.append({"label": label, "usage_count": 0, "examples": [],
                              "semantic_review": "confirmed concept; usage not observed in dated snapshot"})
         retained = []
@@ -174,7 +175,10 @@ def apply_decisions(inventory: dict, decisions: dict, references: dict | None = 
                 row["display_note"] = "Legacy grouping for multiple diseases; no single disease concept. Replace with specific supported labels during curation."
             if field.startswith("disease_") and not row["reference_links"] and not row.get("replacement_links") and not decision:
                 if row["label"] != "Various":
-                    raise ValueError(f"Missing terminology reference for {field}/{row['label']}")
+                    if inventory.get("wordpress_registered_terms_complete"):
+                        row["reference_review_required"] = True
+                    else:
+                        raise ValueError(f"Missing terminology reference for {field}/{row['label']}")
             if row["usage_count"] == 0:
                 row["display_note"] += " No observed public use at this field's snapshot date."
             retained.append(row)
@@ -198,7 +202,35 @@ def build(args: argparse.Namespace) -> None:
                 raise ValueError(f"Invalid supplemental label: {field}")
         inventory["fields"][field] = rows
     inventory["dataset_label_provenance"] = {k: v for k, v in extra.items() if k != "fields"}
+    if getattr(args, "live_inventory", None):
+        live = read_json(args.live_inventory)
+        expected = set(EXPECTED_FIELDS) | {"species", "program", "external_resource"}
+        if (set(live.get("fields", {})) != expected or live.get("wordpress_registered_terms_complete") is not True
+                or live.get("approved_vocabulary") is not False or not live.get("sources")
+                or not live.get("visible_dataset_count") or not live.get("current_download_count")):
+            raise ValueError("Invalid complete live inventory")
+        for field, rows in live["fields"].items():
+            if not rows or len({r["label"] for r in rows}) != len(rows):
+                raise ValueError("Empty or duplicate live labels")
+            for row in rows:
+                if not isinstance(row["label"], str) or not row["label"].strip() or type(row["usage_count"]) is not int or row["usage_count"] < 0:
+                    raise ValueError("Invalid live label")
+                row["new_since_reference_snapshot"] = row["label"] not in {r["label"] for r in inventory["fields"][field]}
+        inventory = live
+        apply_mappings(inventory, read_json(args.mappings))
     apply_decisions(inventory, read_json(args.decisions), read_json(args.references))
+    if inventory.get("wordpress_registered_terms_complete"):
+        alerts = [f"{field}: {row['label']}" for field, rows in inventory["fields"].items() for row in rows
+                  if row.get("reference_review_required") or (row.get("new_since_reference_snapshot")
+                      and not row.get("reference_links") and not row.get("replacement_links") and not row.get("confirmed_decision"))
+                  or row.get("registry_membership") != "registered"]
+        inventory["refresh_review_flags"] = alerts
+        import os
+        if os.environ.get("GITHUB_STEP_SUMMARY"):
+            with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
+                summary.write("## Catalog refresh\nLast successful capture: " + inventory["generated_at_utc"] +
+                              "\n\nNew/unmapped labels or registry discrepancies (review; no IDs inferred):\n" +
+                              "".join("- " + item + "\n" for item in alerts))
 
     template = args.template.read_text(encoding="utf-8")
     replacements = {
