@@ -219,6 +219,13 @@
       </details>
     </section>
 
+    <details class="card">
+      <summary>Definition sources and NCI standards</summary>
+      <p>DICOM defines imaging modality codes and derived objects such as segmentations and structured reports. Follow the DICOM definition beside a type to read its standard meaning. A type label alone does not establish the file format; CT images, for example, can be supplied as DICOM or NIfTI.</p>
+      <p><a href="https://www.cancer.gov/about-nci/organization/cbiit/vocabulary/data-elements-for-cancer-research">caDSR</a> registers Common Data Elements: field meanings, representations, and permissible values. <a href="https://www.cancer.gov/about-nci/organization/cbiit/vocabulary">NCI Thesaurus (NCIt)</a> supplies terminology concepts and definitions used to annotate those elements. A caDSR field reference and a term definition serve different purposes.</p>
+      <p>TCIA categories and non-DICOM types describe the role and contents of a data component. Alignment with a caDSR element requires review of its definition and value domain, including version and scope. These labels do not imply an exact caDSR or NCIt mapping. The proposal category/type relationships above remain TCIA selection guidance.</p>
+    </details>
+
     <nav class="summary" id="field-tabs" aria-label="Label fields" role="tablist"></nav>
 
     <section class="workspace" id="field-panel" role="tabpanel" aria-labelledby="field-title">
@@ -362,7 +369,7 @@
           title: "Data type",
           slug: "data-type",
           scope: "Data component",
-          description: "The specific information or imaging objects represented. A component can have multiple types, such as CT and MR, or Demographic and Treatment.",
+          description: "The specific information or imaging objects represented. A component can have multiple types, such as CT and MR, or Demographic and Treatment. DICOM abbreviations include expanded names and links to the standard’s definitions. Some describe derived objects, such as SEG and SR, rather than acquisition techniques.",
           mapping: "Use NCI Imaging Submission Model and GDC as guides"
         },
         species: {
@@ -551,6 +558,20 @@
             detail.append(highlight(`(${explanation})`, state.query.trim()));
             label.append(detail);
           }
+          const reference = (proposalModel.data_type_references || {})[row.label];
+          if (reference) {
+            const detail = document.createElement("span");
+            detail.className = "mapping-note";
+            const link = document.createElement("a");
+            link.href = safeUrl(reference.url);
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = "DICOM definition";
+            link.setAttribute("aria-label", reference.title);
+            detail.append(link);
+            if (reference.scope_note) detail.append(` — ${reference.scope_note}`);
+            label.append(detail);
+          }
           const parents = proposalModel.category_order.filter(category => category !== "Other" && allowedTypes(category).includes(row.label));
           const categories = document.createElement("span");
           categories.className = "mapping-note";
@@ -642,7 +663,7 @@
           "Source workbook rows", "Review notes", "Representative datasets", "Dataset URLs",
           "Registry membership", "Usage snapshot date", "Mapping source URL", "Mapping retrieval date",
           "Displayed ontology codes", "Displayed ontology URLs", "Confirmed decision", "Catalog note",
-          "Reference definitions", "Reference relation", "Reference scope"];
+          "Reference definitions", "Reference relation", "Reference scope", "Data type expanded name", "Data type definition URL"];
         const records = [headings];
         fieldOrder.forEach(field => catalog.fields[field].forEach(row => {
           const candidates = row.mapping_candidates || [];
@@ -664,7 +685,9 @@
             row.confirmed_decision ? JSON.stringify(row.confirmed_decision) : "",
             row.display_note || "",
             unique((row.reference_links || []).map(link => link.definition || "")),
-            row.reference_relation || "", row.reference_scope || ""]);
+            row.reference_relation || "", row.reference_scope || "",
+            field === "data_type" ? typeExplanation(row.label) : "",
+            field === "data_type" ? ((proposalModel.data_type_references || {})[row.label]?.url || "") : ""]);
         }));
         const csv = "\uFEFF" + records.map(record => record.map(csvCell).join(",")).join("\r\n") + "\r\n";
         const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });

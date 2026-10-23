@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.23.2",
+  "version": "2026.10.23.3",
   "scope": "TCIA proposal selection guidance; categories may share types. This is not an ontology hierarchy or a restriction on all published TCIA records.",
   "category_order": [
     "Radiology Images",
@@ -134,5 +134,123 @@
     "Canine",
     "Physical Phantom",
     "Computational Phantom"
-  ]
+  ],
+  "data_type_references": {
+    "CR": {
+      "title": "DICOM definition: Computed Radiography",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_CR",
+      "checked_on": "2026-10-23"
+    },
+    "CT": {
+      "title": "DICOM definition: Computed Tomography",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_CT",
+      "checked_on": "2026-10-23"
+    },
+    "DX": {
+      "title": "DICOM definition: Digital Radiography",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_DX",
+      "checked_on": "2026-10-23"
+    },
+    "KO": {
+      "title": "DICOM definition: Key Object Selection",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_KO",
+      "checked_on": "2026-10-23"
+    },
+    "MG": {
+      "title": "DICOM definition: Mammography",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_MG",
+      "checked_on": "2026-10-23"
+    },
+    "MR": {
+      "title": "DICOM definition: Magnetic Resonance",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_MR",
+      "checked_on": "2026-10-23"
+    },
+    "NM": {
+      "title": "DICOM definition: Nuclear Medicine",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_NM",
+      "checked_on": "2026-10-23"
+    },
+    "OT": {
+      "title": "DICOM definition: Other DICOM modality",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_OT",
+      "checked_on": "2026-10-23"
+    },
+    "PR": {
+      "title": "DICOM definition: Presentation State",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_PR",
+      "checked_on": "2026-10-23"
+    },
+    "PT": {
+      "title": "DICOM definition: Positron Emission Tomography (PET)",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_PT",
+      "checked_on": "2026-10-23"
+    },
+    "REG": {
+      "title": "DICOM definition: Registration",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_REG",
+      "checked_on": "2026-10-23"
+    },
+    "RF": {
+      "title": "DICOM definition: Radio Fluoroscopy",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_RF",
+      "checked_on": "2026-10-23"
+    },
+    "RTDOSE": {
+      "title": "DICOM definition: Radiotherapy Dose",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_RTDOSE",
+      "checked_on": "2026-10-23"
+    },
+    "RTIMAGE": {
+      "title": "DICOM definition: Radiotherapy Image",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_RTIMAGE",
+      "checked_on": "2026-10-23"
+    },
+    "RTPLAN": {
+      "title": "DICOM definition: Radiotherapy Plan",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_RTPLAN",
+      "checked_on": "2026-10-23"
+    },
+    "RTSTRUCT": {
+      "title": "DICOM definition: Radiotherapy Structure Set",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_RTSTRUCT",
+      "checked_on": "2026-10-23"
+    },
+    "RWV": {
+      "title": "DICOM definition: Real World Value Map",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_RWV",
+      "checked_on": "2026-10-23"
+    },
+    "SC": {
+      "title": "DICOM Secondary Capture definition",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_A.8.html",
+      "scope_note": "SC is a TCIA object label, not a current DICOM modality defined term.",
+      "checked_on": "2026-10-23"
+    },
+    "SEG": {
+      "title": "DICOM definition: Segmentation",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_SEG",
+      "checked_on": "2026-10-23"
+    },
+    "SR": {
+      "title": "DICOM definition: Structured Report",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_SR",
+      "checked_on": "2026-10-23"
+    },
+    "US": {
+      "title": "DICOM definition: Ultrasound",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_US",
+      "checked_on": "2026-10-23"
+    },
+    "XA": {
+      "title": "DICOM definition: X-Ray Angiography",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_XA",
+      "checked_on": "2026-10-23"
+    },
+    "SM": {
+      "title": "DICOM definition: Slide Microscopy",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html#DCM_SM",
+      "checked_on": "2026-10-23"
+    }
+  }
 }
