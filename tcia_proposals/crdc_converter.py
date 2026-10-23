@@ -402,6 +402,12 @@ def build_crdc_workbook(
     """Populate the canonical CRDC v3.5 template without changing its layout."""
     workbook = load_workbook(template_path)
     warnings = []
+    # New proposal packages use structured components; keep legacy imports readable.
+    from tcia_proposals.proposal_metadata import parse_rows, legacy_component_fields
+    components = parse_rows(proposal_data.get('data_components'))
+    if components:
+        proposal_data = dict(proposal_data)
+        proposal_data.update(legacy_component_fields(components))
     cicadas = cicadas or {}
 
     dataset = _metadata_first(metadata, "Dataset")

@@ -1,0 +1,138 @@
+{
+  "version": "2026.10.23.2",
+  "scope": "TCIA proposal selection guidance; categories may share types. This is not an ontology hierarchy or a restriction on all published TCIA records.",
+  "category_order": [
+    "Radiology Images",
+    "Histopathology Images",
+    "Image Annotations",
+    "Clinical Data",
+    "Other"
+  ],
+  "category_data_types": {
+    "Radiology Images": [
+      "Acquisition Metadata",
+      "Capsule Endoscopy",
+      "CR",
+      "CT",
+      "DX",
+      "MG",
+      "MR",
+      "NM",
+      "OT",
+      "PT",
+      "RF",
+      "RTDOSE",
+      "RTIMAGE",
+      "RTPLAN",
+      "SC",
+      "US",
+      "XA",
+      "Protocol",
+      "Data Dictionary",
+      "Other"
+    ],
+    "Histopathology Images": [
+      "Acquisition Metadata",
+      "CODEX images",
+      "Hyperspectral",
+      "Immunofluorescence",
+      "Immunohistochemistry",
+      "Multiphoton",
+      "Multispectral Imaging",
+      "OT",
+      "Photomicrograph",
+      "SC",
+      "Single-cell Image",
+      "Tissue Microarray",
+      "Whole Slide Image",
+      "Protocol",
+      "Data Dictionary",
+      "SM",
+      "Other"
+    ],
+    "Image Annotations": [
+      "Classification",
+      "Fiducial",
+      "KO",
+      "Measurement",
+      "PR",
+      "REG",
+      "RTSTRUCT",
+      "RWV",
+      "Radiomic Feature",
+      "SEG",
+      "Segmentation",
+      "SR",
+      "Protocol",
+      "Data Dictionary",
+      "Other"
+    ],
+    "Clinical Data": [
+      "Demographic",
+      "Diagnosis",
+      "Exposure",
+      "Family History",
+      "Follow-Up",
+      "Measurement",
+      "Molecular Test",
+      "Pathology Detail",
+      "Treatment",
+      "Protocol",
+      "Data Dictionary",
+      "Other"
+    ],
+    "Other": [
+      "Other"
+    ]
+  },
+  "category_aliases": {
+    "Pathology Images": "Histopathology Images"
+  },
+  "data_type_explanations": {
+    "CR": "Computed Radiography",
+    "CT": "Computed Tomography",
+    "DX": "Digital Radiography",
+    "KO": "Key Object Selection",
+    "MG": "Mammography",
+    "MR": "Magnetic Resonance",
+    "NM": "Nuclear Medicine",
+    "OT": "Other DICOM modality",
+    "PR": "Presentation State",
+    "PT": "Positron Emission Tomography (PET)",
+    "REG": "Registration",
+    "RF": "Radio Fluoroscopy",
+    "RTDOSE": "Radiotherapy Dose",
+    "RTIMAGE": "Radiotherapy Image",
+    "RTPLAN": "Radiotherapy Plan",
+    "RTSTRUCT": "Radiotherapy Structure Set",
+    "RWV": "Real World Value Map",
+    "SC": "Secondary Capture",
+    "SEG": "Segmentation",
+    "SR": "Structured Report",
+    "US": "Ultrasound",
+    "XA": "X-Ray Angiography",
+    "SM": "Slide Microscopy"
+  },
+  "form_excluded_file_types": [
+    "ZIP"
+  ],
+  "sources": [
+    {
+      "title": "DICOM Modality Defined Terms",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html#sect_C.7.3.1.1.1",
+      "checked_on": "2026-10-23"
+    },
+    {
+      "title": "DICOM Secondary Capture",
+      "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_A.8.html",
+      "note": "SC is a TCIA object label, not a current DICOM modality defined term."
+    }
+  ],
+  "species_order": [
+    "Human",
+    "Mouse",
+    "Canine",
+    "Physical Phantom",
+    "Computational Phantom"
+  ]
+}

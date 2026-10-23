@@ -80,7 +80,7 @@ def get_profiles_for_name(first_name, last_name):
             profiles.append(profile)
     return profiles
 
-def parse_author_input(text):
+def parse_author_input(text, strategy='Auto-detect'):
     """
     Attempts to parse a line of text into Name components or ORCID.
     Supports formats:
@@ -94,14 +94,15 @@ def parse_author_input(text):
     orcid = orcid_match.group(1) if orcid_match else None
 
     # Remove ORCID from text for name parsing
-    name_part = re.sub(orcid_pattern, '', text).strip()
+    name_part = re.sub(r'https?://(?:www\.)?orcid.org/', '', text, flags=re.I)
+    name_part = re.sub(orcid_pattern, '', name_part).strip().rstrip(' -').strip()
     name_part = name_part.replace('(', '').replace(')', '').strip()
 
     first_name = ""
     last_name = ""
 
     if name_part:
-        if ',' in name_part:
+        if strategy.startswith('Family, Given') or (strategy == 'Auto-detect' and ',' in name_part):
             parts = name_part.split(',')
             last_name = parts[0].strip()
             first_name = parts[1].strip() if len(parts) > 1 else ""
@@ -119,3 +120,15 @@ def parse_author_input(text):
         'orcid': orcid,
         'original_text': text
     }
+
+
+def valid_orcid(value):
+    """Validate an ORCID identifier using ISO 7064 MOD 11-2."""
+    if not re.fullmatch(r'\d{4}-\d{4}-\d{4}-\d{3}[\dX]', value):
+        return False
+    digits = value.replace('-', '')
+    total = 0
+    for digit in digits[:-1]:
+        total = (total + int(digit)) * 2
+    checksum = (12 - total % 11) % 11
+    return digits[-1] == ('X' if checksum == 10 else str(checksum))

@@ -11,3 +11,6 @@ venv/
 *_DSA_*.pdf
 test_final_agreement.pdf
 output/
+
+# Local browser verification traces
+.playwright-cli/

@@ -21,15 +21,17 @@ from reportlab.lib.enums import TA_CENTER
 import re
 from xml.sax.saxutils import escape
 
-from tcia_proposals.mdf_parser import get_mdf_resources
+from tcia_proposals.proposal_metadata import (
+    DATA_MODELS_URL, label_options, validate_components, validate_resources,
+    component_text, resource_text, add_curation_placeholders,
+    category_options, data_type_options, data_type_display, normalize_resource_url, load_form_reference, species_options,
+)
 from tcia_proposals.pdf_footer import draw_dsa_footer, replace_dsa_page_number
 
 st.set_page_config(page_title="TCIA Dataset Proposal Form", layout="wide")
 
 # Constants & Configuration
 RESOURCES_DIR = os.path.join(os.path.dirname(__file__), 'tcia_proposals', 'resources')
-
-PERMISSIBLE_VALUES_FILE = os.path.join(RESOURCES_DIR, 'permissible_values.json')
 
 LABELS = {
     "Proposal Type": "What kind of dataset are you submitting?",
@@ -48,7 +50,7 @@ LABELS = {
     "Abstract": "Dataset Abstract*",
     "Published Elsewhere": "Has this data ever been published elsewhere?*",
     "disease_site": "Primary disease site/location*",
-    "diagnosis": "Histologic diagnosis*",
+    "diagnosis": "Disease type or cohort context*",
     "image_types": "Which image types are included in the data set?*",
     "supporting_data": "Which kinds of supporting data are included in the data set?*",
     "file_formats": "Specify the file format utilized for each type of data*",
@@ -67,40 +69,110 @@ LABELS = {
     "grant_id": "Grant ID",
     "why_tcia": "Why would you like to publish this dataset on TCIA?*",
     "software_code": "Do you have any related resources such as source code, Jupyter notebooks, web sites or other software that will help users work with your data?*",
-    "software_details": "Details*"
+    "software_details": "Details*",
+    "species": "Species or subject type*",
+    "data_components": "Data being submitted to TCIA",
+    "external_resources": "External resources",
+    "label_catalog_version": "Data model reference version",
+    "proposal_model_version": "Proposal selection guidance version"
 }
 
-IMAGE_FORMATS = [
-    "DICOM", "NIfTI", "PNG", "JPEG", "Aperio (.svs, .tif)",
-    "Hamamatsu (.vms, .vmu, .ndpi)", "Leica (.scn)", "MIRAX (.mrxs)",
-    "Philips (.tiff)", "Sakura (.svslide)", "Trestle (.tif)",
-    "Ventana (.bif, .tif)", "Generic tiled TIFF (.tif)", "Other"
-]
-SUPPORT_FORMATS = ["Tabular (.csv, .tsv, .xlsx)", "JSON", "Text", "Other"]
-COMBINED_FORMATS = [
-    "DICOM", "NIfTI", "PNG", "JPEG", "Aperio (.svs, .tif)",
-    "Hamamatsu (.vms, .vmu, .ndpi)", "Leica (.scn)", "MIRAX (.mrxs)",
-    "Philips (.tiff)", "Sakura (.svslide)", "Trestle (.tif)",
-    "Ventana (.bif, .tif)", "Generic tiled TIFF (.tif)",
-    "Tabular (.csv, .tsv, .xlsx)", "JSON", "Text", "Other"
-]
+@st.cache_data(ttl=3600, show_spinner=False)
+def current_form_reference():
+    return load_form_reference()
 
-def load_json(filepath):
-    with open(filepath, 'r') as f:
-        return json.load(f)
 
-@st.cache_data
-def load_mdf_data():
-    schema, mdf_pv, relationships = get_mdf_resources(RESOURCES_DIR)
-    legacy_pv = load_json(PERMISSIBLE_VALUES_FILE)
+reference = current_form_reference()
+catalog = reference['catalog']
+proposal_model = reference['proposal_model']
 
-    final_pv = legacy_pv.copy()
-    if mdf_pv:
-        for k, v in mdf_pv.items():
-            final_pv[k] = v
-    return schema, final_pv, relationships
 
-schema, permissible_values, relationships = load_mdf_data()
+def model_link(field, text="Learn about these terms"):
+    st.markdown(f"[{text}]({DATA_MODELS_URL}#{field.replace('_', '-')})")
+
+
+def choose_labels(field, label, key):
+    options = label_options(catalog, field)
+    if "Other" not in options:
+        options.append("Other")
+    with st.container(border=True):
+        selected = st.multiselect(label, options=options, key=key,
+                                 help="Choose Other if you don't see a good match for your dataset.")
+        if "Other" in selected:
+            details = st.text_input("Please describe the other disease or site", key=f"{key}_other")
+            if not details.strip():
+                input_errors.append(f"{label}: describe your Other selection.")
+            result = [value if value != "Other" else f"Other - {details.strip()}" for value in selected]
+        else:
+            result = selected
+        model_link(field)
+    return result
+
+
+def row_ids(name, initial=False):
+    if name not in st.session_state:
+        st.session_state[name] = [0] if initial else []
+        st.session_state[f"{name}_next"] = 1 if initial else 0
+    return st.session_state[name]
+
+
+def add_row(name):
+    next_id = st.session_state[f"{name}_next"]
+    st.session_state[name].append(next_id)
+    st.session_state[f"{name}_next"] = next_id + 1
+
+
+def remove_row(name, row_id):
+    st.session_state[name].remove(row_id)
+
+
+def single_choice(label, field, key):
+    options = category_options(catalog, proposal_model) if field == 'data_category' else label_options(catalog, field)
+    if field == 'file_type':
+        options = [value for value in options if value != 'ZIP']
+    if "Other" not in options:
+        options.append("Other")
+    return st.selectbox(label, options, index=None, placeholder="Select an option", key=key)
+
+
+def add_manuscript(source):
+    category = st.session_state.ms_cat_new
+    if source == 'URL':
+        value = st.session_state.get('ms_url_new', '').strip()
+        if not value:
+            st.session_state.manuscript_error = 'Please provide a URL.'
+            return
+        st.session_state.manuscript_list.append({'category': category, 'type': 'URL', 'url': value})
+        st.session_state.ms_url_new = ''
+    else:
+        key = f"ms_file_new_{st.session_state.get('ms_file_version', 0)}"
+        value = st.session_state.get(key)
+        if not value:
+            st.session_state.manuscript_error = 'Please upload a file.'
+            return
+        st.session_state.manuscript_list.append({'category': category, 'type': 'File', 'file': value})
+        st.session_state.ms_file_version = st.session_state.get('ms_file_version', 0) + 1
+    st.session_state.manuscript_error = ''
+
+
+def remove_manuscript(index):
+    st.session_state.manuscript_list.pop(index)
+
+
+def normalize_url_field(key):
+    st.session_state[key] = normalize_resource_url(st.session_state.get(key, ''))
+
+
+def yes_no_details(label, key, detail_label, help_text=None):
+    answer = st.radio(label, ['No', 'Yes'], index=0, key=key, horizontal=True)
+    if answer == 'Yes':
+        details = st.text_area(detail_label, key=f'{key}_details', help=help_text)
+        if not details.strip():
+            input_errors.append(f'{label}: provide details for your Yes answer.')
+        return f'Yes - {details.strip()}'
+    return 'No'
+
+
 AGREEMENT_TEMPLATE = os.path.join(RESOURCES_DIR, 'agreement_template.pdf')
 HELP_DESK_EMAIL = os.getenv("TCIA_HELP_DESK_EMAIL", "help@cancerimagingarchive.net")
 INSTITUTIONAL_EMAIL_HELP = (
@@ -206,9 +278,7 @@ if has_manuscripts == "Yes":
                 source_val = ms['url'] if ms['type'] == 'URL' else ms['file'].name
                 st.write(f"**{ms['category']}**: {source_val}")
             with col_del:
-                if st.button("🗑️", key=f"del_ms_{idx}"):
-                    st.session_state.manuscript_list.pop(idx)
-                    st.rerun()
+                st.button("🗑️", key=f"del_ms_{idx}", on_click=remove_manuscript, args=(idx,))
 
     # Add new manuscript
     with st.expander("➕ Add a Manuscript/Preprint"):
@@ -217,115 +287,105 @@ if has_manuscripts == "Yes":
 
         if ms_type == "URL":
             ms_url = st.text_input("Enter URL", key="ms_url_new", placeholder="https://doi.org/10.1101/...")
-            if st.button("Add URL to List"):
-                if ms_url:
-                    st.session_state.manuscript_list.append({'category': ms_category, 'type': 'URL', 'url': ms_url})
-                    st.rerun()
-                else:
-                    st.error("Please provide a URL.")
+            st.button("Add URL to List", on_click=add_manuscript, args=('URL',))
         else:
-            ms_file = st.file_uploader("Upload PDF or Word document", type=["pdf", "docx", "doc"], key="ms_file_new")
-            if st.button("Add File to List"):
-                if ms_file:
-                    st.session_state.manuscript_list.append({'category': ms_category, 'type': 'File', 'file': ms_file})
-                    st.rerun()
-                else:
-                    st.error("Please upload a file.")
+            file_key = f"ms_file_new_{st.session_state.get('ms_file_version', 0)}"
+            st.file_uploader("Upload PDF or Word document", type=["pdf", "docx", "doc"], key=file_key)
+            st.button("Add File to List", on_click=add_manuscript, args=('File',))
+        if st.session_state.get('manuscript_error'):
+            st.error(st.session_state.manuscript_error)
 
 
 
 st.subheader("Data Collection Details")
 
-# Adaptive fields
+# Dataset-level labels are separate from component and external-resource labels.
 extra_data = {}
-if proposal_type == "New Collection Proposal":
-    col1, col2 = st.columns(2)
-    with col1:
-        site_raw = permissible_values.get('primary_site', []) if permissible_values else []
-        site_options = sorted(list(set([v['value'] if isinstance(v, dict) else str(v) for v in site_raw])))
-        site_options.append("Other")
-        selected_sites = st.multiselect(LABELS["disease_site"], options=site_options, key="disease_site_ms")
-        if "Other" in selected_sites:
-            other_site = st.text_input("Please specify other primary disease site", key="other_disease_site")
-            extra_data['disease_site'] = [s if s != "Other" else f"Other - {other_site}" for s in selected_sites] if other_site else selected_sites
-        else:
-            extra_data['disease_site'] = selected_sites
-    with col2:
-        diag_raw = permissible_values.get('primary_diagnosis', []) if permissible_values else []
-        diag_options = sorted(list(set([v['value'] if isinstance(v, dict) else str(v) for v in diag_raw])))
-        diag_options.append("Other")
-        selected_diags = st.multiselect(LABELS["diagnosis"], options=diag_options, key="diagnosis_ms")
-        if "Other" in selected_diags:
-            other_diag = st.text_input("Please specify other histologic diagnosis", key="other_diagnosis")
-            extra_data['diagnosis'] = [d if d != "Other" else f"Other - {other_diag}" for d in selected_diags] if other_diag else selected_diags
-        else:
-            extra_data['diagnosis'] = selected_diags
-
-    extra_data['image_types'] = st.multiselect(
-        LABELS["image_types"],
-        options=["MR", "CT", "PET", "Mammograms", "Ultrasound", "Xray", "Whole Slide Image", "CODEX", "Single-cell Image", "Photomicrograph", "Microarray", "Multiphoton", "Immunofluorescence", "Other"],
-        key="image_types"
-    )
-    extra_data['supporting_data'] = st.multiselect(
-        LABELS["supporting_data"],
-        options=["Clinical", "Image Analyses", "Image Registrations", "Genomics", "Proteomics", "Radiation Therapy Plans/Structures", "No additional data", "Other"],
-        key="supporting_data"
-    )
-
-    st.write(f"**{LABELS['file_formats']}**")
-    nc_formats = []
-    for itype in extra_data.get('image_types', []):
-        col1, col2 = st.columns([1, 1])
-        with col1: st.write(f"Format for **{itype}**:")
-        with col2:
-            fmt = st.selectbox(f"Select format for {itype}", options=IMAGE_FORMATS, key=f"fmt_img_{itype}", label_visibility="collapsed")
-            if fmt == "Other":
-                other_fmt = st.text_input(f"Specify other format for {itype}", key=f"other_fmt_img_{itype}", label_visibility="collapsed")
-                nc_formats.append(f"{itype} - {other_fmt}" if other_fmt else f"{itype} - Other")
-            else:
-                nc_formats.append(f"{itype} - {fmt}")
-    for stype in extra_data.get('supporting_data', []):
-        if stype == "No additional data": continue
-        col1, col2 = st.columns([1, 1])
-        with col1: st.write(f"Format for **{stype}**:")
-        with col2:
-            opts = COMBINED_FORMATS if stype in ["Image Analyses", "Radiation Therapy Plans/Structures"] else SUPPORT_FORMATS
-            fmt = st.selectbox(f"Select format for {stype}", options=opts, key=f"fmt_supp_{stype}", label_visibility="collapsed")
-            if fmt == "Other":
-                other_fmt = st.text_input(f"Specify other format for {stype}", key=f"other_fmt_supp_{stype}", label_visibility="collapsed")
-                nc_formats.append(f"{stype} - {other_fmt}" if other_fmt else f"{stype} - Other")
-            else:
-                nc_formats.append(f"{stype} - {fmt}")
-    extra_data['file_formats'] = "; ".join(nc_formats)
-
-    extra_data['modifications'] = st.text_area(LABELS["modifications"], key="modifications")
-    extra_data['faces'] = st.radio(LABELS["faces"], options=["Yes", "No"], key="faces")
-else: # Analysis Results
+input_errors = []
+if proposal_type == "Analysis Results Proposal":
     extra_data['collections_analyzed'] = st.text_input(LABELS["collections_analyzed"], key="collections_analyzed")
-    extra_data['derived_types'] = st.multiselect(
-        LABELS["derived_types"],
-        options=["Segmentation", "Classification", "Quantitative Feature", "Image (converted/processed/registered)", "Other"],
-        key="derived_types"
-    )
+    st.caption("Describe the subjects and disease context represented in your submitted analysis subset below.")
 
-    st.write(f"**{LABELS['file_formats']}**")
-    ar_formats = []
-    for dtype in extra_data.get('derived_types', []):
-        col1, col2 = st.columns([1, 1])
-        with col1: st.write(f"Format for **{dtype}**:")
-        with col2:
-            fmt = st.selectbox(f"Select format for {dtype}", options=COMBINED_FORMATS, key=f"fmt_ar_{dtype}", label_visibility="collapsed")
-            if fmt == "Other":
-                other_fmt = st.text_input(f"Specify other format for {dtype}", key=f"other_fmt_ar_{dtype}", label_visibility="collapsed")
-                ar_formats.append(f"{dtype} - {other_fmt}" if other_fmt else f"{dtype} - Other")
-            else:
-                ar_formats.append(f"{dtype} - {fmt}")
-    extra_data['file_formats'] = "; ".join(ar_formats)
+col1, col2 = st.columns(2)
+with col1:
+    extra_data['disease_site'] = choose_labels('disease_location', LABELS['disease_site'], 'disease_site_ms')
+with col2:
+    extra_data['diagnosis'] = choose_labels('disease_type', LABELS['diagnosis'], 'diagnosis_ms')
 
-extra_data['software_code'] = st.radio(LABELS["software_code"], options=["Yes", "No"], index=1, key="software_code")
-if extra_data['software_code'] == "Yes":
-    extra_data['software_details'] = st.text_area(LABELS["software_details"], key="software_details")
+extra_data['species'] = st.multiselect(LABELS['species'], species_options(catalog, proposal_model), default=['Human'], key='species')
+model_link('species')
+if 'Human' in extra_data['species']:
+    extra_data['adult_or_childhood_study'] = st.multiselect(
+        LABELS['adult_or_childhood_study'], ['Adolescent and Young Adult', 'Adult', 'Pediatric'],
+        default=['Adult'], key='adult_or_childhood_study')
 
+st.subheader("Data being submitted to TCIA")
+st.markdown("Add a row for each group of files with **one category and one file format**. "
+            "You may select multiple data types in a row. Use separate rows for different categories or formats.")
+st.caption("Examples: Radiology Images / CT and MR / DICOM; Clinical Data / Follow-Up, Demographic and Treatment / CSV.")
+st.markdown(f"Learn about these terms: [Categories]({DATA_MODELS_URL}#data-category) · "
+            f"[Data types]({DATA_MODELS_URL}#data-type) · [File formats]({DATA_MODELS_URL}#file-type)")
+components = []
+for number, row_id in enumerate(row_ids('component_rows', initial=True), 1):
+    with st.container(border=True):
+        st.write(f"**Data component {number}**")
+        category = single_choice("Data category", 'data_category', f'component_{row_id}_category')
+        type_options = data_type_options(catalog, category, proposal_model)
+        type_key = f'component_{row_id}_types'
+        previous_types = st.session_state.get(type_key, [])
+        kept_types = [value for value in previous_types if value in type_options]
+        if kept_types != previous_types:
+            st.session_state[type_key] = kept_types
+            st.info("Some data types were cleared because they do not apply to the selected category.")
+        types = st.multiselect("Data types", type_options, key=type_key,
+                               format_func=lambda value: data_type_display(value, proposal_model), disabled=category is None,
+                               help="Choose a category first. Select Other if its listed data types do not fit.")
+        file_format = single_choice("File format", 'file_type', f'component_{row_id}_format')
+        component = {'category': category, 'data_types': types, 'file_format': file_format}
+        for field, selected in [('category', category), ('data_types', types), ('file_format', file_format)]:
+            if (isinstance(selected, list) and 'Other' in selected) or selected == 'Other':
+                component[f'other_{field}'] = st.text_input(
+                    f"Describe the other {field.replace('_', ' ')}", key=f'component_{row_id}_other_{field}')
+        components.append(component)
+        st.button("Remove component", key=f'remove_component_{row_id}',
+                  on_click=remove_row, args=('component_rows', row_id))
+st.button("Add data component", on_click=add_row, args=('component_rows',))
+
+extra_data['data_components'] = json.dumps(components)
+extra_data['label_catalog_version'] = catalog['generated_at_utc']
+extra_data['proposal_model_version'] = proposal_model['version']
+
+if proposal_type == "New Collection Proposal":
+    extra_data['modifications'] = st.text_area(LABELS["modifications"], key="modifications")
+    extra_data['faces'] = st.radio(LABELS["faces"], options=["No", "Yes"], index=0, key="faces")
+    if extra_data['faces'] == 'Yes':
+        st.warning("Please review the [NIH Controlled Data Access Policy]"
+                   "(https://www.cancerimagingarchive.net/nih-controlled-data-access-policy/) "
+                   "for information about sharing images containing patient faces.")
+
+st.subheader("External resources")
+st.markdown("Optionally link related data or software hosted elsewhere. "
+            "Add one category, URL, and resource context per resource. Include files being submitted to TCIA in the data components above.")
+model_link('external_resource', 'Learn about external resource categories')
+resources = []
+for number, row_id in enumerate(row_ids('resource_rows'), 1):
+    with st.container(border=True):
+        st.write(f"**External resource {number}**")
+        category = single_choice('Resource category', 'external_resource', f'resource_{row_id}_category')
+        url_key = f'resource_{row_id}_url'
+        url = st.text_input('Resource URL', key=url_key, placeholder='https://…',
+                            help="You can enter a web address such as gdc.nci.nih.gov; https:// is added automatically.",
+                            on_change=normalize_url_field, args=(url_key,))
+        context = st.text_input('Resource Context', key=f'resource_{row_id}_context',
+                                help='Explain what this resource includes.')
+        resource = {'category': category, 'url': normalize_resource_url(url), 'context': context.strip()}
+        if category == 'Other':
+            resource['other_category'] = st.text_input('Describe the other resource category', key=f'resource_{row_id}_other')
+        resources.append(resource)
+        st.button('Remove resource', key=f'remove_resource_{row_id}',
+                  on_click=remove_row, args=('resource_rows', row_id))
+st.button('Add external resource', on_click=add_row, args=('resource_rows',))
+extra_data['external_resources'] = json.dumps(resources)
 # Shared bottom fields
 col1, col2 = st.columns(2)
 with col1:
@@ -335,23 +395,12 @@ with col2:
 
 col1, col2 = st.columns(2)
 with col1:
-    published_elsewhere = st.text_input(LABELS["Published Elsewhere"], help="If so, why publish on TCIA? Do you intend for the original to remain accessible?", key="published_elsewhere")
+    published_elsewhere = yes_no_details(
+        LABELS["Published Elsewhere"], 'published_elsewhere', 'Please describe the previous publication',
+        "Where was the data published? Why publish on TCIA, and will the original remain accessible?")
 with col2:
-    time_constraints = st.text_input(LABELS["Time Constraints"], key="time_constraints")
-
-extra_data['adult_or_childhood_study'] = st.multiselect(
-    LABELS["adult_or_childhood_study"],
-    options=["Adolescent and Young Adult", "Adult", "Pediatric"],
-    key="adult_or_childhood_study"
-)
-
-st.write("**Funding Information (Optional)**")
-col1, col2, col3 = st.columns(3)
-with col1: extra_data['funding_agency'] = st.text_input(LABELS["funding_agency"], key="f_agency")
-with col2: extra_data['funding_source_program_name'] = st.text_input(LABELS["funding_source_program_name"], key="f_program")
-with col3: extra_data['grant_id'] = st.text_input(LABELS["grant_id"], key="f_grant")
-
-extra_data['acknowledgements'] = st.text_area(LABELS["acknowledgements"], key="acknowledgements", help="Please provide any acknowledgements that should be included with the dataset.")
+    time_constraints = yes_no_details(
+        LABELS["Time Constraints"], 'time_constraints', 'Please describe the time constraints')
 
 extra_data['why_tcia'] = st.multiselect(
     LABELS["why_tcia"],
@@ -365,7 +414,7 @@ submit_button = st.button(button_label, type="primary")
 # Processing after submission
 if submit_button:
     # 1. Validation
-    missing_fields = []
+    missing_fields = list(input_errors) + validate_components(components, proposal_model) + validate_resources(resources)
     if not sci_poc_name: missing_fields.append(LABELS["Scientific POC Name"])
     if not sci_poc_email: missing_fields.append(LABELS["Scientific POC Email"])
     if not tech_poc_name: missing_fields.append(LABELS["Technical POC Name"])
@@ -384,7 +433,7 @@ if submit_button:
     if not published_elsewhere: missing_fields.append(LABELS["Published Elsewhere"])
 
     # Define optional fields that shouldn't block submission
-    optional_fields = ['funding_agency', 'funding_source_program_name', 'grant_id', 'funding_sources', 'software_details']
+    optional_fields = ['external_resources']
 
     for key, val in extra_data.items():
         if key in optional_fields:
@@ -441,29 +490,6 @@ if submit_button:
         # Prepare Data for Reports (DOCX and PDF)
         report_data = [] # List of (label, value) pairs
 
-        # Organize file formats for display
-        file_formats = all_responses.get('file_formats', '')
-        format_map = {}
-        if file_formats:
-            for part in str(file_formats).split(';'):
-                if ' - ' in part:
-                    parts = part.split(' - ')
-                    if len(parts) >= 2:
-                        t = parts[0]
-                        f = " - ".join(parts[1:])
-                        format_map[t.strip()] = f.strip()
-
-        def format_val_with_format(key, val):
-            if not val: return ""
-            items = val if isinstance(val, list) else [val]
-            formatted = []
-            for item in items:
-                if item in format_map:
-                    formatted.append(f"{item} ({format_map[item]})")
-                else:
-                    formatted.append(str(item))
-            return ", ".join(formatted)
-
         for key, value in all_responses.items():
             if key == "Manuscripts":
                 label = "Manuscripts/Preprints"
@@ -476,13 +502,15 @@ if submit_button:
                 if value and str(value).lower() != "nan" and str(value).strip():
                     label = LABELS.get(key, key)
                     report_data.append((label, str(value)))
-            elif key == "file_formats":
-                continue # Handled inline with types
+            elif key == "data_components":
+                report_data.append((LABELS[key], component_text(components)))
+            elif key == "external_resources":
+                report_data.append((LABELS[key], resource_text(resources) or "None provided"))
+            elif key in {'label_catalog_version', 'proposal_model_version'}:
+                continue  # Troubleshooting provenance belongs in the document footer.
             else:
                 label = LABELS.get(key, key)
-                if key in ['image_types', 'supporting_data', 'derived_types']:
-                    display_val = format_val_with_format(key, value)
-                elif isinstance(value, list):
+                if isinstance(value, list):
                     display_val = ", ".join(map(str, value))
                 else:
                     display_val = str(value)
@@ -490,6 +518,13 @@ if submit_button:
 
         # Generate DOCX
         doc = Document()
+        from docx.shared import RGBColor
+        from docx.oxml.ns import qn
+        title_style = doc.styles['Title']
+        title_style.font.color.rgb = RGBColor(0, 0, 0)
+        title_style.font.underline = False
+        for border in title_style.element.findall('.//' + qn('w:pBdr')):
+            border.getparent().remove(border)
         doc.add_heading(f"TCIA Dataset Proposal: {title}", 0)
 
         table = doc.add_table(rows=0, cols=2)
@@ -504,6 +539,10 @@ if submit_button:
                 for run in paragraph.runs:
                     run.bold = True
 
+        doc.add_page_break()
+        add_curation_placeholders(doc)
+        from tcia_proposals.summary_document import add_reference_footer
+        add_reference_footer(doc, all_responses)
         docx_buffer = io.BytesIO()
         doc.save(docx_buffer)
         docx_buffer.seek(0)

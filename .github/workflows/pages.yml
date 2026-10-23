@@ -1,4 +1,4 @@
-name: Publish curator label catalog
+name: Publish TCIA reference guides
 
 on:
   push:
@@ -6,10 +6,18 @@ on:
     paths:
       - 'docs/**'
       - 'scripts/build_label_catalog.py'
-      - 'scripts/export_catalog_dataset_labels.py'
+      - 'tcia_proposals/resources/label_catalog.json'
+      - 'tcia_proposals/resources/proposal_data_model.json'
+      - 'scripts/import_public_label_catalog.py'
       - 'scripts/refresh_label_catalog.py'
       - 'tests/test_label_refresh.py'
+      - 'scripts/export_catalog_dataset_labels.py'
       - 'scripts/label_catalog_template.html'
+      - 'scripts/build_supporting_data_guide.py'
+      - 'scripts/build_supporting_data_workbooks.mjs'
+      - 'scripts/verify_supporting_data_workbooks.py'
+      - 'scripts/supporting_data/**'
+      - 'tests/test_supporting_data_guide.py'
       - 'skills/curate-tcia-wordpress-metadata/references/labeling-policy.json'
       - 'skills/curate-tcia-wordpress-metadata/references/label-mappings.json'
       - 'skills/curate-tcia-wordpress-metadata/references/label-decisions.json'
@@ -44,16 +52,22 @@ jobs:
       - name: Verify generated catalog is current
         run: |
           python3 scripts/build_label_catalog.py
-          git diff --exit-code -- docs/labels/index.html
-      - name: Test refresh integrity and catalog decisions
+          git diff --exit-code -- docs/labels
+      - name: Verify supporting-data guide and downloads
+        run: |
+          python3 scripts/build_supporting_data_guide.py
+          python3 scripts/verify_supporting_data_workbooks.py
+          python3 -m unittest discover -s tests -p test_supporting_data_guide.py
+          git diff --exit-code -- docs/supporting-data
+      - name: Test catalog refresh integrity and decisions
         run: |
           python3 -m unittest discover -s tests -p test_label_refresh.py
           python3 -m unittest discover -s tests -p test_label_catalog_decisions.py
           python3 -m unittest discover -s tests -p test_catalog_dataset_labels.py
-      - name: Capture all eight current WordPress fields
-        run: python3 scripts/refresh_label_catalog.py --output "$RUNNER_TEMP/catalog-current.json"
-      - name: Build refreshed deployment artifact
-        run: python3 scripts/build_label_catalog.py --live-inventory "$RUNNER_TEMP/catalog-current.json"
+      - name: Refresh public data models
+        run: |
+          python3 scripts/refresh_label_catalog.py --output "$RUNNER_TEMP/catalog-current.json"
+          python3 scripts/build_label_catalog.py --live-inventory "$RUNNER_TEMP/catalog-current.json"
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:

@@ -14,6 +14,23 @@ from tcia_proposals.crdc_converter import (
 
 
 class CRDCConverterTests(unittest.TestCase):
+    def test_structured_components_export_without_legacy_columns(self):
+        import json
+        proposal = {'Title': 'Example dataset', 'Nickname': 'Example',
+                    'Proposal Type': 'New Collection Proposal',
+                    'data_components': json.dumps([
+                        {'category': 'Radiology Images', 'data_types': ['CT', 'MR'], 'file_format': 'DICOM'},
+                        {'category': 'Clinical Data', 'data_types': ['Demographic', 'Treatment'], 'file_format': 'CSV'},
+                    ])}
+        data, warnings = build_crdc_workbook(proposal, {})
+        workbook = load_workbook(io.BytesIO(data))
+        sheet = workbook['Data Types']
+        values = {sheet.cell(1, c).value: sheet.cell(2, c).value for c in range(1, sheet.max_column + 1)}
+        self.assertEqual(values['Clinical'], 'Yes')
+        self.assertEqual(values['Imaging'], 'Yes')
+        self.assertEqual(values['File Extension'], 'DICOM')
+        self.assertIn('CSV', [sheet.cell(r, 18).value for r in range(2, sheet.max_row + 1)])
+
     def setUp(self):
         self.proposal = {
             "Proposal Type": "New Collection Proposal",

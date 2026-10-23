@@ -73,7 +73,7 @@ class RefreshTests(unittest.TestCase):
         self.assertEqual(rows[0]['reference_links'], [])
 
     def test_current_renames_retain_reviewed_identifiers(self):
-        refs = json.loads(builder.DEFAULT_REFERENCES.read_text())
+        refs = builder.load_references()
         inventory = {'wordpress_registered_terms_complete': True, 'fields': {'disease_type': [
             {'label': label, 'usage_count': 1, 'examples': []} for label in
             ['COVID-19 Infection', 'Vestibular Schwannoma', 'Lymphadenopathy', 'Ewing Sarcoma',

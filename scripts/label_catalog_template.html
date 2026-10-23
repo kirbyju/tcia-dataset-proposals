@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="description" content="Search the labels observed in a dated snapshot of public TCIA WordPress records.">
+  <meta name="description" content="Explore TCIA data models, dataset labels, data categories, data types, file formats, and terminology references.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23042b5b'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%235bc6ff' stroke-width='3'/%3E%3C/svg%3E">
-  <title>TCIA curator label catalog</title>
+  <title>TCIA Data Models</title>
   <style>
     :root {
       --navy: #042b5b;
@@ -171,26 +171,52 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#catalog">Skip to catalog</a>
+  <a class="skip-link" href="#catalog">Skip to data models</a>
   <header class="masthead">
     <div class="masthead__inner">
       <div class="brand-row">
         <img src="__TCIA_LOGO_DATA_URI__" alt="The Cancer Imaging Archive">
         <div class="header-actions">
+          <a class="button" href="../supporting-data/" style="text-decoration:none;display:inline-flex;align-items:center">Prepare supporting data</a>
           <button class="button" id="export-button" type="button" title="Download all eight fields as an Excel-compatible CSV">Export spreadsheet (.csv)</button>
           <button class="button button--light" id="download-button" type="button">Download offline copy</button>
         </div>
       </div>
-      <p class="eyebrow">Curator reference · dated public snapshot</p>
-      <h1>Curator label catalog</h1>
-      <p class="lede">Search labels across eight curation fields. Disease and site labels link to terminology references where resolved; counts show dated public usage.</p>
+      <p class="eyebrow">Dataset documentation</p>
+      <h1>TCIA Data Models</h1>
+      <p class="lede">Understand how TCIA describes datasets, downloadable data, and related resources. Explore the terms below, their terminology references, and examples from published datasets.</p>
     </div>
   </header>
 
   <main class="page" id="catalog">
     <section class="scope-notice" aria-labelledby="scope-title">
-      <div class="scope-notice__mark" aria-hidden="true">!</div>
-      <p id="scope-description"><strong id="scope-title">Observed use is not a complete registry or an approved vocabulary.</strong> Disease/site and download counts reflect October 9, 2026 public usage; species, program, and external-resource counts and registries were checked October 16, 2026; confirmed curation decisions through October 16 are applied to the display. Retired Phantom options in disease/site fields are hidden, and Not Applicable is included. Pending WordPress updates are not counted as applied. A terminology link identifies a concept, not approval for every dataset.</p>
+      <div class="scope-notice__mark" aria-hidden="true">i</div>
+      <div><p><strong id="scope-title">Choosing terms for your dataset</strong> Disease, primary disease site, and species describe a dataset. Data category, data type, and file format describe each group of files. External resource categories describe related material hosted elsewhere. Choose terms that fit your data; in the proposal form, select Other and describe your dataset if no suitable term is available.</p>
+      <p id="last-updated" style="margin-top:0.6rem;color:var(--muted);font-size:0.85rem"></p></div>
+    </section>
+    <section class="model-intro" aria-labelledby="model-overview" style="margin:1.5rem 0">
+      <h2 id="model-overview">How the fields work together</h2>
+      <p>A data component has one category, one or more data types, and one file format. Use separate components when the category or format differs. The table below shows examples; these are not restrictions on valid combinations.</p>
+      <div class="table-scroll"><table>
+        <thead><tr><th scope="col">Data category</th><th scope="col">Data types</th><th scope="col">File format</th></tr></thead>
+        <tbody>
+          <tr><td>Radiology Images</td><td>CT, MR</td><td>DICOM</td></tr>
+          <tr><td>Image Annotations</td><td>Segmentation</td><td>NIfTI</td></tr>
+          <tr><td>Clinical Data</td><td>Follow-Up, Demographic, Treatment</td><td>CSV</td></tr>
+        </tbody>
+      </table></div>
+      <p>These labels support dataset discovery and proposal preparation. For recommended clinical tables and non-DICOM imaging metadata, see <a href="../supporting-data/">Prepare supporting data</a>.</p>
+      <details>
+        <summary>Category and data type relationships used by the proposal form</summary>
+        <p>The form offers the data types below for each category. A type can belong to more than one category. These are proposal selection rules, rather than an ontology hierarchy or restrictions on all published TCIA records. Choose Other if a combination does not fit.</p>
+        <div class="table-scroll"><table>
+          <thead><tr><th scope="col">Category</th><th scope="col">Proposal data types</th></tr></thead>
+          <tbody id="proposal-category-types"></tbody>
+        </table></div>
+        <p id="proposal-model-version"></p>
+        <p><a href="proposal-data-model.json" download>Download the shared category/type guidance as JSON</a></p>
+        <p>DICOM abbreviations are explained using <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html#sect_C.7.3.1.1.1">DICOM Modality Defined Terms</a>. SC means Secondary Capture, a TCIA object label rather than a current modality defined term.</p>
+      </details>
     </section>
 
     <nav class="summary" id="field-tabs" aria-label="Label fields" role="tablist"></nav>
@@ -226,6 +252,11 @@
         </label>
       </div>
 
+      <div id="category-filter-control" hidden style="padding:0.8rem 1.4rem">
+        <label for="category-filter">Filter data types by proposal category</label>
+        <select id="category-filter"><option value="">All categories</option></select>
+      </div>
+
       <div class="results-bar">
         <p id="result-count" role="status" aria-live="polite"></p>
         <button id="reset-filters" type="button">Reset filters</button>
@@ -250,106 +281,113 @@
     </section>
 
     <details class="provenance">
-      <summary>Scope, provenance, and terminology guidance</summary>
+      <summary>Using the terminology and examples</summary>
       <div class="provenance__body">
         <section>
-          <h3>Three distinct states</h3>
-          <ul>
-            <li><strong>Observed:</strong> a public record in this snapshot used the label.</li>
-            <li><strong>Registered:</strong> WordPress offers the term in that field. Species, program, and external-resource registries were checked October 16; the original five fields retain their dated usage basis.</li>
-            <li><strong>Semantically verified:</strong> evidence supports the label for the content and any applicable ontology mapping.</li>
-          </ul>
+          <h3>Disease and primary disease site</h3>
+          <p>Disease labels describe diagnoses or cohort context. Primary disease sites describe where the disease originated; scanned anatomy, metastatic sites, and annotation targets can differ. Where available, concept links point to NCI Thesaurus (NCIt) disease definitions and UBERON anatomy definitions.</p>
+          <p>Non-Cancer is a broad discovery label and can accompany a specific nonmalignant disease or Healthy Subject label when supported. Absence of cancer does not by itself establish healthy status. Phantoms belong under species or subject type; retain applicable simulated disease context and use Not Applicable when disease or site does not apply.</p>
         </section>
         <section>
-          <h3>How to assess a candidate</h3>
-          <p>Use NCIt for disease concepts and UBERON for primary disease sites. Use the NCI Imaging Submission Model and the GDC schema as terminology guides for category, data type, and file type. Their values do not automatically become valid WordPress options.</p>
-          <p>Historical diagnosis and anatomy mappings come from the <a href="https://docs.google.com/spreadsheets/d/1KnbOO85nqbx8A3m1VLWOiUhBJY_KxkI29_JwAVgKxjs/edit" target="_blank" rel="noopener noreferrer">source picklist workbook</a>. API checks confirm whether a code exists and is active; they do not approve its meaning for a TCIA label. Confirmed decisions override historical candidates. Reference links were checked against current definitions and synonyms. Reference scope and supporting notes are retained in the spreadsheet export; a reference does not approve its application to every dataset. Non-Cancer remains an unlinked TCIA filter, paired with specific labels where supported.</p>
-          <p>Export spreadsheet downloads all eight fields, including the displayed ontology links and confirmed decisions, plus historical evidence for audit purposes. Search and filters do not limit the export.</p>
+          <h3>Data types and formats</h3>
+          <p>A category describes the broad role of the data; a type describes the information or imaging object; a format describes how it is stored. For example, a DICOM segmentation can be Image Annotations / SEG / DICOM. A NIfTI labelmap can be Image Annotations / Segmentation / NIfTI.</p>
+          <p>Describe the files inside an archive using their content format. Packaging and transfer manifests can be recorded separately. External resources are links to related material and do not establish a TCIA-hosted download.</p>
         </section>
         <section>
-          <h3>Confirmed labeling decisions</h3>
-          <p><strong>Non-Cancer:</strong> retain the broad filter and add supported specific disease or healthy-cohort labels. Nonmalignant disease does not automatically mean Healthy Subject.</p>
-          <p><strong>Phantoms:</strong> represent phantom identity in species. Retain supported simulated disease context: VICTRE keeps Breast Cancer + Non-Cancer with Computational Phantom species. Use Not Applicable where disease/site does not apply.</p>
-          <p><strong>Broad groups:</strong> Gastroesophageal Cancer covers stomach and esophageal cancers; Neuroendocrine Tumors (all sites) includes tumors and carcinomas. Gastroesophageal Cancer links to both gastric and esophageal malignancy concepts; the neuroendocrine umbrella links to Neuroendocrine Neoplasm.</p>
-          <p><strong>Ewing/pPNET:</strong> replace the combined label with separate Ewing Sarcoma and Peripheral Primitive Neuroectodermal Tumor labels according to the diagnoses actually represented. The historical row remains visible until usage is refreshed.</p>
-        </section>
-        <section>
-          <h3>Dated source</h3>
-          <p id="source-provenance"></p>
-        </section>
-        <section>
-          <h3>Count meaning</h3>
+          <h3>Terms and published examples</h3>
+          <p>Available terms and published use are distinct from suitability for a particular dataset. Examples illustrate how labels have been used; a terminology link does not confirm that a concept applies to every dataset. TCIA reviews proposed labels during curation.</p>
           <p id="count-basis"></p>
+          <p>Export spreadsheet includes all eight fields and their terminology references, usage counts, and supporting mapping evidence. Search and filters do not limit the export. The offline copy retains the same data and references.</p>
         </section>
       </div>
     </details>
-
     <footer>
-      Official TCIA logo and published palette verified against the TCIA branding page on October 15, 2026. Typography, layout, and semantic status treatments are implementation choices for this catalog.
+      The Cancer Imaging Archive · <a href="https://www.cancerimagingarchive.net/">Visit TCIA</a>
     </footer>
   </main>
 
   <script type="application/json" id="catalog-data">__CATALOG_JSON__</script>
   <script type="application/json" id="policy-data">__POLICY_JSON__</script>
+  <script type="application/json" id="proposal-model-data">__PROPOSAL_MODEL_JSON__</script>
   <script>
     (() => {
       "use strict";
 
       const catalog = JSON.parse(document.getElementById("catalog-data").textContent);
       const policy = JSON.parse(document.getElementById("policy-data").textContent);
+      const proposalModel = JSON.parse(document.getElementById("proposal-model-data").textContent);
+      const categoryFilter = document.getElementById("category-filter");
+      const typeExplanation = label => proposalModel.data_type_explanations[label] || "";
+      const allowedTypes = category => proposalModel.category_data_types[
+        proposalModel.category_aliases[category] || category] || [];
+      proposalModel.category_order.forEach(category => {
+        const option = document.createElement("option");
+        option.value = category;
+        option.textContent = category;
+        categoryFilter.append(option);
+        const row = document.createElement("tr");
+        const name = document.createElement("td");
+        name.textContent = category;
+        const types = document.createElement("td");
+        types.textContent = allowedTypes(category).includes("*") ? "All registered data types" :
+          allowedTypes(category).map(label => typeExplanation(label) ? `${label} (${typeExplanation(label)})` : label).join(", ");
+        row.append(name, types);
+        document.getElementById("proposal-category-types").append(row);
+      });
+      document.getElementById("proposal-model-version").textContent = `Proposal guidance version: ${proposalModel.version}. The form and this page use the same versioned JSON source.`;
       const fieldOrder = ["disease_type", "disease_location", "data_category", "data_type", "file_type", "species", "program", "external_resource"];
       const fieldConfig = {
         disease_type: {
           title: "Disease type",
           slug: "disease-type",
-          scope: "Dataset field · cancer_types",
-          description: "Diagnosed disease or documented cohort context. Keep Non-Cancer as a broad filter alongside supported specific labels. Verify disease concepts against NCIt.",
+          scope: "Dataset",
+          description: "Diagnosed disease or cohort context. Choose all applicable terms. NCIt links provide definitions for supported disease concepts.",
           mapping: "NCIt mapping not assigned"
         },
         disease_location: {
           title: "Disease location",
           slug: "disease-location",
-          scope: "Dataset field · cancer_locations",
-          description: "Known primary disease site. Do not substitute scanned anatomy, metastatic sites, or annotation targets; verify a primary-site mapping against UBERON.",
+          scope: "Dataset",
+          description: "Where the disease originated. This can differ from the anatomy imaged or annotated. UBERON links provide anatomy definitions.",
           mapping: "UBERON mapping not assigned"
         },
         data_category: {
           title: "Data category",
           slug: "data-category",
-          scope: "Download field · download_type",
-          description: "The broad role of each downloadable component. Inspect the content and compare the existing WordPress field before proposing a value.",
+          scope: "Data component",
+          description: "The broad role of the files, such as Radiology Images, Image Annotations, or Clinical Data. Choose one category per component.",
           mapping: "Use NCI Imaging Submission Model and GDC as guides"
         },
         data_type: {
           title: "Data type",
           slug: "data-type",
-          scope: "Download field · data_type",
-          description: "The specific information or object represented by each download. Multiple labels require evidence for each concept.",
+          scope: "Data component",
+          description: "The specific information or imaging objects represented. A component can have multiple types, such as CT and MR, or Demographic and Treatment.",
           mapping: "Use NCI Imaging Submission Model and GDC as guides"
         },
         species: {
           title: "Species",
           slug: "species",
-          scope: "Dataset field · species",
-          description: "Published species or phantom classification. Includes registered options with no visible public use."
+          scope: "Dataset",
+          description: "The species or subject type represented, including human, animal, physical phantom, and computational phantom subjects."
         },
         program: {
           title: "Program",
           slug: "program",
-          scope: "Dataset field · program.program_name",
-          description: "The program assigned to a dataset in WordPress. Includes registered options with no visible public use."
+          scope: "Dataset",
+          description: "The research program associated with a published dataset. Program assignment is handled during curation."
         },
         external_resource: {
           title: "External resource labels",
           slug: "external-resource",
-          scope: "Dataset field · external_resources",
-          description: "WordPress supporting-data labels, exposed by the API as external_resources (normalized alias: external_resource_labels). Historical labels may describe hosted supporting data as well as external resources; a label alone does not establish hosting location."
+          scope: "Related resources",
+          description: "Categories for related data or software hosted elsewhere. Provide a category, URL, and resource context for each resource in your proposal. Historical labels may also describe TCIA-hosted supporting data; a label alone does not establish hosting location."
         },
         file_type: {
           title: "File type",
           slug: "file-type",
-          scope: "Download field · file_type",
-          description: "The delivered payload format. Distinguish the content format from an archive, transfer container, or manifest when needed.",
+          scope: "Data component",
+          description: "How the files are stored, such as DICOM, NIfTI, or CSV. ZIP can describe archive packaging in addition to the formats of its contents. The proposal form collects content formats and leaves packaging decisions for curation.",
           mapping: "Use NCI Imaging Submission Model and GDC as guides"
         }
       };
@@ -365,7 +403,7 @@
 
       function fieldFromHash() {
         const slug = location.hash.replace(/^#/, "");
-        return fieldOrder.find(key => fieldConfig[key].slug === slug) || "disease_type";
+        return fieldOrder.find(key => fieldConfig[key].slug === slug || key === slug) || "disease_type";
       }
 
       function normalize(value) {
@@ -450,6 +488,7 @@
       function searchableText(row) {
         return normalize([
           row.label,
+          state.field === "data_type" ? typeExplanation(row.label) : "",
           row.semantic_review,
           row.review_note || "", row.display_note || "",
           ...(row.reference_links || []).flatMap(link => [link.code, link.preferred_label]),
@@ -464,6 +503,10 @@
       function filteredRows() {
         const query = normalize(state.query.trim());
         const result = catalog.fields[state.field].filter(row => {
+          if (state.field === "data_type" && categoryFilter.value) {
+            const allowed = allowedTypes(categoryFilter.value);
+            if (!allowed.includes("*") && !allowed.includes(row.label)) return false;
+          }
           if (state.singleUse && row.usage_count !== 1) return false;
           return !query || searchableText(row).includes(query);
         });
@@ -477,17 +520,18 @@
 
       function render() {
         const config = fieldConfig[state.field];
-        document.title = `${config.title} · TCIA curator label catalog`;
+        document.title = `${config.title} · TCIA Data Models`;
         document.getElementById("field-panel").setAttribute("aria-labelledby", `tab-${config.slug}`);
         document.getElementById("field-title").textContent = config.title;
         document.getElementById("field-description").textContent = config.description;
         document.getElementById("field-meta").textContent = config.scope;
+        document.getElementById("category-filter-control").hidden = state.field !== "data_type";
 
         const result = filteredRows();
         rows.replaceChildren();
         result.forEach(row => rows.append(buildRow(row, config)));
         const total = catalog.fields[state.field].length;
-        document.getElementById("result-count").innerHTML = `Showing <strong>${result.length.toLocaleString()}</strong> of <strong>${total.toLocaleString()}</strong> catalog labels`;
+        document.getElementById("result-count").innerHTML = `Showing <strong>${result.length.toLocaleString()}</strong> of <strong>${total.toLocaleString()}</strong> terms`;
         tableWrap.hidden = result.length === 0;
         emptyState.style.display = result.length === 0 ? "block" : "none";
       }
@@ -499,6 +543,20 @@
         label.className = "label-cell";
         label.dataset.heading = "Exact label";
         label.append(highlight(row.label, state.query.trim()));
+        if (state.field === "data_type") {
+          const explanation = typeExplanation(row.label);
+          if (explanation) {
+            const detail = document.createElement("span");
+            detail.className = "mapping-note";
+            detail.append(highlight(`(${explanation})`, state.query.trim()));
+            label.append(detail);
+          }
+          const parents = proposalModel.category_order.filter(category => category !== "Other" && allowedTypes(category).includes(row.label));
+          const categories = document.createElement("span");
+          categories.className = "mapping-note";
+          categories.textContent = `Proposal categories: ${parents.join(", ") || "Other"}`;
+          label.append(categories);
+        }
         const references = [...(row.reference_links || []), ...(row.replacement_links || [])];
         references.forEach(reference => {
           const detail = document.createElement("span");
@@ -542,12 +600,13 @@
         });
         examples.append(list);
         if (!row.examples.length) examples.textContent = row.registry_membership === "registered"
-          ? "No visible public use at the registry check." : "No use observed in the dated snapshot.";
+          ? "No published example currently listed." : "No published example currently listed.";
         tr.append(label, count, examples);
         return tr;
       }
 
       function resetFilters() {
+        categoryFilter.value = "";
         state.query = "";
         state.sort = "label-asc";
         state.singleUse = false;
@@ -563,7 +622,7 @@
         const blob = new Blob([source], { type: "text/html;charset=utf-8" });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = "tcia-observed-label-catalog.html";
+        link.download = "tcia-data-models.html";
         document.body.append(link);
         link.click();
         link.remove();
@@ -578,12 +637,12 @@
       }
 
       function exportSpreadsheet() {
-        const headings = ["Field", "Exact WordPress label", "Uses", "Semantic review status (separate from reference verification)",
+        const headings = ["Field", "TCIA label", "Uses", "Semantic review status (separate from reference verification)",
           "Candidate ontology codes", "Source preferred labels", "Source definitions", "Ontology code checks",
           "Source workbook rows", "Review notes", "Representative datasets", "Dataset URLs",
           "Registry membership", "Usage snapshot date", "Mapping source URL", "Mapping retrieval date",
           "Displayed ontology codes", "Displayed ontology URLs", "Confirmed decision", "Catalog note",
-          "Reference definitions", "Reference relation", "Reference scope", "New since reference snapshot", "Ontology reference review required"];
+          "Reference definitions", "Reference relation", "Reference scope"];
         const records = [headings];
         fieldOrder.forEach(field => catalog.fields[field].forEach(row => {
           const candidates = row.mapping_candidates || [];
@@ -597,7 +656,7 @@
             row.review_note || "Content-level review is pending.",
             row.examples.map(example => example.short_title).join(" | "),
             row.examples.map(example => example.url).join(" | "),
-            row.registry_membership || "unverified", row.usage_snapshot_date || catalog.provenance?.bundle_generated_at_utc,
+            row.registry_membership || "unverified", row.usage_snapshot_date || catalog.generated_at_utc,
             candidates.length ? catalog.mapping_provenance.source_url : "",
             candidates.length ? catalog.mapping_provenance.retrieved_at_utc : "",
             unique([...(row.reference_links || []), ...(row.replacement_links || [])].map(link => link.code)),
@@ -605,14 +664,14 @@
             row.confirmed_decision ? JSON.stringify(row.confirmed_decision) : "",
             row.display_note || "",
             unique((row.reference_links || []).map(link => link.definition || "")),
-            row.reference_relation || "", row.reference_scope || "", row.new_since_reference_snapshot || false, row.reference_review_required || false]);
+            row.reference_relation || "", row.reference_scope || ""]);
         }));
         const csv = "\uFEFF" + records.map(record => record.map(csvCell).join(",")).join("\r\n") + "\r\n";
         const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
-        link.download = "tcia-label-catalog.csv";
+        link.download = "tcia-data-models.csv";
         document.body.append(link);
         link.click();
         link.remove();
@@ -620,6 +679,7 @@
       }
 
       search.addEventListener("input", () => { state.query = search.value; render(); });
+      categoryFilter.addEventListener("change", render);
       sort.addEventListener("change", () => { state.sort = sort.value; render(); });
       singleUse.addEventListener("change", () => { state.singleUse = singleUse.checked; render(); });
       document.getElementById("clear-search").addEventListener("click", () => { state.query = ""; search.value = ""; render(); search.focus(); });
@@ -629,26 +689,12 @@
       window.addEventListener("hashchange", () => selectField(fieldFromHash(), false));
 
       const generated = new Date(catalog.generated_at_utc);
-      if (catalog.wordpress_registered_terms_complete) {
-        const captured = generated.toLocaleString(undefined, {dateStyle: "long", timeStyle: "short", timeZone: "UTC"}) + " UTC";
-        document.getElementById("scope-description").textContent = `Last successful WordPress capture: ${captured}. All eight public registries and visible dataset/current-download assignments are captured; retired Phantom disease/site options remain hidden. Observed use and registry membership do not imply semantic approval. Zero means no visible public use. Terminology links preserve reviewed mappings; new unreviewed labels require review. Hidden/private records are excluded.`;
-        document.getElementById("source-provenance").textContent = `Captured ${catalog.visible_dataset_count} visible datasets and ${catalog.current_download_count} current downloads. Source endpoint URLs, response SHA-256 hashes and retrieval times are embedded in this offline HTML. Scheduled daily refreshes publish only after a complete successful capture and build. GitHub scheduling can be delayed.`;
-        document.getElementById("count-basis").textContent = `Disease, site, species, program and resource uses count distinct visible datasets per exact label. Category, data type and file type uses count current download records per exact label. Counts do not approve assignments or establish hosting location.`;
-        if (catalog.refresh_review_flags?.length) {
-          const flags = document.createElement("p");
-          flags.textContent = `${catalog.refresh_review_flags.length} new labels or reference/registry discrepancies require review. See the spreadsheet export and GitHub Actions run summary. No ontology IDs are inferred during refresh.`;
-          document.getElementById("source-provenance").after(flags);
-        }
-      } else {
-      const bundleDate = new Date(catalog.provenance.bundle_generated_at_utc);
-      document.getElementById("source-provenance").innerHTML = `Inventory generated <strong>${generated.toLocaleString(undefined, { dateStyle: "long", timeStyle: "short", timeZone: "UTC" })} UTC</strong> from a bundle dated <strong>${bundleDate.toLocaleString(undefined, { dateStyle: "long", timeStyle: "short", timeZone: "UTC" })} UTC</strong>. It covers ${catalog.provenance.visible_dataset_count.toLocaleString()} visible Collections and Analysis Results and was not latest-release verified. Snapshot SHA-256: <code>${catalog.provenance.snapshot_sqlite_sha256}</code>.`;
-      const extra = catalog.dataset_label_provenance;
-      const extraSource = document.createElement("p");
-      extraSource.textContent = `Species, program, and external-resource registries and public usage were retrieved ${extra.generated_at_utc} across ${extra.visible_dataset_count} visible datasets. Field names: species, program.program_name, external_resources (normalized alias: external_resource_labels). Source endpoints and hashes are included in the offline HTML.`;
-      document.getElementById("source-provenance").after(extraSource);
-      document.getElementById("count-basis").textContent = `Disease fields: ${catalog.counting_basis.disease_fields}. Download fields: ${catalog.counting_basis.download_fields}. Counts describe usage frequency, not semantic approval. Species, program, and external resources: distinct visible datasets per label, checked separately on October 16. Zero means no observed public use at the field’s stated date; registered unused options and confirmed pending terms can still be listed.`;
-
-      }
+      document.getElementById("last-updated").textContent = "Last updated: " +
+        generated.toLocaleString(undefined, {dateStyle: "long", timeStyle: "short", timeZone: "UTC"}) + " UTC";
+      document.getElementById("count-basis").textContent =
+        "Uses counts published datasets for disease, site, species, program, and external resources; " +
+        "for categories, data types, and file formats, it counts current download entries. " +
+        "Zero means no published use in this reference. Counts are examples of usage, not a measure of suitability.";
 
       // Referencing the policy here makes the embedded policy an exercised build input.
       if (policy.approved_vocabulary === true || catalog.approved_vocabulary === true) {

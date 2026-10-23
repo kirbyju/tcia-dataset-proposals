@@ -25,6 +25,7 @@ DEFAULT_DECISIONS = ROOT / "skills/curate-tcia-wordpress-metadata/references/lab
 DEFAULT_REFERENCES = ROOT / "skills/curate-tcia-wordpress-metadata/references/label-reference-links.json"
 DEFAULT_DATASET_LABELS = ROOT / "skills/curate-tcia-wordpress-metadata/references/wordpress-dataset-label-inventory-2026-10-16.json"
 DEFAULT_OUTPUT = ROOT / "docs/labels/index.html"
+DEFAULT_CATALOG = ROOT / "tcia_proposals/resources/label_catalog.json"
 
 EXPECTED_FIELDS = {
     "disease_type": 103,
@@ -37,7 +38,10 @@ EXPECTED_FIELDS = {
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--live-inventory", type=Path, help="Complete current eight-field capture; overrides dated inventories")
+    parser.add_argument("--catalog", type=Path, default=DEFAULT_CATALOG,
+                        help="Shared captured catalog used by the documentation and proposal form")
+    parser.add_argument("--live-inventory", type=Path, help="Refresh from a complete current eight-field capture")
+    parser.add_argument("--write-shared-catalog", action="store_true", help="Save the enriched refresh for a proposal application deployment")
     parser.add_argument("--inventory", type=Path, default=DEFAULT_INVENTORY)
     parser.add_argument("--policy", type=Path, default=DEFAULT_POLICY)
     parser.add_argument("--template", type=Path, default=DEFAULT_TEMPLATE)
@@ -56,6 +60,22 @@ def read_json(path: Path) -> dict:
     if not isinstance(value, dict):
         raise ValueError(f"Expected a JSON object in {path}")
     return value
+
+
+def load_references(path=DEFAULT_REFERENCES):
+    """Retain exact reviewed links for current labels from the shared capture."""
+    references = read_json(path)
+    captured = read_json(DEFAULT_CATALOG)
+    for field, rows in captured["fields"].items():
+        field_refs = references.setdefault("fields", {}).setdefault(field, {})
+        for row in rows:
+            if row.get("reference_links") and row["label"] not in field_refs:
+                field_refs[row["label"]] = {
+                    "concepts": row["reference_links"],
+                    "scope_note": row.get("reference_scope", ""),
+                    "mapping_relation": row.get("reference_relation", ""),
+                }
+    return references
 
 
 def validate_inventory(inventory: dict) -> None:
@@ -186,6 +206,19 @@ def apply_decisions(inventory: dict, decisions: dict, references: dict | None = 
 
 
 def build(args: argparse.Namespace) -> None:
+    if getattr(args, "live_inventory", None):
+        build_historical(args)
+        return
+    inventory = read_json(args.catalog)
+    policy = read_json(args.policy)
+    if inventory.get("wordpress_registered_terms_complete") is not True:
+        raise ValueError("Shared catalog requires a complete public registry capture")
+    if set(inventory.get("fields", {})) != set(EXPECTED_FIELDS) | {"species", "program", "external_resource"}:
+        raise ValueError("Shared catalog must contain all eight fields")
+    render_catalog(args, inventory, policy)
+
+
+def build_historical(args: argparse.Namespace) -> None:
     inventory = read_json(args.inventory)
     policy = read_json(args.policy)
     validate_inventory(inventory)
@@ -218,7 +251,7 @@ def build(args: argparse.Namespace) -> None:
                 row["new_since_reference_snapshot"] = row["label"] not in {r["label"] for r in inventory["fields"][field]}
         inventory = live
         apply_mappings(inventory, read_json(args.mappings))
-    apply_decisions(inventory, read_json(args.decisions), read_json(args.references))
+    apply_decisions(inventory, read_json(args.decisions), load_references(args.references))
     if inventory.get("wordpress_registered_terms_complete"):
         alerts = [f"{field}: {row['label']}" for field, rows in inventory["fields"].items() for row in rows
                   if row.get("reference_review_required") or (row.get("new_since_reference_snapshot")
@@ -232,10 +265,18 @@ def build(args: argparse.Namespace) -> None:
                               "\n\nNew/unmapped labels or registry discrepancies (review; no IDs inferred):\n" +
                               "".join("- " + item + "\n" for item in alerts))
 
+    if args.write_shared_catalog:
+        args.catalog.write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    render_catalog(args, inventory, policy)
+
+
+def render_catalog(args: argparse.Namespace, inventory: dict, policy: dict) -> None:
+
     template = args.template.read_text(encoding="utf-8")
     replacements = {
         "__CATALOG_JSON__": safe_script_json(inventory),
         "__POLICY_JSON__": safe_script_json(policy),
+        "__PROPOSAL_MODEL_JSON__": safe_script_json(read_json(ROOT / "tcia_proposals/resources/proposal_data_model.json")),
         "__TCIA_LOGO_DATA_URI__": official_logo(args.logo_svg),
     }
     for token, replacement in replacements.items():
@@ -245,6 +286,11 @@ def build(args: argparse.Namespace) -> None:
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(template, encoding="utf-8")
+    model_source = ROOT / "tcia_proposals/resources/proposal_data_model.json"
+    args.output.with_name("proposal-data-model.json").write_text(model_source.read_text(encoding="utf-8"), encoding="utf-8")
+    args.output.with_name("form-reference.json").write_text(
+        json.dumps({'catalog': inventory, 'proposal_model': read_json(model_source)}, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8")
     print(f"Wrote {args.output} ({sum(len(rows) for rows in inventory['fields'].values())} catalog labels)")
 
 

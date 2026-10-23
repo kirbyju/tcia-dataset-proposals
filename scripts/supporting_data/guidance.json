@@ -1,0 +1,101 @@
+{
+  "reviewed_on": "2026-10-18",
+  "validator_url": "https://tcia-streamlit.duckdns.org/validator/",
+  "additional_tables": {
+    "image_context": {
+      "title": "Image context and processing",
+      "description": "One row per submitted image file or volume. Describe the submitted representation and preserve the source acquisition context separately.",
+      "fields": [
+        ["image_representation", "text", "State whether the file is a 3D volume, 4D volume, slice, projection, screenshot, whole-slide image or derived image.", "3D volume"],
+        ["source_image_reference", "text", "Reference the source image using an agreed de-identified identifier or relative path. Preserve source DICOM UIDs only when available and permitted by the curator. Do not invent DICOM UIDs.", "source/SUBJ-001/baseline/T1"],
+        ["timepoint_label", "text", "Identify the visit or longitudinal time point using the same labels across imaging and supporting tables.", "baseline"],
+        ["submitted_spacing_mm", "JSON array of numbers", "Voxel or pixel spacing of the submitted radiology image in file-axis order, in mm. Document axis order. This may differ from source acquisition spacing.", "[1.0, 1.0, 1.0]"],
+        ["axis_order", "text", "Explain file axis order, including spatial, time and channel axes when applicable.", "x, y, z"],
+        ["spatial_reference", "text", "Describe the coordinate convention, orientation and location or reference the file header/affine. Preserve the spatial transform, including after reorientation or registration.", "NIfTI header affine; RAS+ world coordinates in mm"],
+        ["intensity_units", "text", "Units of submitted pixel or voxel values. State whether values are quantitative, arbitrary or transformed, and how transforms affect interpretation.", "arbitrary MR signal units"],
+        ["processing_description", "text", "Describe conversion software/version and subsequent reorientation, registration, interpolation, cropping, resampling, normalization, clipping or compression.", "Fictional example: converted to NIfTI, resampled to 1 mm isotropic with linear interpolation; no intensity normalization"],
+        ["slice_group_and_order", "text", "For separate 2D slices, identify their original volume/series and ordering. Distinguish slice spacing from nominal slice thickness.", "Not applicable: single NIfTI volume"],
+        ["missing_metadata_notes", "text", "Explain unavailable or not-applicable metadata. Do not replace missing measurements with zero or infer acquisition settings from appearance.", "Receive coil model not recorded"]
+      ]
+    },
+    "ct_acquisition": {
+      "title": "CT acquisition",
+      "description": "One row per submitted CT file or volume. Report source acquisition/reconstruction values when known.",
+      "idc_table": "ct_index",
+      "fields": ["ImageType", "PixelSpacing_row_mm", "PixelSpacing_col_mm", "Rows", "Columns", "KVP", "ConvolutionKernel", "GantryDetectorTilt", "FilterType", "DataCollectionDiameter", "ReconstructionDiameter", "SpiralPitchFactor"]
+    },
+    "mr_acquisition": {
+      "title": "MR acquisition",
+      "description": "One row per submitted MR file or volume. Preserve multiple echoes, diffusion b-values and temporal structure rather than selecting a single representative value.",
+      "idc_table": "mr_index",
+      "fields": ["MagneticFieldStrength", "ScanningSequence", "SequenceVariant", "MRAcquisitionType", "EchoTime", "RepetitionTime", "EchoTrainLength", "FlipAngle", "PixelBandwidth", "ImagingFrequency", "ImagedNucleus", "PixelSpacing_row_mm", "PixelSpacing_col_mm", "Rows", "Columns", "InversionTime", "ReceiveCoilName", "SequenceName", "DiffusionBValue", "NumberOfTemporalPositions"]
+    },
+    "pet_acquisition": {
+      "title": "PET acquisition",
+      "description": "One row per submitted PET file or volume. Record the original quantitative units and any conversion or SUV normalization applied to the submitted image.",
+      "idc_table": "pt_index",
+      "fields": ["SeriesType", "Units", "DecayCorrection", "CorrectedImage", "RandomsCorrectionMethod", "ReconstructionMethod", "ActualFrameDuration", "ScatterCorrectionMethod", "AttenuationCorrectionMethod", "RadionuclideCodeMeaning", "RadionuclideTotalDose", "Radiopharmaceutical", "PixelSpacing_row_mm", "PixelSpacing_col_mm", "Rows", "Columns", "NumberOfSlices", "NumberOfTimeSlices"]
+    },
+    "contrast": {
+      "title": "Contrast administration",
+      "description": "One row per submitted image file or volume with known contrast information. Distinguish no contrast from an unavailable administration record.",
+      "idc_table": "contrast_index",
+      "fields": ["ContrastBolusAgent", "ContrastBolusIngredient", "ContrastBolusRoute"]
+    },
+    "slide_details": {
+      "title": "Slide microscopy details",
+      "description": "One row per submitted slide image. Report the submitted image dimensions and resolution, retaining specimen/slide linkage agreed with your curator.",
+      "idc_table": "sm_instance_index",
+      "fields": ["PixelSpacing_0", "TotalPixelMatrixColumns", "TotalPixelMatrixRows", "ImageType"]
+    },
+    "annotation_details": {
+      "title": "Annotations and source images",
+      "description": "One row per segment, region or annotation group. Keep labels, codes and algorithms paired on the same row.",
+      "fields": [
+        ["annotation_id", "text", "Identifier for the individual segment, region or annotation group within the dataset.", "SEG-001"],
+        ["source_file_name", "text", "Exact relative path of the submitted image the annotation applies to. Subject-level linkage alone does not identify the annotated image.", "images/SUBJ-001_baseline_T1.nii.gz"],
+        ["label_value", "integer or text", "Value identifying the segment or region in the annotation file; document background and overlapping labels.", 1],
+        ["label_name", "text", "Meaning of this specific segment or annotation, distinct from the anatomy originally scanned.", "Example target region"],
+        ["algorithm_type", "text", "Describe whether the annotation was manual, automatic or semiautomatic and explain any human editing.", "manual"],
+        ["algorithm_name_and_version", "text", "Software/model name and version used to create or edit the annotation.", "Fictional annotation editor 1.0"],
+        ["coordinate_reference", "text", "Explain coordinate space, units and any transform needed to align with the source image.", "Same voxel grid and affine as source NIfTI"]
+      ]
+    }
+  },
+  "field_notes": {
+    "radiology.pixel_spacing_row": "The upstream description specifies a row/column pair in mm despite the singular field name. Preserve both values and confirm the delimiter with your curator. Additional modality tables use separate row and column fields.",
+    "file.file_id": "The upstream description says this identifier is generated by the CRDC Submission Portal. Ask your curator how it should be handled; leave it blank in preparation examples.",
+    "procedure.procedure_date": "Discuss permitted de-identified dates or time-point representations with your curator. Do not supply original identifying dates through this guide.",
+    "radiology.patient_age_at_imaging": "The model describes DICOM-style ages, such as 063Y. Confirm the permitted representation and any age protection with your curator.",
+    "diagnosis.age_at_diagnosis": "Use the units and representation agreed with your curator. Do not assume that age at diagnosis and age at imaging are interchangeable."
+  },
+  "idc_examples": {
+    "ImageType": "[\"ORIGINAL\", \"PRIMARY\"]",
+    "PixelSpacing_row_mm": 0.8,
+    "PixelSpacing_col_mm": 0.8,
+    "Rows": 256,
+    "Columns": 256,
+    "KVP": 120,
+    "ConvolutionKernel": "[\"STANDARD\"]",
+    "MagneticFieldStrength": 3,
+    "ScanningSequence": "[\"GR\"]",
+    "MRAcquisitionType": "3D",
+    "EchoTime": "[2.5]",
+    "RepetitionTime": 6,
+    "FlipAngle": 12,
+    "ImagedNucleus": "1H",
+    "Units": "BQML",
+    "SeriesType": "STATIC/IMAGE",
+    "DecayCorrection": "START",
+    "CorrectedImage": "[\"ATTN\", \"DECY\"]",
+    "RadionuclideCodeMeaning": "Fluorine F18",
+    "RadionuclideTotalDose": 185000000,
+    "Radiopharmaceutical": "Fluorodeoxyglucose F18",
+    "ActualFrameDuration": "[180000]",
+    "ContrastBolusAgent": "[\"Gadobutrol\"]",
+    "ContrastBolusRoute": "[\"Intravenous\"]",
+    "PixelSpacing_0": 0.00025,
+    "TotalPixelMatrixColumns": 80000,
+    "TotalPixelMatrixRows": 60000
+  }
+}
