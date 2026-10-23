@@ -184,6 +184,7 @@
       <div class="brand-row">
         <img src="__TCIA_LOGO_DATA_URI__" alt="The Cancer Imaging Archive">
         <div class="header-actions">
+          <a class="button" href="proposal-data-model.json" download style="text-decoration:none;display:inline-flex;align-items:center">Download JSON guidance</a>
           <button class="button" id="export-button" type="button" title="Download all eight fields as an Excel-compatible CSV">Export spreadsheet (.csv)</button>
           <button class="button button--light" id="download-button" type="button">Download offline copy</button>
         </div>
@@ -196,8 +197,8 @@
 
   <main class="page" id="catalog">
     <nav class="concept-tabs" aria-label="Data model levels" role="tablist">
-      <button type="button" id="tab-datasets" role="tab" aria-controls="concept-panel" data-group="datasets">Describe datasets</button>
-      <button type="button" id="tab-recordsets" role="tab" aria-controls="concept-panel" data-group="recordsets">Describe recordsets</button>
+      <button type="button" id="tab-datasets" role="tab" aria-controls="concept-panel" data-group="datasets">Dataset Labels</button>
+      <button type="button" id="tab-recordsets" role="tab" aria-controls="concept-panel" data-group="recordsets">Recordset Labels</button>
     </nav>
     <section id="concept-panel" role="tabpanel" aria-labelledby="tab-datasets">
     <nav class="summary" id="field-tabs" aria-label="Label fields" role="tablist"></nav>
@@ -234,7 +235,7 @@
       </div>
 
       <div id="category-filter-control" hidden style="padding:0.8rem 1.4rem">
-        <label for="category-filter">Filter data types by proposal category</label>
+        <label for="category-filter">Filter data types by data category</label>
         <select id="category-filter"><option value="">All categories</option></select>
       </div>
 
@@ -268,7 +269,7 @@
       <div class="provenance__body">
         <section>
           <h3>Dataset labels</h3>
-          <p>Use Describe datasets for program, species, disease, primary disease site, and external resources. Disease location is where the disease originated; it can differ from the anatomy imaged or annotated. External resources link to related material and do not establish a TCIA-hosted download.</p>
+          <p>Use Dataset Labels for program, species, disease, primary disease site, and external resources. Disease location is where the disease originated; it can differ from the anatomy imaged or annotated. External resources link to related material and do not establish a TCIA-hosted download.</p>
           <p>Non-Cancer does not necessarily mean Healthy Subject. Classify phantoms under species; use Not Applicable when disease or site does not apply.</p>
         </section>
         <section>
@@ -278,7 +279,7 @@
         </section>
         <section class="provenance__wide">
           <h3>Recordset labels</h3>
-          <p>Use Describe recordsets for data category (role), data type (content), and file type (format). Recordsets correspond to TCIA download records. Describe an archive’s contents by their format; record packaging and transfer manifests separately.</p>
+          <p>Use Recordset Labels for data category (role), data type (content), and file type (format). Recordsets correspond to TCIA download records. Describe an archive’s contents by their format; record packaging and transfer manifests separately.</p>
           <div class="table-scroll"><table>
             <thead><tr><th scope="col">Data category</th><th scope="col">Data types</th><th scope="col">File type</th></tr></thead>
             <tbody>
@@ -287,16 +288,6 @@
               <tr><td>Clinical Data</td><td>Follow-Up, Demographic, Treatment</td><td>CSV</td></tr>
             </tbody>
           </table></div>
-          <details>
-            <summary>Proposal category/type guidance</summary>
-            <p>The proposal form uses the combinations below. Types may appear in multiple categories. Choose Other and describe your data if none fits. These selection rules do not restrict historical TCIA records or establish ontology mappings.</p>
-            <div class="table-scroll"><table>
-              <thead><tr><th scope="col">Category</th><th scope="col">Proposal data types</th></tr></thead>
-              <tbody id="proposal-category-types"></tbody>
-            </table></div>
-            <p id="proposal-model-version"></p>
-            <p><a href="proposal-data-model.json" download>Download category/type guidance (JSON)</a></p>
-          </details>
         </section>
         <section>
           <h3>Published examples and counts</h3>
@@ -333,16 +324,7 @@
         option.value = category;
         option.textContent = category;
         categoryFilter.append(option);
-        const row = document.createElement("tr");
-        const name = document.createElement("td");
-        name.textContent = category;
-        const types = document.createElement("td");
-        types.textContent = allowedTypes(category).includes("*") ? "All registered data types" :
-          allowedTypes(category).map(label => typeExplanation(label) ? `${label} (${typeExplanation(label)})` : label).join(", ");
-        row.append(name, types);
-        document.getElementById("proposal-category-types").append(row);
       });
-      document.getElementById("proposal-model-version").textContent = `Proposal guidance version: ${proposalModel.version}. The form and this page use the same versioned JSON source.`;
       const groups = {
         datasets: ["program", "species", "disease_type", "disease_location", "external_resource"],
         recordsets: ["data_category", "data_type", "file_type"]
@@ -575,30 +557,28 @@
         label.append(highlight(row.label, state.query.trim()));
         if (state.field === "data_type") {
           const explanation = typeExplanation(row.label);
+          const reference = (proposalModel.data_type_references || {})[row.label];
           if (explanation) {
-            const detail = document.createElement("span");
-            detail.className = "mapping-note";
+            label.append(" ");
+            const detail = document.createElement(reference ? "a" : "span");
+            if (reference) {
+              detail.href = safeUrl(reference.url);
+              detail.target = "_blank";
+              detail.rel = "noopener noreferrer";
+            }
             detail.append(highlight(`(${explanation})`, state.query.trim()));
             label.append(detail);
           }
-          const reference = (proposalModel.data_type_references || {})[row.label];
-          if (reference) {
-            const detail = document.createElement("span");
-            detail.className = "mapping-note";
-            const link = document.createElement("a");
-            link.href = safeUrl(reference.url);
-            link.target = "_blank";
-            link.rel = "noopener noreferrer";
-            link.textContent = "DICOM definition";
-            link.setAttribute("aria-label", reference.title);
-            detail.append(link);
-            if (reference.scope_note) detail.append(` — ${reference.scope_note}`);
-            label.append(detail);
+          if (reference?.scope_note) {
+            const note = document.createElement("span");
+            note.className = "mapping-note";
+            note.textContent = reference.scope_note;
+            label.append(note);
           }
           const parents = proposalModel.category_order.filter(category => category !== "Other" && allowedTypes(category).includes(row.label));
           const categories = document.createElement("span");
           categories.className = "mapping-note";
-          categories.textContent = `Proposal categories: ${parents.join(", ") || "Other"}`;
+          categories.textContent = `Data Categories: ${parents.join(", ") || "Other"}`;
           label.append(categories);
         }
         const references = [...(row.reference_links || []), ...(row.replacement_links || [])];
