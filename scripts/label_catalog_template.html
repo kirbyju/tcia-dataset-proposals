@@ -56,18 +56,16 @@
     .button--light { color: var(--navy); background: white; border-color: white; }
     .button--light:hover { background: #edf7ff; }
 
-    .page { width: min(1180px, calc(100% - 2rem)); margin: -0.95rem auto 3rem; }
+    .page { width: min(1180px, calc(100% - 2rem)); margin: 1.2rem auto 3rem; }
     .scope-notice { display: grid; grid-template-columns: auto 1fr; gap: 0.75rem; padding: 1rem 1.1rem; border: 1px solid var(--notice-line); border-radius: var(--radius); background: var(--notice); box-shadow: var(--shadow); }
     .scope-notice__mark { font-weight: 900; color: #7a5100; }
     .scope-notice p { margin: 0; }
     .scope-notice strong { color: #553900; }
 
-    .updated { padding: 0.7rem 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
-    .updated p { margin: 0; color: var(--muted); font-size: 0.85rem; }
-    .concept-tabs { display: flex; gap: 0.5rem; margin: 1.3rem 0 0; border-bottom: 2px solid var(--line); }
+    .updated { margin: 0 0 0.8rem; color: #caeaff; font-size: 0.8rem; }
+    .concept-tabs { display: flex; gap: 0.5rem; margin: 0; border-bottom: 2px solid var(--line); }
     .concept-tabs button { flex: 1; min-height: 50px; padding: 0.8rem; border: 1px solid var(--line); border-bottom: 0; border-radius: 10px 10px 0 0; background: var(--surface); color: var(--navy); font-weight: 780; }
     .concept-tabs button[aria-selected="true"] { color: white; background: var(--navy); border-color: var(--navy); }
-    .model-hierarchy { margin: 1rem 0; color: var(--muted); }
     .summary { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.75rem; margin: 1rem 0; }
     .summary[data-group="recordsets"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .summary button { position: relative; min-height: 96px; padding: 0.85rem 0.85rem 0.75rem; text-align: left; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 3px 14px rgba(4, 43, 91, 0.04); }
@@ -122,6 +120,9 @@
     .provenance { margin-top: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
     .provenance summary { padding: 1rem 1.1rem; color: var(--navy); cursor: pointer; font-weight: 780; }
     .provenance__body { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; padding: 0 1.1rem 1.2rem; }
+    .provenance__wide { grid-column: 1 / -1; }
+    .provenance__body p + p { margin-top: 0.6rem; }
+    .provenance__body details { margin-top: 0.8rem; }
     .provenance h3 { margin: 0 0 0.35rem; color: var(--navy); font-size: 1rem; }
     .provenance p, .provenance ul { margin: 0; color: var(--muted); font-size: 0.88rem; }
     .provenance ul { padding-left: 1.15rem; }
@@ -141,7 +142,7 @@
 
     @media (max-width: 600px) {
       .masthead__inner, .page { width: min(100% - 1rem, 1180px); }
-      .page { margin-top: -0.6rem; }
+      .page { margin-top: 1rem; }
       .scope-notice { border-radius: 9px; }
       .summary, .summary[data-group="recordsets"] { grid-template-columns: 1fr; gap: 0.45rem; }
       .summary button { min-height: 62px; display: flex; align-items: baseline; gap: 0.6rem; }
@@ -167,7 +168,7 @@
     @media print {
       :root { background: white; }
       .masthead { color: var(--ink); background: white; border-bottom: 2px solid var(--navy); }
-      .lede { color: var(--ink); }
+      .lede, .updated { color: var(--ink); }
       .header-actions, .controls, .skip-link { display: none !important; }
       .page { width: 100%; margin: 1rem 0; }
       .workspace, .scope-notice { box-shadow: none; }
@@ -188,18 +189,17 @@
         </div>
       </div>
       <h1>TCIA Data Model</h1>
-      <p class="lede">Learn how TCIA describes datasets and related resources using examples from published datasets.</p>
+      <p class="updated" id="last-updated"></p>
+      <p class="lede">Learn how TCIA describes datasets and related resources using examples from published datasets. A dataset contains one or more recordsets. Each recordset contains one or more file objects.</p>
     </div>
   </header>
 
   <main class="page" id="catalog">
-    <div class="updated"><p id="last-updated"></p></div>
     <nav class="concept-tabs" aria-label="Data model levels" role="tablist">
       <button type="button" id="tab-datasets" role="tab" aria-controls="concept-panel" data-group="datasets">Describe datasets</button>
       <button type="button" id="tab-recordsets" role="tab" aria-controls="concept-panel" data-group="recordsets">Describe recordsets</button>
     </nav>
     <section id="concept-panel" role="tabpanel" aria-labelledby="tab-datasets">
-      <p class="model-hierarchy">A dataset contains one or more recordsets. Each recordset contains one or more file objects.</p>
     <nav class="summary" id="field-tabs" aria-label="Label fields" role="tablist"></nav>
 
     <section class="workspace" id="field-panel" role="tabpanel" aria-labelledby="field-title">
@@ -265,54 +265,47 @@
 
     <details class="provenance">
       <summary>Using the terminology and examples</summary>
-    <section class="model-intro" aria-label="Recordset fields and examples" style="margin:1.5rem 0">
-      <p>Recordsets describe downloadable groups of files and correspond to TCIA download records. A recordset has one data category, one or more data types, and one file type. Use separate recordsets when the category or file type differs. The table below shows examples; these are not restrictions on valid combinations.</p>
-      <div class="table-scroll"><table>
-        <thead><tr><th scope="col">Data category</th><th scope="col">Data types</th><th scope="col">File format</th></tr></thead>
-        <tbody>
-          <tr><td>Radiology Images</td><td>CT, MR</td><td>DICOM</td></tr>
-          <tr><td>Image Annotations</td><td>Segmentation</td><td>NIfTI</td></tr>
-          <tr><td>Clinical Data</td><td>Follow-Up, Demographic, Treatment</td><td>CSV</td></tr>
-        </tbody>
-      </table></div>
-      <p>These labels support dataset discovery and proposal preparation. </p>
-      <details>
-        <summary>Category and data type relationships used by the proposal form</summary>
-        <p>The form offers the data types below for each category. A type can belong to more than one category. These are proposal selection rules, rather than an ontology hierarchy or restrictions on all published TCIA records. Choose Other if a combination does not fit.</p>
-        <div class="table-scroll"><table>
-          <thead><tr><th scope="col">Category</th><th scope="col">Proposal data types</th></tr></thead>
-          <tbody id="proposal-category-types"></tbody>
-        </table></div>
-        <p id="proposal-model-version"></p>
-        <p><a href="proposal-data-model.json" download>Download the shared category/type guidance as JSON</a></p>
-        <p>DICOM abbreviations are explained using <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html#sect_C.7.3.1.1.1">DICOM Modality Defined Terms</a>. SC means Secondary Capture, a TCIA object label rather than a current modality defined term.</p>
-      </details>
-    </section>
-
-    <details class="provenance">
-      <summary>Definition sources and NCI standards</summary>
-      <p>DICOM defines imaging modality codes and derived objects such as segmentations and structured reports. Follow the DICOM definition beside a type to read its standard meaning. A type label alone does not establish the file format; CT images, for example, can be supplied as DICOM or NIfTI.</p>
-      <p><a href="https://www.cancer.gov/about-nci/organization/cbiit/vocabulary/data-elements-for-cancer-research">caDSR</a> registers Common Data Elements: field meanings, representations, and permissible values. <a href="https://www.cancer.gov/about-nci/organization/cbiit/vocabulary">NCI Thesaurus (NCIt)</a> supplies terminology concepts and definitions used to annotate those elements. A caDSR field reference and a term definition serve different purposes.</p>
-      <p>TCIA categories and non-DICOM types describe the role and contents of a data component. Alignment with a caDSR element requires review of its definition and value domain, including version and scope. These labels do not imply an exact caDSR or NCIt mapping. The proposal category/type relationships above remain TCIA selection guidance.</p>
-    </details>
-
-
       <div class="provenance__body">
         <section>
-          <h3>Disease and primary disease site</h3>
-          <p>Disease labels describe diagnoses or cohort context. Primary disease sites describe where the disease originated; scanned anatomy, metastatic sites, and annotation targets can differ. Where available, concept links point to NCI Thesaurus (NCIt) disease definitions and UBERON anatomy definitions.</p>
-          <p>Non-Cancer is a broad discovery label and can accompany a specific nonmalignant disease or Healthy Subject label when supported. Absence of cancer does not by itself establish healthy status. Phantoms belong under species or subject type; retain applicable simulated disease context and use Not Applicable when disease or site does not apply.</p>
+          <h3>Dataset labels</h3>
+          <p>Use Describe datasets for program, species, disease, primary disease site, and external resources. Disease location is where the disease originated; it can differ from the anatomy imaged or annotated. External resources link to related material and do not establish a TCIA-hosted download.</p>
+          <p>Non-Cancer does not necessarily mean Healthy Subject. Classify phantoms under species; use Not Applicable when disease or site does not apply.</p>
         </section>
         <section>
-          <h3>Data types and formats</h3>
-          <p>A category describes the broad role of the data; a type describes the information or imaging object; a format describes how it is stored. For example, a DICOM segmentation can be Image Annotations / SEG / DICOM. A NIfTI labelmap can be Image Annotations / Segmentation / NIfTI.</p>
-          <p>Describe the files inside an archive using their content format. Packaging and transfer manifests can be recorded separately. External resources are links to related material and do not establish a TCIA-hosted download.</p>
+          <h3>Definitions and standards</h3>
+          <p>Follow NCIt links for disease definitions, UBERON for anatomy, and DICOM for modality and object definitions. SC denotes Secondary Capture, a TCIA object label rather than a current DICOM modality term.</p>
+          <p><a href="https://www.cancer.gov/about-nci/organization/cbiit/vocabulary/data-elements-for-cancer-research">caDSR</a> defines fields and permissible values; <a href="https://www.cancer.gov/about-nci/organization/cbiit/vocabulary">NCIt</a> defines terminology concepts. An exact mapping requires review of meaning, scope, and version.</p>
+        </section>
+        <section class="provenance__wide">
+          <h3>Recordset labels</h3>
+          <p>Use Describe recordsets for data category (role), data type (content), and file type (format). Recordsets correspond to TCIA download records. Describe an archive’s contents by their format; record packaging and transfer manifests separately.</p>
+          <div class="table-scroll"><table>
+            <thead><tr><th scope="col">Data category</th><th scope="col">Data types</th><th scope="col">File type</th></tr></thead>
+            <tbody>
+              <tr><td>Radiology Images</td><td>CT, MR</td><td>DICOM</td></tr>
+              <tr><td>Image Annotations</td><td>Segmentation</td><td>NIfTI</td></tr>
+              <tr><td>Clinical Data</td><td>Follow-Up, Demographic, Treatment</td><td>CSV</td></tr>
+            </tbody>
+          </table></div>
+          <details>
+            <summary>Proposal category/type guidance</summary>
+            <p>The proposal form uses the combinations below. Types may appear in multiple categories. Choose Other and describe your data if none fits. These selection rules do not restrict historical TCIA records or establish ontology mappings.</p>
+            <div class="table-scroll"><table>
+              <thead><tr><th scope="col">Category</th><th scope="col">Proposal data types</th></tr></thead>
+              <tbody id="proposal-category-types"></tbody>
+            </table></div>
+            <p id="proposal-model-version"></p>
+            <p><a href="proposal-data-model.json" download>Download category/type guidance (JSON)</a></p>
+          </details>
         </section>
         <section>
-          <h3>Terms and published examples</h3>
-          <p>Available terms and published use are distinct from suitability for a particular dataset. Examples illustrate how labels have been used; a terminology link does not confirm that a concept applies to every dataset. TCIA reviews proposed labels during curation.</p>
+          <h3>Published examples and counts</h3>
+          <p>Examples show past use, not suitability for every dataset. TCIA reviews proposed labels during curation.</p>
           <p id="count-basis"></p>
-          <p>Export spreadsheet includes all eight fields and their terminology references, usage counts, and supporting mapping evidence. Search and filters do not limit the export. The offline copy retains the same data and references.</p>
+        </section>
+        <section>
+          <h3>Exports</h3>
+          <p>Export spreadsheet includes all eight fields, references, counts, and mapping evidence, regardless of filters. Download offline copy retains the page’s data and references.</p>
         </section>
       </div>
     </details>
@@ -760,9 +753,8 @@
       document.getElementById("last-updated").textContent = "Last updated: " +
         generated.toLocaleString(undefined, {dateStyle: "long", timeStyle: "short", timeZone: "UTC"}) + " UTC";
       document.getElementById("count-basis").textContent =
-        "Uses counts published datasets for disease, site, species, program, and external resources; " +
-        "for categories, data types, and file formats, it counts current download entries. " +
-        "Zero means no published use in this reference. Counts are examples of usage, not a measure of suitability.";
+        "Uses counts datasets for dataset labels and current download records for recordset labels. " +
+        "Zero means no published use in this snapshot.";
 
       // Referencing the policy here makes the embedded policy an exercised build input.
       if (policy.approved_vocabulary === true || catalog.approved_vocabulary === true) {
