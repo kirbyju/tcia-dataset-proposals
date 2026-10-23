@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="description" content="Explore TCIA data models, dataset labels, data categories, data types, file formats, and terminology references.">
+  <meta name="description" content="Explore the TCIA data model, dataset labels, data categories, data types, file formats, and terminology references.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23042b5b'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%235bc6ff' stroke-width='3'/%3E%3C/svg%3E">
-  <title>TCIA Data Models</title>
+  <title>TCIA Data Model</title>
   <style>
     :root {
       --navy: #042b5b;
@@ -48,7 +48,6 @@
     .masthead__inner { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; padding: 1.1rem 0 2rem; }
     .brand-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .brand-row img { display: block; width: 220px; height: auto; }
-    .eyebrow { margin: 0 0 0.35rem; color: #caeaff; font-size: 0.78rem; font-weight: 750; letter-spacing: 0.11em; text-transform: uppercase; }
     h1 { max-width: 760px; margin: 1.3rem 0 0.6rem; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.03; letter-spacing: -0.035em; }
     .lede { max-width: 760px; margin: 0; color: #e6f3ff; font-size: clamp(1rem, 2vw, 1.18rem); }
     .header-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
@@ -63,7 +62,14 @@
     .scope-notice p { margin: 0; }
     .scope-notice strong { color: #553900; }
 
-    .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+    .updated { padding: 0.7rem 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+    .updated p { margin: 0; color: var(--muted); font-size: 0.85rem; }
+    .concept-tabs { display: flex; gap: 0.5rem; margin: 1.3rem 0 0; border-bottom: 2px solid var(--line); }
+    .concept-tabs button { flex: 1; min-height: 50px; padding: 0.8rem; border: 1px solid var(--line); border-bottom: 0; border-radius: 10px 10px 0 0; background: var(--surface); color: var(--navy); font-weight: 780; }
+    .concept-tabs button[aria-selected="true"] { color: white; background: var(--navy); border-color: var(--navy); }
+    .model-hierarchy { margin: 1rem 0; color: var(--muted); }
+    .summary { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+    .summary[data-group="recordsets"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .summary button { position: relative; min-height: 96px; padding: 0.85rem 0.85rem 0.75rem; text-align: left; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 3px 14px rgba(4, 43, 91, 0.04); }
     .summary button:hover { border-color: var(--blue); transform: translateY(-1px); }
     .summary button[aria-selected="true"] { color: white; background: var(--blue); border-color: var(--blue); }
@@ -125,7 +131,7 @@
     @media (max-width: 800px) {
       .brand-row { align-items: flex-start; flex-direction: column; }
       .brand-row img { width: 190px; }
-      .summary { grid-template-columns: repeat(2, 1fr); }
+      .summary, .summary[data-group="recordsets"] { grid-template-columns: repeat(2, 1fr); }
       .controls { grid-template-columns: 1fr 1fr; }
       .control--search { grid-column: 1 / -1; }
       .field-head { grid-template-columns: 1fr; }
@@ -137,7 +143,7 @@
       .masthead__inner, .page { width: min(100% - 1rem, 1180px); }
       .page { margin-top: -0.6rem; }
       .scope-notice { border-radius: 9px; }
-      .summary { grid-template-columns: 1fr; gap: 0.45rem; }
+      .summary, .summary[data-group="recordsets"] { grid-template-columns: 1fr; gap: 0.45rem; }
       .summary button { min-height: 62px; display: flex; align-items: baseline; gap: 0.6rem; }
       .summary__count { font-size: 1.25rem; }
       .controls { grid-template-columns: 1fr; padding: 0.9rem; }
@@ -161,7 +167,7 @@
     @media print {
       :root { background: white; }
       .masthead { color: var(--ink); background: white; border-bottom: 2px solid var(--navy); }
-      .lede, .eyebrow { color: var(--ink); }
+      .lede { color: var(--ink); }
       .header-actions, .controls, .skip-link { display: none !important; }
       .page { width: 100%; margin: 1rem 0; }
       .workspace, .scope-notice { box-shadow: none; }
@@ -171,61 +177,29 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#catalog">Skip to data models</a>
+  <a class="skip-link" href="#catalog">Skip to data model</a>
   <header class="masthead">
     <div class="masthead__inner">
       <div class="brand-row">
         <img src="__TCIA_LOGO_DATA_URI__" alt="The Cancer Imaging Archive">
         <div class="header-actions">
-          <a class="button" href="../supporting-data/" style="text-decoration:none;display:inline-flex;align-items:center">Prepare supporting data</a>
           <button class="button" id="export-button" type="button" title="Download all eight fields as an Excel-compatible CSV">Export spreadsheet (.csv)</button>
           <button class="button button--light" id="download-button" type="button">Download offline copy</button>
         </div>
       </div>
-      <p class="eyebrow">Dataset documentation</p>
-      <h1>TCIA Data Models</h1>
-      <p class="lede">Understand how TCIA describes datasets, downloadable data, and related resources. Explore the terms below, their terminology references, and examples from published datasets.</p>
+      <h1>TCIA Data Model</h1>
+      <p class="lede">Learn how TCIA describes datasets and related resources using examples from published datasets.</p>
     </div>
   </header>
 
   <main class="page" id="catalog">
-    <section class="scope-notice" aria-labelledby="scope-title">
-      <div class="scope-notice__mark" aria-hidden="true">i</div>
-      <div><p><strong id="scope-title">Choosing terms for your dataset</strong> Disease, primary disease site, and species describe a dataset. Data category, data type, and file format describe each group of files. External resource categories describe related material hosted elsewhere. Choose terms that fit your data; in the proposal form, select Other and describe your dataset if no suitable term is available.</p>
-      <p id="last-updated" style="margin-top:0.6rem;color:var(--muted);font-size:0.85rem"></p></div>
-    </section>
-    <section class="model-intro" aria-labelledby="model-overview" style="margin:1.5rem 0">
-      <h2 id="model-overview">How the fields work together</h2>
-      <p>A data component has one category, one or more data types, and one file format. Use separate components when the category or format differs. The table below shows examples; these are not restrictions on valid combinations.</p>
-      <div class="table-scroll"><table>
-        <thead><tr><th scope="col">Data category</th><th scope="col">Data types</th><th scope="col">File format</th></tr></thead>
-        <tbody>
-          <tr><td>Radiology Images</td><td>CT, MR</td><td>DICOM</td></tr>
-          <tr><td>Image Annotations</td><td>Segmentation</td><td>NIfTI</td></tr>
-          <tr><td>Clinical Data</td><td>Follow-Up, Demographic, Treatment</td><td>CSV</td></tr>
-        </tbody>
-      </table></div>
-      <p>These labels support dataset discovery and proposal preparation. For recommended clinical tables and non-DICOM imaging metadata, see <a href="../supporting-data/">Prepare supporting data</a>.</p>
-      <details>
-        <summary>Category and data type relationships used by the proposal form</summary>
-        <p>The form offers the data types below for each category. A type can belong to more than one category. These are proposal selection rules, rather than an ontology hierarchy or restrictions on all published TCIA records. Choose Other if a combination does not fit.</p>
-        <div class="table-scroll"><table>
-          <thead><tr><th scope="col">Category</th><th scope="col">Proposal data types</th></tr></thead>
-          <tbody id="proposal-category-types"></tbody>
-        </table></div>
-        <p id="proposal-model-version"></p>
-        <p><a href="proposal-data-model.json" download>Download the shared category/type guidance as JSON</a></p>
-        <p>DICOM abbreviations are explained using <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html#sect_C.7.3.1.1.1">DICOM Modality Defined Terms</a>. SC means Secondary Capture, a TCIA object label rather than a current modality defined term.</p>
-      </details>
-    </section>
-
-    <details class="card">
-      <summary>Definition sources and NCI standards</summary>
-      <p>DICOM defines imaging modality codes and derived objects such as segmentations and structured reports. Follow the DICOM definition beside a type to read its standard meaning. A type label alone does not establish the file format; CT images, for example, can be supplied as DICOM or NIfTI.</p>
-      <p><a href="https://www.cancer.gov/about-nci/organization/cbiit/vocabulary/data-elements-for-cancer-research">caDSR</a> registers Common Data Elements: field meanings, representations, and permissible values. <a href="https://www.cancer.gov/about-nci/organization/cbiit/vocabulary">NCI Thesaurus (NCIt)</a> supplies terminology concepts and definitions used to annotate those elements. A caDSR field reference and a term definition serve different purposes.</p>
-      <p>TCIA categories and non-DICOM types describe the role and contents of a data component. Alignment with a caDSR element requires review of its definition and value domain, including version and scope. These labels do not imply an exact caDSR or NCIt mapping. The proposal category/type relationships above remain TCIA selection guidance.</p>
-    </details>
-
+    <div class="updated"><p id="last-updated"></p></div>
+    <nav class="concept-tabs" aria-label="Data model levels" role="tablist">
+      <button type="button" id="tab-datasets" role="tab" aria-controls="concept-panel" data-group="datasets">Describe datasets</button>
+      <button type="button" id="tab-recordsets" role="tab" aria-controls="concept-panel" data-group="recordsets">Describe recordsets</button>
+    </nav>
+    <section id="concept-panel" role="tabpanel" aria-labelledby="tab-datasets">
+      <p class="model-hierarchy">A dataset contains one or more recordsets. Each recordset contains one or more file objects.</p>
     <nav class="summary" id="field-tabs" aria-label="Label fields" role="tablist"></nav>
 
     <section class="workspace" id="field-panel" role="tabpanel" aria-labelledby="field-title">
@@ -287,8 +261,42 @@
       </div>
     </section>
 
+    </section>
+
     <details class="provenance">
       <summary>Using the terminology and examples</summary>
+    <section class="model-intro" aria-label="Recordset fields and examples" style="margin:1.5rem 0">
+      <p>Recordsets describe downloadable groups of files and correspond to TCIA download records. A recordset has one data category, one or more data types, and one file type. Use separate recordsets when the category or file type differs. The table below shows examples; these are not restrictions on valid combinations.</p>
+      <div class="table-scroll"><table>
+        <thead><tr><th scope="col">Data category</th><th scope="col">Data types</th><th scope="col">File format</th></tr></thead>
+        <tbody>
+          <tr><td>Radiology Images</td><td>CT, MR</td><td>DICOM</td></tr>
+          <tr><td>Image Annotations</td><td>Segmentation</td><td>NIfTI</td></tr>
+          <tr><td>Clinical Data</td><td>Follow-Up, Demographic, Treatment</td><td>CSV</td></tr>
+        </tbody>
+      </table></div>
+      <p>These labels support dataset discovery and proposal preparation. </p>
+      <details>
+        <summary>Category and data type relationships used by the proposal form</summary>
+        <p>The form offers the data types below for each category. A type can belong to more than one category. These are proposal selection rules, rather than an ontology hierarchy or restrictions on all published TCIA records. Choose Other if a combination does not fit.</p>
+        <div class="table-scroll"><table>
+          <thead><tr><th scope="col">Category</th><th scope="col">Proposal data types</th></tr></thead>
+          <tbody id="proposal-category-types"></tbody>
+        </table></div>
+        <p id="proposal-model-version"></p>
+        <p><a href="proposal-data-model.json" download>Download the shared category/type guidance as JSON</a></p>
+        <p>DICOM abbreviations are explained using <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html#sect_C.7.3.1.1.1">DICOM Modality Defined Terms</a>. SC means Secondary Capture, a TCIA object label rather than a current modality defined term.</p>
+      </details>
+    </section>
+
+    <details class="provenance">
+      <summary>Definition sources and NCI standards</summary>
+      <p>DICOM defines imaging modality codes and derived objects such as segmentations and structured reports. Follow the DICOM definition beside a type to read its standard meaning. A type label alone does not establish the file format; CT images, for example, can be supplied as DICOM or NIfTI.</p>
+      <p><a href="https://www.cancer.gov/about-nci/organization/cbiit/vocabulary/data-elements-for-cancer-research">caDSR</a> registers Common Data Elements: field meanings, representations, and permissible values. <a href="https://www.cancer.gov/about-nci/organization/cbiit/vocabulary">NCI Thesaurus (NCIt)</a> supplies terminology concepts and definitions used to annotate those elements. A caDSR field reference and a term definition serve different purposes.</p>
+      <p>TCIA categories and non-DICOM types describe the role and contents of a data component. Alignment with a caDSR element requires review of its definition and value domain, including version and scope. These labels do not imply an exact caDSR or NCIt mapping. The proposal category/type relationships above remain TCIA selection guidance.</p>
+    </details>
+
+
       <div class="provenance__body">
         <section>
           <h3>Disease and primary disease site</h3>
@@ -342,7 +350,12 @@
         document.getElementById("proposal-category-types").append(row);
       });
       document.getElementById("proposal-model-version").textContent = `Proposal guidance version: ${proposalModel.version}. The form and this page use the same versioned JSON source.`;
-      const fieldOrder = ["disease_type", "disease_location", "data_category", "data_type", "file_type", "species", "program", "external_resource"];
+      const groups = {
+        datasets: ["program", "species", "disease_type", "disease_location", "external_resource"],
+        recordsets: ["data_category", "data_type", "file_type"]
+      };
+      const fieldOrder = [...groups.datasets, ...groups.recordsets];
+      const groupForField = field => groups.recordsets.includes(field) ? "recordsets" : "datasets";
       const fieldConfig = {
         disease_type: {
           title: "Disease type",
@@ -361,15 +374,15 @@
         data_category: {
           title: "Data category",
           slug: "data-category",
-          scope: "Data component",
-          description: "The broad role of the files, such as Radiology Images, Image Annotations, or Clinical Data. Choose one category per component.",
+          scope: "Recordset",
+          description: "The broad role of the files, such as Radiology Images, Image Annotations, or Clinical Data. Choose one category per recordset.",
           mapping: "Use NCI Imaging Submission Model and GDC as guides"
         },
         data_type: {
           title: "Data type",
           slug: "data-type",
-          scope: "Data component",
-          description: "The specific information or imaging objects represented. A component can have multiple types, such as CT and MR, or Demographic and Treatment. DICOM abbreviations include expanded names and links to the standard’s definitions. Some describe derived objects, such as SEG and SR, rather than acquisition techniques.",
+          scope: "Recordset",
+          description: "The specific information or imaging objects represented. A recordset can have multiple types, such as CT and MR, or Demographic and Treatment. DICOM abbreviations include expanded names and links to the standard’s definitions. Some describe derived objects, such as SEG and SR, rather than acquisition techniques.",
           mapping: "Use NCI Imaging Submission Model and GDC as guides"
         },
         species: {
@@ -385,15 +398,15 @@
           description: "The research program associated with a published dataset. Program assignment is handled during curation."
         },
         external_resource: {
-          title: "External resource labels",
+          title: "External resources",
           slug: "external-resource",
-          scope: "Related resources",
+          scope: "Dataset",
           description: "Categories for related data or software hosted elsewhere. Provide a category, URL, and resource context for each resource in your proposal. Historical labels may also describe TCIA-hosted supporting data; a label alone does not establish hosting location."
         },
         file_type: {
           title: "File type",
           slug: "file-type",
-          scope: "Data component",
+          scope: "Recordset",
           description: "How the files are stored, such as DICOM, NIfTI, or CSV. ZIP can describe archive packaging in addition to the formats of its contents. The proposal form collects content formats and leaves packaging decisions for curation.",
           mapping: "Use NCI Imaging Submission Model and GDC as guides"
         }
@@ -410,7 +423,7 @@
 
       function fieldFromHash() {
         const slug = location.hash.replace(/^#/, "");
-        return fieldOrder.find(key => fieldConfig[key].slug === slug || key === slug) || "disease_type";
+        return fieldOrder.find(key => fieldConfig[key].slug === slug || key === slug) || (slug === "recordsets" ? groups.recordsets[0] : groups.datasets[0]);
       }
 
       function normalize(value) {
@@ -449,7 +462,17 @@
 
       function renderTabs() {
         tabs.replaceChildren();
-        fieldOrder.forEach((key, index) => {
+        const group = groupForField(state.field);
+        const visibleFields = groups[group];
+        tabs.dataset.group = group;
+        document.getElementById("concept-panel").setAttribute("aria-labelledby", `tab-${group}`);
+        document.querySelectorAll("[data-group]").forEach(button => {
+          const selected = button.dataset.group === group;
+          button.setAttribute("aria-selected", String(selected));
+          button.tabIndex = selected ? 0 : -1;
+        });
+        tabs.setAttribute("aria-label", group === "datasets" ? "Dataset fields" : "Recordset fields");
+        visibleFields.forEach((key, index) => {
           const config = fieldConfig[key];
           const button = document.createElement("button");
           button.type = "button";
@@ -471,12 +494,12 @@
             if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
             event.preventDefault();
             let nextIndex = index;
-            if (event.key === "ArrowLeft") nextIndex = (index - 1 + fieldOrder.length) % fieldOrder.length;
-            if (event.key === "ArrowRight") nextIndex = (index + 1) % fieldOrder.length;
+            if (event.key === "ArrowLeft") nextIndex = (index - 1 + visibleFields.length) % visibleFields.length;
+            if (event.key === "ArrowRight") nextIndex = (index + 1) % visibleFields.length;
             if (event.key === "Home") nextIndex = 0;
-            if (event.key === "End") nextIndex = fieldOrder.length - 1;
-            selectField(fieldOrder[nextIndex], true);
-            tabs.querySelector(`[data-field="${fieldOrder[nextIndex]}"]`).focus();
+            if (event.key === "End") nextIndex = visibleFields.length - 1;
+            selectField(visibleFields[nextIndex], true);
+            tabs.querySelector(`[data-field="${visibleFields[nextIndex]}"]`).focus();
           });
           tabs.append(button);
         });
@@ -484,6 +507,13 @@
 
       function selectField(key, updateHash) {
         if (!fieldConfig[key]) return;
+        if (groupForField(key) !== groupForField(state.field)) {
+          state.query = "";
+          search.value = "";
+          categoryFilter.value = "";
+          state.singleUse = false;
+          singleUse.checked = false;
+        }
         state.field = key;
         if (updateHash && location.hash !== `#${fieldConfig[key].slug}`) {
           history.replaceState(null, "", `#${fieldConfig[key].slug}`);
@@ -527,7 +557,7 @@
 
       function render() {
         const config = fieldConfig[state.field];
-        document.title = `${config.title} · TCIA Data Models`;
+        document.title = `${config.title} · TCIA Data Model`;
         document.getElementById("field-panel").setAttribute("aria-labelledby", `tab-${config.slug}`);
         document.getElementById("field-title").textContent = config.title;
         document.getElementById("field-description").textContent = config.description;
@@ -700,6 +730,21 @@
         link.remove();
         setTimeout(() => URL.revokeObjectURL(url), 0);
       }
+
+      const conceptTabs = [...document.querySelectorAll("[data-group]")];
+      conceptTabs.forEach((button, index) => {
+        const activate = () => {
+          selectField(groups[button.dataset.group][0], true);
+          button.focus();
+        };
+        button.addEventListener("click", activate);
+        button.addEventListener("keydown", event => {
+          if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+          event.preventDefault();
+          const next = event.key === "Home" ? 0 : event.key === "End" ? 1 : 1 - index;
+          conceptTabs[next].click();
+        });
+      });
 
       search.addEventListener("input", () => { state.query = search.value; render(); });
       categoryFilter.addEventListener("change", render);
