@@ -251,7 +251,7 @@ if st.session_state.workflow == 'curation':
                "Missing information is reported here for later follow-up; it does not need to be completed in this app.")
     metadata = st.session_state.metadata
     workbook, crdc_warnings = crdc_converter.build_crdc_workbook(proposal, metadata)
-    import_gaps = metadata_gaps(proposal, metadata, schema, upload.name)
+    import_gaps = metadata_gaps(proposal, metadata, upload.name)
     crdc_warnings = [note for note in import_gaps if note.startswith('CRDC import —')] + crdc_warnings
     gaps = [note for note in import_gaps if not note.startswith('CRDC import —')]
     if gaps:
@@ -259,7 +259,6 @@ if st.session_state.workflow == 'curation':
             st.write("**Information gaps and export notes**")
             for warning in gaps:
                 st.warning(warning)
-        st.caption("Imaging model requirements are reference guidance, not mandatory TCIA submission policy.")
     nickname = metadata['Dataset'][0].get('dataset_short_name') or 'dataset'
     safe_name = re.sub(r'[^A-Za-z0-9._-]+', '-', nickname)
     try:

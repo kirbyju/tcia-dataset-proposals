@@ -67,6 +67,9 @@ class ValidatorWorkflowTests(unittest.TestCase):
             click(app, 'Confirm investigators and generate outputs')
             self.assertEqual(len(downloads), 3)
             self.assertFalse(app.error)
+            self.assertFalse(app.warning)
+            self.assertFalse(any('Information gaps and export notes' in item.value for item in app.markdown))
+            self.assertFalse(any('Imaging model requirements' in item.value for item in app.caption))
             doc = Document(BytesIO(downloads['Download TCIA curation tracking document']['data']))
             self.assertEqual(doc.paragraphs[0].text, 'Example (private)')
             text = '\n'.join(c.text for t in doc.tables for r in t.rows for c in r.cells)
@@ -124,7 +127,7 @@ class ValidatorWorkflowTests(unittest.TestCase):
             app = AppTest.from_file(str(ROOT / 'tcia-remapper.py'), default_timeout=30).run()
             click(app, 'Generate curation outputs')
             click(app, 'Confirm investigators and generate outputs')
-            self.assertTrue(any('Imaging model' in w.value for w in app.warning))
+            self.assertFalse(any('Imaging model' in w.value for w in app.warning))
             self.assertFalse(any('CRDC' in w.value for w in app.warning))
             crdc_clicked = True
             app.run()

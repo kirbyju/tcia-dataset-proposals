@@ -51,7 +51,7 @@ class CurationWorkflowTests(unittest.TestCase):
     def test_unmapped_crdc_terms_warn_and_leave_document_placeholders(self):
         proposal = {'Title': 'Example', 'Nickname': 'Example', 'diagnosis': ['A source vocabulary term']}
         metadata = {'Program': [], 'Dataset': [{'dataset_short_name': 'Example'}], 'Investigator': [], 'Related_Work': []}
-        warnings = metadata_gaps(proposal, metadata, {}, 'source.xlsx')
+        warnings = metadata_gaps(proposal, metadata, 'source.xlsx')
         self.assertTrue(any('A source vocabulary term' in w for w in warnings))
         self.assertTrue(any('CRDC-only' in w for w in warnings))
         doc = Document(generate_summary_docx(metadata, proposal, {}, allow_label_placeholders=True))

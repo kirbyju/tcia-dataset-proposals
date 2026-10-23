@@ -127,14 +127,9 @@ def import_proposal(payload, filename, default_program, proposal_type='New Colle
     return proposal, metadata
 
 
-def metadata_gaps(proposal, metadata, schema, source):
+def metadata_gaps(proposal, metadata, source):
+    """Report proposal gaps; model completeness is handled later in submission."""
     warnings = []
-    for entity, rows in metadata.items():
-        missing = [prop['Property'] for prop in schema.get(entity, [])
-                   if prop.get('Required/optional') == 'R'
-                   and any(not clean(row.get(prop['Property'])) for row in rows)]
-        if missing:
-            warnings.append(f'Imaging model — {entity}: missing required model values: {", ".join(missing)}.')
     for key, label in [('Title', 'descriptive title'), ('Nickname', 'short title'), ('Abstract', 'abstract'),
                        ('diagnosis', 'disease type'), ('disease_site', 'disease site'), ('species', 'species')]:
         if not proposal.get(key) or proposal[key] == '[]':
