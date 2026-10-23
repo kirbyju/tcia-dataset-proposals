@@ -122,14 +122,14 @@ if st.session_state.workflow is None:
         st.subheader("Generate curation documents and summary metadata")
         st.write("Import a TCIA proposal package or CRDC workbook, review the investigators, "
                  "and download the internal tracking document, imaging model TSV package, and CRDC Excel workbook.")
-        if st.button("Generate curation outputs", type="primary", use_container_width=True):
+        if st.button("Generate curation outputs", type="primary", width="stretch"):
             st.session_state.workflow = 'curation'
             st.rerun()
     with st.container(border=True):
         st.subheader("Generate or standardize tabular supporting data")
         st.write("Map source columns to the NCI Imaging Submission Model, review supported values, "
                  "and generate standardized TSV files.")
-        if st.button("Remap supporting data", use_container_width=True):
+        if st.button("Remap supporting data", width="stretch"):
             st.session_state.workflow = 'remap'
             st.rerun()
     st.stop()
@@ -195,7 +195,7 @@ if st.session_state.workflow == 'curation':
     for column in INVESTIGATOR_COLUMNS:
         if column not in draft:
             draft[column] = pd.Series(dtype='int64' if column == 'author_order' else 'str')
-    edited = st.data_editor(draft, num_rows='dynamic', use_container_width=True,
+    edited = st.data_editor(draft, num_rows='dynamic', width="stretch",
                             key=f'investigators_{fingerprint}_{st.session_state.investigator_revision}',
                             column_order=INVESTIGATOR_COLUMNS,
                             column_config={'author_order': st.column_config.NumberColumn('Author order', min_value=1, step=1),
