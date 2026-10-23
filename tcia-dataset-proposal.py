@@ -320,6 +320,12 @@ if 'Human' in extra_data['species']:
         default=['Adult'], key='adult_or_childhood_study')
 
 st.subheader("Data being submitted to TCIA")
+col1, col2 = st.columns(2)
+with col1:
+    extra_data['number_of_subjects'] = st.text_input(LABELS["number_of_subjects"], key="number_of_subjects")
+with col2:
+    extra_data['disk_space'] = st.text_input(LABELS["disk_space"], key="disk_space")
+
 st.markdown("Add a row for each group of files with **one category and one file format**. "
             "You may select multiple data types in a row. Use separate rows for different categories or formats.")
 st.caption("Examples: Radiology Images / CT and MR / DICOM; Clinical Data / Follow-Up, Demographic and Treatment / CSV.")
@@ -387,12 +393,6 @@ for number, row_id in enumerate(row_ids('resource_rows'), 1):
 st.button('Add external resource', on_click=add_row, args=('resource_rows',))
 extra_data['external_resources'] = json.dumps(resources)
 # Shared bottom fields
-col1, col2 = st.columns(2)
-with col1:
-    extra_data['disk_space'] = st.text_input(LABELS["disk_space"], key="disk_space")
-with col2:
-    extra_data['number_of_subjects'] = st.text_input(LABELS["number_of_subjects"], key="number_of_subjects")
-
 col1, col2 = st.columns(2)
 with col1:
     published_elsewhere = yes_no_details(
