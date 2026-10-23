@@ -119,9 +119,11 @@ form checks that feed hourly, retaining the last good in-process reference or it
 bundled fallback during an outage. It rejects incomplete captures and older rules.
 Once this form version and Pages workflow are deployed, registry updates flow
 through the daily capture to the running form without application redeployment.
-SM is prepared under Histopathology Images and appears once registered in the
-captured WordPress data-type registry. Entirely new category/type relationships
-still require an explicit rule in the shared JSON; registry membership alone does
+The proposal form uses Pathology Images, matching the current WordPress category.
+SM (Slide Microscopy) is available under Pathology Images in the captured
+WordPress data-type registry. The former Histopathology Images name is retained
+only as a compatibility alias for proposals exported by earlier form versions.
+Entirely new category/type relationships still require an explicit rule in the shared JSON; registry membership alone does
 not establish those relationships. Other category offers only Other type.
 Each proposal records the catalog capture timestamp and selection-guidance version,
 with those troubleshooting fields shown in the Word footer. Historical inventories, mapping evidence, and

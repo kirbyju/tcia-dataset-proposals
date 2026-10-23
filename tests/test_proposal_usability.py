@@ -10,6 +10,7 @@ from streamlit.testing.v1 import AppTest
 from tcia_proposals.proposal_metadata import (
     category_options, data_type_options, data_type_display, load_catalog,
     load_proposal_model, normalize_resource_url, validate_components, validate_resources,
+    legacy_component_fields,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,16 +19,34 @@ ROOT = Path(__file__).resolve().parents[1]
 class ProposalSelectionRulesTests(unittest.TestCase):
     def test_order_and_category_type_relationships(self):
         catalog = load_catalog()
-        self.assertEqual(category_options(catalog), ["Radiology Images", "Histopathology Images",
+        self.assertEqual(category_options(catalog), ["Radiology Images", "Pathology Images",
                          "Image Annotations", "Clinical Data", "Other"])
         self.assertIn("CT", data_type_options(catalog, "Radiology Images"))
         self.assertNotIn("Treatment", data_type_options(catalog, "Radiology Images"))
-        self.assertIn("Whole Slide Image", data_type_options(catalog, "Histopathology Images"))
+        self.assertIn("Whole Slide Image", data_type_options(catalog, "Pathology Images"))
         self.assertIn("SEG", data_type_options(catalog, "Image Annotations"))
         self.assertIn("Follow-Up", data_type_options(catalog, "Clinical Data"))
         self.assertEqual(data_type_display("CT"), "CT (Computed Tomography)")
         self.assertTrue(validate_components([{"category": "Clinical Data", "data_types": ["CT"], "file_format": "CSV"}]))
         self.assertEqual(json.loads((ROOT / "docs/labels/proposal-data-model.json").read_text()), load_proposal_model())
+
+    def test_pathology_registry_rename_and_legacy_type_compatibility(self):
+        import copy
+        catalog = copy.deepcopy(load_catalog())
+        catalog['fields']['data_category'] = [
+            {'label': 'Pathology Images', 'registry_membership': 'registered'},
+            {'label': 'Histopathology Images', 'registry_membership': 'absent from complete registry'},
+        ]
+        self.assertEqual(category_options(catalog), ['Pathology Images'])
+        self.assertIn('Whole Slide Image', data_type_options(catalog, 'Pathology Images'))
+        self.assertEqual(data_type_options(catalog, 'Histopathology Images'),
+                         data_type_options(catalog, 'Pathology Images'))
+        component = {'category': 'Pathology Images', 'data_types': ['Whole Slide Image'],
+                     'file_format': 'TIFF'}
+        self.assertEqual(validate_components([component]), [])
+        self.assertEqual(legacy_component_fields([component])['image_types'], ['Whole Slide Image'])
+        component['data_types'] = ['CT']
+        self.assertTrue(validate_components([component]))
 
     def test_url_normalization_preserves_explicit_schemes_and_paths(self):
         self.assertEqual(normalize_resource_url(" gdc.nci.nih.gov "), "https://gdc.nci.nih.gov")
@@ -66,8 +85,10 @@ class ProposalUsabilityTests(unittest.TestCase):
         self.assertNotIn("Treatment", app.multiselect(key="component_0_types").options)
         self.assertNotIn("ZIP", app.selectbox(key="component_0_format").options)
         app.multiselect(key="component_0_types").set_value(["CT", "Acquisition Metadata"]).run()
-        app.selectbox(key="component_0_category").select("Histopathology Images").run()
+        app.selectbox(key="component_0_category").select("Pathology Images").run()
         self.assertFalse(app.exception)
+        self.assertIn("Whole Slide Image", app.multiselect(key="component_0_types").options)
+        self.assertNotIn("Histopathology Images", app.selectbox(key="component_0_category").options)
         self.assertEqual(app.multiselect(key="component_0_types").value, ["Acquisition Metadata"])
         self.assertTrue(any("cleared" in w.value for w in app.info))
 
@@ -103,6 +124,10 @@ class ProposalUsabilityTests(unittest.TestCase):
         app.selectbox(key="component_0_category").select("Radiology Images").run()
         app.multiselect(key="component_0_types").set_value(["CT", "MR"])
         app.selectbox(key="component_0_format").select("DICOM").run()
+        next(b for b in app.button if b.label == "Add data component").click().run()
+        app.selectbox(key="component_1_category").select("Pathology Images").run()
+        app.multiselect(key="component_1_types").set_value(["Whole Slide Image"])
+        app.selectbox(key="component_1_format").select("SVS").run()
         next(b for b in app.button if b.label == "Add external resource").click().run()
         app.selectbox(key="resource_0_category").select("Genomics")
         app.text_input(key="resource_0_url").set_value("gdc.nci.nih.gov").run()
@@ -129,6 +154,8 @@ class ProposalUsabilityTests(unittest.TestCase):
         self.assertFalse(app.error)
         row = pd.read_csv(io.StringIO(app.session_state["proposal_files"]["tsv"]), sep="\t").iloc[0]
         self.assertEqual(json.loads(row['data_components'])[0]['data_types'], ['CT', 'MR'])
+        self.assertEqual(json.loads(row['data_components'])[1], {
+            'category': 'Pathology Images', 'data_types': ['Whole Slide Image'], 'file_format': 'SVS'})
         self.assertEqual(json.loads(row['external_resources'])[0]['url'], 'https://gdc.nci.nih.gov')
         self.assertEqual(json.loads(row['external_resources'])[0]['context'], 'Matched genomic profiles')
         self.assertEqual(row['Published Elsewhere'], 'Yes - Previously shared at an example repository.')
@@ -141,6 +168,8 @@ class ProposalUsabilityTests(unittest.TestCase):
         self.assertEqual(doc.paragraphs[0].text, 'TCIA Dataset Proposal: Example imaging dataset')
         body = '\n'.join(cell.text for table in doc.tables for r in table.rows for cell in r.cells)
         self.assertNotIn('Data model reference version', body)
+        self.assertIn('Pathology Images', body)
+        self.assertIn('Whole Slide Image', body)
         self.assertIn('https://gdc.nci.nih.gov -- Matched genomic profiles', body)
         footer = '\n'.join(p.text for section in doc.sections for p in section.footer.paragraphs)
         self.assertIn(row['label_catalog_version'], footer)

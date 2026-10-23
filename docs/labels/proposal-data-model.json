@@ -1,9 +1,9 @@
 {
-  "version": "2026.10.23.3",
+  "version": "2026.10.23.4",
   "scope": "TCIA proposal selection guidance; categories may share types. This is not an ontology hierarchy or a restriction on all published TCIA records.",
   "category_order": [
     "Radiology Images",
-    "Histopathology Images",
+    "Pathology Images",
     "Image Annotations",
     "Clinical Data",
     "Other"
@@ -31,7 +31,7 @@
       "Data Dictionary",
       "Other"
     ],
-    "Histopathology Images": [
+    "Pathology Images": [
       "Acquisition Metadata",
       "CODEX images",
       "Hyperspectral",
@@ -86,7 +86,7 @@
     ]
   },
   "category_aliases": {
-    "Pathology Images": "Histopathology Images"
+    "Histopathology Images": "Pathology Images"
   },
   "data_type_explanations": {
     "CR": "Computed Radiography",

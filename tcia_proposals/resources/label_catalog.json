@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0.0",
-  "generated_at_utc": "2026-10-21T18:25:52.939793+00:00",
+  "generated_at_utc": "2026-10-23T19:05:35.113582+00:00",
   "wordpress_registered_terms_complete": true,
   "approved_vocabulary": false,
   "visible_dataset_count": 292,
@@ -13,79 +13,79 @@
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/cancer-types?per_page=100&page=1",
       "sha256": "86a725ec5bab620a4d54247fd011c1ef595c20ea08a56717c47ee31825060007",
-      "retrieved_at_utc": "2026-10-21T18:25:02.966452+00:00",
+      "retrieved_at_utc": "2026-10-23T19:04:46.139488+00:00",
       "row_count": 100
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/cancer-types?per_page=100&page=2",
       "sha256": "2f49f813563af938dec253ff4e87acc9af607a825a05f4be02a991b45d0eb04c",
-      "retrieved_at_utc": "2026-10-21T18:25:04.304606+00:00",
+      "retrieved_at_utc": "2026-10-23T19:04:47.554321+00:00",
       "row_count": 8
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/cancer-locations?per_page=100&page=1",
       "sha256": "5646a5a4f5fcc295313e9b15145fd93f2d1820bce8770dd4bc8bb9feb8b308a6",
-      "retrieved_at_utc": "2026-10-21T18:25:02.963600+00:00",
+      "retrieved_at_utc": "2026-10-23T19:04:46.144557+00:00",
       "row_count": 62
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/download-types?per_page=100&page=1",
-      "sha256": "8a6ee45a78596d12c6c55a100349142f36ae748a319b10a5e5411302cbef3458",
-      "retrieved_at_utc": "2026-10-21T18:25:03.256208+00:00",
+      "sha256": "59d1aa1b50b5b16cd5ec84df2bffc73aab7485c95a0a369fa2397ba708222f82",
+      "retrieved_at_utc": "2026-10-23T19:04:46.141259+00:00",
       "row_count": 5
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/data-types?per_page=100&page=1",
-      "sha256": "93b0066bcacceef1f58e02a1c783916b858f449433e9ff1b97365efafd1ecce8",
-      "retrieved_at_utc": "2026-10-21T18:25:02.996202+00:00",
-      "row_count": 50
+      "sha256": "db667a003cc6c6eb570529bef6b23367045b5a9775f8a1b9b99b7c44af5cd12c",
+      "retrieved_at_utc": "2026-10-23T19:04:46.123288+00:00",
+      "row_count": 51
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/file-types?per_page=100&page=1",
       "sha256": "cf045884ae5c6135a85ccfc73ffc989ab9a5c4af294732e301c222cfcc66b122",
-      "retrieved_at_utc": "2026-10-21T18:25:04.300102+00:00",
+      "retrieved_at_utc": "2026-10-23T19:04:47.523870+00:00",
       "row_count": 36
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/species?per_page=100&page=1",
       "sha256": "4385823f1a21eac8aaebedfbea8a1bdc6f0b4962af263da4cf60014759c3df33",
-      "retrieved_at_utc": "2026-10-21T18:25:04.315050+00:00",
+      "retrieved_at_utc": "2026-10-23T19:04:47.562478+00:00",
       "row_count": 5
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/programs?per_page=100&page=1",
       "sha256": "b340cc033d0183a1dca1fec80f247f03f3e917e83c8a890a47d5529cb887754f",
-      "retrieved_at_utc": "2026-10-21T18:25:05.026755+00:00",
+      "retrieved_at_utc": "2026-10-23T19:04:47.937877+00:00",
       "row_count": 16
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/supporting-data?per_page=100&page=1",
       "sha256": "92cc8497486c8e53312968557b82416eeb063768323aabc3bda88b33790713c6",
-      "retrieved_at_utc": "2026-10-21T18:25:05.600194+00:00",
+      "retrieved_at_utc": "2026-10-23T19:04:49.040109+00:00",
       "row_count": 6
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=1",
-      "sha256": "74147c53821df1cb89538e12a3197c4f142daabed270317db4bd32fc377a9507",
-      "retrieved_at_utc": "2026-10-21T18:25:28.787383+00:00",
+      "sha256": "5ce59001a5103e543d52b15260553167a91f3e7322ec8a2135a0734df6097edf",
+      "retrieved_at_utc": "2026-10-23T19:05:11.788222+00:00",
       "row_count": 100
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=2",
-      "sha256": "a9752e263ac25e0d5c180a67e7d0ca7e0ca5a317b89d559895a6277ceb34c979",
-      "retrieved_at_utc": "2026-10-21T18:25:52.939261+00:00",
+      "sha256": "02870b6f1bd8977bfa414b65ec398bb94e9120e8c5505197709a611a5f2a183a",
+      "retrieved_at_utc": "2026-10-23T19:05:35.074046+00:00",
       "row_count": 100
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/collections?per_page=100&page=3",
       "sha256": "62b6490420ba2fb4aae75229cf5730d7d15026141ec460da9ee8bc04961657d7",
-      "retrieved_at_utc": "2026-10-21T18:25:39.451014+00:00",
+      "retrieved_at_utc": "2026-10-23T19:05:22.386513+00:00",
       "row_count": 40
     },
     {
       "url": "https://www.cancerimagingarchive.net/api/v2/analysis-results?per_page=100&page=1",
       "sha256": "9409d6c40a3e20a73b47c04f3b545c39954f4e14ad213556fc2b3930d9aa8f0b",
-      "retrieved_at_utc": "2026-10-21T18:25:24.411262+00:00",
+      "retrieved_at_utc": "2026-10-23T19:05:06.976320+00:00",
       "row_count": 60
     }
   ],
@@ -110,7 +110,7 @@
         ],
         "registry_id": 12155,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -164,7 +164,7 @@
         ],
         "registry_id": 12699,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -204,7 +204,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C2852"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Adenoma",
@@ -221,7 +223,7 @@
         ],
         "registry_id": 56120,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -266,7 +268,7 @@
         ],
         "registry_id": 12739,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -317,7 +319,7 @@
         ],
         "registry_id": 12303,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -368,7 +370,7 @@
         ],
         "registry_id": 12567,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -419,7 +421,7 @@
         ],
         "registry_id": 12721,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -464,7 +466,7 @@
         ],
         "registry_id": 12375,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -528,7 +530,7 @@
         ],
         "registry_id": 12047,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -578,7 +580,7 @@
         ],
         "registry_id": 12169,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -624,7 +626,7 @@
         ],
         "registry_id": 56102,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -664,7 +666,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C2907"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Breast Cancer",
@@ -685,7 +689,7 @@
         ],
         "registry_id": 11969,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -737,7 +741,7 @@
         ],
         "registry_id": 12811,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -788,7 +792,7 @@
         ],
         "registry_id": 40083,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -855,7 +859,7 @@
         ],
         "registry_id": 12813,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -895,7 +899,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C4028"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Childhood Malignant Glioma",
@@ -908,7 +914,7 @@
         ],
         "registry_id": 56136,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -954,7 +960,7 @@
         ],
         "registry_id": 12049,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -994,7 +1000,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C4436"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Clear Cell Carcinoma",
@@ -1011,7 +1019,7 @@
         ],
         "registry_id": 12687,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -1059,7 +1067,7 @@
         ],
         "registry_id": 12051,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -1099,7 +1107,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C4349"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Colon Cancer",
@@ -1120,7 +1130,7 @@
         ],
         "registry_id": 12271,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -1177,7 +1187,7 @@
         ],
         "registry_id": 11963,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -1224,7 +1234,7 @@
         ],
         "registry_id": 12237,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": true,
         "reference_links": [
@@ -1276,7 +1286,7 @@
         ],
         "registry_id": 12053,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -1326,7 +1336,7 @@
         ],
         "registry_id": 56240,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": true,
         "reference_links": [
@@ -1352,7 +1362,7 @@
         ],
         "registry_id": 12725,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -1392,7 +1402,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C129325"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Diffuse Large B-Cell Lymphoma",
@@ -1405,7 +1417,7 @@
         ],
         "registry_id": 12339,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -1445,7 +1457,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C8851"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Diffuse Midline Glioma",
@@ -1462,7 +1476,7 @@
         ],
         "registry_id": 48857,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -1502,7 +1516,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C182151"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Ductal Adenocarcinoma",
@@ -1523,7 +1539,7 @@
         ],
         "registry_id": 12709,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -1566,7 +1582,7 @@
         ],
         "registry_id": 29075,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -1618,7 +1634,7 @@
         ],
         "registry_id": 12815,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -1676,7 +1692,7 @@
         ],
         "registry_id": 12717,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -1720,7 +1736,7 @@
         ],
         "registry_id": 56122,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -1767,7 +1783,7 @@
         ],
         "registry_id": 12057,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -1816,7 +1832,7 @@
         ],
         "registry_id": 56220,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": true,
         "reference_links": [
@@ -1837,7 +1853,7 @@
         "examples": [],
         "registry_id": 56098,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "replace combined label with separate supported NCIt labels",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -1906,7 +1922,7 @@
         ],
         "registry_id": 12201,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "confirmed meaning; ontology references resolved",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -2005,7 +2021,7 @@
         ],
         "registry_id": 12059,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -2045,7 +2061,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3868"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Glioblastoma",
@@ -2066,7 +2084,7 @@
         ],
         "registry_id": 12187,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -2106,7 +2124,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3058"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Glioma",
@@ -2127,7 +2147,7 @@
         ],
         "registry_id": 12223,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -2167,7 +2187,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3059"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Head and Neck Cancer",
@@ -2188,7 +2210,7 @@
         ],
         "registry_id": 11957,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -2241,7 +2263,7 @@
         ],
         "registry_id": 12331,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -2288,7 +2310,7 @@
         ],
         "registry_id": 11987,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -2328,7 +2350,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C34447"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Healthy Subject",
@@ -2349,7 +2373,7 @@
         ],
         "registry_id": 56140,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "confirmed",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -2375,7 +2399,9 @@
           "verified_on": "2026-10-16",
           "confirmed_by": "User confirmed healthy cohort companion policy in this chat; NCI concept verified via EVS API.",
           "confirmed_on": "2026-10-16"
-        }
+        },
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Hemangioma",
@@ -2388,7 +2414,7 @@
         ],
         "registry_id": 51730,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -2428,7 +2454,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3085"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Hepatic Cyst",
@@ -2441,7 +2469,7 @@
         ],
         "registry_id": 56132,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -2485,7 +2513,7 @@
         ],
         "registry_id": 12535,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -2525,7 +2553,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3728"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Hepatocellular Carcinoma",
@@ -2546,7 +2576,7 @@
         ],
         "registry_id": 12353,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -2586,7 +2616,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3099"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "HER2+ Breast Cancer",
@@ -2599,7 +2631,7 @@
         ],
         "registry_id": 12345,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -2669,7 +2701,7 @@
         ],
         "registry_id": 12245,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -2709,7 +2741,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C9357"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Kidney Cancer",
@@ -2730,7 +2764,7 @@
         ],
         "registry_id": 12295,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -2777,7 +2811,7 @@
         ],
         "registry_id": 12061,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -2822,7 +2856,7 @@
         ],
         "registry_id": 12633,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -2875,7 +2909,7 @@
         ],
         "registry_id": 12065,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -2926,7 +2960,7 @@
         ],
         "registry_id": 12241,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -2966,7 +3000,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3161"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Liver Cancer",
@@ -2987,7 +3023,7 @@
         ],
         "registry_id": 12731,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -3035,7 +3071,7 @@
         ],
         "registry_id": 12387,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -3075,7 +3111,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C132067"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Lung Adenocarcinoma",
@@ -3096,7 +3134,7 @@
         ],
         "registry_id": 12069,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -3136,7 +3174,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3512"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Lung Non-Small Cell Carcinoma",
@@ -3157,7 +3197,7 @@
         ],
         "registry_id": 56116,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -3206,7 +3246,7 @@
         ],
         "registry_id": 12073,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -3246,7 +3286,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3493"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Lymphadenopathy",
@@ -3259,7 +3301,7 @@
         ],
         "registry_id": 12019,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": true,
         "reference_links": [
@@ -3304,7 +3346,7 @@
         ],
         "registry_id": 12163,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -3344,7 +3386,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3208"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Malignant Glioma",
@@ -3361,7 +3405,7 @@
         ],
         "registry_id": 56138,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -3401,7 +3445,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C4822"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Malignant Lung Neoplasm",
@@ -3422,7 +3468,7 @@
         ],
         "registry_id": 12013,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -3469,7 +3515,7 @@
         ],
         "registry_id": 12233,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -3509,7 +3555,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3222"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Melanoma",
@@ -3530,7 +3578,7 @@
         ],
         "registry_id": 12033,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -3570,7 +3618,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3224"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Meningioma",
@@ -3583,7 +3633,7 @@
         ],
         "registry_id": 12543,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -3623,7 +3673,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3230"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Mesothelioma",
@@ -3644,7 +3696,7 @@
         ],
         "registry_id": 47909,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -3691,7 +3743,7 @@
         ],
         "registry_id": 48035,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -3739,7 +3791,7 @@
         ],
         "registry_id": 12209,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -3779,7 +3831,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3242"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Nasopharyngeal Cancer",
@@ -3800,7 +3854,7 @@
         ],
         "registry_id": 12513,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -3851,7 +3905,7 @@
         ],
         "registry_id": 12565,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -3889,7 +3943,7 @@
         ],
         "registry_id": 52329,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -3929,7 +3983,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3773"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Neuroendocrine Tumors (all sites)",
@@ -3942,7 +3998,7 @@
         ],
         "registry_id": 12079,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "confirmed meaning; ontology references resolved",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4009,7 +4065,7 @@
         ],
         "registry_id": 12313,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "retain as broad filter label with specific companion labels",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4059,7 +4115,7 @@
         ],
         "registry_id": 56216,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "confirmed",
         "new_since_reference_snapshot": true,
         "reference_links": [
@@ -4088,7 +4144,9 @@
           "wordpress_application": "planned for curator on 2026-10-16; not yet verified",
           "simulation_context_note": "Retain supported simulated disease/site context when applicable; VICTRE is confirmed to retain Breast Cancer and Non-Cancer with Computational Phantom species. Use Not Applicable only where the field does not apply."
         },
-        "review_note": "Determination of a value is not relevant in the current context."
+        "review_note": "Determination of a value is not relevant in the current context.",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Oropharyngeal Cancer",
@@ -4105,7 +4163,7 @@
         ],
         "registry_id": 12255,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4156,7 +4214,7 @@
         ],
         "registry_id": 12433,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -4196,7 +4254,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C9145"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Ovarian Cancer",
@@ -4217,7 +4277,7 @@
         ],
         "registry_id": 11999,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4270,7 +4330,7 @@
         ],
         "registry_id": 56112,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4310,7 +4370,7 @@
         ],
         "registry_id": 12645,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4347,7 +4407,7 @@
         ],
         "registry_id": 12453,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4397,7 +4457,7 @@
         ],
         "registry_id": 12081,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -4437,7 +4497,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C8294"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Pancreatic Cancer",
@@ -4454,7 +4516,7 @@
         ],
         "registry_id": 12183,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4500,7 +4562,7 @@
         ],
         "registry_id": 12861,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -4540,7 +4602,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C9120"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Pancreatic Neuroendocrine Tumor",
@@ -4553,7 +4617,7 @@
         ],
         "registry_id": 56134,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -4593,7 +4657,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C27720"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Peripheral Primitive Neuroectodermal Tumor",
@@ -4614,7 +4680,7 @@
         ],
         "registry_id": 56222,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": true,
         "reference_links": [
@@ -4644,7 +4710,7 @@
         ],
         "registry_id": 12085,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4692,7 +4758,7 @@
         ],
         "registry_id": 11949,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4742,7 +4808,7 @@
         ],
         "registry_id": 12873,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4789,7 +4855,7 @@
         ],
         "registry_id": 12761,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4850,7 +4916,7 @@
         ],
         "registry_id": 12495,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -4890,7 +4956,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C9118"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Skin Cancer",
@@ -4911,7 +4979,7 @@
         ],
         "registry_id": 12217,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -4962,7 +5030,7 @@
         ],
         "registry_id": 12817,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -5016,7 +5084,7 @@
         ],
         "registry_id": 27913,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -5072,7 +5140,7 @@
         ],
         "registry_id": 12141,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -5119,7 +5187,7 @@
         ],
         "registry_id": 12703,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -5159,7 +5227,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C2929"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Squamous Cell Neoplasm",
@@ -5176,7 +5246,7 @@
         ],
         "registry_id": 56126,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -5224,7 +5294,7 @@
         ],
         "registry_id": 12661,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -5273,7 +5343,7 @@
         ],
         "registry_id": 12089,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -5313,7 +5383,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3411"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Thyroid Cancer",
@@ -5334,7 +5406,7 @@
         ],
         "registry_id": 12667,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -5387,7 +5459,7 @@
         ],
         "registry_id": 56130,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -5427,7 +5499,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C2930"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Trigeminal Neuralgia",
@@ -5440,7 +5514,7 @@
         ],
         "registry_id": 56242,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": true,
         "reference_links": [],
@@ -5462,7 +5536,7 @@
         ],
         "registry_id": 56128,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -5508,7 +5582,7 @@
         ],
         "registry_id": 12819,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -5558,7 +5632,7 @@
         ],
         "registry_id": 12005,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -5585,7 +5659,7 @@
         ],
         "registry_id": 12549,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": true,
         "reference_links": [
@@ -5634,7 +5708,7 @@
         ],
         "registry_id": 12249,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -5674,7 +5748,9 @@
             "url": "https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C3267"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       }
     ],
     "disease_location": [
@@ -5697,7 +5773,7 @@
         ],
         "registry_id": 11965,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -5761,7 +5837,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000916"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Adrenal Gland",
@@ -5774,7 +5852,7 @@
         ],
         "registry_id": 12741,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -5813,7 +5891,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002369"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Anus",
@@ -5830,7 +5910,7 @@
         ],
         "registry_id": 12305,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -5894,7 +5974,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001245"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Arm",
@@ -5911,7 +5993,7 @@
         ],
         "registry_id": 12573,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -5975,7 +6057,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001460"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Blood",
@@ -5996,7 +6080,7 @@
         ],
         "registry_id": 12157,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -6060,7 +6144,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000178"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Bone",
@@ -6081,7 +6167,7 @@
         ],
         "registry_id": 12211,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -6165,7 +6251,7 @@
         ],
         "registry_id": 12027,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -6204,7 +6290,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002371"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Brain",
@@ -6225,7 +6313,7 @@
         ],
         "registry_id": 11977,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -6289,7 +6377,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000955"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Breast",
@@ -6310,7 +6400,7 @@
         ],
         "registry_id": 11971,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -6374,7 +6464,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000310"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Buttock",
@@ -6387,7 +6479,7 @@
         ],
         "registry_id": 12575,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -6451,7 +6543,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0013691"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Calf",
@@ -6464,7 +6558,7 @@
         ],
         "registry_id": 12497,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -6528,7 +6622,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_8480048"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Chest",
@@ -6549,7 +6645,7 @@
         ],
         "registry_id": 12291,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -6638,7 +6734,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001443"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Colon",
@@ -6659,7 +6757,7 @@
         ],
         "registry_id": 12099,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -6723,7 +6821,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001155"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Connective Tissue",
@@ -6736,7 +6836,7 @@
         ],
         "registry_id": 56142,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -6782,7 +6882,7 @@
         ],
         "registry_id": 11959,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -6821,7 +6921,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0007811"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Elbow",
@@ -6834,7 +6936,7 @@
         ],
         "registry_id": 12499,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -6898,7 +7000,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001461"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Endometrium",
@@ -6911,7 +7015,7 @@
         ],
         "registry_id": 12875,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -6959,7 +7063,7 @@
         ],
         "registry_id": 12103,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7023,7 +7127,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001043"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Eye",
@@ -7040,7 +7146,7 @@
         ],
         "registry_id": 12823,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7079,7 +7185,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000970"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Fallopian Tube",
@@ -7092,7 +7200,7 @@
         ],
         "registry_id": 53862,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7131,7 +7239,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0003889"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Head",
@@ -7152,7 +7262,7 @@
         ],
         "registry_id": 12225,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7216,7 +7326,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000033"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Hypopharynx",
@@ -7229,7 +7341,7 @@
         ],
         "registry_id": 53554,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7268,7 +7380,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001051"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Kidney",
@@ -7289,7 +7403,7 @@
         ],
         "registry_id": 12107,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7353,7 +7467,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002113"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Knee",
@@ -7366,7 +7482,7 @@
         ],
         "registry_id": 12501,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7430,7 +7546,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001465"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Larynx",
@@ -7443,7 +7561,7 @@
         ],
         "registry_id": 53556,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7482,7 +7600,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001737"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Leg",
@@ -7503,7 +7623,7 @@
         ],
         "registry_id": 12503,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7567,7 +7687,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000978"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Limb",
@@ -7584,7 +7706,7 @@
         ],
         "registry_id": 12143,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7623,7 +7745,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002101"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Liver",
@@ -7644,7 +7768,7 @@
         ],
         "registry_id": 12109,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7708,7 +7832,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002107"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Lumbar Region of Vertebral Column",
@@ -7721,7 +7847,7 @@
         ],
         "registry_id": 46991,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -7769,7 +7895,7 @@
         ],
         "registry_id": 11993,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7833,7 +7959,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002048"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Lymph Node",
@@ -7850,7 +7978,7 @@
         ],
         "registry_id": 12341,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -7914,7 +8042,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000029"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Lymphoid System",
@@ -7935,7 +8065,7 @@
         ],
         "registry_id": 12165,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "confirmed",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -7958,7 +8088,9 @@
           "meaning": "Broad lymphoid system, including lymph nodes, spleen, thymus, bone marrow and associated lymphoid tissues; not restricted to lymph nodes.",
           "confirmed_by": "User in this chat",
           "confirmed_on": "2026-10-15"
-        }
+        },
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Mediastinum",
@@ -7971,7 +8103,7 @@
         ],
         "registry_id": 12021,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -8035,7 +8167,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0003728"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Myometrium",
@@ -8048,7 +8182,7 @@
         ],
         "registry_id": 12577,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -8112,7 +8246,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001296"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Neck",
@@ -8133,7 +8269,7 @@
         ],
         "registry_id": 47903,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -8178,7 +8314,7 @@
         ],
         "registry_id": 56218,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "confirmed",
         "new_since_reference_snapshot": true,
         "reference_links": [
@@ -8207,7 +8343,9 @@
           "wordpress_application": "planned for curator on 2026-10-16; not yet verified",
           "simulation_context_note": "Retain supported simulated disease/site context when applicable; VICTRE is confirmed to retain Breast Cancer and Non-Cancer with Computational Phantom species. Use Not Applicable only where the field does not apply."
         },
-        "review_note": "Determination of a value is not relevant in the current context."
+        "review_note": "Determination of a value is not relevant in the current context.",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Oral Cavity",
@@ -8220,7 +8358,7 @@
         ],
         "registry_id": 53572,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -8258,7 +8396,7 @@
         ],
         "registry_id": 53550,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -8297,7 +8435,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001729"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Ovary",
@@ -8318,7 +8458,7 @@
         ],
         "registry_id": 12001,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -8382,7 +8522,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000992"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Pancreas",
@@ -8403,7 +8545,7 @@
         ],
         "registry_id": 12111,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -8467,7 +8609,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001264"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Pelvis",
@@ -8488,7 +8632,7 @@
         ],
         "registry_id": 11967,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -8574,7 +8718,7 @@
         ],
         "registry_id": 11951,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -8613,7 +8757,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002367"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Rectum",
@@ -8634,7 +8780,7 @@
         ],
         "registry_id": 12579,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -8698,7 +8844,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001052"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Retroperitoneal Space",
@@ -8711,7 +8859,7 @@
         ],
         "registry_id": 12713,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -8750,7 +8898,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0003693"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Scapula",
@@ -8763,7 +8913,7 @@
         ],
         "registry_id": 12581,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -8827,7 +8977,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0006849"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Shoulder",
@@ -8844,7 +8996,7 @@
         ],
         "registry_id": 12505,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -8908,7 +9060,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001467"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Skin of Body",
@@ -8929,7 +9083,7 @@
         ],
         "registry_id": 12035,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -8968,7 +9122,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002097"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Small Intestine",
@@ -8981,7 +9137,7 @@
         ],
         "registry_id": 52331,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -9020,7 +9176,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002108"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Spinal Cord",
@@ -9033,7 +9191,7 @@
         ],
         "registry_id": 12545,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -9097,7 +9255,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002240"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Stomach",
@@ -9118,7 +9278,7 @@
         ],
         "registry_id": 12663,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -9182,7 +9342,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000945"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Thigh",
@@ -9195,7 +9357,7 @@
         ],
         "registry_id": 12507,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "confirmed",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -9256,7 +9418,9 @@
           "meaning": "Whole thigh region between pelvis and knee, rather than only its musculature.",
           "confirmed_by": "User in this chat",
           "confirmed_on": "2026-10-15"
-        }
+        },
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Thoracic Region of Vertebral Column",
@@ -9273,7 +9437,7 @@
         ],
         "registry_id": 12657,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -9312,7 +9476,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0006073"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Thymus Gland",
@@ -9325,7 +9491,7 @@
         ],
         "registry_id": 12115,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -9362,7 +9528,7 @@
         ],
         "registry_id": 12117,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -9401,7 +9567,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002046"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Urinary Bladder",
@@ -9422,7 +9590,7 @@
         ],
         "registry_id": 12097,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [],
@@ -9469,7 +9637,7 @@
         ],
         "registry_id": 12619,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -9508,7 +9676,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000002"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Uterine corpus",
@@ -9521,7 +9691,7 @@
         ],
         "registry_id": 12119,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -9593,7 +9763,7 @@
         ],
         "registry_id": 12675,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -9657,7 +9827,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000995"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Various",
@@ -9678,7 +9850,7 @@
         ],
         "registry_id": 12007,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "confirmed temporary plain-text label",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -9731,7 +9903,7 @@
         ],
         "registry_id": 54994,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "needs curator decision",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -9770,7 +9942,9 @@
             "url": "https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001130"
           }
         ],
-        "display_note": ""
+        "display_note": "",
+        "reference_scope": "",
+        "reference_relation": ""
       },
       {
         "label": "Whole body",
@@ -9783,7 +9957,7 @@
         ],
         "registry_id": 18061,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "confirmed",
         "new_since_reference_snapshot": false,
         "mapping_candidates": [
@@ -9844,7 +10018,9 @@
           "meaning": "Entire body including head and limbs; the organism as a whole.",
           "confirmed_by": "User in this chat",
           "confirmed_on": "2026-10-15"
-        }
+        },
+        "reference_scope": "",
+        "reference_relation": ""
       }
     ],
     "data_category": [
@@ -9867,23 +10043,11 @@
         ],
         "registry_id": 48907,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
         "display_note": ""
-      },
-      {
-        "label": "Histopathology Images",
-        "usage_count": 0,
-        "examples": [],
-        "registry_id": 48903,
-        "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
-        "semantic_review": "not reviewed",
-        "new_since_reference_snapshot": true,
-        "reference_links": [],
-        "display_note": " No observed public use at this field's snapshot date."
       },
       {
         "label": "Image Annotations",
@@ -9904,7 +10068,7 @@
         ],
         "registry_id": 48905,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -9929,7 +10093,7 @@
         ],
         "registry_id": 48909,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -9952,9 +10116,9 @@
             "url": "https://www.cancerimagingarchive.net/collection/aurora-metastatic-breast-multiomics/"
           }
         ],
-        "registry_id": null,
-        "registry_membership": "absent from complete registry",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "registry_id": 56310,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -9979,7 +10143,7 @@
         ],
         "registry_id": 48901,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -9998,7 +10162,7 @@
         ],
         "registry_id": 56196,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10015,7 +10179,7 @@
         ],
         "registry_id": 52479,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10040,7 +10204,7 @@
         ],
         "registry_id": 48327,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10065,7 +10229,7 @@
         ],
         "registry_id": 12349,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10090,7 +10254,7 @@
         ],
         "registry_id": 10455,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10115,7 +10279,7 @@
         ],
         "registry_id": 10435,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10132,7 +10296,7 @@
         ],
         "registry_id": 56194,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10157,7 +10321,7 @@
         ],
         "registry_id": 48309,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10182,7 +10346,7 @@
         ],
         "registry_id": 48311,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10207,7 +10371,7 @@
         ],
         "registry_id": 10489,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10232,7 +10396,7 @@
         ],
         "registry_id": 48313,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10253,7 +10417,7 @@
         ],
         "registry_id": 48315,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10278,7 +10442,7 @@
         ],
         "registry_id": 51366,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10303,7 +10467,7 @@
         ],
         "registry_id": 48317,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10320,7 +10484,7 @@
         ],
         "registry_id": 52541,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10345,7 +10509,7 @@
         ],
         "registry_id": 48343,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10370,7 +10534,7 @@
         ],
         "registry_id": 48345,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10387,7 +10551,7 @@
         ],
         "registry_id": 11479,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10412,7 +10576,7 @@
         ],
         "registry_id": 48331,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10437,7 +10601,7 @@
         ],
         "registry_id": 10511,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10462,7 +10626,7 @@
         ],
         "registry_id": 48319,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10487,7 +10651,7 @@
         ],
         "registry_id": 10427,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10504,7 +10668,7 @@
         ],
         "registry_id": 48341,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10521,7 +10685,7 @@
         ],
         "registry_id": 53894,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10546,7 +10710,7 @@
         ],
         "registry_id": 10481,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10571,7 +10735,7 @@
         ],
         "registry_id": 10471,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10596,7 +10760,7 @@
         ],
         "registry_id": 48325,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10621,7 +10785,7 @@
         ],
         "registry_id": 48321,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10646,7 +10810,7 @@
         ],
         "registry_id": 48337,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10667,7 +10831,7 @@
         ],
         "registry_id": 11183,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10692,7 +10856,7 @@
         ],
         "registry_id": 49659,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10717,7 +10881,7 @@
         ],
         "registry_id": 10469,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10742,7 +10906,7 @@
         ],
         "registry_id": 48329,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10767,7 +10931,7 @@
         ],
         "registry_id": 10717,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10788,7 +10952,7 @@
         ],
         "registry_id": 32473,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10813,7 +10977,7 @@
         ],
         "registry_id": 10617,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10834,7 +10998,7 @@
         ],
         "registry_id": 11225,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10859,7 +11023,7 @@
         ],
         "registry_id": 10663,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10884,7 +11048,7 @@
         ],
         "registry_id": 10425,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10905,7 +11069,7 @@
         ],
         "registry_id": 10777,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10930,7 +11094,7 @@
         ],
         "registry_id": 10491,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10955,7 +11119,7 @@
         ],
         "registry_id": 10439,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -10980,7 +11144,7 @@
         ],
         "registry_id": 16463,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11001,11 +11165,23 @@
         ],
         "registry_id": 48335,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
         "display_note": ""
+      },
+      {
+        "label": "SM",
+        "usage_count": 0,
+        "examples": [],
+        "registry_id": 56308,
+        "registry_membership": "registered",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
+        "semantic_review": "not reviewed",
+        "new_since_reference_snapshot": true,
+        "reference_links": [],
+        "display_note": " No observed public use at this field's snapshot date."
       },
       {
         "label": "SR",
@@ -11026,7 +11202,7 @@
         ],
         "registry_id": 10941,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11051,7 +11227,7 @@
         ],
         "registry_id": 48339,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11076,7 +11252,7 @@
         ],
         "registry_id": 48323,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11101,7 +11277,7 @@
         ],
         "registry_id": 10565,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11126,7 +11302,7 @@
         ],
         "registry_id": 48333,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11151,7 +11327,7 @@
         ],
         "registry_id": 10563,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11178,7 +11354,7 @@
         ],
         "registry_id": 10729,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11195,7 +11371,7 @@
         ],
         "registry_id": 39961,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11212,7 +11388,7 @@
         ],
         "registry_id": 39965,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11237,7 +11413,7 @@
         ],
         "registry_id": 10421,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11258,7 +11434,7 @@
         ],
         "registry_id": 10603,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11283,7 +11459,7 @@
         ],
         "registry_id": 10429,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11304,7 +11480,7 @@
         ],
         "registry_id": 11221,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11329,7 +11505,7 @@
         ],
         "registry_id": 10627,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11350,7 +11526,7 @@
         ],
         "registry_id": 48777,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11367,7 +11543,7 @@
         ],
         "registry_id": 52543,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11384,7 +11560,7 @@
         ],
         "registry_id": 10417,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11409,7 +11585,7 @@
         ],
         "registry_id": 10539,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11434,7 +11610,7 @@
         ],
         "registry_id": 10671,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11459,7 +11635,7 @@
         ],
         "registry_id": 10861,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11484,7 +11660,7 @@
         ],
         "registry_id": 11145,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11501,7 +11677,7 @@
         ],
         "registry_id": 11331,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11518,7 +11694,7 @@
         ],
         "registry_id": 52335,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11535,7 +11711,7 @@
         ],
         "registry_id": 29599,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11556,7 +11732,7 @@
         ],
         "registry_id": 10813,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11573,7 +11749,7 @@
         ],
         "registry_id": 11061,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11598,7 +11774,7 @@
         ],
         "registry_id": 23883,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11623,7 +11799,7 @@
         ],
         "registry_id": 10621,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11648,7 +11824,7 @@
         ],
         "registry_id": 10731,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11673,7 +11849,7 @@
         ],
         "registry_id": 10499,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11690,7 +11866,7 @@
         ],
         "registry_id": 37739,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11711,7 +11887,7 @@
         ],
         "registry_id": 10701,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11736,7 +11912,7 @@
         ],
         "registry_id": 10505,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11753,7 +11929,7 @@
         ],
         "registry_id": 11295,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11778,7 +11954,7 @@
         ],
         "registry_id": 10415,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11803,7 +11979,7 @@
         ],
         "registry_id": 48349,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11828,7 +12004,7 @@
         ],
         "registry_id": 10599,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11853,7 +12029,7 @@
         ],
         "registry_id": 10465,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11878,7 +12054,7 @@
         ],
         "registry_id": 10451,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11903,7 +12079,7 @@
         ],
         "registry_id": 10413,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11920,7 +12096,7 @@
         ],
         "registry_id": 11717,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11945,7 +12121,7 @@
         ],
         "registry_id": 10459,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -11968,7 +12144,7 @@
         ],
         "registry_id": 12219,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [
@@ -12008,7 +12184,7 @@
         ],
         "registry_id": 55604,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12033,7 +12209,7 @@
         ],
         "registry_id": 11953,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [
@@ -12073,7 +12249,7 @@
         ],
         "registry_id": 12365,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [
@@ -12113,7 +12289,7 @@
         ],
         "registry_id": 55608,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [
@@ -12147,7 +12323,7 @@
         ],
         "registry_id": 46883,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12159,7 +12335,7 @@
         "examples": [],
         "registry_id": 46885,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12184,7 +12360,7 @@
         ],
         "registry_id": 46887,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12209,7 +12385,7 @@
         ],
         "registry_id": 46891,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12234,7 +12410,7 @@
         ],
         "registry_id": 46893,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12259,7 +12435,7 @@
         ],
         "registry_id": 46895,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12280,7 +12456,7 @@
         ],
         "registry_id": 46897,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12297,7 +12473,7 @@
         ],
         "registry_id": 46901,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12318,7 +12494,7 @@
         ],
         "registry_id": 46903,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12343,7 +12519,7 @@
         ],
         "registry_id": 46905,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12368,7 +12544,7 @@
         ],
         "registry_id": 46907,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12393,7 +12569,7 @@
         ],
         "registry_id": 54162,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12418,7 +12594,7 @@
         ],
         "registry_id": 46911,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12443,7 +12619,7 @@
         ],
         "registry_id": 46915,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12468,7 +12644,7 @@
         ],
         "registry_id": 46917,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12493,7 +12669,7 @@
         ],
         "registry_id": 46919,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12520,7 +12696,7 @@
         ],
         "registry_id": 11955,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12545,7 +12721,7 @@
         ],
         "registry_id": 12191,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12570,7 +12746,7 @@
         ],
         "registry_id": 12855,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12595,7 +12771,7 @@
         ],
         "registry_id": 11973,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12620,7 +12796,7 @@
         ],
         "registry_id": 12683,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12645,7 +12821,7 @@
         ],
         "registry_id": 12147,
         "registry_membership": "registered",
-        "usage_snapshot_date": "2026-10-21T18:25:52.939793+00:00",
+        "usage_snapshot_date": "2026-10-23T19:05:35.113582+00:00",
         "semantic_review": "not reviewed",
         "new_since_reference_snapshot": false,
         "reference_links": [],
@@ -12930,7 +13106,6 @@
   },
   "refresh_review_flags": [
     "disease_type: Trigeminal Neuralgia",
-    "data_category: Histopathology Images",
-    "data_category: Pathology Images"
+    "data_type: SM"
   ]
 }

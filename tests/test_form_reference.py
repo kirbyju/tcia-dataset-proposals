@@ -34,7 +34,8 @@ class FormReferenceTests(unittest.TestCase):
         with patch('tcia_proposals.proposal_metadata.urlopen', side_effect=OSError('offline')):
             self.assertEqual(load_form_reference(), self.local)
         bad = copy.deepcopy(self.local)
-        bad['proposal_model']['version'] = '2020.1.1.1'
+        bad['proposal_model']['version'] = '2026.10.23.3'
+        bad['proposal_model']['category_order'][1] = 'Histopathology Images'
         malformed = copy.deepcopy(self.local)
         malformed['proposal_model']['category_data_types'] = []
         for value in (bad, malformed, {}, {'catalog': {'fields': {}}}):
