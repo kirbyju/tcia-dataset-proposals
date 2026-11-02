@@ -1,4 +1,4 @@
 interface:
   display_name: "Remap TCIA Supporting Data"
-  short_description: "Map approved TCIA supporting data"
-  default_prompt: "Use $remap-tcia-supporting-data to map my approved TCIA dataset metadata and supporting tables."
+  short_description: "Review tables, dictionaries, and MDF mappings"
+  default_prompt: "Use $remap-tcia-supporting-data to review my supporting tables and data dictionary, and suggest mappings to the NCI Imaging Submission Model where useful."

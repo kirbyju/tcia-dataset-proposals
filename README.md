@@ -47,7 +47,7 @@ The Pages workflow verifies both guides before publishing `/docs`. Existing root
 
 Install that subdirectory as a Codex skill, then upload a generated proposal ZIP or its component files and ask the skill to review the package.
 
-`skills/remap-tcia-supporting-data/` contains the optional post-approval Codex skill. Runtime helpers, schemas, permissible values, and the DSA resource required by the Streamlit applications live separately in `tcia_proposals/`.
+`skills/remap-tcia-supporting-data/` reviews supporting tables and data dictionaries independently of proposal approval, and optionally assists with remapping. Its [large-table review guidance](skills/remap-tcia-supporting-data/references/large-table-review.md) selects bounded reads and compact profiles based on workbook structure, available resources, and observed processing behavior, without a fixed file-size cutoff. These are agent review instructions; they do not change the Streamlit application's loading behavior. Runtime helpers, schemas, permissible values, and the DSA resource required by the Streamlit applications live separately in `tcia_proposals/`.
 
 ### WordPress metadata curation skill
 
