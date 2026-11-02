@@ -41,6 +41,8 @@ Confirmed by the user October 16, 2026: retain **Non-Cancer** as the broad TCIA 
 
 Non-Cancer is a TCIA discovery grouping with no single disease-code equivalence confirmed. Keep it unlinked rather than forcing an NCIt mapping. Verify specific companion concepts against NCIt and prefer registered WordPress display labels. Nonmalignant disease, negative screening findings, and healthy subjects are different contexts: absence of cancer alone does not prove healthy status. Represent phantom identity in species and retain supported simulated disease/site context. For VICTRE, retain **Breast Cancer + Non-Cancer** with **Computational Phantom** species (user confirmed October 16). Use **Not Applicable** when disease/site context does not apply; do not label computational subjects Healthy Subject. Dataset labels describe represented groups, not each participant's diagnosis.
 
+For phantom species labels, **Computational Phantom** maps exactly to [NCIt C229144](https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C229144), including synonym Computational Anthropomorphic Phantom. **Physical Phantom** retains the broader [Imaging Phantom C17892](https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/C17892) reference: its revised definition covers physical, computational, and hybrid models. Both concepts were verified active in NCIt 26.10d on November 2, 2026. Keep the two TCIA labels distinct; neither is a biological taxon.
+
 See [confirmed decisions](label-decisions.json) and the [dated consistency review](non-cancer-label-review-2026-10-16.md). These are recommendations; no WordPress edits have been applied by this agent.
 
 ## APIs and model guidance

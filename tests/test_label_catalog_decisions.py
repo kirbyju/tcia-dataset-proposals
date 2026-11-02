@@ -56,7 +56,20 @@ class CatalogDecisionTests(unittest.TestCase):
         self.assertEqual(species['Mouse']['reference_links'][0]['code'], 'C14238')
         self.assertEqual(species['Canine']['reference_links'][0]['code'], 'C14201')
         self.assertEqual(species['Physical Phantom']['reference_relation'], 'broader')
-        self.assertEqual(species['Computational Phantom']['reference_links'], [])
+        computational = species['Computational Phantom']
+        self.assertEqual(computational['reference_relation'], 'exact')
+        concept = computational['reference_links'][0]
+        self.assertEqual(concept['code'], 'C229144')
+        self.assertTrue(concept['active'])
+        self.assertEqual(concept['version'], '26.10d')
+        self.assertEqual(concept['preferred_label'], 'Computational Phantom')
+        self.assertIn('Computational Anthropomorphic Phantom', concept['synonyms'])
+        self.assertIn('computer-based', concept['definition'])
+        physical = species['Physical Phantom']['reference_links'][0]
+        self.assertEqual(physical['code'], 'C17892')
+        self.assertEqual(physical['version'], '26.10d')
+        self.assertIn('physical, computational, or hybrid', physical['definition'])
+        self.assertNotEqual(concept['code'], physical['code'])
 
 
 if __name__ == "__main__":

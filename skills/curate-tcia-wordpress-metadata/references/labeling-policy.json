@@ -72,7 +72,7 @@
       "ontology": "NCIt",
       "registry_path": "https://www.cancerimagingarchive.net/api/v2/species",
       "verify_existing_labels": true,
-      "note": "NCIt reference concepts verified for Human, Mouse, and Canine/Dog. Physical Phantom uses broader Imaging Phantom C17892. Computational Phantom remains an unmapped local classification; phantoms are not biological taxa."
+      "note": "NCIt reference concepts verified for Human, Mouse, and Canine/Dog. Computational Phantom maps exactly to active NCIt C229144 (26.10d, verified November 2, 2026). Physical Phantom retains broader Imaging Phantom C17892, whose revised definition includes physical, computational, and hybrid models. Keep physical and computational labels distinct; phantoms are not biological taxa."
     },
     "program": {
       "wordpress_field": "program.program_name",
