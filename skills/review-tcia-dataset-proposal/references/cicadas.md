@@ -38,6 +38,27 @@ Report hard constraints separately from recommendations.
 - Organization, identifiers, timepoints, predefined subsets, unusual formats, recommended software, and known errors
 - Related datasets, publications, code, and external tools
 
+## Route documentation feedback
+
+For every recommendation to add or clarify documentation, give the user a named CICADAS destination and a concrete description of what belongs there. Use these section paths from the linked checklist (checked November 10, 2026); the topics after a Methods subsection are checklist topics, not additional required headings.
+
+| Documentation topic | CICADAS destination |
+| --- | --- |
+| Dataset names | Title |
+| Brief dataset overview | Abstract |
+| Purpose and scientific context | Introduction |
+| Cohort selection, characteristics, representativeness, bias | Methods → Subject Inclusion and Exclusion Criteria |
+| Imaging acquisition, clinical capture, other supporting data, missingness | Methods → Data Acquisition; name the applicable topic |
+| Conversions, preprocessing, annotations, validation, analysis code and versions | Methods → Data Analysis; name the applicable topic |
+| Identifiers, organization, timepoints, subsets, reading files, known errors | Usage Notes |
+| Related datasets, code, or tools hosted elsewhere | External Resources (optional) |
+
+Choose the primary destination based on what is missing. Cross-reference a second section only when it serves a distinct purpose: for example, describe conversion software and fidelity checks under **Methods → Data Analysis → File Format Conversions**, and explain a resulting file-format caveat under **Usage Notes**. Preserve the distinction between a missing account of a check and evidence that the check was not performed.
+
+For example: “Under **Methods → Data Analysis → Manual Annotation and Segmentation Protocols**, describe annotator expertise and the annotation protocol; reference the supplied protocol rather than repeating it.”
+
+Keep detailed variable definitions and code meanings in the companion data dictionary, with a dataset-level summary/reference under **Methods → Data Acquisition → Clinical**. Administrative, legal, WordPress registry, and DataCite field corrections may have no CICADAS destination; name the actual field or artifact rather than forcing a narrative mapping. Do not expand the review scope or turn documentation advice into a new submission gate.
+
 ## Coverage statuses
 
 Use only these labels when reporting CICADAS coverage:
@@ -49,7 +70,7 @@ Use only these labels when reporting CICADAS coverage:
 - `Not applicable`
 - `Needs submitter confirmation`
 
-For each applicable area, identify the status, evidence source, recommended action, and whether it would help before AG review or may wait until post-acceptance documentation.
+For each applicable area, identify the destination CICADAS section/subsection, status, evidence source, recommended action, and whether it would help before AG review or may wait until post-acceptance documentation.
 
 ## Editorial rules
 

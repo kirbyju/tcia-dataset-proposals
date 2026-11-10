@@ -90,6 +90,7 @@ Ignore the Data Submission Agreement (DSA) PDF when reviewing the proposal or pr
 8. Draft stage-appropriate clarification questions.
    - Ask only questions whose answers would materially improve the proposal review or final documentation.
    - Explain briefly why each question matters and when it needs to be resolved.
+   - Whenever feedback asks the user to document or clarify something, name the destination CICADAS section and applicable subsection or checklist topic using the routing guidance in `cicadas.md`. Include what to add there; do not just say “document this” or “follow CICADAS.” Apply this to clarification questions, optional improvements, and completion lists as well as coverage tables. For matters outside CICADAS, identify the appropriate artifact instead of inventing a section.
    - Before AG review, separate material questions from optional description improvements.
    - After acceptance, separate publication-documentation confirmations from optional manuscript enhancements.
    - Phrase questions for the submitter, scientific point of contact, or PI in neutral, collaborative language.
@@ -132,13 +133,15 @@ For each material gap, provide:
 - the source materials already checked; and
 - one concise PI-ready question.
 
+When the answer belongs in the dataset narrative, include its destination CICADAS section/subsection and the suggested documentation addition.
+
 ### Optional improvements
 
 Suggest non-mandatory CICADAS-aligned improvements that would make the dataset easier to understand or reuse. Do not present these as submission requirements.
 
 ### CICADAS coverage and draft
 
-Include when the user requests description review or drafting. Use the columns `CICADAS area`, `Status`, `Evidence location`, `Recommended action`, and `Timing`. Then provide the stage-appropriate deliverable:
+Include when the user requests description review or drafting. Use the columns `CICADAS section/subsection`, `Status`, `Evidence location`, `Recommended action`, and `Timing`. Then provide the stage-appropriate deliverable:
 
 - before submission: an improved draft and optional completion questions;
 - before AG review: material clarifications separated from later documentation improvements; or

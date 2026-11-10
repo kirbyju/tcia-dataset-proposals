@@ -91,6 +91,16 @@ Start with the target, workflow, TCIA query provenance, inspected evidence, and 
 
 Use only these statuses: `pass`, `change recommended`, `needs curator decision`, `not applicable`, and `unable to verify`. Never silently replace a value or present a recommendation as an applied WordPress change.
 
+### Route documentation recommendations
+
+Whenever a finding asks the user to add or clarify narrative documentation, name the relevant section/subsection of the [CICADAS checklist](https://www.cancerimagingarchive.net/cancer-imaging-checklist-for-data-sharing-cicadas/) and explain what to add there. Include this destination in the recommended action and copy-ready remediation item, including for unverified items that need documentation.
+
+Use **Title** or **Abstract** for those fields; **Introduction** for purpose and context; **Methods → Subject Inclusion and Exclusion Criteria** for cohort selection and characteristics; **Methods → Data Acquisition** for acquisition, clinical/supporting-data capture, and missingness; **Methods → Data Analysis** for conversions, preprocessing, annotation methods, QC, and software versions; **Usage Notes** for organization, identifiers, file-use instructions, and known errors; and optional **External Resources** for related resources hosted elsewhere. Name the applicable Methods checklist topic when helpful.
+
+For example: “Under **Methods → Data Analysis → File Format Conversions**, document the conversion software/version and fidelity checks; describe how to open the delivered format under **Usage Notes**.” Distinguish an undocumented check from a check known not to have been performed. Keep detailed tabular definitions in a companion dictionary and reference it under **Methods → Data Acquisition → Clinical** when applicable.
+
+Structured WordPress labels, download counts/sizes, registry decisions, and DataCite properties still need their actual target fields. Do not force them into CICADAS or imply that narrative edits fix structured metadata. Preserve the existing recommendation-only scope.
+
 ## Guardrails
 
 - Do not edit WordPress or DataCite, publish or retire a dataset, register or alter a DOI, or change a downloadable object unless the user separately requests and authorizes that action.

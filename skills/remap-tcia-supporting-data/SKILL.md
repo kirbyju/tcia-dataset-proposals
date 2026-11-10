@@ -47,6 +47,17 @@ Return a concise summary followed by a field-level feedback table, for example:
 
 Include proposed MDF targets only when useful to the requested review; mapping is optional. Distinguish source/dictionary findings, assistant-performed checks, and app-reported validation. State material limitations. Group related questions rather than asking about each value separately. Keep unsupported mappings unresolved and preserve source values.
 
+### Where to document the answer
+
+Whenever feedback requests documentation, include the destination artifact and the relevant section of the [CICADAS checklist](https://www.cancerimagingarchive.net/cancer-imaging-checklist-for-data-sharing-cicadas/), plus what to add. Put this guidance in the suggested action or a destination column; apply it to questions and remapping follow-up lists too.
+
+- Clinical collection methods, standards, and a reference to the dictionary: **Methods → Data Acquisition → Clinical**. Keep column definitions, units, code meanings, and missing-value conventions in the companion data dictionary rather than reproducing every field in the narrative.
+- Availability gaps: **Methods → Data Acquisition → Missing data**; other supporting-data collection methods: **Methods → Data Acquisition → Other data**.
+- Derived variables, transformations, validation methods, and software versions: **Methods → Data Analysis**, naming the relevant checklist topic.
+- Row meaning, identifier links, time origins, repeated observations, and instructions for using tables: **Usage Notes**, with table/column details in the dictionary or README.
+
+For example: “Define the age unit and reference event in the dictionary; summarize how clinical data were captured and link the dictionary under **Methods → Data Acquisition → Clinical**.” These destinations guide documentation within the current task; they do not require a complete CICADAS draft before review or remapping. If no CICADAS section applies, name the actual artifact instead of inventing a heading.
+
 ## Remapping target and workflow
 
 Use the [NCI Imaging Submission Model repository](https://github.com/CBIIT/nci-imaging-submission-model), expressed in MDF YAML, as the recommended target people can consider mapping to. Do not substitute the TCIA query skill's discovery/harmonization schema as the submission target. The model is guidance, not a hard TCIA submission requirement. Well-documented variables without a supported target can remain in source tables for curator discussion and later mapping.
