@@ -75,6 +75,7 @@ Ignore the Data Submission Agreement (DSA) PDF when reviewing the proposal or pr
 
 6. Assess information coverage.
    - For a substantive proposal review, compare the evidence with the AG criteria in `review-criteria.md`.
+   - Check the selected disease type and primary disease location against the abstract, inclusion criteria, and supplied supporting evidence using the disease/site procedure in `review-criteria.md`. Include this check for Collections and for the submitted subset of an Analysis Result. Flag unsupported specificity, conflicting descriptions, and primary-site versus specimen-site confusion; verify terminology and recommend existing or proposed new WordPress labels.
    - For description review or drafting at any stage, compare the supplied information with `cicadas.md`.
    - Distinguish information that is absent from information that is merely located in another supplied source.
    - Do not require exhaustive acquisition parameters when exact details are carried in DICOM or other data. Ask for a concise acquisition summary only when it helps explain scientific value, heterogeneity, limitations, or reuse.
@@ -138,6 +139,10 @@ When the answer belongs in the dataset narrative, include its destination CICADA
 ### Optional improvements
 
 Suggest non-mandatory CICADAS-aligned improvements that would make the dataset easier to understand or reuse. Do not present these as submission requirements.
+
+### Disease type and primary location
+
+For substantive proposal reviews, report the entered selections, supporting source locations, recommended labels and NCIt/UBERON mappings, WordPress registry membership and check date, and unresolved confirmations. Distinguish recommendations from submitter-confirmed values. Leave a concise comparison that the later WordPress review can reuse; do not create a separate tracking system. Route cohort-defining uncertainties to the material clarifications and routine vocabulary cleanup to curation follow-up, without making label registration a prerequisite for AG review.
 
 ### CICADAS coverage and draft
 

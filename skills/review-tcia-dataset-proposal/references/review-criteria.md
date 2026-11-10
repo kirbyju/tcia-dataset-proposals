@@ -17,3 +17,15 @@ Check whether the supplied materials explain:
 7. Resource and feasibility context: approximate size, formats, timelines, facial-imaging considerations, access restrictions, and other factors that affect TCIA's ability to handle the submission.
 
 Do not turn these criteria into a numeric score or decision. Identify the evidence present and the specific uncertainties that should be clarified before review.
+
+## Disease type and primary location consistency
+
+This is a proposal metadata check supporting the review, not an additional AG approval criterion. Perform it for every substantive proposal review using dataset-level documentation; it does not require patient-level data or imaging payloads.
+
+- Compare the proposal's disease and location answers with its abstract, subject inclusion/exclusion criteria, and supplied manuscripts or other supporting documentation. For Analysis Results, check the submitted subset rather than assuming every diagnosis or site in the source Collection applies.
+- Check that the selected disease's specificity is supported, including histologic subtype. A broader narrative and a narrower form answer require reconciliation; neither silently overrides the other. Do not infer a subtype from a dataset abbreviation, imaging assay, or immune-cell annotation.
+- Distinguish the primary disease site from metastatic sites, specimen collection sites, and imaged anatomy. Check whether a site answer covers the cohort or omits documented primary sites. Do not infer a primary site merely from “primary tumor resection.”
+- Use the label guidance in `curate-tcia-wordpress-metadata` when available for targeted NCIt disease verification, UBERON primary-site verification, and current WordPress registry checks. This targeted check does not require a full download or DataCite audit. If the skill is unavailable, verify the concepts through the official NCIt and UBERON services and check the corresponding public WordPress registries. Record concept IDs, definitions/scope, active or obsolete status, and retrieval dates; ontology membership alone does not establish WordPress registry membership. Report unavailable checks as unverified.
+- Prefer a faithful existing WordPress label. If none fits, recommend a clearly identified new term for curator confirmation rather than forcing an inaccurate near-match. Keep the original answer, proposed mapping, evidence, and unresolved questions distinct.
+- Ask only for facts not established elsewhere in the supplied package. Explain where a mismatch affects cohort interpretation before AG review; routine spelling, ontology mapping, or registry additions can remain curation follow-up. Put requested narrative clarification in **Abstract** and/or **Methods → Subject Inclusion and Exclusion Criteria**, and identify the structured proposal fields that also need correction.
+- Report a compact disease/site comparison with evidence and confirmation state so the final WordPress labels can be checked against it after curation. Later confirmed corrections may supersede proposal-stage recommendations; preserve their source rather than treating the initial proposal as immutable.

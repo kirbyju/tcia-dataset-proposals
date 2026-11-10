@@ -1,16 +1,16 @@
 {
   "files": {
-    "SKILL.md": "aa55c175fc3d61febe402968107916323f5da46308ca8384ec95ce2decfb8638",
+    "SKILL.md": "61d49ec7976992a05b854e76e95b1fdc9ab84c620688b09d4526cda276d7f5cf",
     "agents/openai.yaml": "1a45c69fab42b4b5d0da4137bdfd2ffb9001157312fcd73d0ef95da2adbb1731",
     "references/cicadas.md": "d867050b5d2de1f2462ac9ea2aad33eba0632bb89d19cf5ae21180abcc4786ed",
     "references/nctn.md": "0ac07f74dc3aaa44630f560acce5e79a2fd808fa0941bb24738d985175b62b83",
     "references/novelty-comparison.md": "7c3652015242cc4f2a3bd06ac0fe1623a5d576d5cb8fe8080ff1e10a2c501db4",
     "references/proposal-package.md": "2e35a1ff5b0805069c26689061363118d368768b188ce0e03f45a7afdaea021c",
-    "references/review-criteria.md": "c38879ba9ee3b9fba7ceb53949eec8a9781c817c875a2dee43714514cc191722",
+    "references/review-criteria.md": "e37c9b3d807d41b17b3e6c5b028b1d5d813ba2d5af6ae37a8671cb0f38c56764",
     "scripts/check_freshness.py": "5c20c27160bd35ac441d9a1ff957619bee7c0999e2c4a913422776325df6fc1a"
   },
   "schema_version": 1,
-  "skill_version": "2026.11.10.1",
+  "skill_version": "2026.11.10.2",
   "update_url": "https://github.com/kirbyju/tcia-dataset-proposals/tree/main/skills/review-tcia-dataset-proposal",
-  "updated_at_utc": "2026-11-10T17:50:20.272946+00:00"
+  "updated_at_utc": "2026-11-10T19:56:46.183412+00:00"
 }
