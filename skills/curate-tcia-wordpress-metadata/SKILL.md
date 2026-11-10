@@ -5,6 +5,23 @@ description: Audit or recommend TCIA WordPress and DataCite DOI metadata. Use fo
 
 # Curate TCIA WordPress Metadata
 
+## Freshness gate — run first
+
+Before inspecting supplied data or metadata, loading references, or beginning any substantive task, run:
+
+```bash
+python3 "<this-skill-directory>/scripts/check_freshness.py" check --max-age-hours 24
+```
+
+Resolve `<this-skill-directory>` to the directory containing this `SKILL.md`. The script always verifies the installed files against the bundled checksum manifest. It contacts the public GitHub repository only when there is no cached result for this installed version or the cached check is at least 24 hours old.
+
+- On `current` or `current_cached`, continue with the task.
+- On `update_required` or `local_modified`, stop before beginning substantive work. Tell the user that the installed skill is not current, include the reported local and remote versions or changed files, and direct them to the reported `update_url` to reinstall or update the skill.
+- On `unverified`, do not imply that the installed guidance is current. Report the network or verification error and retry when GitHub access is available. Proceed only if the user explicitly accepts using unverified guidance.
+
+Do not replace this gate with a per-question GitHub request, and do not silently use remote `SKILL.md` content with older installed references or scripts.
+
+
 ## Objective
 
 Help TCIA curators populate or review dataset-level and download-level WordPress fields and the corresponding DataCite DOI metadata. Prefer terms already used consistently in current TCIA records. Independently inspect the supplied or published contents before recommending labels, counts, sizes, or DOI metadata, and preserve uncertainty when the evidence does not support an exact value.

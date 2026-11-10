@@ -1,0 +1,26 @@
+{
+  "files": {
+    "SKILL.md": "6383c0a866abda33196dfb01c50dd6c374fd7bd43ace545a312eb74d6bcb66ab",
+    "agents/openai.yaml": "c6bcc8179eccbb5e938598357f103f726831ba0611f477bfd6038b4208661d0e",
+    "references/datacite-completeness.md": "e28434894c16fcc7d5a14194fe9d7b2f8d4da3186c5395d8e68a6210db92c1fb",
+    "references/field-evidence.md": "95622feaafa4ec3d9de05735715575f49ee6ab7814ed3ff3655911526e5c48f7",
+    "references/label-decisions.json": "1b1c3608bf8763322fc09eb02241dad54fbb0f02baf6589dd46c75fa704d7da1",
+    "references/label-mappings.json": "64bd0d4b1fe00b56978207771f31d469f1fb8b809d065cab4d0115757548d8fb",
+    "references/label-reference-links.json": "88cb739862c1b57214ad1d9e35c6663a58e7cfa347d6573e6cda700b23c034f8",
+    "references/labeling-guide.md": "4a1d79564070619ba8f079f14378751fcb3db7443ffcffa1f1f112744a58733e",
+    "references/labeling-policy.json": "2281c598ad3f13a6cd93d3891b75a58e8f90c8912028d902db7a0a0705964ac7",
+    "references/non-cancer-label-review-2026-10-16.json": "5a3b56781f0ef71663f29df5aa0666164feed73656113cfae99a55434d7d8305",
+    "references/non-cancer-label-review-2026-10-16.md": "8ab5625fff9b0654b2b771146fdb3af69b64d44a28ccdef31aa6890a660e02f1",
+    "references/vocabulary-fallback.md": "983ca73614b0c9f1b887a14d0717cee954c5f39d43532356daf2373b9fd40b67",
+    "references/wordpress-dataset-label-inventory-2026-10-16.json": "deb25dd793c81c3cc018c1df0d1364ab8349be7f1b2b936927fa1feb4d665050",
+    "references/wordpress-label-inventory-2026-10-09.json": "ed12d769f751e20ffe5d38f9c3b887f8b844ca4ee56ec30e0788decb25d54e72",
+    "references/wordpress-label-registry-audit-2026-10-15.json": "ba82ebc564b1180b5424e8c5f81e2a00173e99f3c88ceaff79c41757ee61beaa",
+    "references/wordpress-label-registry-audit-2026-10-15.md": "4fc3ca984fd441ef419b3ceccf43d2a96838dfae125ec328310a17689ff22de7",
+    "scripts/check_freshness.py": "3113563741f48504877f1ac72398325369c41fc22f4a4b70edefbe03e1d1693e",
+    "scripts/export_wordpress_label_inventory.py": "7b8c5696aca2a7ccce027442104226bbbec4b6462d98e83dc1d9c8f0bdb98fda"
+  },
+  "schema_version": 1,
+  "skill_version": "2026.11.10.1",
+  "update_url": "https://github.com/kirbyju/tcia-dataset-proposals/tree/main/skills/curate-tcia-wordpress-metadata",
+  "updated_at_utc": "2026-11-10T18:06:25.131719+00:00"
+}

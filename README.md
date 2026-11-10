@@ -47,6 +47,8 @@ The Pages workflow verifies both guides before publishing `/docs`. Existing root
 
 Install that subdirectory as a Codex skill, then upload a generated proposal ZIP or its component files and ask the skill to review the package.
 
+All three skills in this repository include a standalone freshness gate. On use, each checks its installed guidance against its bundled checksum manifest and checks its own GitHub manifest when no cached result exists or the cached check is at least 24 hours old. An outdated or locally modified installation stops substantive work and directs the user to update; the gate does not automatically install updates. Updating this repository does not replace separately installed skill folders. If the remote check is unavailable, proceeding with unverified guidance requires the user's explicit acceptance.
+
 `skills/remap-tcia-supporting-data/` reviews supporting tables and data dictionaries independently of proposal approval, and optionally assists with remapping. Its [large-table review guidance](skills/remap-tcia-supporting-data/references/large-table-review.md) selects bounded reads and compact profiles based on workbook structure, available resources, and observed processing behavior, without a fixed file-size cutoff. These are agent review instructions; they do not change the Streamlit application's loading behavior. Runtime helpers, schemas, permissible values, and the DSA resource required by the Streamlit applications live separately in `tcia_proposals/`.
 
 ### WordPress metadata curation skill

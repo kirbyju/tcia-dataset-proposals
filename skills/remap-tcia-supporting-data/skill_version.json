@@ -1,0 +1,12 @@
+{
+  "files": {
+    "SKILL.md": "20b2b53ef3df48a642991912d961d015abb7159526fd8ca42e3851b749c73112",
+    "agents/openai.yaml": "318cb118fab85adb5f00bd340430822d2e1f7a436585212a80f164add0c0e1f2",
+    "references/large-table-review.md": "2b0dc8dd3cb5b9b3fd4a9d95d16995ba72d9963c37b78961c3cfd7a13dfaf22a",
+    "scripts/check_freshness.py": "239ee12c80bae4f6f101d7ebd678d835e8e41ace582b176787680563b95bb97a"
+  },
+  "schema_version": 1,
+  "skill_version": "2026.11.10.1",
+  "update_url": "https://github.com/kirbyju/tcia-dataset-proposals/tree/main/skills/remap-tcia-supporting-data",
+  "updated_at_utc": "2026-11-10T18:06:24.885644+00:00"
+}
