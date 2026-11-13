@@ -37,6 +37,7 @@ Load and follow `tcia-query-skill` for every substantive task. Run its freshness
 - For a DOI, use TCIA/DataCite DOI lookup to identify the related TCIA record; a DOI alone does not prove that a page or file is TCIA-published.
 - Treat DataCite as the authority for registered DOI metadata and WordPress as the authority for current TCIA publication identity, landing-page fields, downloads, access, and licenses. Compare them rather than substituting one for the other.
 - When auditing the corpus, enumerate the current TCIA DataCite client/repository records and join them to current WordPress DOI values. Do not assume all TCIA DOIs use one prefix.
+- For DataCite Commons organization coverage, check the publisher ROR and account connections using [datacite-completeness.md](references/datacite-completeness.md#publisher-identity-and-datacite-commons-discovery). Retrieve identifier details explicitly; a name-only API response does not prove they are missing.
 - Check related Analysis Results when annotations or derived data may be published separately.
 - For public DICOM evidence, follow the query skill's IDC-first route and its NBIA fallback rules.
 - Report the query-skill version and data fingerprint/date used for the comparison. If freshness is unverified, label the corpus comparison unverified instead of claiming that the recommendations reflect the current vocabulary.
@@ -72,6 +73,20 @@ Use when the curator supplies a TCIA Collection or Analysis Result URL, short ti
 7. Compare the entered value with the observed value. Explain rounding, archive/container, multi-frame, duplicate, applicability, or version-scope differences before calling a mismatch.
 
 If the payload is inaccessible, too large to transfer, controlled, or lacks enough metadata, mark the affected checks `unable to verify`. Do not convert absence of evidence into a pass or failure.
+
+## Check DataCite enrichment for every new or changed release
+
+Use [datacite-completeness.md](references/datacite-completeness.md#release-enrichment-checks)
+for Subjects, Formats, Dates, publisher ROR, and qualified source relationships,
+in addition to mandatory-property and WordPress parity checks. Subjects use
+existing disease type, disease location, species, and **Data Category** labels;
+Formats use primary-download file types. Retain date history. A contextual
+publication citation, related-Collection link, or reused annotation protocol
+does not by itself establish a qualified DOI relationship. Do not require routine
+DataCite size duplication; funding enrichment awaits structured WordPress fields.
+Distinguish these local QC expectations from schema-mandatory fields and retain
+recommendation-only scope. Release/date/license ambiguities require evidence or
+curator decisions, not silent corrections.
 
 ## Recommend labels
 

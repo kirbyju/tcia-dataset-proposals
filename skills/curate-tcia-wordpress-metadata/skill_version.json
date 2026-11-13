@@ -1,8 +1,8 @@
 {
   "files": {
-    "SKILL.md": "056c73a8c997e7f2df51b3877d2cad2a4a08fe8f49114ebc594d169805dd00ff",
+    "SKILL.md": "6773c148f96a150c8a9f5f73af6d2a34801742171ba3d22beeb7eba04d96bb2c",
     "agents/openai.yaml": "c6bcc8179eccbb5e938598357f103f726831ba0611f477bfd6038b4208661d0e",
-    "references/datacite-completeness.md": "e28434894c16fcc7d5a14194fe9d7b2f8d4da3186c5395d8e68a6210db92c1fb",
+    "references/datacite-completeness.md": "43fd59619efbcfc144167f0eb156acc68ea3c6fee148da264042a0b49f31124c",
     "references/field-evidence.md": "95622feaafa4ec3d9de05735715575f49ee6ab7814ed3ff3655911526e5c48f7",
     "references/label-decisions.json": "1b1c3608bf8763322fc09eb02241dad54fbb0f02baf6589dd46c75fa704d7da1",
     "references/label-mappings.json": "64bd0d4b1fe00b56978207771f31d469f1fb8b809d065cab4d0115757548d8fb",
@@ -20,7 +20,7 @@
     "scripts/export_wordpress_label_inventory.py": "7b8c5696aca2a7ccce027442104226bbbec4b6462d98e83dc1d9c8f0bdb98fda"
   },
   "schema_version": 1,
-  "skill_version": "2026.11.10.2",
+  "skill_version": "2026.11.12.2",
   "update_url": "https://github.com/kirbyju/tcia-dataset-proposals/tree/main/skills/curate-tcia-wordpress-metadata",
-  "updated_at_utc": "2026-11-10T19:56:46.415290+00:00"
+  "updated_at_utc": "2026-11-13T00:32:29.315772+00:00"
 }

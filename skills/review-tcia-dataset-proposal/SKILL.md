@@ -86,6 +86,7 @@ Ignore the Data Submission Agreement (DSA) PDF when reviewing the proposal or pr
    - Before submission, provide an improved draft and optional suggestions without implying that every CICADAS item must be complete.
    - Before AG review, separate material scientific clarifications from documentation improvements that can wait until after acceptance.
    - After acceptance, produce a clean TCIA-ready abstract and description plus a list of remaining submitter confirmations. When the repository workflow is available, route tabular-data mapping and persisted dataset metadata to `remap-tcia-supporting-data`.
+   - For accepted datasets entering release preparation or staff QC of a published release, route WordPress/DataCite checks to `curate-tcia-wordpress-metadata` when available. Its release-enrichment reference covers publisher ROR, disease/location/species/Data Category subjects, primary-download formats, preserved release-date history, and evidence-supported source DOI relationships. Supply exact source-data provenance; contextual publication citations and protocol inspiration do not establish derivation. Do not turn optional DOI enrichment into an early proposal/AG submission requirement or perform automatic metadata writes.
    - If asked for a dataset-descriptor manuscript, use confirmed CICADAS content as source material and verify the target journal's current author instructions. Do not equate CICADAS alignment with journal compliance or acceptance.
 
 8. Draft stage-appropriate clarification questions.

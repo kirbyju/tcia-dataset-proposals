@@ -53,6 +53,14 @@ All three skills in this repository include a standalone freshness gate. On use,
 
 ### WordPress metadata curation skill
 
+Release QC checks DataCite publisher ROR, generalized Subjects (disease, location,
+species, Data Category), primary-download Formats, preserved lifecycle Dates,
+and qualified source-dataset relationships. The [release-enrichment checklist](skills/curate-tcia-wordpress-metadata/references/datacite-completeness.md#release-enrichment-checks)
+distinguishes local expectations from schema obligations and excludes automatic
+publication-citation relationships, routine size duplication, and unverified
+funding extraction. Proposal-stage guidance hands accepted datasets to this QC
+workflow without adding early submission requirements.
+
 `skills/curate-tcia-wordpress-metadata/` helps curators recommend labels before release from a supplied file or directory, or quality-check a published TCIA Collection or Analysis Result from its page or DOI. It compares dataset and download metadata with the inspected contents, calculates applicable counts and sizes, and harmonizes recommendations with current TCIA usage before consulting NCI Imaging Submission Model or GDC terminology for genuinely new concepts. The skill produces an evidence-backed report and does not edit WordPress.
 
 Its [curator labeling reference](skills/curate-tcia-wordpress-metadata/references/labeling-guide.md) explains NCIt disease mappings, UBERON primary-site checks, and independent category/type/format assignments. It includes a [machine-readable policy](skills/curate-tcia-wordpress-metadata/references/labeling-policy.json), a dated observed vocabulary with counts and provenance, and a [shareable curator graphic](skills/curate-tcia-wordpress-metadata/assets/tcia-labeling-guide.png). Unconfirmed WordPress values require curator review; observed usage is not a complete registered or approved term list. These resources guide curation rather than implementing live validation in the Streamlit applications.
